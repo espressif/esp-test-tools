@@ -1,0 +1,1 @@
+.. include:: ../../zh_CN/rf_test_tool/esp32_series_power_limit_tool_instruc.rst

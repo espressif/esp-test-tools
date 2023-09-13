@@ -1,0 +1,1 @@
+.. include:: ../../zh_CN/rf_test_tool/download_tool_instruc.rst

@@ -1,0 +1,2 @@
+esp-docs==1.5.0
+linuxdoc==20210324

@@ -1,0 +1,1 @@
+.. include:: ../../zh_CN/rf_test_tool/fcc_certification_guide.rst
