@@ -13,27 +13,22 @@ variables:
   rules:
     - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  variables:
-    DOCS_DIR: $CI_PROJECT_DIR/docs
   script:
-    - cd $DOCS_DIR
+    - cd $CI_PROJECT_DIR/docs
     - bash ./check_lang_folder_sync.sh
 
 build_doc_html:
   extends:
     - .build_doc_template
-  variables:
-    DOCS_DIR: $CI_PROJECT_DIR/docs
   script:
     - mkdir -p logs
-    - cd $DOCS_DIR
+    - cd $CI_PROJECT_DIR/docs
     - pip install -r requirements.txt
     - ARTIFACT_URL="$CI_JOB_URL/artifacts/external_file/docs/_build/$DOCLANG/$DOCTGT/html/index.html"
     - build-docs --skip-reqs-check -l $DOCLANG -t $DOCTGT
     - echo "Documentation preview $ARTIFACT_URL"
     - cd ..
     - echo -e "$DOCTGT \t $DOCLANG \t $ARTIFACT_URL" > logs/doc-url-$DOCLANG-$DOCTGT.txt
-
   parallel:
     matrix:
       - DOCLANG: ["en", "zh_CN"]
@@ -41,18 +36,16 @@ build_doc_html:
   artifacts:
     when: always
     paths:
-      - $DOCS_DIR/_build/*/*/html/*
-      - $DOCS_DIR/_build/*/*/*.txt
+      - $CI_PROJECT_DIR/docs/_build/*/*/html/*
+      - $CI_PROJECT_DIR/docs/_build/*/*/*.txt
       - $CI_PROJECT_DIR/logs/doc-url-*.txt
     expire_in: 4 days
 
 build_doc_pdf:
   extends:
     - .build_doc_template
-  variables:
-    DOCS_DIR: $CI_PROJECT_DIR/docs
   script:
-    - cd $DOCS_DIR
+    - cd $CI_PROJECT_DIR/docs
     - pip install -r requirements.txt
     - build-docs --skip-reqs-check -bs latex -l $DOCLANG -t $DOCTGT
   parallel:
@@ -62,8 +55,8 @@ build_doc_pdf:
   artifacts:
     when: always
     paths:
-      - $DOCS_DIR/_build/*/*/latex/*
-      - $DOCS_DIR/_build/*/*/*.txt
+      - $CI_PROJECT_DIR/docs/_build/*/*/latex/*
+      - $CI_PROJECT_DIR/docs/_build/*/*/*.txt
     expire_in: 4 days
 
 .deploy_docs_template:
@@ -71,6 +64,9 @@ build_doc_pdf:
   image: $ESP_DOCS_ENV_IMAGE
   tags:
     - deploy_docs
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   needs:
     - build_doc_html
     - build_doc_pdf
@@ -78,7 +74,7 @@ build_doc_pdf:
     - source ${CI_PROJECT_DIR}/ci/utils.sh
     - add_doc_server_ssh_keys $DOCS_DEPLOY_PRIVATEKEY $DOCS_DEPLOY_SERVER $DOCS_DEPLOY_SERVER_USER
     - export GIT_VER=$(git describe --always)
-    - pip install -r requirements.txt
+    - pip install -r ${CI_PROJECT_DIR}/docs/requirements.txt
     - deploy-docs
 
 deploy_docs_preview:
@@ -86,28 +82,24 @@ deploy_docs_preview:
     - .deploy_docs_template
   variables:
     TYPE: "preview"
-    DOCS_BUILD_DIR: "${CI_PROJECT_DIR}/"
+    DOCS_BUILD_DIR: "${CI_PROJECT_DIR}/docs/_build/"
     DOCS_DEPLOY_PRIVATEKEY: "$DOCS_PREVIEW_DEPLOY_KEY"
     DOCS_DEPLOY_SERVER: "$DOCS_PREVIEW_SERVER"
     DOCS_DEPLOY_SERVER_USER: "$DOCS_PREVIEW_SERVER_USER"
     DOCS_DEPLOY_PATH: "$DOCS_PREVIEW_PATH"
     DOCS_DEPLOY_URL_BASE: "https://$DOCS_PREVIEW_SERVER_URL/docs/esp-test-tools"
 
-post links:
+post_links:
   stage: deploy
   tags: [host_test]
   image: $ESP_DOCS_ENV_IMAGE
-  variables:
-    DOCS_DIR: $CI_PROJECT_DIR/docs
   needs:
     - build_doc_html
   rules:
     # Run for all changes to a merge request's source branch
     - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
   script:
-    - cd $DOCS_DIR
-    - pip install -r requirements.txt
-    - cd ..
+    - pip install -r ${CI_PROJECT_DIR}/docs/requirements.txt
     - ls -l logs
     - python3 post-mr-note.py $GITLAB_MR_NOTE_TOKEN $CI_PROJECT_PATH $CI_MERGE_REQUEST_IID
 
