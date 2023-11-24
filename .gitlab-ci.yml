@@ -32,7 +32,7 @@ build_doc_html:
   parallel:
     matrix:
       - DOCLANG: ["en", "zh_CN"]
-        DOCTGT: ["esp32", "esp32s3", "esp32h2"]
+        DOCTGT: ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c2", "esp32c6", "esp32h2"]
   artifacts:
     when: always
     paths:
@@ -51,7 +51,7 @@ build_doc_pdf:
   parallel:
     matrix:
       - DOCLANG: ["en", "zh_CN"]
-        DOCTGT: ["esp32", "esp32s3", "esp32h2"]
+        DOCTGT: ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c2", "esp32c6", "esp32h2"]
   artifacts:
     when: always
     paths:
@@ -87,7 +87,7 @@ deploy_docs_preview:
     DOCS_DEPLOY_SERVER: "$DOCS_PREVIEW_SERVER"
     DOCS_DEPLOY_SERVER_USER: "$DOCS_PREVIEW_SERVER_USER"
     DOCS_DEPLOY_PATH: "$DOCS_PREVIEW_PATH"
-    DOCS_DEPLOY_URL_BASE: "https://$DOCS_PREVIEW_SERVER_URL/docs/esp-test-tools"
+    DOCS_DEPLOY_URL_BASE: "$DOCS_PREVIEW_URL_BASE"
 
 post_links:
   stage: deploy
