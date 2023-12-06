@@ -3,9 +3,12 @@ from esp_docs.conf_docs import *  # noqa: F403,F401
 languages = ['en', 'zh_CN']
 idf_targets = ['esp32', 'esp32s2', 'esp32s3', 'esp32c3', 'esp32h2', 'esp32c2', 'esp32c6']
 
-ESP32H2_DOCS = ['rf_test_tool/esp32h2_ble_dtm_test_guide.rst']
+ESP32H2_DOCS = ['rf_test_items/esp32h2_ble_dtm_test.rst']
 
-conditional_include_dict = {'esp32h2':ESP32H2_DOCS}
+ESP32S3_DOCS = ['rf_test_items/esp32s3_c3_ble_dtm_test.rst']
+
+conditional_include_dict = {'esp32h2':ESP32H2_DOCS,
+                            'esp32s3':ESP32S3_DOCS}
 
 extensions += ['sphinx_copybutton',
                'sphinxcontrib.wavedrom',

@@ -1,1 +1,0 @@
-.. include:: ../../zh_CN/rf_test_tool/srrc_certification_guide.rst

@@ -7,8 +7,8 @@ ESP Test Tool
    :hidden:
    :maxdepth: 2
 
-   RF Test Tool <rf_test_tool/index>
-   WFA Certification and Test Guide <wfa_certification_test_guide/index>
-   Flash Download Tool <flash_download_tool/index>
-
-* :ref:`genindex`
+   get-started
+   test_tool/index
+   rf_test_items/index
+   rf_test_certification/index
+   faq

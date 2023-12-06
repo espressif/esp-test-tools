@@ -1,1 +1,0 @@
-.. include:: ../../en/rf_test_tool/esp32s3_c3_ble_dtm_test_guide.rst

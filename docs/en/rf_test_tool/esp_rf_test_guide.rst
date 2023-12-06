@@ -1,1 +1,0 @@
-.. include:: ../../zh_CN/rf_test_tool/esp_rf_test_guide.rst

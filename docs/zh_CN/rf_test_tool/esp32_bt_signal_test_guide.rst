@@ -1,1 +1,0 @@
-.. include:: ../../en/rf_test_tool/esp32_bt_signal_test_guide.rst
