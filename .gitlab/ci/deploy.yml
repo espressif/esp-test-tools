@@ -10,6 +10,8 @@ variables:
   needs:
     - build_doc_html
     - build_doc_pdf
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "api"
   script:
     - source ${CI_PROJECT_DIR}/.gitlab/ci/utils.sh
     - add_doc_server_ssh_keys $DOCS_DEPLOY_PRIVATEKEY $DOCS_DEPLOY_SERVER $DOCS_DEPLOY_SERVER_USER
@@ -42,6 +44,8 @@ post_links:
   needs:
     - deploy_docs_preview
     - build_doc_html
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "api"
   script:
     - pip install -r ${CI_PROJECT_DIR}/docs/requirements.txt
     - ls -l logs

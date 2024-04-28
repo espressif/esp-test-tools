@@ -5,6 +5,8 @@ variables:
 .build_doc_template:
   stage: build_docs
   image: $ESP_DOCS_ENV_IMAGE
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "api"
   script:
     - cd $CI_PROJECT_DIR/docs
     - bash ./check_lang_folder_sync.sh
