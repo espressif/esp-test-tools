@@ -7,5 +7,6 @@ RF Test Guide
    :maxdepth: 1
 
    rf_test_guide
+   rf_bin_list
    glossary
    version
