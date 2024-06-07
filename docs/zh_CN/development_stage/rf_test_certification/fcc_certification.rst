@@ -1,4 +1,20 @@
 FCC 认证
-==============
+=================
 
-:link_to_translation:`en:[English]`
+FCC 美国认证需求非信令测试：
+
+.. only:: not esp32h2
+
+    - Wi-Fi，BLE，Zigbee 非信令测试，参考如下章节：
+
+      :doc:`../rf_test_items/wifi_non_signaling_test`
+
+-  低功耗蓝牙非信令测试，参考如下章节：
+
+   :doc:`../rf_test_items/ble_non_signaling_test`
+
+.. only:: esp32h2 or esp32c6
+
+    - 802.15.4 非信令测试，参考如下章节：
+
+      :doc:`../rf_test_items/zigbee_non_signaling_test`

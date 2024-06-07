@@ -180,7 +180,7 @@ WFA 测试
 在 Windows 上烧录
 """"""""""""""""""""""""""""""""
 
-**ESP32 系列芯片**
+ESP32 系列芯片
 
 - 打开 ``flash_download_tool_3.9.2.exe`` 应用程序
 - ``chipType`` 选择 ``ESP32``，``workMode`` 选择 ``develop``，点击 ``OK``
@@ -192,7 +192,7 @@ WFA 测试
   - espsigma.bin    0x10000
   - partition.bin   0x8000
 
-**ESP32-C3, ESP32-C2, ESP32-C6**
+ESP32-C3, ESP32-C2, ESP32-C6
 
 - 打开 ``flash_download_tool_3.9.2.exe`` 应用程序
 - ``chipType`` 选择 ``ESPXX``（对应芯片）， ``workMode`` 选择 ``develop``，点击 ``OK``
@@ -370,10 +370,3 @@ Quicktrack 页面设置勾选请参考图片
 .. note::
 
     python 版本必须为 3.7 以上，如果窗口 python 版本不对请执行步骤 2。
-
-测试数据保存
--------------------------------
-
-完成测试后，测试数据将由实验室人员保存并提交给 Wi-Fi 联盟，待数据审查完毕后可获取 WFA 证书。
-
-如遇到测试失败，需要 debug，请提供测试 log，log 应包括 (UCC/dut/sniffer)，其中 dut_log 路径为 ``espesigma_qt/espsigma/esp_sigma_ca/logs``。

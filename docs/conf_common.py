@@ -1,14 +1,35 @@
 from esp_docs.conf_docs import *  # noqa: F403,F401
 
 languages = ['en', 'zh_CN']
-idf_targets = ['esp32', 'esp32s2', 'esp32s3', 'esp32c3', 'esp32h2', 'esp32c2', 'esp32c6']
+idf_targets = ['esp32', 'esp32c2', 'esp32c3', 'esp32c6', 'esp32s2', 'esp32s3', 'esp32h2']
 
-ESP32H2_DOCS = ['rf_test_items/esp32h2_ble_dtm_test.rst']
+WIFI_DOCS = ['development_stage/rf_test_items/wifi_signaling_test.rst',
+              'development_stage/rf_test_items/wifi_adaptivity_test.rst',
+              'development_stage/rf_test_items/wifi_blocking_test.rst',
+              'development_stage/rf_test_items/wfa_certification_test.rst',
+              'development_stage/rf_test_items/wifi_non_signaling_test.rst',]
 
-ESP32S3_DOCS = ['rf_test_items/esp32s3_c3_ble_dtm_test.rst']
+BLE_DOCS = ['development_stage/rf_test_items/ble_dtm_test.rst',
+              'development_stage/rf_test_items/ble_adaptivity_test.rst',
+              'development_stage/rf_test_items/ble_blocking_test.rst']
 
-conditional_include_dict = {'esp32h2':ESP32H2_DOCS,
-                            'esp32s3':ESP32S3_DOCS}
+ZIGBEE_DOCS = ['development_stage/rf_test_items/zigbee_non_signaling_test.rst']
+
+ESP32_DOCS = WIFI_DOCS
+ESP32C2_DOCS = WIFI_DOCS + BLE_DOCS
+ESP32C3_DOCS = WIFI_DOCS + BLE_DOCS
+ESP32C6_DOCS = WIFI_DOCS + BLE_DOCS + ZIGBEE_DOCS
+ESP32S2_DOCS = WIFI_DOCS
+ESP32S3_DOCS = WIFI_DOCS + BLE_DOCS
+ESP32H2_DOCS = BLE_DOCS + ZIGBEE_DOCS
+
+conditional_include_dict = {'esp32':ESP32_DOCS,
+                            'esp32c2':ESP32C2_DOCS,
+                            'esp32c3':ESP32C3_DOCS,
+                            'esp32c6':ESP32C6_DOCS,
+                            'esp32s2':ESP32S2_DOCS,
+                            'esp32s3':ESP32S3_DOCS,
+                            'esp32h2':ESP32H2_DOCS}
 
 extensions += ['sphinx_copybutton',
                'sphinxcontrib.wavedrom',
