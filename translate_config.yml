@@ -1,6 +1,6 @@
 specified_files:
 #development_stage
-#  - docs/zh_CN/development_stage/rf_test_certification/ce_certification.rst
+  - docs/zh_CN/development_stage/rf_test_certification/ce_certification.rst
 #  - docs/zh_CN/development_stage/rf_test_certification/fcc_certification.rst
 #  - docs/zh_CN/development_stage/rf_test_certification/srrc_certification.rst
 #  - docs/zh_CN/development_stage/rf_test_certification/wfa_certification.rst
@@ -47,7 +47,7 @@ specified_files:
 #  - docs/zh_CN/production_stage/tools/matter_qr_code_generator/version.rst
 
 #introduction
-  - docs/zh_CN/index.rst
+#  - docs/zh_CN/index.rst
 
 #copyright
 #  - docs/zh_CN/copyright.rst
@@ -58,6 +58,16 @@ specified_files:
 target_language: EN-CN
 
 trans_dict:
-  firmware: 固件
+  Wi-Fi Non-Signaling Test: Wi-Fi 非信令测试
+  Wi-Fi Signaling Test: Wi-Fi 信令测试
+  Wi-Fi Adaptivity Test: Wi-Fi 自适应测试
+  Wi-Fi Blocking Test: Wi-Fi 接收阻塞测试
+  Bluetooth/Bluetooth LE Non-Signaling Test: 蓝牙/低功耗蓝牙非信令测试
+  Bluetooth LE DTM Test: 低功耗蓝牙 DTM 测试
+  Bluetooth LE Adaptivity Test: 低功耗蓝牙自适应测试
+  Bluetooth LE Blocking Test: 低功耗蓝牙阻塞测试
+  802.15.4 Non-Signaling Test: 802.15.4 非信令测试
+  Bluetooth: 蓝牙
+  Bluetooth LE: 低功耗蓝牙
 
 target_language_folder: ./
