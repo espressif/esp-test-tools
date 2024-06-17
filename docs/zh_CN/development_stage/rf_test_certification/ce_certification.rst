@@ -9,7 +9,7 @@ CE 欧盟认证需要非信令、自适应、阻塞测试：
 
       :doc:`../rf_test_items/wifi_non_signaling_test`
 
-.. only:: not esp32s2
+.. only:: not esp8266 and not esp32s2
 
     -  低功耗蓝牙非信令测试，参考如下章节：
 
@@ -27,7 +27,7 @@ CE 欧盟认证需要非信令、自适应、阻塞测试：
 
         :doc:`../rf_test_items/wifi_adaptivity_test`
 
-.. only:: not esp32 and not esp32s2
+.. only:: not esp8266 and not esp32 and not esp32s2
 
     - BLE 自适应测试参考如下章节：
 
