@@ -78,7 +78,7 @@ So that your product can pass the following certifications:
         - --
         - --
 
-.. only:: not esp32 and not esp32s2 and not esp32c6 and not esp32h2
+.. only:: not esp8266 and not esp32 and not esp32s2 and not esp32c6 and not esp32h2
 
    .. list-table::
       :header-rows: 1
