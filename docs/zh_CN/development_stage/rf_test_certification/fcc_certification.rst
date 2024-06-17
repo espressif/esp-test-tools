@@ -9,7 +9,7 @@ FCC 美国认证需求非信令测试：
 
       :doc:`../rf_test_items/wifi_non_signaling_test`
 
-.. only:: not esp32s2
+.. only:: not esp8266 and not esp32s2
 
     - 低功耗蓝牙非信令测试，参考如下章节：
 

@@ -14,11 +14,11 @@ For the development stage, this repository mainly provides the test tool, test s
    - :doc:`Wi-Fi Adaptivity Test </development_stage/rf_test_items/wifi_adaptivity_test>`
    - :doc:`Wi-Fi Blocking Test </development_stage/rf_test_items/wifi_blocking_test>`
 
-.. only:: not esp32s2
+.. only:: not esp8266 and not esp32s2
 
    - :doc:`Bluetooth/Bluetooth LE Non-Signaling Test </development_stage/rf_test_items/bt_ble_non_signaling_test>`
 
-.. only:: not esp32 and not esp32s2
+.. only:: not esp8266 and not esp32 and not esp32s2
 
    - :doc:`Bluetooth LE DTM Test </development_stage/rf_test_items/ble_dtm_test>`
    - :doc:`Bluetooth LE Adaptivity Test </development_stage/rf_test_items/ble_adaptivity_test>`
@@ -56,7 +56,7 @@ So that your product can pass the following certifications:
         - Y
         - Y
 
-.. only:: esp32s2
+.. only:: esp8266 or esp32s2
 
    .. list-table::
       :header-rows: 1

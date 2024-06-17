@@ -14,11 +14,11 @@ ESP 测试工具与指南
    - :doc:`Wi-Fi 自适应测试 </development_stage/rf_test_items/wifi_adaptivity_test>`
    - :doc:`Wi-Fi 接收阻塞测试 </development_stage/rf_test_items/wifi_blocking_test>`
 
-.. only:: not esp32s2
+.. only:: not esp8266 and not esp32s2
 
    - :doc:`蓝牙/低功耗蓝牙非信令测试 </development_stage/rf_test_items/bt_ble_non_signaling_test>`
 
-.. only:: not esp32 and not esp32s2
+.. only:: not esp8266 and not esp32 and not esp32s2
 
    - :doc:`低功耗蓝牙 DTM 测试 </development_stage/rf_test_items/ble_dtm_test>`
    - :doc:`低功耗蓝牙自适应测试 </development_stage/rf_test_items/ble_adaptivity_test>`
@@ -56,7 +56,7 @@ ESP 测试工具与指南
         - Y
         - Y
 
-.. only:: esp32s2
+.. only:: esp8266 or esp32s2
 
    .. list-table::
       :header-rows: 1

@@ -11,8 +11,8 @@
    :not esp32h2: wifi_adaptivity_test
    :not esp32h2: wifi_blocking_test
    :not esp32h2: wfa_certification_test
-   :not esp32s2: bt_ble_non_signaling_test
-   :not esp32 and not esp32s2: ble_dtm_test
-   :not esp32 and not esp32s2: ble_adaptivity_test
-   :not esp32 and not esp32s2: ble_blocking_test
+   :not esp8266 and not esp32s2: bt_ble_non_signaling_test
+   :not esp8266 and not esp32 and not esp32s2: ble_dtm_test
+   :not esp8266 and not esp32 and not esp32s2: ble_adaptivity_test
+   :not esp8266 and not esp32 and not esp32s2: ble_blocking_test
    :esp32h2 or esp32c6: zigbee_non_signaling_test
