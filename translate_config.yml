@@ -1,7 +1,7 @@
 specified_files:
 #development_stage
-  - docs/zh_CN/development_stage/rf_test_certification/ce_certification.rst
-#  - docs/zh_CN/development_stage/rf_test_certification/fcc_certification.rst
+#  - docs/zh_CN/development_stage/rf_test_certification/ce_certification.rst
+  - docs/zh_CN/development_stage/rf_test_certification/fcc_certification.rst
 #  - docs/zh_CN/development_stage/rf_test_certification/srrc_certification.rst
 #  - docs/zh_CN/development_stage/rf_test_certification/wfa_certification.rst
 #  - docs/zh_CN/development_stage/rf_test_guide/glossary.rst
