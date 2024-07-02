@@ -1,5 +1,3 @@
-.. _rf-non-signalling-test-setup:
-
 搭建测试环境
 ----------------------------
 
@@ -41,8 +39,8 @@
 
 {IDF_TARGET_RF_NON_SIGNALLING_FIRMWARE:default="未更新", esp32="`ESP32 射频非信令测试固件 <https://dl.espressif.com/rf/esp32/ESP32_RFTest_190_8cac24c_20230710.bin>`_", esp32c2="`ESP32-C2 射频非信令测试固件 <https://dl.espressif.com/rf/esp32c2/ESP32-C2_RFTest_Bin_26M_98a091b_20230621.bin>`_", esp32c3="`ESP32-C3 射频非信令测试固件 <https://dl.espressif.com/rf/esp32c3/ESP32-C3_RF_TEST_BIN_V114_1ac85ea_20230504.bin>`_", esp32c6="`ESP32-C6 射频非信令测试固件 <https://dl.espressif.com/rf/esp32c6/ESP32-C6_RFTest_Bin_26f46b0_20230621.bin>`_", esp32s3="`ESP32-S3 射频非信令测试固件 <https://dl.espressif.com/rf/esp32s3/ESP32-S3_RF_TEST_BIN_V110_25c811a_20230504.bin>`_", esp32s2="`ESP32-S2 射频非信令测试固件 <https://dl.espressif.com/rf/esp32s2/ESP32-S2_RF_TEST_BIN_20220902_05bde8b.bin>`_", esp8266="`ES8266 射频非信令测试固件 (26 MHz) <https://dl.espressif.com/RF/ESP8266_RFTest_153_20231018_26M.bin>`_ 或 `ES8266 射频非信令测试固件 (40 MHz) <https://dl.espressif.com/RF/ESP8266_RFTest_153_20231020_40M.bin>`_"}
 
-- 1. 打开 DownloadTool 工具
-- 2. 设置 ChipType，Com Port，Baud Rate，点击 Open，选择下载到 Flash
+1. 打开 DownloadTool 工具
+2. 设置 ChipType，Com Port，Baud Rate，点击 Open，选择下载到 Flash
 
 .. figure:: ../../../_static/rf_test_tool/phyinit_download_flash.png
     :align: center
@@ -52,11 +50,11 @@
 
 .. only:: esp32 or esp32s2
 
-    - 3. 将 {IDF_TARGET_RF_NON_SIGNALLING_FIRMWARE} 通过 UART 烧录至 0x1000，将 phy init bin 固件通过 UART 烧录至 0x1fc000。phy init bin 固件的生成方法请见 `PowerLimitTool 工具 <power-limit-tool>`_。
+    3. 将 {IDF_TARGET_RF_NON_SIGNALLING_FIRMWARE} 通过 UART 烧录至 0x1000，将 phy init bin 固件通过 UART 烧录至 0x1fc000。phy init bin 固件的生成方法请见 `PowerLimitTool 工具 <power-limit-tool>`_。
 
 .. only:: not esp32 and not esp32s2
 
-    - 3. 将 {IDF_TARGET_RF_NON_SIGNALLING_FIRMWARE} 通过 UART 烧录至 0x0，将 phy init bin 固件通过 UART 烧录至 0x1fc000。phy init bin 固件的生成方法请见 `PowerLimitTool 工具 <power-limit-tool>`_。
+    3. 将 {IDF_TARGET_RF_NON_SIGNALLING_FIRMWARE} 通过 UART 烧录至 0x0，将 phy init bin 固件通过 UART 烧录至 0x1fc000。phy init bin 固件的生成方法请见 `PowerLimitTool 工具 <power-limit-tool>`_。
 
 .. figure:: ../../../_static/rf_test_tool/phyinit_download_start.png
     :align: center
