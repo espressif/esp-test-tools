@@ -208,7 +208,7 @@ For the production stage, this repository provides the following tools:
    :hidden:
    :caption: Development
 
-   RF Test Guide <development_stage/rf_test_guide/index>
+   RF Test Guide <development_stage/rf_test_guide/rf_test_guide>
    RF Test Items <development_stage/rf_test_items/index>
    RF Test Certification <development_stage/rf_test_certification/index>
 

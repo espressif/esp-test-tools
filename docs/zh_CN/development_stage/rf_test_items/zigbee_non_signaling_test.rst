@@ -59,13 +59,6 @@ PCB 天线模组做传导测试
 ESPRFTestTool 工具
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. figure:: ../../../_static/rf_test_tool/esprftesttool_main.png
-    :align: center
-    :scale: 80%
-
-    ESPRFTestTool 界面
-
-
 Zigbee 非信令测试
 ---------------------------------------
 

@@ -208,7 +208,7 @@ ESP 测试工具与指南
    :hidden:
    :caption: 研发阶段
 
-   RF 测试指南 <development_stage/rf_test_guide/index>
+   RF 测试指南 <development_stage/rf_test_guide/rf_test_guide>
    RF 测试项目 <development_stage/rf_test_items/index>
    RF 测试认证 <development_stage/rf_test_certification/index>
 
