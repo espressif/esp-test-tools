@@ -22,7 +22,7 @@ def getArgs():
     parser.add_argument( "authkey", type=str, help="Project or personal access token for authentication with GitLab. Create one at https://gitlab.com/profile/personal_access_tokens" )
     parser.add_argument( "project", type=str, help="Path to GitLab project in the form <namespace>/<project>")
     parser.add_argument( "mr_iid", type=str, help="Merge request number to post the message")
-    parser.add_argument( "--url",  help="Gitlab URL.", default='https://gitlab.espressif.cn:6688')
+    parser.add_argument( "--url",  help="Gitlab URL.")
     return parser, parser.parse_args()
 
 
@@ -44,35 +44,29 @@ class PythonGitlabNotes():
         self.project = server.projects.get(self.project_name)
 
     def collect_data(self):
-        """
-        Collect data with links to html in form of a dictionary.
-        Chip Series (series_links)
-                Language (language_links)
-                    html link
-        """
         series_links = {}
-        for filename in os.listdir("logs"):
-            file_path = os.path.join("logs", filename)
-            # Process only files.
-            if os.path.isfile(file_path) and filename.startswith('doc-url-'):
-                with open(file_path, "r") as file:
-                    desc_url = file.readline()
-                    file.close()
-                tokens = desc_url.split('\t')
-                # The file contains 3 tab separated fields:
-                chip_series = tokens[0].strip()
-                language = tokens[1].strip()
-                html_link = tokens[2].strip()
+        with open("logs/doc-url.txt", "r") as file:
+            for line in file:
+                if line.startswith('[document preview]'):
+                    tokens = line.split(']')
+                    desc_url = tokens[2]
+                    lang_chip_info = tokens[1]
+                    lang_chip = lang_chip_info.strip(']').strip('[').split('_')
+                    if len(lang_chip) == 2:
+                        language = 'en'
+                        chip_series = lang_chip[1]
+                    if len(lang_chip) == 3:
+                        language = 'zh_CN'
+                        chip_series = lang_chip[2]
 
-                # Prepare a dictionary with links.
-                if chip_series in series_links:
-                    language_links = series_links[chip_series]
-                    language_links[language] = html_link
-                else:
-                    language_links = {}
-                    language_links[language] = html_link
-                series_links[chip_series] = language_links
+                    if chip_series in series_links:
+                        language_links = series_links[chip_series]
+                        language_links[language] = desc_url
+                    else:
+                        language_links = {language: desc_url}
+                    series_links[chip_series] = language_links
         self.series_links = series_links
+        print(series_links)  # Debugging line
 
     def prepare_note(self):
         """
@@ -82,9 +76,9 @@ class PythonGitlabNotes():
         for chip_series, language_links in self.series_links.items():
             note += f"- {chip_series} "
             if 'zh_CN' in language_links:
-                note += f"[Chinese]({language_links['zh_CN']})"
+                note += f"[中文]({language_links['zh_CN']})"
             else:
-                note += "Chinese"
+                note += "中文"
             note += " / "
             if 'en' in language_links:
                 note += f"[English]({language_links['en']})"
