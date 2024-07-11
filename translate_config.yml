@@ -15,7 +15,7 @@ specified_files:
 #  - docs/zh_CN/development_stage/rf_test_items/wifi_blocking_test.rst
 #  - docs/zh_CN/development_stage/rf_test_items/wifi_non_signaling_test.rst
 #  - docs/zh_CN/development_stage/rf_test_items/wifi_signaling_test.rst
-  - docs/zh_CN/development_stage/rf_test_items/zigbee_non_signaling_test.rst
+#  - docs/zh_CN/development_stage/rf_test_items/zigbee_non_signaling_test.rst
 
 #faq
 #  - docs/zh_CN/faq/ble_adaptivity_test_faq.rst
@@ -45,7 +45,7 @@ specified_files:
 #  - docs/zh_CN/production_stage/tools/matter_qr_code_generator/version.rst
 
 #introduction
-#  - docs/zh_CN/index.rst
+  - docs/zh_CN/index.rst
 
 #copyright
 #  - docs/zh_CN/copyright.rst

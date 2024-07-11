@@ -1,11 +1,13 @@
-ESP Test Tools and Guide
-************************
+ESP Test Tools and Guidelines
+************************************
 
 :link_to_translation:`zh_CN:[中文]`
 
-This repository provides RF test tools and test steps for the development stage, as well as tools and instructions for the production stage.
+{IDF_TARGET_BT_BLE_OPTION: default="Bluetooth LE", esp32="Bluetooth and Bluetooth LE"}
 
-For the development stage, this repository mainly provides the test tool, test steps, and required firmware for the following RF test items:
+This repository mainly provides RF test tools, RF test items, and tools and production test guidelines for the product development stage.
+
+For the development stage, this repository mainly provides test tools, test steps, and required firmware for the following RF test items:
 
 .. only:: not esp32h2
 
@@ -16,7 +18,7 @@ For the development stage, this repository mainly provides the test tool, test s
 
 .. only:: not esp8266 and not esp32s2
 
-   - :doc:`Bluetooth/Bluetooth LE Non-Signaling Test </development_stage/rf_test_items/bt_ble_non_signaling_test>`
+   - :doc:`{IDF_TARGET_BT_BLE_OPTION} Non-Signaling Test </development_stage/rf_test_items/bt_ble_non_signaling_test>`
 
 .. only:: not esp8266 and not esp32 and not esp32s2
 
@@ -51,7 +53,7 @@ So that your product can pass the following certifications:
         - Y
         - --
         - --
-      * - Bluetooth/Bluetooth LE Non-Signaling Test
+      * - {IDF_TARGET_BT_BLE_OPTION} Non-Signaling Test
         - Y
         - Y
         - Y
@@ -99,7 +101,7 @@ So that your product can pass the following certifications:
         - Y
         - --
         - --
-      * - Bluetooth/Bluetooth LE Non-Signaling Test
+      * - {IDF_TARGET_BT_BLE_OPTION} Non-Signaling Test
         - Y
         - Y
         - Y
@@ -137,7 +139,7 @@ So that your product can pass the following certifications:
         - Y
         - --
         - --
-      * - Bluetooth/Bluetooth LE Non-Signaling Test
+      * - {IDF_TARGET_BT_BLE_OPTION} Non-Signaling Test
         - Y
         - Y
         - Y
@@ -167,7 +169,7 @@ So that your product can pass the following certifications:
         - CE Certification
         - FCC Certification
         - SRRC Certification
-      * - Bluetooth/Bluetooth LE Non-Signaling Test
+      * - {IDF_TARGET_BT_BLE_OPTION} Non-Signaling Test
         - Y
         - Y
         - Y
@@ -197,34 +199,34 @@ For the production stage, this repository provides the following tools:
 - :doc:`Flash Download Tool </production_stage/tools/flash_download_tool/index>`
 - :doc:`Espressif Production Testing Guide </production_stage/tools/esp_production_testing_guide/index>`
 - :doc:`Matter QR Code Generator </production_stage/tools/matter_qr_code_generator/index>`
-- :doc:`Test Fixture Manufacturing Instructions </production_stage/instructions/test_fixture_mfg_inst>`
+- :doc:`Module Fixture Manufacturing Instructions </production_stage/instructions/test_fixture_mfg_inst>`
 
 .. toctree::
    :hidden:
 
-   Get-Started <get-started/index>
+   Quick Start <get-started/index>
 
 .. toctree::
    :hidden:
-   :caption: Development
+   :caption: Development Stage
 
-   RF Test Guide <development_stage/rf_test_guide/rf_test_guide>
-   RF Test Items <development_stage/rf_test_items/index>
-   RF Test Certification <development_stage/rf_test_certification/index>
+   RF Testing Guide <development_stage/rf_test_guide/rf_test_guide>
+   RF Testing Items <development_stage/rf_test_items/index>
+   RF Testing Certification <development_stage/rf_test_certification/index>
 
 .. toctree::
    :hidden:
-   :caption: Production
+   :caption: Production Stage
 
    Flash Download Tool <production_stage/tools/flash_download_tool/index>
    Espressif Production Testing Guide <production_stage/tools/esp_production_testing_guide/index>
    Matter QR Code Generator <production_stage/tools/matter_qr_code_generator/index>
-   Test Fixture Manufacturing Instruction <production_stage/instructions/test_fixture_mfg_inst>
+   Module Fixture Manufacturing Instructions <production_stage/instructions/test_fixture_mfg_inst>
 
 .. toctree::
    :hidden:
    :caption: Others
 
    FAQ <faq/index>
-   Related Documentation <resources>
-   Disclaimer and Copyright <copyright>
+   Related Documents and Resources <resources>
+   Disclaimer and Copyright Notice <copyright>

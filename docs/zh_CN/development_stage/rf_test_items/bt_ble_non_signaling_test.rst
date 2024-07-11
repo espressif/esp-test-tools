@@ -1,9 +1,11 @@
-蓝牙及低功耗蓝牙非信令测试
+{IDF_TARGET_BT_BLE_OPTION: default="低功耗蓝牙", esp32="蓝牙及低功耗蓝牙"}
+
+{IDF_TARGET_BT_BLE_OPTION}非信令测试
 ==============================================
 
 :link_to_translation:`en:[English]`
 
-本章介绍如何对基于 {IDF_TARGET_NAME} 的产品如何进行蓝牙及低功耗蓝牙非信令测试（非信令测试也称为定频测试）。
+本章介绍如何对基于 {IDF_TARGET_NAME} 的产品如何进行{IDF_TARGET_BT_BLE_OPTION}非信令测试（非信令测试也称为定频测试）。
 
 .. include:: rf_non_signalling_test_setup.inc
 
@@ -179,11 +181,11 @@
 附录
 ----------------
 
-本附录主要用于说明 {IDF_TARGET_NAME} 的蓝牙或低功耗蓝牙的功率等级及对应的目标功率，用于射频调试或测试对照。
+本附录主要用于说明 {IDF_TARGET_NAME} 的{IDF_TARGET_BT_BLE_OPTION}的功率等级及对应的目标功率，用于射频调试或测试对照。
 
 .. only:: esp32
 
-  .. list-table:: {IDF_TARGET_NAME} 经典蓝牙/低功耗蓝牙发射功率等级
+  .. list-table:: {IDF_TARGET_NAME} 蓝牙/低功耗蓝牙发射功率等级
     :widths: 40 60
 
     * - 功率等级

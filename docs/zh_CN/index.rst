@@ -3,6 +3,8 @@ ESP 测试工具与指南
 
 :link_to_translation:`en:[English]`
 
+{IDF_TARGET_BT_BLE_OPTION: default="低功耗蓝牙", esp32="蓝牙及低功耗蓝牙"}
+
 该仓库主要提供了用于产品研发阶段的射频测试工具、射频测试项目以及用于生产阶段的工具和产测指南。
 
 针对研发阶段，该仓库主要提供了以下射频测试项目的测试工具、测试步骤和所需固件：
@@ -16,7 +18,7 @@ ESP 测试工具与指南
 
 .. only:: not esp8266 and not esp32s2
 
-   - :doc:`蓝牙/低功耗蓝牙非信令测试 </development_stage/rf_test_items/bt_ble_non_signaling_test>`
+   - :doc:`{IDF_TARGET_BT_BLE_OPTION}非信令测试 </development_stage/rf_test_items/bt_ble_non_signaling_test>`
 
 .. only:: not esp8266 and not esp32 and not esp32s2
 
@@ -51,7 +53,7 @@ ESP 测试工具与指南
         - Y
         - --
         - --
-      * - 蓝牙/低功耗蓝牙非信令测试
+      * - {IDF_TARGET_BT_BLE_OPTION}非信令测试
         - Y
         - Y
         - Y
@@ -99,7 +101,7 @@ ESP 测试工具与指南
         - Y
         - --
         - --
-      * - 蓝牙/低功耗蓝牙非信令测试
+      * - {IDF_TARGET_BT_BLE_OPTION}非信令测试
         - Y
         - Y
         - Y
@@ -137,7 +139,7 @@ ESP 测试工具与指南
         - Y
         - --
         - --
-      * - 蓝牙/低功耗蓝牙非信令测试
+      * - {IDF_TARGET_BT_BLE_OPTION}非信令测试
         - Y
         - Y
         - Y
@@ -167,7 +169,7 @@ ESP 测试工具与指南
         - CE 认证
         - FCC 认证
         - SRRC 认证
-      * - 蓝牙/低功耗蓝牙非信令测试
+      * - {IDF_TARGET_BT_BLE_OPTION}非信令测试
         - Y
         - Y
         - Y
