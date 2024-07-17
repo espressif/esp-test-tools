@@ -44,7 +44,7 @@ post_links:
   needs:
     - deploy_docs_preview
   rules:
-    - if: $CI_PIPELINE_SOURCE != "api"
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
   script:
     - pip install -r ${CI_PROJECT_DIR}/docs/requirements.txt
     - ls -l logs
