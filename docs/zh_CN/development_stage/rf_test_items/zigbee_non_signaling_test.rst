@@ -3,7 +3,7 @@
 
 :link_to_translation:`en:[English]`
 
-本章介绍基于 ESP 芯片或模组的产品如何进行 802.15.4 非信令测试（非信令测试也称为定频测试），由于使用同一套射频链路，因此仅需测试 Zigbee 即可。
+本章介绍基于 {IDF_TARGET_NAME} 芯片或模组的产品如何进行 802.15.4 非信令测试（非信令测试也称为定频测试），由于使用同一套射频链路，因此仅需测试 Zigbee 即可。
 
 .. include:: rf_non_signalling_test_setup.inc
 

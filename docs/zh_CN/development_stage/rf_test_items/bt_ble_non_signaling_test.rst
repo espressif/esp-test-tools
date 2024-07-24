@@ -253,7 +253,7 @@
     低功耗蓝牙 5.0 PHY 信道与索引
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    - 对于低功耗蓝牙，EspRFTestTool 工具包使用信道索引（Channel Index）来识别信道。
+    - 对于低功耗蓝牙，EspRFTestTool 工具包使用信道索引 (Channel Index) 来识别信道。
 
     .. list-table::  {IDF_TARGET_NAME} 低功耗蓝牙 5.0 PHY 信道与索引
         :widths: 50 60 50
