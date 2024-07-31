@@ -6,7 +6,7 @@ specified_files:
 #  - docs/zh_CN/development_stage/rf_test_certification/wfa_certification.rst
 #  - docs/zh_CN/development_stage/rf_test_guide/rf_test_guide.rst
 #  - docs/zh_CN/development_stage/rf_test_items/ble_adaptivity_test.rst
-#  - docs/zh_CN/development_stage/rf_test_items/ble_blocking_test.rst
+  - docs/zh_CN/development_stage/rf_test_items/ble_blocking_test.rst
 #  - docs/zh_CN/development_stage/rf_test_items/ble_dtm_test.rst
 #  - docs/zh_CN/development_stage/rf_test_items/bt_ble_non_signaling_test.rst
 #  - docs/zh_CN/development_stage/rf_test_items/rf_non_signalling_test_setup.inc
