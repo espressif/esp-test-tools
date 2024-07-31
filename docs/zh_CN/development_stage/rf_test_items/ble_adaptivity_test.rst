@@ -3,109 +3,88 @@
 
 :link_to_translation:`en:[English]`
 
-在 BLE 以跳频方式工作且 PSD 大于 10dBm/MHz时，需满足 CE，SRRC 等认证自适应测试的需求。
+低功耗蓝牙自适应测试用来确保设备以跳频方式工作且低功耗蓝牙信号的功率谱密度 (Power Spectral Density, PSD) 大于 10 dBm/MHz时，满足一定的参数要求，从而避免对其他无线设备造成干扰。该项测试主要应用在 CE 和 SRRC 认证测试中。
 
-.. note:: 
-  - BLE PSD 低于 10dBm/MHz 时，可选择基于等效占用率豁免自适应测试；
-  - BLE PSD 高于 10dBm/MHz 时，可选择基于跳频的发射前搜寻机制（LBT）做自适应测试。
+.. note::
 
-测试准备
+  - 低功耗蓝牙信号的 PSD 低于 10 dBm/MHz 时，可选择基于等效占用率，无需进行低功耗蓝牙自适应测试。
+  - 低功耗蓝牙信号的 PSD 高于 10 dBm/MHz 时，可选择基于跳频的发射前搜寻机制 (Listen Before Talk, LBT) 进行低功耗蓝牙自适应测试。
+
+搭建测试环境
 ---------------------------
-
-硬件连接
-^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: ../../../_static/rf_test_tool/ble_adaptive_connection.png
     :align: center
     :scale: 80%
 
-    BLE Adaptivity Test 连接说明
+    测试环境连接示意图
 
+- 在测试中，使用 {IDF_TARGET_NAME} 模组作为配测设备 (Slave)，与待测设备 (Master) 建立连接。Slave 与 Master 烧录相同的固件，使用串口指令区分。
 
-使用串口板与 ESP 产品串口连接：
+- Test System 指自适应测试系统，Master 与 Slave 通过串口指令连接成功后即可开始测试。
 
-- 待测设备 (DUT) CHIP_EN 需默认上拉，如产品设计中未拉高，需将 CHIP_EN 接到 3V3;
-- 部分串口通信板内部已交换 RXD 和 TXD, 无需反接，需根据实际情况调整接线;
-- ESP 芯片具有上电自校准功能，因此 DUT 需先将射频连接线接好后再上电开始测试；
-- BLE Adaptivity 测试中使用 ESP 模组作为配测设备（Slave）与待测设备（Master）建立连接；
-- Test System 指自适应测试系统，待 Master 与 Slave 连接成功后即可开始测试;
-- Slave 与 Master 烧录相同的固件，使用串口指令区分。
+.. note::
 
+    - 待测设备的 CHIP_EN 管脚默认上拉，如果产品设计中未拉高，需要手动将 CHIP_EN 接到 3V3 管脚。
+    - 部分串口通信板内部已交换 RXD 和 TXD, 无需反接，需根据实际情况调整接线。
+    - {IDF_TARGET_NAME} 具有上电自校准功能，因此待测设备上电测试前需先将射频连接线连接至测试仪器。
 
+烧录固件
+------------------
 
-BLE DTM 测试固件烧录
-^^^^^^^^^^^^^^^^^^^^^
+{IDF_TARGET_BLE_ADAPTIVITY_FIRMWARE:default="未更新", esp32c2="`ESP32-C2 低功耗蓝牙自适应测试固件 <https://dl.espressif.com/rf/esp32c2/ESP32C2_BLE_Adaptivity_bin_20230704.bin>`_", esp32c3="`ESP32-C3 低功耗蓝牙自适应测试固件 <https://dl.espressif.com/rf/esp32c3/ESP32C3_BLE_Adaptivity_bin_20230704.bin>`_", esp32c6="`ESP32-C6 低功耗蓝牙自适应测试固件 <https://dl.espressif.com/rf/esp32c6/ESP32C6_BLE_Adaptivity_bin_20230704.bin>`_", esp32s3="`ESP32-S3 低功耗蓝牙自适应测试固件 <https://dl.espressif.com/rf/esp32s3/ESP32S3_BLE_Adaptivity_bin_20230704.bin>`_", esp32h2="`ESP32-H2 低功耗蓝牙自适应测试固件 <https://dl.espressif.com/rf/esp32h2/ESP32H2_BLE_Adaptivity_bin_20230704.bin>`_"}
 
-.. only:: esp32c2
+1. 打开 :ref:`download-tool` 工具。
 
-  - 请参考 EspRFTestTool 工具包中的 DownloadTool 章节，并烧录 ESP32C2_BLE_Adaptivity_BIN，烧录地址：0x0。
+2. 设置 ChipType，Com Port，Baud Rate，点击 Open，选择下载到 Flash。
 
-.. only:: esp32c3
+3. 将 {IDF_TARGET_BLE_ADAPTIVITY_FIRMWARE} 通过 UART 烧录至 0x0。
 
-  - 请参考 EspRFTestTool 工具包中的 DownloadTool 章节，并烧录 ESP32C3_BLE_Adaptivity_BIN，烧录地址：0x0。
-  
-.. only:: esp32c6
+烧录完成后，继续以下步骤进行测试。
 
-  - 请参考 EspRFTestTool 工具包中的 DownloadTool 章节，并烧录 ESP32C6_BLE_Adaptivity_BIN，烧录地址：0x0。
-
-.. only:: esp32s3
-
-  - 请参考 EspRFTestTool 工具包中的 DownloadTool 章节，并烧录 ESP32S3_BLE_Adaptivity_BIN，烧录地址：0x0。
-
-.. only:: esp32h2
-
-  - 请参考 EspRFTestTool 工具包中的 DownloadTool 章节，并烧录 ESP32H2_BLE_Adaptivity_BIN，烧录地址：0x0。
-
-
-已烧录固件的样机，可继续往下进行 BLE Adaptivity 测试。
-
-
-
-BLE Adaptiviy 测试
+开始测试
 ---------------------------
-BLE Adaptivity 测试需在 Mater 与 Slave 设备中输入相应串口指令建立连接后测试。
+
+低功耗蓝牙自适应测试需在 Mater 与 Slave 设备中输入相应串口指令建立连接后测试。
+
 依次在 Slave 和 Master 设备输入相应指令：
 
-Slave 设备
+1. **Slave 设备**
+
 ::
 
+  \\开启配测设备广播
   bleadve -C -z start -t 19 -u 13
 
 
-Master 设备
+2. **Master 设备**
+
 ::
 
+  \\建立连接，配置速率为 1 Mbps（如需配置为 2 Mbps，参数修改为 -x 2 -y 2），设置功率等级（-v 13）
   bleconn -T -z start -x 1 -y 1 -n 1 -i 0x6-0x6 -v 13
+
+  \\配置功率，默认设置为 13 档（-e 后参数和上一条指令 -v 后参数保持一致）
   ble -S -z etxp -t 4 -h 1 -e 13
+
+  \\设置 MTU
   gattc -C -m 512 -p 0x10 -r c0:11:11:11:11:11 -b 1
+
+  \\发送数据
   gattc -W -z char -p 0x10 -s 0xA002 -c 0xC317 -l 490 -n 0xFFFFFFFF -w 1 -r c0:11:11:11:11:11 -g 1 -b 1
 
+3. **其他操作指令**
 
-上述指令输入完成后即可开始 BLE Adaptivity 测试。
-
-上述串口指令分别表示：
-
-Slave 设备
-
-- 开启配测设备广播；
-
-Master 设备
-
-- 建立连接,配置速率为1Mbps（如需配置为 2Mbps，参数修改为 -x 2 -y 2），设置功率等级（-v 13）； 
-- 配置功率，默认设置为 13 档（-e 后参数和上一条指令 -v 后参数保持一致）；
-- 设置 MTU
-- 发送数据
-
-其他操作
-如需断开连接，输入串口指令：
 ::
 
-  bleconn -D -z all 
+  \\断开连接
+  bleconn -D -z all
 
-如需重启模组，输入串口指令：
-::
-
+  \\重启模组
   reboot
 
-.. note:: 
-  - 如需测试广播及数据跳频，请联系 ESP 工程师。
+输入上述指令后，可继续进行低功耗蓝牙自适应测试。
+
+.. note::
+
+   如需测试广播及数据跳频，请联系 `乐鑫 <https://www.espressif.com/en/contact-us/sales-questions>`_。

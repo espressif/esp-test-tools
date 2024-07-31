@@ -28,7 +28,7 @@ This chapter introduces how to conduct a {IDF_TARGET_BT_BLE_OPTION} non-signalin
     - **Itaddr**: Set the logical transmission address, use the default value, only supported by Bluetooth
     - **Syncw**: Set the identity code of the packet file, default selection is syncw=0x71764129
     - **Payload length**: Set the payload length, default is 250
-    - **Data Rate**: Set the packet sending rate and encoding sequence, supporting BT 1M, 2M, 3M and BLE 1M four rates, supporting 1010, 11110000, prbs9 three encoding sequences
+    - **Data Rate**: Set the packet transmission rate and encoding sequence, supporting BT 1M, 2M, 3M and BLE 1M four rates, supporting 1010, 11110000, prbs9 three encoding sequences
 
     After clicking start, the Bluetooth transmission parameter description is displayed in the log window, as follows:
 
@@ -36,7 +36,7 @@ This chapter introduces how to conduct a {IDF_TARGET_BT_BLE_OPTION} non-signalin
 
         fcc_bt_tx:txpwr=4,hoppe=0,chan=18,rate=1,DH_type=1,data_type=1
 
-    This indicates that the Bluetooth packet sending is normal, and the transmission performance can be tested with a comprehensive tester at this time.
+    This indicates that the Bluetooth packet transmission is normal, and the transmission performance can be tested with a comprehensive tester at this time.
 
     .. figure:: ../../../_static/rf_test_tool/esp32_bt_tx_on.png
         :align: center
@@ -45,15 +45,15 @@ This chapter introduces how to conduct a {IDF_TARGET_BT_BLE_OPTION} non-signalin
         Bluetooth/Bluetooth LE Transmission Performance
 
     Bluetooth Reception Performance Test
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     - **Test Mode**: Set to BT RX for Bluetooth reception performance test
     - **Channel**: Set the Bluetooth test channel
     - **Ulap**: Set the Bluetooth address, use the default value, only supported by Bluetooth
     - **Itaddr**: Set the logical transmission address, use the default value, only supported by Bluetooth
-    - **Data Rate**: Set the packet receiving rate, supporting BT 1M, 2M, 3M, default prbs9 encoding sequence
+    - **Data Rate**: Set the packet reception rate, supporting BT 1M, 2M, 3M, default prbs9 encoding sequence
 
-    After clicking start, use the instrument to send packets on the test channel, click stop after completion, and the packet receiving information is displayed in the log window as follows:
+    After clicking start, use the instrument to send packets on the test channel, click stop after completion, and the packet reception information is displayed in the log window as follows:
 
     ::
 
@@ -78,7 +78,7 @@ This chapter introduces how to conduct a {IDF_TARGET_BT_BLE_OPTION} non-signalin
         Bluetooth Reception Performance Test
 
     Bluetooth LE Reception Performance Test
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     - **Test Mode**: Select BLE RX for Bluetooth LE reception performance test
     - **Channel**: Set the Bluetooth LE test channel
@@ -91,11 +91,11 @@ This chapter introduces how to conduct a {IDF_TARGET_BT_BLE_OPTION} non-signalin
 
         3e8 3e8 0 0 0 0 0 0 0 0 w 0 0 0 0 0 0 0 0 p 5b83 58cf 6acb
 
-    Among them:
+    Where:
 
     - The 1st parameter Res[0] (hexadecimal) represents the total number of packets received in this test. In this test, the total number of packets is 3e8.
     - The 2nd parameter Res[1] (hexadecimal) represents the number of packets received at the corresponding rate in this test. In this test, the number of packets at the corresponding rate is 3e8.
-    - The third to last parameter Res[20] (hexadecimal) represents the in-band power of all packets in this test. In this test, the in-band power of all packets is 5b83.
+    - The third last parameter Res[20] (hexadecimal) represents the in-band power of all packets in this test. In this test, the in-band power of all packets is 5b83.
     - The last parameter Res[22] (hexadecimal) represents the gain of all packets in this test. In this test, the gain of all packets is 6acb.
 
     Based on the above parameters, we can calculate:
@@ -123,7 +123,7 @@ This chapter introduces how to conduct a {IDF_TARGET_BT_BLE_OPTION} non-signalin
     - **Channel**: Set the Bluetooth LE test channel
     - **Hoppe**: Enable hopping function, default is off
     - **Ulap**: Set the Bluetooth address, default is not enabled
-    - **Itaddr**: Set the logical transport address, default is not enabled
+    - **Itaddr**: Set the logical transmission address, default is not enabled
     - **Syncw**: Set the identity code of the packet file, default selection is syncw=0x71764129
     - **Payload length**: Set the payload length, default is 250
     - **Data Rate**: Set the packet transmission rate and encoding sequence, support BLE 1M, 2M, 125K, 500K four rates, support 1010, 11110000, prbs9 three encoding sequences
@@ -134,7 +134,7 @@ This chapter introduces how to conduct a {IDF_TARGET_BT_BLE_OPTION} non-signalin
 
         fcc_le_tx_syncw:txpwr=12,chan=0,len=250,data_type=0,syncw=0x71764129,rate=0,tx_num=0,contin_en=0,delay=0,hopp_en=0
 
-    Indicates that Bluetooth LE packet transmission is normal, and a comprehensive tester can be used to test the transmission performance at this time.
+    This indicates that the Bluetooth LE packet transmission is normal, and at this point, the comprehensive tester can be used to test the transmission performance.
 
     .. figure:: ../../../_static/rf_test_tool/esp32c6_ble_test_on.png
         :align: center
@@ -145,31 +145,31 @@ This chapter introduces how to conduct a {IDF_TARGET_BT_BLE_OPTION} non-signalin
     Bluetooth LE Reception Performance Test
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    {IDF_TARGET_TWELFTH_PARA:default="Received correct packets", esp32c3="All packets", esp32s3="All packets"}
+    {IDF_TARGET_TWELFTH_PARA:default="Received correct package", esp32c3="All packages", esp32s3="All packages"}
 
     {IDF_TARGET_RSSI:default="Res[11]/(Res[1])", esp32c3="Res[11]/(Res[1]+Res[4])", esp32s3="Res[11]/(Res[1]+Res[4])"}
 
     - **Test Mode**: Select BLE50 RX for Bluetooth LE reception performance test.
     - **Channel**: Set the Bluetooth LE test channel.
-    - **Syncw**: Set the identity code of the packet file, default selection is syncw=0x71764129.
-    - **Data Rate**: Set the packet reception rate, default is prbs9 encoded sequence data.
+    - **Syncw**: Set the identity code of the package file, default selection is syncw=0x71764129.
+    - **Data Rate**: Set the package reception rate, default is prbs9 encoding sequence data.
 
-    Click start and use the instrument to send packets on the test channel, click stop when finished, the packet reception information is displayed in the log window as follows:
+    After clicking start, use the instrument to send packages on the test channel, click stop after completion, the package reception information is displayed in the log window as follows:
 
     ::
 
         3e8 3e8 0 0 0 0 0 0 0 0 p -61009 -20424 0 40581
 
-    Where:
+    Among them:
 
-    - The 1st parameter Res[0] (hexadecimal) represents the total number of packets received in this test. In this test, the total number of packets is 3e8.
-    - The 2nd parameter Res[1] (hexadecimal) represents the number of packets received at the corresponding rate in this test. In this test, the number of packets at the corresponding rate is 3e8.
-    - The 12th parameter Res[11] (decimal) represents the RSSI of the {IDF_TARGET_TWELFTH_PARA} in this test. In this test, the RSSI is -61009.
+    - The 1st parameter Res[0] (hexadecimal) represents the total number of packages received in this test. In this test, the total number of packages is 3e8.
+    - The 2nd parameter Res[1] (hexadecimal) represents the number of packages received at the corresponding rate in this test. In this test, the number of packages at the corresponding rate is 3e8.
+    - The 12th parameter Res[11] (decimal) represents the RSSI of {IDF_TARGET_TWELFTH_PARA} in this test. In this test, the RSSI is -61009.
 
     Based on the above parameters, you can calculate:
 
     - Packet loss rate PER = [1-(Res[1]/Sent_Packet_Numbers)]*100%<=30.8%
-    - RSSI of each packet = {IDF_TARGET_RSSI}
+    - RSSI of each package = {IDF_TARGET_RSSI}
 
 
       .. figure:: ../../../_static/rf_test_tool/esp32s3_ble_rx_on.png
@@ -179,7 +179,7 @@ This chapter introduces how to conduct a {IDF_TARGET_BT_BLE_OPTION} non-signalin
           Bluetooth LE Reception Performance Test
 
 Appendix
-----------------
+--------
 
 This appendix is mainly used to explain the power level and corresponding target power of {IDF_TARGET_BT_BLE_OPTION} of {IDF_TARGET_NAME}, which is used for RF debugging or test reference.
 
@@ -210,7 +210,7 @@ This appendix is mainly used to explain the power level and corresponding target
 .. only:: not esp32
 
     Bluetooth LE Transmission Power Level
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     .. list-table:: {IDF_TARGET_NAME} Bluetooth LE Transmission Power Level
         :widths: 40 60
@@ -251,7 +251,7 @@ This appendix is mainly used to explain the power level and corresponding target
           - 20
 
     Bluetooth LE 5.0 PHY Channels and Indexes
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     - For Bluetooth LE, the EspRFTestTool toolkit uses the Channel Index to identify channels.
 
