@@ -5,7 +5,7 @@ FCC Certification
 
 FCC Certification (Federal Communications Commission Certification) refers to the requirement that products must be reviewed and approved by the Federal Communications Commission (FCC) before they can be sold and used in the United States.
 
-The FCC certification of radio frequency products requires passing relevant non-signaling tests:
+The FCC certification of RF products requires passing relevant non-signaling tests:
 
 .. only:: not esp32h2
 

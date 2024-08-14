@@ -3,43 +3,43 @@
 
 :link_to_translation:`zh_CN:[中文]`
 
-This chapter introduces how to conduct 802.15.4 non-signaling tests (also known as fixed frequency tests) on products based on ESP chips or modules. Since the same RF link is used, it is only necessary to test Zigbee.
+This document introduces how to conduct 802.15.4 non-signaling tests (also known as fixed frequency tests) on products based on ESP chips or modules. Since the same RF link is used, it is only necessary to test Zigbee.
 
 .. include:: rf_non_signalling_test_setup.inc
 
-Zigbee Transmission Performance Test
+Zigbee TX Performance Test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Test Mode**: Set to
+- **Test Mode**:
 
-  * ZB TX packet for transmission performance test;
-  * ZB TX continue for certification test.
+  * ZB TX packet: Used for TX performance tests;
+  * ZB TX continue: Used for certification tests.
 
-- **Power Level**: Set the Zigbee transmission power level, supporting 0~15 levels of testing.
+- **Power Level**: Set the Zigbee TX power level, supporting 0~15 levels for testing.
 - **Channel**: Set the Zigbee test channel.
-- **Payload Length**: Set the Payload length, manual input is supported, the range is 3~127, default is 127.
+- **Payload Length**: Set the payload length. Manual input is supported. Range: 3~127. Default: 127.
 
-After clicking start, the Zigbee transmission parameter description is displayed in the log window, as follows:
+After clicking ``start``, the Zigbee TX parameter description is displayed in the log window, similar to the following:
 
 ::
 
     ZB TX start: len=127, chan=18, pwr=12, tx_num=0, contin_en=0
 
-This indicates that Zigbee is sending packets normally, and the transmission performance can be detected with a comprehensive tester at this time.
+This indicates that Zigbee is sending packets normally, and the TX performance can be detected using the tester.
 
   .. figure:: ../../../_static/rf_test_tool/esp32h2_zigbee_tx_on.png
       :align: center
       :scale: 80%
 
-      Zigbee Transmission Performance Test
+      Zigbee TX Performance Test
 
-Zigbee Reception Performance Test
+Zigbee RX Performance Test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Test Mode**: Set to ZB RX for Zigbee reception performance test.
+- **Test Mode**: Set to ZB RX for Zigbee RX performance test.
 - **Channel**: Set the Zigbee test channel.
 
-After clicking start, use the instrument to send packets on the test channel, click stop after completion, and the packet reception information is displayed in the log window as follows:
+After clicking ``start``, use the tester to send packets on the test channel. Click ``stop`` after completion. The packet RX information is displayed in the log window, similar to the following:
 
 ::
 
@@ -60,14 +60,14 @@ Based on the above parameters, you can calculate:
       :align: center
       :scale: 80%
 
-      Zigbee Reception Performance Test
+      Zigbee RX Performance Test
 
 Appendix
 ----------------
 
 This appendix is mainly used to explain the output target power of {IDF_TARGET_NAME} 802.15.4, which is used for RF debugging or test reference.
 
-.. list-table:: {IDF_TARGET_NAME} 802.15.4 Transmission Power Level
+.. list-table:: {IDF_TARGET_NAME} 802.15.4 TX Power Level
     :widths: 30 50
 
     * - Power Level

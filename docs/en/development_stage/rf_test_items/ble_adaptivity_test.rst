@@ -27,7 +27,7 @@ Setting Up the Test Environment
 
     - The CHIP_EN pin of the device under test is pulled up by default. If it is not pulled up in the product design, you need to manually connect the CHIP_EN to the 3V3 pin.
     - Some serial communication boards have already swapped RXD and TXD internally, so there is no need to reverse them. The wiring needs to be adjusted according to the actual situation.
-    - The {IDF_TARGET_NAME} has a power-on self-calibration function, so the RF connection line must be connected to the test instrument before the device under test is powered on for testing.
+    - The {IDF_TARGET_NAME} has a power-on self-calibration function, so the RF connection line must be connected to the tester before the device under test is powered on for testing.
 
 Burning Firmware
 ------------------

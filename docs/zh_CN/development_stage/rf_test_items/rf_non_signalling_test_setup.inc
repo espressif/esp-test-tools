@@ -18,7 +18,7 @@
 .. note::
 
     - 待测设备的 CHIP_EN 管脚默认上拉，如果产品设计中未拉高，需要手动将 CHIP_EN 接到 3V3 管脚。
-    - 部分串口通信板内部已交换 RXD 和 TXD, 无需反接，需根据实际情况调整接线。
+    - 部分串口通信板内部已交换 RXD 和 TXD，无需反接，需根据实际情况调整接线。
     - {IDF_TARGET_NAME} 具有上电自校准功能，因此待测设备上电测试前需先将射频连接线连接至测试仪器。
 
 传导测试
@@ -41,7 +41,7 @@
 
 1. 打开 :ref:`download-tool`。
 
-2. 设置 ChipType，Com Port，Baud Rate，点击 Open，选择下载到 Flash。
+2. 设置 ``ChipType``, ``Com Port``, ``Baud Rate``, 点击 ``Open``，选择下载到 ``Flash``。
 
 .. figure:: ../../../_static/rf_test_tool/phyinit_download_flash.png
     :align: center
@@ -78,10 +78,10 @@
 
 .. only:: esp32c2
 
-  - **BaudRate**：74880
+  - **BaudRate**：选择 74880
 
 .. only:: not esp32c2 and not esp8266
 
-  - **BaudRate**：波特率选择 115200
+  - **BaudRate**：选择 115200
 
 - **Open**：打开串口

@@ -3,55 +3,55 @@ Wi-Fi Non-Signaling Test
 
 :link_to_translation:`zh_CN:[中文]`
 
-This chapter introduces how to conduct Wi-Fi Non-Signaling Test (also known as fixed frequency test) on products based on Espressif chips or modules.
+This document introduces how to conduct Wi-Fi Non-Signaling Test (also known as fixed frequency test) on products based on Espressif chips or modules.
 
 .. include:: rf_non_signalling_test_setup.inc
 
-Wi-Fi Transmit Performance Test
+Wi-Fi TX Performance Test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Test Mode**: Set to
+- **Test Mode**:
 
-  * Tx packet for transmit performance test, packet duty cycle is less than 50%;
-  * Tx continues for certification test, packet duty cycle is close to 100%;
-  * Tx tone for single carrier test.
+  * TX packet: Packet transmission duty cycle less than 50%, used for TX performance tests
+  * TX continues: Packet duty cycle close to 100%, used for certification tests;
+  * TX tone: Used for single-carrier tests.
 
 - **Wi-Fi Rate**: Set Wi-Fi test rate
 - **BandWidth**: Set Wi-Fi test bandwidth
 - **Channel**: Set Wi-Fi test channel
-- **Atteunuation (0.25 dB)**: Set power attenuation,
+- **Atteunuation (0.25 dB)**: Set power attenuation
 
   * 0 means no attenuation, which is the default value;
   * 2 means 0.5 dB attenuation;
   * 4 means 1 dB attenuation, and so on.
 
-- **Duty Cycle**: Used to set the packet duty cycle in Tx packet test, default is default (about 30%), can be configured to 10%, 50%, 90%.
-- **Certification EN**: Not enabled by default, only used when verifying Power Limit function.
-- **Certification Code**: Not enabled by default, only used when verifying Power Limit function.
+- **Duty Cycle**: Set the packet duty cycle in TX packet tests. The default duty cycle is around 30%. Supported values: 10%, 50%, 90%.
+- **Certification EN**: Not enabled by default. Used only when verifying Power Limit function.
+- **Certification Code**: Not enabled by default. Used only when verifying Power Limit function.
 
-After clicking start, the log window should print similar Wi-Fi transmission parameters as follows:
+After clicking ``start``, the log window should print Wi-Fi transmission parameters similar to the following:
 
 ::
 
     Wifi tx out: channel=1, rate=0x0, BK=0, length=50, delay=1200, packet_num=0
 
-The above parameters indicate that Wi-Fi packet transmission is normal, and the transmission performance can be detected with test equipment at this time.
+The above parameters indicate that Wi-Fi packet transmission is normal, and the transmission performance can be detected with tester at this time.
 
 .. figure:: ../../../_static/rf_test_tool/esp32s3_wifi_test_on.png
     :align: center
     :scale: 80%
 
-    Wi-Fi Transmit Performance Test
+    Wi-Fi TX Performance Test
 
-Wi-Fi Receive Performance Test
+Wi-Fi RX Performance Test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Test Mode**: Set to RX packet for receive performance test.
+- **Test Mode**: Set to ``RX packet`` for RX performance tests.
 - **Wi-Fi Rate**: Set Wi-Fi test rate.
 - **BandWidth**: Set Wi-Fi test bandwidth.
 - **Channel**: Set Wi-Fi test channel.
 
-After clicking start, the instrument sends packets on the test channel, click stop after completion, the log window should display similar packet receiving information as follows:
+After clicking ``start``, the tester sends packets on the test channel. Click ``stop`` after completion. The log window should display packet RX information similar to the following:
 
 ::
 
@@ -61,19 +61,19 @@ Where:
 
 - **Correct**: The total number of packets received this time.
 - **Desired**: The number of packets received at the corresponding rate this time.
-- **RSSI**: Represents the average RSSI of the received Desired packets, such as "RSSI: -614" means the RSSI value is -61.4.
+- **RSSI**: Represents the average RSSI of the received Desired packets. For example, "RSSI: -614" means the RSSI value is -61.4.
 
 .. note::
 
-    - Desired being 0 indicates that the instrument's packets were not received, please check the instrument's packet settings and packet file to ensure the packet receiving link is normal;
-    - Desired is not 0 and Correct is greater than Desired indicates that there is interference in the environment, please retest in a shielded environment;
-    - Other parameters in the packet receiving information are only used for RD debug and have no actual meaning.
+    - If ``Desired`` is 0, no packets were received from the tester. Please check the tester's packet settings and packet file to ensure the packet RX link is normal;
+    - If ``Desired`` is not 0 and ``Correct`` is greater than ``Desired``, there is interference in the environment. Please retest in a shielded environment;
+    - Other parameters in the packet RX information are only used for RD debug and have no actual meaning.
 
 .. figure:: ../../../_static/rf_test_tool/esp32c6_wifi_rx_on.png
     :align: center
     :scale: 80%
 
-    Wi-Fi Receive Performance Test
+    Wi-Fi RX Performance Test
 
 Appendix
 ----------------
@@ -82,7 +82,7 @@ This appendix is mainly used to explain the target output power of the chip's Wi
 
 .. only:: esp8266
 
-    .. list-table:: ESP8266 Wi-Fi Target Transmit Power
+    .. list-table:: ESP8266 Wi-Fi Target TX Power
         :widths: 30 40
 
         * - Rate
@@ -102,7 +102,7 @@ This appendix is mainly used to explain the target output power of the chip's Wi
 
 .. only:: esp32
 
-    .. list-table:: ESP32 Wi-Fi Target Transmit Power
+    .. list-table:: ESP32 Wi-Fi Target TX Power
         :widths: 30 40
 
         * - Rate
@@ -126,7 +126,7 @@ This appendix is mainly used to explain the target output power of the chip's Wi
 
 .. only:: esp32c2
 
-    .. list-table:: ESP32-C2 Wi-Fi Target Transmit Power
+    .. list-table:: ESP32-C2 Wi-Fi Target TX Power
         :widths: 30 40
 
         * - Rate
@@ -146,7 +146,7 @@ This appendix is mainly used to explain the target output power of the chip's Wi
 
 .. only:: esp32c3
 
-    .. list-table:: ESP32-C3 Wi-Fi Target Transmit Power
+    .. list-table:: ESP32-C3 Wi-Fi Target TX Power
         :widths: 50 50 50
 
         * - Rate
@@ -179,7 +179,7 @@ This appendix is mainly used to explain the target output power of the chip's Wi
 
 .. only:: esp32c6
 
-    .. list-table:: ESP32-C6 Wi-Fi Target Transmit Power
+    .. list-table:: ESP32-C6 Wi-Fi Target TX Power
         :widths: 30 50
 
         * - Rate
@@ -209,7 +209,7 @@ This appendix is mainly used to explain the target output power of the chip's Wi
 
 .. only:: esp32s2
 
-    .. list-table:: ESP32-S2 Wi-Fi Target Transmit Power
+    .. list-table:: ESP32-S2 Wi-Fi Target TX Power
         :widths: 30 50
 
         * - Rate
@@ -233,7 +233,7 @@ This appendix is mainly used to explain the target output power of the chip's Wi
 
 .. only:: esp32s3
 
-    .. list-table:: ESP32-S3 Wi-Fi Target Transmit Power
+    .. list-table:: ESP32-S3 Wi-Fi Target TX Power
         :widths: 30 50
 
         * - Rate

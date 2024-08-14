@@ -10,16 +10,16 @@
 Zigbee 发射性能测试
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Test Mode**：设置为
+- **Test Mode**：
 
-  * ZB TX packet 用于发射性能测试；
-  * ZB TX continue 用于认证测试。
+  * ZB TX packet：用于发射性能测试；
+  * ZB TX continue：用于认证测试。
 
 - **Power Level**：设置 Zigbee 发射功率等级，支持 0~15 档测试。
 - **Channel**：设置 Zigbee 测试信道。
 - **Payload Length**：设置 Payload 长度，支持手动输入，范围 3~127，默认为 127。
 
-点击 start 后在 log 窗口中显示 Zigbee 发射参数说明，参考如下：
+点击 ``start`` 后在 log 窗口中显示 Zigbee 发射参数说明，参考如下：
 
 ::
 
@@ -39,7 +39,7 @@ Zigbee 接收性能测试
 - **Test Mode**：设置为 ZB RX 用于 Zigbee 接收性能测试。
 - **Channel**：设置 Zigbee 测试信道。
 
-点击 start 后使用仪器在测试信道发包，完成后点击 stop，在 log 窗口中显示收包信息如下：
+点击 ``start`` 后使用仪器在测试信道发包，完成后点击 ``stop``，在 log 窗口中显示收包信息如下：
 
 ::
 

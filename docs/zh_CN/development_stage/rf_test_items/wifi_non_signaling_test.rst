@@ -3,33 +3,33 @@ Wi-Fi 非信令测试
 
 :link_to_translation:`en:[English]`
 
-本章介绍如何对基于乐鑫芯片或模组的产品进行 Wi-Fi 非信令测试（非信令测试也称为定频测试）。
+本文档介绍如何对基于乐鑫芯片或模组的产品进行 Wi-Fi 非信令测试（非信令测试也称为定频测试）。
 
 .. include:: rf_non_signalling_test_setup.inc
 
 Wi-Fi 发射性能测试
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Test Mode**：设置为
+- **Test Mode**：
 
-  * Tx packet 用于发射性能测试，发包占空比低于 50%；
-  * Tx continues 用于认证测试，发包占空比接近 100%；
-  * Tx tone 用于单载波测试。
+  * TX packet：用于发射性能测试，发包占空比低于 50%；
+  * TX continues：用于认证测试，发包占空比接近 100%；
+  * TX tone：用于单载波测试。
 
 - **Wi-Fi Rate**：设置 Wi-Fi 测试速率
 - **BandWidth**：设置 Wi-Fi 测试带宽
 - **Channel**：设置 Wi-Fi 测试信道
-- **Atteunuation (0.25 dB)**：设置功率衰减，
+- **Atteunuation (0.25 dB)**：设置功率衰减
 
   * 0 表示无衰减，为默认值；
   * 2 表示衰减 0.5 dB；
   * 4 表示衰减 1 dB，依次类推。
 
-- **Duty Cycle**：在 Tx packet 测试时用于设置发包占空比，默认选择 default（约 30%），可配置为 10%，50%，90%。
+- **Duty Cycle**：在 TX packet 测试时用于设置发包占空比，默认选择 default（约 30%），可配置为 10%、50%、90%。
 - **Certification EN**：默认不使能，仅在验证 Power Limit 功能时使用。
 - **Certification Code**：默认不使能，仅在验证 Power Limit 功能时使用。
 
-点击 start 后在 log 窗口中应打印类似如下 Wi-Fi 发射参数说明：
+点击 ``start`` 后在 log 窗口中应打印类似如下 Wi-Fi 发射参数说明：
 
 ::
 
@@ -46,12 +46,12 @@ Wi-Fi 发射性能测试
 Wi-Fi 接收性能测试
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- **Test Mode**：设置为 RX packet 用于接收性能测试。
+- **Test Mode**：设置为 ``RX packet`` 用于接收性能测试。
 - **Wi-Fi Rate**：设置 Wi-Fi 测试速率。
 - **BandWidth**：设置 Wi-Fi 测试带宽。
 - **Channel**：设置 Wi-Fi 测试信道。
 
-点击 start 后，仪器在测试信道发包，完成后点击 stop，在 log 窗口中应显示类似如下收包信息：
+点击 ``start`` 后，仪器在测试信道发包，完成后点击 ``stop``，在 log 窗口中应显示类似如下收包信息：
 
 ::
 
@@ -65,8 +65,8 @@ Wi-Fi 接收性能测试
 
 .. note::
 
-    - Desired 为 0 表明未收到仪器发包，请检查仪器发包设置、包文件，以确保收包链路正常；
-    - Desired 不为 0 而且 Correct 大于 Desired 表明环境存在干扰，请在屏蔽环境下复测；
+    - ``Desired`` 为 0 表明未收到仪器发包，请检查仪器发包设置、包文件，以确保收包链路正常；
+    - ``Desired`` 不为 0 而且 ``Correct`` 大于 Desired 表明环境存在干扰，请在屏蔽环境下复测；
     - 收包信息中的其它参数仅用于 RD debug，无实际意义。
 
 .. figure:: ../../../_static/rf_test_tool/esp32c6_wifi_rx_on.png
