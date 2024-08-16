@@ -14,7 +14,7 @@ specified_files:
 #  - docs/zh_CN/development_stage/rf_test_items/wifi_adaptivity_test.rst
 #  - docs/zh_CN/development_stage/rf_test_items/wifi_blocking_test.rst
 #  - docs/zh_CN/development_stage/rf_test_items/wifi_non_signaling_test.rst
-#  - docs/zh_CN/development_stage/rf_test_items/wifi_signaling_test.rst
+  - docs/zh_CN/development_stage/rf_test_items/wifi_signaling_test.rst
 #  - docs/zh_CN/development_stage/rf_test_items/zigbee_non_signaling_test.rst
 
 #faq
