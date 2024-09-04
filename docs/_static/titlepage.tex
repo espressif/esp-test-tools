@@ -1,0 +1,32 @@
+\makeatletter
+\newgeometry{left=0cm,right=0cm,bottom=2cm}
+
+
+\cfoot{www.espressif.com}
+
+\renewcommand{\headrulewidth}{0pt}
+
+{\color{myred}\rule{30pt}{2.7cm}}
+    \hspace{0.2cm}
+    \begin{minipage}[b]{18cm}
+    {\fontsize{36pt}{48pt}\textbf{\idfTarget}}\\
+
+    {\fontsize{28pt}{18pt}\textbf{\color{mygrayy}\@title}}
+    \end{minipage}
+    \hspace{\stretch{1}}
+
+\vspace{48em}
+
+
+\begin{flushright}
+ \setlength\parindent{16.5cm}
+    \begin{minipage}[b]{2.2cm}
+    \sphinxlogo
+    \end{minipage}
+    \hspace{0.2cm}
+    {\color{myred}\rule{30pt}{2.2cm}}
+\end{flushright}
+
+
+\restoregeometry
+\makeatother
