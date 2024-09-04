@@ -64,6 +64,52 @@ versions_url = './_static/js/docs_version.js'
 pdf_file_prefix = u'esp-test-tools'
 
 # Add Tracking id for Google Analytics
-google_analytics_id = 'UA-132861133-1'
+google_analytics_id = ''
 
 project_homepage = 'https://github.com/espressif/esp-test-tools'
+
+# Table, figure, and section numbering configurations
+numfig = True
+
+# --- Customized LaTeX configurations ----------------
+
+# Customized titlepage
+titlepage = ''
+with open('../_static/titlepage.tex') as f:
+    titlepage = f.read()
+
+preamble_extra = r'''
+% ToC
+\makeatletter
+\renewcommand{\l@section}[2]{\vspace{14pt}\@dottedtocline{2}{0pt}{30pt}{\LARGE\bfseries\textcolor{LochmaraColor}{#1}}{#2}}
+\renewcommand{\l@subsection}[2]{\@dottedtocline{2}{0pt}{30pt}{\textcolor{LochmaraColor}{#1}}{#2}}
+\renewcommand{\@dotsep}{10000}
+\makeatother
+
+% Line spacing
+\linespread{1.3}
+
+% Make text left-aligned
+\raggedright
+'''
+
+# LaTeX Figure alignment
+latex_elements['figure_align'] = 'H'
+
+# Remove empty pages after ToC and end of chapter
+latex_elements['extraclassoptions'] = 'openany,oneside'
+
+# Use customized titlepage with version number
+latex_elements['maketitle'] = titlepage
+
+# Set document class
+latex_docclass = {
+    'howto': 'article',
+    'manual': 'article',
+}
+
+# Start a document from Section instead of Chapter
+latex_toplevel_sectioning = 'section'
+
+# Set the path of the logo \sphinxlogo used in the titlepage
+latex_logo = '../_static/esp-logo-standard-vertical.pdf'
