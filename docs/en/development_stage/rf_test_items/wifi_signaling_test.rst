@@ -20,8 +20,8 @@ The **Device Under Test (DUT)** is a product designed based on Espressif chips o
 .. note::
 
     - The CHIP_EN pin of the device under test is pulled up by default. If it is not pulled high in the product design, you need to manually connect the CHIP_EN to the 3V3 pin.
-    - Some serial communication boards have already swapped RXD and TXD internally, so there is no need to reverse the connection. The wiring should be adjusted according to the actual situation.
-    - Espressif chips have a power-on self-calibration function, so the RF connection line must be connected to the test instrument before the device under test is powered on for testing.
+    - Some serial communication boards have already swapped RXD and TXD internally, so there is no need to reverse them. The wiring needs to be adjusted according to the actual situation.
+    - Espressif chips have a power-on self-calibration function, so before the device under test is powered on for testing, the RF connection line must be connected to the test instrument.
 
 Firmware Burning
 ------------------
@@ -32,11 +32,13 @@ Firmware Burning
 
 {IDF_TARGET_FLASH_ADDRESS:default="0x0", esp32="0x1000", esp32s2="0x1000"}
 
-1. Open the DownloadTool tool.
+1. Open :ref:`download-tool`.
 
-2. Set the ChipType, Com Port, Baud Rate, click Open, and select to download to flash.
+2. Set ``ChipType``, ``Com Port``, ``Baud Rate``, click ``Open``, select to download to ``Flash``.
 
-3. {IDF_TARGET_WIFI_SIGNALLING_SINGLE_FIRMWARE} supports a single country code, {IDF_TARGET_WIFI_SIGNALLING_MULTIPLE_FIRMWARE} supports multiple country codes. They each include **bootloader.bin**, **partition-table.bin**, **phy_init_data.bin**, and **ssc.bin** 4 bin files. After unzipping {IDF_TARGET_WIFI_SIGNALLING_SINGLE_FIRMWARE} or {IDF_TARGET_WIFI_SIGNALLING_MULTIPLE_FIRMWARE}, burn the 4 bin files to the following addresses via UART.
+3. {IDF_TARGET_WIFI_SIGNALLING_SINGLE_FIRMWARE} supports a single country code, {IDF_TARGET_WIFI_SIGNALLING_MULTIPLE_FIRMWARE} supports multiple country codes. They each include **bootloader.bin**, **partition-table.bin**, **phy_init_data.bin**, and **ssc.bin** - 4 bin files.
+
+After unzipping {IDF_TARGET_WIFI_SIGNALLING_SINGLE_FIRMWARE} or {IDF_TARGET_WIFI_SIGNALLING_MULTIPLE_FIRMWARE}, burn the 4 bin files to the following addresses via UART.
 
 .. list-table::
    :header-rows: 1
@@ -52,17 +54,33 @@ Firmware Burning
    * - ssc.bin
      - 0x10000
 
-After the burning is completed, continue the following steps for the signaling test.
+.. only:: esp32 or esp32s2
+
+    .. figure:: ../../../_static/rf_test_tool/wifi_signaling_firmware_esp32_esp32s2.png
+        :align: center
+        :scale: 80%
+
+        Firmware burning schematic
+
+.. only:: not esp32 and not esp32s2
+
+    .. figure:: ../../../_static/rf_test_tool/wifi_signaling_firmware_others.png
+        :align: center
+        :scale: 80%
+
+        Firmware burning schematic
+
+After the burning is completed, continue the following steps for signaling testing.
 
 .. _wifi-signalling-test:
 
-Start the test
+Start Testing
 ---------------
 
-View the power-on print
-^^^^^^^^^^^^^^^^^^^^^^^
+Check the Power-on Print
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-Use a serial communication tool, such as `Friendly Serial Assistant <http://alithon.com/downloads>`_, configure the port number, set the baud rate to 115200, if the serial port prints similar information after the device to be tested is powered on again, you can confirm that the test status is OK:
+Use a serial communication tool, such as `Friendly Serial Assistant <http://alithon.com/downloads>`_, configure the port number, set the baud rate to 115200, if the serial port prints similar information after the device is powered on again, you can confirm that the test status is OK:
 
 .. figure:: ../../../_static/rf_test_tool/esp32c2_wifi_signaling.png
     :align: center
@@ -70,14 +88,14 @@ Use a serial communication tool, such as `Friendly Serial Assistant <http://alit
 
     Device power-on serial port print log
 
-Device networking
+Device Networking
 ^^^^^^^^^^^^^^^^^^^^^
 
-Enter the following two commands in the serial port in turn to complete the networking. The first command is to configure the prototype to enter station mode:
+Enter the following two commands in the serial port to complete the networking. The first command is to configure the prototype to enter station mode:
 
 ::
 
-  \\Device networking
+  \\Device Networking
   \\Configure the prototype to enter station mode
   op -S -o 1
 
@@ -96,8 +114,4 @@ After the station device is assigned an IP address, it indicates that the Wi-Fi 
 
     Device networking serial port print log
 
-After the device to be tested is successfully networked, you can use the RF test instrument for Wi-Fi signaling test.
-
-.. note::
-
-  In addition to routers, common AP devices' RF test instruments are usually CMW500 or CMW270.
+After the device under test is successfully networked, you can use the RF test instrument for Wi-Fi Signaling Test.

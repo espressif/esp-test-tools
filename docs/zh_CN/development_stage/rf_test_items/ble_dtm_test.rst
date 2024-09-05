@@ -44,11 +44,11 @@
 
 {IDF_TARGET_BLE_DTM_FIRMWARE:default="未更新", esp32c2="`ESP32-C2 低功耗蓝牙 DTM 测试固件 <https://dl.espressif.com/rf/esp32c2/ESP32C2_DTM_HCI_CMD_26M_20230301.zip>`_", esp32c3="`ESP32-C3 低功耗蓝牙 DTM 测试固件 <https://dl.espressif.com/rf/esp32c3/ESP32C3_DTM_HCI_20230724.zip>`_", esp32c6="`ESP32-C6 低功耗蓝牙 DTM 测试固件 <https://dl.espressif.com/rf/esp32c6/ESP32C6-ECO1_DTM_HCI_d1caf30_20230407.zip>`_", esp32s3="`ESP32-S3 低功耗蓝牙 DTM 测试固件 <https://dl.espressif.com/rf/esp32s3/ESP32S3_BLE_HCI_cb74f83_20220518.zip>`_", esp32h2="`ESP32-H2 低功耗蓝牙 DTM 测试固件 <https://dl.espressif.com/rf/esp32h2/ESP32H2_BLE_DTM_Bin_20230811.bin>`_"}
 
-1. 打开 DownloadTool 工具。
+1. 打开 :ref:`download-tool`。
 
-2. 设置 ChipType，Com Port，Baud Rate，点击 Open，选择下载到 Flash。
+2. 设置 ``ChipType``，``Com Port``，``Baud Rate``，点击 ``Open``，选择下载到 ``Flash``。
 
-3. {IDF_TARGET_BLE_DTM_FIRMWARE} 包括 **bootloader.bin**， **partition-table.bin** 与 **ssc.bin** 3 个 bin 文件。将 {IDF_TARGET_BLE_DTM_FIRMWARE} 解压后，分别将 4 个 bin 文件通过 UART 烧录至以下地址。
+3. {IDF_TARGET_BLE_DTM_FIRMWARE} 包括 **bootloader.bin**， **partition-table.bin** 与 **ssc.bin** 3 个 bin 文件。将 {IDF_TARGET_BLE_DTM_FIRMWARE} 解压后，分别将 4 个 bin 文件通过 ``UART`` 烧录至以下地址。
 
 .. list-table::
    :header-rows: 1
@@ -61,6 +61,22 @@
      - 0x8000
    * - ssc.bin
      - 0x10000
+
+.. only:: esp32
+
+    .. figure:: ../../../_static/rf_test_tool/ble_dtm_firmware_esp32.png
+        :align: center
+        :scale: 80%
+
+        烧录固件示意图
+
+.. only:: not esp32
+
+    .. figure:: ../../../_static/rf_test_tool/ble_dtm_firmware_others.png
+        :align: center
+        :scale: 80%
+
+        烧录固件示意图
 
 烧录完成后，继续以下步骤进行测试。
 

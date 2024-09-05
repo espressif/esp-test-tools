@@ -53,10 +53,10 @@
 
         ``BaudRate`` 设置为 115200
 
+3. 将 {IDF_TARGET_RF_NON_SIGNALING_FIRMWARE} 通过 ``UART`` 烧录至 ``Flash``。
+
 .. figure:: ../../../_static/rf_test_tool/nonsignaling_firmware_flash.png
     :align: center
     :scale: 80%
 
     ESPRFTestTool 工具配置
-
-3. 将 {IDF_TARGET_RF_NON_SIGNALING_FIRMWARE} 通过 ``UART`` 烧录至 ``Flash``。

@@ -3,7 +3,7 @@
 
 :link_to_translation:`en:[English]`
 
-低功耗蓝牙自适应测试用来确保设备以跳频方式工作且低功耗蓝牙信号的功率谱密度 (Power Spectral Density, PSD) 大于 10 dBm/MHz时，满足一定的参数要求，从而避免对其他无线设备造成干扰。该项测试主要应用在 CE 和 SRRC 认证测试中。
+低功耗蓝牙自适应测试用来确保设备以跳频方式工作且低功耗蓝牙信号的功率谱密度 (Power Spectral Density, PSD) 大于 10 dBm/MHz 时，满足一定的参数要求，从而避免对其他无线设备造成干扰。该项测试主要应用在 CE 和 SRRC 认证测试中。
 
 .. note::
 
@@ -34,11 +34,17 @@
 
 {IDF_TARGET_BLE_ADAPTIVITY_FIRMWARE:default="未更新", esp32c2="`ESP32-C2 低功耗蓝牙自适应测试固件 <https://dl.espressif.com/rf/esp32c2/ESP32C2_BLE_Adaptivity_bin_20230704.bin>`_", esp32c3="`ESP32-C3 低功耗蓝牙自适应测试固件 <https://dl.espressif.com/rf/esp32c3/ESP32C3_BLE_Adaptivity_bin_20230704.bin>`_", esp32c6="`ESP32-C6 低功耗蓝牙自适应测试固件 <https://dl.espressif.com/rf/esp32c6/ESP32C6_BLE_Adaptivity_bin_20230704.bin>`_", esp32s3="`ESP32-S3 低功耗蓝牙自适应测试固件 <https://dl.espressif.com/rf/esp32s3/ESP32S3_BLE_Adaptivity_bin_20230704.bin>`_", esp32h2="`ESP32-H2 低功耗蓝牙自适应测试固件 <https://dl.espressif.com/rf/esp32h2/ESP32H2_BLE_Adaptivity_bin_20230704.bin>`_"}
 
-1. 打开 :ref:`download-tool` 工具。
+1. 打开 :ref:`download-tool`。
 
-2. 设置 ChipType，Com Port，Baud Rate，点击 Open，选择下载到 Flash。
+2. 设置 ``ChipType``，``Com Port``，``Baud Rate``，点击 ``Open``，选择下载到 ``Flash``。
 
-3. 将 {IDF_TARGET_BLE_ADAPTIVITY_FIRMWARE} 通过 UART 烧录至 0x0。
+3. 将 {IDF_TARGET_BLE_ADAPTIVITY_FIRMWARE} 通过 ``UART`` 烧录至 ``0x0``。
+
+.. figure:: ../../../_static/rf_test_tool/ble_adaptivity_firmware.png
+    :align: center
+    :scale: 80%
+
+    烧录固件示意图
 
 烧录完成后，继续以下步骤进行测试。
 

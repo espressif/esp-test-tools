@@ -53,10 +53,10 @@ Flash Firmware
 
         Set ``BaudRate`` to 115200
 
+3. Flash {IDF_TARGET_RF_NON_SIGNALING_FIRMWARE} to ``Flash`` via ``UART``.
+
 .. figure:: ../../../_static/rf_test_tool/nonsignaling_firmware_flash.png
     :align: center
     :scale: 80%
 
     ESPRFTestTool Configuration
-
-3. Flash {IDF_TARGET_RF_NON_SIGNALING_FIRMWARE} to ``Flash`` via ``UART``.

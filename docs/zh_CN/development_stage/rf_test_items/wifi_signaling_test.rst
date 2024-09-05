@@ -32,11 +32,13 @@ Wi-Fi 信令测试用于评估和验证无线网络设备 Wi-Fi 信令功能，�
 
 {IDF_TARGET_FLASH_ADDRESS:default="0x0", esp32="0x1000", esp32s2="0x1000"}
 
-1. 打开 DownloadTool 工具。
+1. 打开 :ref:`download-tool`。
 
-2. 设置 ChipType，Com Port，Baud Rate，点击 Open，选择下载到 flash。
+2. 设置 ``ChipType``，``Com Port``，``Baud Rate``，点击 ``Open``，选择下载到 ``Flash``。
 
-3. {IDF_TARGET_WIFI_SIGNALLING_SINGLE_FIRMWARE} 支持单国国家码，{IDF_TARGET_WIFI_SIGNALLING_MULTIPLE_FIRMWARE} 支持多国国家码。它们分别都包括 **bootloader.bin**， **partiton-table.bin**， **phy_init_data.bin** 与 **ssc.bin** 4 个 bin 文件。将 {IDF_TARGET_WIFI_SIGNALLING_SINGLE_FIRMWARE} 或 {IDF_TARGET_WIFI_SIGNALLING_MULTIPLE_FIRMWARE} 解压后，分别将 4 个 bin 文件通过 UART 烧录至以下地址。
+3. {IDF_TARGET_WIFI_SIGNALLING_SINGLE_FIRMWARE} 支持单国国家码，{IDF_TARGET_WIFI_SIGNALLING_MULTIPLE_FIRMWARE} 支持多国国家码。它们分别都包括 **bootloader.bin**， **partiton-table.bin**， **phy_init_data.bin** 与 **ssc.bin** 4 个 bin 文件。
+
+将 {IDF_TARGET_WIFI_SIGNALLING_SINGLE_FIRMWARE} 或 {IDF_TARGET_WIFI_SIGNALLING_MULTIPLE_FIRMWARE} 解压后，分别将 4 个 bin 文件通过 UART 烧录至以下地址。
 
 .. list-table::
    :header-rows: 1
@@ -51,6 +53,22 @@ Wi-Fi 信令测试用于评估和验证无线网络设备 Wi-Fi 信令功能，�
      - 0xF000
    * - ssc.bin
      - 0x10000
+
+.. only:: esp32 or esp32s2
+
+    .. figure:: ../../../_static/rf_test_tool/wifi_signaling_firmware_esp32_esp32s2.png
+        :align: center
+        :scale: 80%
+
+        烧录固件示意图
+
+.. only:: not esp32 and not esp32s2
+
+    .. figure:: ../../../_static/rf_test_tool/wifi_signaling_firmware_others.png
+        :align: center
+        :scale: 80%
+
+        烧录固件示意图
 
 烧录完成后，继续以下步骤进行信令测试。
 
@@ -97,7 +115,3 @@ station 设备分配到 IP 地址后，表明 Wi-Fi 连接成功，会打印如�
     设备配网串口打印日志
 
 待测设备配网成功后，即可使用射频测试仪器进行 Wi-Fi 信令测试。
-
-.. note::
-
-  除路由器外，常见的 AP 设备的射频测仪器通常为 CMW500 或 CMW270。
