@@ -3,7 +3,7 @@ CE Certification
 
 :link_to_translation:`zh_CN:[中文]`
 
-CE Certification (Conformité Européene Mark) is a mandatory certification mark for products in European Union countries, indicating that the product meets the basic requirements of relevant EU directives, including safety, health, and environmental protection.
+CE Certification (Conformité Européene Mark) is a mandatory certification by the EU, confirming compliance with safety, health, and environmental protection standards.
 
 The CE certification of RF products requires non-signaling, adaptivity, and blocking tests:
 

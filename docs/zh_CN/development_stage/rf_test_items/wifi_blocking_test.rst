@@ -3,7 +3,7 @@ Wi-Fi 接收阻塞测试
 
 :link_to_translation:`en:[English]`
 
-Wi-Fi 接收阻塞测试用于在外部干扰状态下评估待测设备接收能力，主要用于 CE 认证。
+Wi-Fi 接收阻塞测试评估设备在强干扰信号环境下的接收性能，通过引入高强度的干扰信号，测试设备的接收灵敏度和抗干扰能力，以确保其在复杂无线环境中的可靠运行。
 
 .. include:: wifi_blocking_adaptivity_test_setup.inc
 

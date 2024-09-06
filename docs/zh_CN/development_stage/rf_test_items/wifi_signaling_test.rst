@@ -4,7 +4,7 @@ Wi-Fi 信令测试
 
 :link_to_translation:`en:[English]`
 
-Wi-Fi 信令测试用于评估和验证无线网络设备 Wi-Fi 信令功能，主要用于确保设备在各种操作环境中能够稳定可靠地通信。Wi-Fi 信令测试通常用于设备的 OTA (Over-The-Air) 性能评估，包括 TRP（Total Radiated Power， 总辐射功率）和 TIS（Total Isotropic Sensitivity，总各向同性灵敏度）测试。
+Wi-Fi 信令测试用于评估和验证无线网络设备 Wi-Fi 信令功能，主要用于确保设备在各种操作环境中能够稳定可靠地通信。Wi-Fi 信令测试通常用于设备的 OTA (Over-The-Air) 性能评估，包括 TRP（Total Radiated Power，总辐射功率）和 TIS（Total Isotropic Sensitivity，总各向同性灵敏度）测试。
 
 搭建测试环境
 ------------------------

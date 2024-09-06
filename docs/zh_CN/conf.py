@@ -19,7 +19,7 @@ current_year = datetime.datetime.now().year
 
 # General information about the project.
 project = u'ESP 测试工具'
-copyright = u'2016 - {} 乐鑫信息科技（上海）股份有限公司'.format(current_year)
+copyright = u'2024 - {} 乐鑫信息科技（上海）股份有限公司'.format(current_year)
 pdf_title = u'ESP 测试工具使用指南'
 # Final PDF filename will contains target and version
 pdf_file_prefix = u'esp-test-tools'

@@ -1,10 +1,9 @@
-
 Wi-Fi Signaling Test
-==============================
+====================
 
 :link_to_translation:`zh_CN:[中文]`
 
-The Wi-Fi Signaling Test is used to evaluate and verify the Wi-Fi signaling function of wireless network devices, mainly to ensure that the device can communicate stably and reliably in various operating environments. The Wi-Fi Signaling Test is commonly used for the OTA (Over-The-Air) performance evaluation of devices, including TRP (Total Radiated Power) and TIS (Total Isotropic Sensitivity) tests.
+The Wi-Fi Signaling Test assesses and verifies the Wi-Fi signaling functions of wireless network devices, focusing on stable and reliable communication across different operating scenarios. It evaluates the Over-The-Air (OTA) performance, including Total Radiated Power (TRP) and Total Isotropic Sensitivity (TIS).
 
 Setting Up the Test Environment
 -------------------------------

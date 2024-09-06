@@ -3,7 +3,7 @@ CE 认证
 
 :link_to_translation:`en:[English]`
 
-CE 认证（Conformité Européene Mark）是欧盟国家对产品的一种强制性认证标志，表明产品符合欧盟相关指令的基本要求，包括安全性、健康性和环境保护。
+CE 认证（Conformité Européene Mark）是欧盟的强制性认证，表明产品符合欧盟相关指令的基本要求，包括安全性、健康性和环境保护标准。
 
 射频产品的 CE 认证需要通过非信令、自适应、阻塞测试：
 

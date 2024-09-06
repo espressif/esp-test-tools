@@ -1,9 +1,9 @@
 Wi-Fi Blocking Test
-==============================
+===================
 
 :link_to_translation:`zh_CN:[中文]`
 
-The Wi-Fi Blocking Test is used to evaluate the receiving capability of the device under test in the presence of external interference, mainly for CE certification.
+The Wi-Fi Blocking Test evaluates the device's reception performance in environments with strong interference. By introducing high-intensity interference signals, it measures reception sensitivity and anti-interference capability, ensuring reliable operation in complex wireless environments.
 
 .. include:: wifi_blocking_adaptivity_test_setup.inc
 

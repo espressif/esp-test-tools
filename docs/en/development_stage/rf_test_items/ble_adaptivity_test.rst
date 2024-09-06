@@ -1,9 +1,9 @@
 Bluetooth LE Adaptivity Test
-=================================
+============================
 
 :link_to_translation:`zh_CN:[中文]`
 
-The Bluetooth LE Adaptivity Test is used to ensure that the device operates in a frequency hopping manner and when the Power Spectral Density (PSD) of the Bluetooth LE signal is greater than 10 dBm/MHz, it meets certain parameter requirements to avoid interference with other wireless devices. This test is mainly used in CE and SRRC certification tests.
+The Bluetooth LE Adaptivity Test ensures the device meets performance criteria during frequency hopping, particularly when the Power Spectral Density (PSD) of the Bluetooth LE signal exceeds 10 dBm/MHz, avoiding interference with other wireless devices.
 
 .. note::
 

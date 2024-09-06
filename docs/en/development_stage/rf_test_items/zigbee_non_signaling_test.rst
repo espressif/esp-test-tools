@@ -3,7 +3,7 @@
 
 :link_to_translation:`zh_CN:[中文]`
 
-This document introduces how to conduct 802.15.4 non-signaling tests (also known as fixed frequency tests) on products based on ESP chips or modules. Since the same RF link is used, it is only necessary to test Zigbee.
+802.15.4 Non-Signaling Test directly controls the device to transmit specific signals without requiring a network connection. It evaluates key performance metrics such as transmit power, spectrum characteristics, and error rate, ensuring reliable communication quality in IoT applications.
 
 .. include:: rf_non_signalling_test_setup.inc
 

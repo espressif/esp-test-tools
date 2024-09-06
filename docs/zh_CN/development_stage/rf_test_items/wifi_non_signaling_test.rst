@@ -3,7 +3,7 @@ Wi-Fi 非信令测试
 
 :link_to_translation:`en:[English]`
 
-本文档介绍如何对基于乐鑫芯片或模组的产品进行 Wi-Fi 非信令测试（非信令测试也称为定频测试）。
+Wi-Fi 非信令测试在不建立实际数据连接的情况下，直接控制设备发射特定信号，用于评估设备的射频性能，如发射功率、频谱质量和误码率等，以确保设备在各种环境中的无线通信质量。
 
 .. include:: rf_non_signalling_test_setup.inc
 

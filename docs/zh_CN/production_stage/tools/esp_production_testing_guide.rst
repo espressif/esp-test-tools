@@ -25,7 +25,7 @@ RF 综测仪测试方案
 
 测试过程简介（测试系统框架如下图）：
 
-.. figure:: ../../../../_static/production_testing_guide/diagram_of_tester_scheme_CN.png
+.. figure:: ../../../_static/production_testing_guide/diagram_of_tester_scheme_CN.png
     :align: center
     :scale: 70%
 
@@ -50,13 +50,13 @@ RF 综测仪测试方案
 
 信号板测试方案系统框架如下所示，信号板在产测过程中，可作为标准设备，与待测设备进行数据通讯，通过对通讯过程的数据进行判断，达到对待测设备进行测试的作用。
 
-.. figure:: ../../../../_static/production_testing_guide/diagram_of_signal_board_scheme_CN.png
+.. figure:: ../../../_static/production_testing_guide/diagram_of_signal_board_scheme_CN.png
     :align: center
     :scale: 80%
 
     信号板方案框架
 
-.. figure:: ../../../../_static/production_testing_guide/hardware_connection_for_signal_board_scheme.png
+.. figure:: ../../../_static/production_testing_guide/hardware_connection_for_signal_board_scheme.png
     :align: center
     :scale: 60%
 
@@ -157,7 +157,7 @@ RF 综测仪测试方案
 
 串口底板主要用于 USB 转串口，用同类的 USB 转串口底板也可以，但是考虑到部分 USB 转串口底板的稳定性较差，推荐直接申购如下串口测试底板。如需申购，请 `联系我们 <https://www.espressif.com/zh-hans/company/contact/pre-sale-questions-crm>`__）。
 
-.. figure:: ../../../../_static/production_testing_guide/serial_port_board.png
+.. figure:: ../../../_static/production_testing_guide/serial_port_board.png
     :align: center
     :scale: 70%
 
@@ -177,7 +177,7 @@ RF 综测仪测试方案
 
 Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产测底板后与 PC 串口进行通信，我们可以通过治具的结构压合最终达到这一目的。治具的整体外观示例可见下图。
 
-.. figure:: ../../../../_static/production_testing_guide/a_typical_module_fixture.png
+.. figure:: ../../../_static/production_testing_guide/a_typical_module_fixture.png
     :align: center
     :scale: 70%
 
@@ -218,7 +218,7 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
         * - ESP-BAT32
           - ESP32/ESP32-S/ESP32-C
 
-    .. figure:: ../../../../_static/production_testing_guide/a_typical_espbat32_signal_board_CN.png
+    .. figure:: ../../../_static/production_testing_guide/a_typical_espbat32_signal_board_CN.png
         :align: center
         :scale: 70%
 
@@ -236,7 +236,7 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
         * - ESP-BAT8
           - ESP8266
 
-    .. figure:: ../../../../_static/production_testing_guide/a_typical_espbat8_signal_board_CN.png
+    .. figure:: ../../../_static/production_testing_guide/a_typical_espbat8_signal_board_CN.png
         :align: center
         :scale: 70%
 
@@ -381,7 +381,7 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
 
 .. only:: esp32c2 or esp32c3 or esp32c6
 
-    .. figure:: ../../../../_static/production_testing_guide/wiring_for_ESP32C3_WROOM_02.png
+    .. figure:: ../../../_static/production_testing_guide/wiring_for_ESP32C3_WROOM_02.png
         :align: center
         :scale: 70%
 
@@ -389,7 +389,7 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
 
 .. only:: esp32 or esp32s2 or esp32s3
 
-    .. figure:: ../../../../_static/production_testing_guide/wiring_for_ESP32_WROOM_32D.png
+    .. figure:: ../../../_static/production_testing_guide/wiring_for_ESP32_WROOM_32D.png
         :align: center
         :scale: 70%
 
@@ -397,7 +397,7 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
 
 .. only:: esp8266
 
-    .. figure:: ../../../../_static/production_testing_guide/wiring_for_ESP32_WROOM_02D.png
+    .. figure:: ../../../_static/production_testing_guide/wiring_for_ESP32_WROOM_02D.png
         :align: center
         :scale: 70%
 
@@ -405,7 +405,7 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
 
 1. 待测模组与信号板保持 1~2 M 左右，待测模组处于下载模式，并给串口底板上电。
 
-.. figure:: ../../../../_static/production_testing_guide/quick_start_on_testing_diagram.png
+.. figure:: ../../../_static/production_testing_guide/quick_start_on_testing_diagram.png
     :align: center
     :scale: 70%
 
@@ -415,7 +415,7 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
 
 3. 点击 *START* 按钮开始测试。测试过程中，需保证 Log 中的 *fb_rssi* 参数保持在 50（ESP-BAT8 平台）或 -50（ESP-BAT32 平台）左右。
 
-4. 等待测试完成，并根据测试结果排除现场问题，具体方法请见章节 :ref:`appendix-a`。
+4. 等待测试完成，并根据测试结果排除现场问题。
 
 .. _production-testing-tool:
 
@@ -444,7 +444,7 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
 工具界面
 ~~~~~~~~
 
-.. figure:: ../../../../_static/production_testing_guide/main_interface.png
+.. figure:: ../../../_static/production_testing_guide/main_interface.png
     :align: center
     :scale: 70%
 
@@ -474,7 +474,7 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
 配置界面
 ~~~~~~~~
 
-.. figure:: ../../../../_static/production_testing_guide/dut_config.png
+.. figure:: ../../../_static/production_testing_guide/dut_config.png
     :align: center
     :scale: 70%
 
@@ -551,7 +551,7 @@ DUT CONFIG
 - **测试过程：** 待测产品运行测试固件，上位机发送串口指令后测试开始。首先，产品会读取寄存器信息，获得射频部分的性能情况，包括供电电压波动等；然后，与信号板进行一定数量的收发包；最后，上位机通过对比串口信息与阈值，判定待测产品是否通过测试。
 - **配置界面：** 可在 *Test Flow* 下的 *RF_TEST* 模块中使能。
 
-.. figure:: ../../../../_static/production_testing_guide/rf_test.png
+.. figure:: ../../../_static/production_testing_guide/rf_test.png
     :align: center
     :scale: 70%
 
@@ -565,7 +565,7 @@ GPIO 导通测试
 - **测试过程：** 在射频性能测试结束后，发送一系列串口命令来进行导通测试。此命令已经在上位机内集成，客户只需要开启此功能即可，若无 GPIO 导通测试需求，则不需要开启。
 - **配置界面：** 可在 *Test Flow* 下的 *GENERAL_TEST* 模块中使能（见下图），详细说明请参考 :ref:`appendix-b`。
 
-.. figure:: ../../../../_static/production_testing_guide/GPIO_conductivity_test.png
+.. figure:: ../../../_static/production_testing_guide/GPIO_conductivity_test.png
     :align: center
     :scale: 70%
 
@@ -579,7 +579,7 @@ GPIO 导通测试
 - **测试过程：** 在射频性能测试结束后，上位机通过控制串口板的流控，让待测产品从 flash 启动，匹配目标字符串。客户如需要进行版本校验，只需要开启此功能即可。
 - **配置界面：** 可在 Test Flow 下的 *GENERAL_TEST* 模块中使能。
 
-.. figure:: ../../../../_static/production_testing_guide/firmware_version_verification_test.png
+.. figure:: ../../../_static/production_testing_guide/firmware_version_verification_test.png
     :align: center
     :scale: 70%
 
@@ -593,7 +593,7 @@ Flash 功能测试
 - **测试过程：** 射频测试结束后，通过串口命令及返回结果进行判断。
 - **配置界面：** 可在 *Test Flow* 下的 *GENERAL_TEST* 模块中使能。其中 *FLASH_SCAN_ADDR* 为该测试项的起始地址（只需要 0x1000 扇区大小），*FLASH_SCAN_TARGET* 为目标测试值，不同芯片目标值不一样。
 
-.. figure:: ../../../../_static/production_testing_guide/flash_related_test.png
+.. figure:: ../../../_static/production_testing_guide/flash_related_test.png
     :align: center
     :scale: 70%
 
@@ -606,7 +606,7 @@ Flash 功能测试
 
 1. 环境搭建完成后，点击开始按钮（*START* 或 *ALL START*），开始同步及下载。
 
-.. figure:: ../../../../_static/production_testing_guide/synchronization.png
+.. figure:: ../../../_static/production_testing_guide/synchronization.png
     :align: center
     :scale: 70%
 
@@ -614,7 +614,7 @@ Flash 功能测试
 
 2. 下载完成后，进入测试状态，界面显示 *RUN*，等待测试结果。
 
-.. figure:: ../../../../_static/production_testing_guide/running.png
+.. figure:: ../../../_static/production_testing_guide/running.png
     :align: center
     :scale: 70%
 
@@ -622,7 +622,7 @@ Flash 功能测试
 
 3. 显示测试结果。
 
-.. figure:: ../../../../_static/production_testing_guide/finish.png
+.. figure:: ../../../_static/production_testing_guide/finish.png
     :align: center
     :scale: 70%
 
@@ -632,45 +632,13 @@ Flash 功能测试
 
 4. 查看详细测试记录
 
-.. figure:: ../../../../_static/production_testing_guide/check_test_record.png
+.. figure:: ../../../_static/production_testing_guide/check_test_record.png
     :align: center
     :scale: 70%
 
     查看测试结果
 
 每次产测的记录都会单独保存一个 log 文件，文件名以“模组 MAC +日期”的形式保存。点击 *Log* 按钮会弹出对应工位最后一次测试的 log 文件。如果该工位没有进行过测试，则打开 *Logs* 文件夹，方便查看 log。
-
-.. _appendix-a:
-
-附录 A：FAQ
-------------------
-
-搭建体验环境的必要性
-^^^^^^^^^^^^^^^^^^^^
-
-为了顺利进行量产测试，测试之前需要评估测试环境。之所以要进行环境评估，是基于以下原因考虑：
-
-- 当前测试环境的供电是否稳定，包括待测模组的供电、信号板的供电。
-- 当前使用的信号板是否符合要求。
-- 当前使用的产测底板是否符合要求。
-- 排除周围环境问题的干扰。
-
-待测设备接收的信号强度过大
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**问题：**
-
-测试结束后，出现 *RX FAIL*，查看 log 发现 *fb_rssi* 和 *dut_rssi* 大于 60 或小于 -30。
-
-**解决方案：**
-
-- 增大信号板和待测模组间的距离；
-- 或者在信号板端加 30 dB 衰减器。
-
-信号板工作年限及工作范围
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-信号板背面标有 MAC 地址及制作日期，由于晶振长时间工作等因素，一年后需重新校准。在一个独立环境或屏蔽环境中，只能放置一个信号板，否则会出现干扰。
 
 .. _appendix-b:
 
@@ -711,7 +679,7 @@ Flash 功能测试
 
     <GPIO1,GPIO3,0>;<GPIO5,GPIO7,0>;<GPIO10,GPIO19,0>;<GPIO0,GPIO2,1>;<GPIO0,GPIO4,1>;<GPIO6,GPIO18,1>
 
-    .. figure:: ../../../../_static/production_testing_guide/test_option_esp32c_series.png
+    .. figure:: ../../../_static/production_testing_guide/test_option_esp32c_series.png
         :align: center
         :scale: 70%
 
@@ -737,7 +705,7 @@ Flash 功能测试
 
     <GPIO34,GPIO23,0>;<GPIO35,GPIO22,1>;<GPIO32,GPIO15,0>;<GPIO33,GPIO2,1>;<GPIO25,GPIO19,0>;<GPIO26,GPIO18,1>;<GPIO12,GPIO5,0>;<GPIO27,GPIO13,0>;<GPIO14,GPIO21,1>
 
-    .. figure:: ../../../../_static/production_testing_guide/test_option_esp32_series.png
+    .. figure:: ../../../_static/production_testing_guide/test_option_esp32_series.png
         :align: center
         :scale: 70%
 
@@ -757,7 +725,7 @@ Flash 功能测试
 
     <GPIO14,GPIO2,0>;<GPIO13,GPIO4,0>;<GPIO12,GPIO5,1>
 
-    .. figure:: ../../../../_static/production_testing_guide/test_option_esp8266_series.png
+    .. figure:: ../../../_static/production_testing_guide/test_option_esp8266_series.png
         :align: center
         :scale: 70%
 
@@ -809,7 +777,7 @@ Flash 功能测试
         - <参数3>：为 32 bit 数，<参数3>代表 GPIO32~GPIO47 的输入结果。其中的 [1:0] 代表 GPIO32、[3:2] 代表 GPIO33，以此类推，[30:31] 代表 GPIO47。
 
     .. only:: esp32
-    
+
         .. note::
 
             ESP32 所用的 GPIO 共 34 个，其中：
@@ -847,7 +815,7 @@ Flash 功能测试
 
 固件版本校验测试的详细配置如下图所示：
 
-.. figure:: ../../../../_static/production_testing_guide/detailed_configuration.png
+.. figure:: ../../../_static/production_testing_guide/detailed_configuration.png
     :align: center
     :scale: 70%
 

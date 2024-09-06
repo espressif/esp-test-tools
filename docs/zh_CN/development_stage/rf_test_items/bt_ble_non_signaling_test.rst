@@ -5,7 +5,7 @@
 
 :link_to_translation:`en:[English]`
 
-本文档介绍如何对基于 {IDF_TARGET_NAME} 的产品进行{IDF_TARGET_BT_BLE_OPTION}非信令测试（非信令测试也称为定频测试）。
+{IDF_TARGET_BT_BLE_OPTION}非信令测试控制设备发射特定信号，无需建立实际连接，用于评估其发射功率、频谱特性和误码率等关键性能指标，确保设备的无线通信质量。
 
 .. include:: rf_non_signalling_test_setup.inc
 

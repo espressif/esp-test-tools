@@ -5,7 +5,7 @@
 
 :link_to_translation:`zh_CN:[中文]`
 
-This document introduces how to conduct a {IDF_TARGET_BT_BLE_OPTION} non-signaling test (also known as a fixed frequency test) on products based on {IDF_TARGET_NAME} chips or modules.
+{IDF_TARGET_BT_BLE_OPTION} Non-Signaling Test controls the device to transmit specific signals without establishing a connection, evaluating performance metrics such as transmit power, spectrum characteristics, and error rate to ensure communication quality.
 
 .. include:: rf_non_signalling_test_setup.inc
 

@@ -3,7 +3,7 @@
 
 :link_to_translation:`en:[English]`
 
-低功耗蓝牙自适应测试用来确保设备以跳频方式工作且低功耗蓝牙信号的功率谱密度 (Power Spectral Density, PSD) 大于 10 dBm/MHz 时，满足一定的参数要求，从而避免对其他无线设备造成干扰。该项测试主要应用在 CE 和 SRRC 认证测试中。
+低功耗蓝牙自适应测试确保设备以跳频方式工作且低功耗蓝牙信号的功率谱密度 (Power Spectral Density, PSD) 大于 10 dBm/MHz 时，满足一定的参数要求，从而避免对其他无线设备造成干扰。
 
 .. note::
 

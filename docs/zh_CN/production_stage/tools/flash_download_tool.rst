@@ -25,7 +25,7 @@ Flash 下载工具用户指南
 
 打开 ``Flash Download Tool`` 工具包，双击 ``.exe`` 文件后进入工具主界面，如下图所示：
 
-.. figure:: ../../../../_static/flash_download_tool/main_interface.jpg
+.. figure:: ../../../_static/flash_download_tool/main_interface.jpg
     :align: center
     :scale: 90%
 
@@ -66,7 +66,7 @@ SPIDownload 界面
   * **COM**：下载串口
   * **BAUD**：下载波特率
 
-.. figure:: ../../../../_static/flash_download_tool/spidownload_interface.jpg
+.. figure:: ../../../_static/flash_download_tool/spidownload_interface.jpg
     :align: center
     :scale: 90%
 
@@ -83,7 +83,7 @@ FactoryMultiDownload 界面
 - Factory 模式使用相对路径，默认从工具目录的 bin 路径下加载待烧录固件。而 Develop 使用绝对路径。Factory 模式的优点：只要将待烧录固件拷入工具目录的 bin 路径下，即可在工厂电脑间拷贝，不会出现路径问题。
 - Factory 模式打开时，工具启动默认使能界面上 LockSettings。LockSettings 在使能的情况下，固件路径及 SPI flash config 均无法配置，防止产线人员误触导致配置错误。（工厂管理人员需要配置时，可点击 LockSettings 进行解锁）
 
-.. figure:: ../../../../_static/flash_download_tool/factorymultidownload_interface.jpg
+.. figure:: ../../../_static/flash_download_tool/factorymultidownload_interface.jpg
     :align: center
     :scale: 90%
 
@@ -106,7 +106,7 @@ FactoryMultiDownload 界面的 download path config 及 SPI flash config 配置�
 
 2.	打开下载工具，ChipType 选择 ESP32，WorkMode 选择 Develop，LoadMode 选择 UART，点击 OK，如下图所示。
 
-.. figure:: ../../../../_static/flash_download_tool/device_selection.jpg
+.. figure:: ../../../_static/flash_download_tool/device_selection.jpg
     :align: center
     :scale: 90%
 
@@ -116,7 +116,7 @@ FactoryMultiDownload 界面的 download path config 及 SPI flash config 配置�
 4. 点击 START 开始下载。下载过程中，下载工具会读取 flash 的信息和芯片的 MAC 地址。
 5. 下载完成后，下载工具的界面如图 3-2 所示。
 
-.. figure:: ../../../../_static/flash_download_tool/download_finish_interface.jpg
+.. figure:: ../../../_static/flash_download_tool/download_finish_interface.jpg
     :align: center
     :scale: 90%
 
@@ -223,7 +223,7 @@ FactoryMultiDownload 界面的 download path config 及 SPI flash config 配置�
 
 运行工具时会提示如下内容，需核对是否正确。下图为同时开启 flash 加密和安全启动的提示信息：
 
-.. figure:: ../../../../_static/flash_download_tool/flash_encryption_secure_boot.jpg
+.. figure:: ../../../_static/flash_download_tool/flash_encryption_secure_boot.jpg
     :align: center
     :scale: 90%
 
@@ -242,7 +242,7 @@ FactoryMultiDownload 界面的 download path config 及 SPI flash config 配置�
 
 如下图所示：
 
-.. figure:: ../../../../_static/flash_download_tool/file_structure.jpg
+.. figure:: ../../../_static/flash_download_tool/file_structure.jpg
     :align: center
     :scale: 90%
 

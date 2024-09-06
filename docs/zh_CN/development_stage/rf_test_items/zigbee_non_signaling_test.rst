@@ -3,7 +3,7 @@
 
 :link_to_translation:`en:[English]`
 
-本章介绍基于 {IDF_TARGET_NAME} 芯片或模组的产品如何进行 802.15.4 非信令测试（非信令测试也称为定频测试），由于使用同一套射频链路，因此仅需测试 Zigbee 即可。
+802.15.4 非信令测试直接控制设备发射特定信号，无需建立网络连接。它评估发射功率、频谱特性和误码率等性能，以确保设备在物联网应用中的通信质量。
 
 .. include:: rf_non_signalling_test_setup.inc
 

@@ -3,7 +3,7 @@ Wi-Fi Adaptivity Test
 
 :link_to_translation:`zh_CN:[中文]`
 
-The Wi-Fi Adaptivity Test is used to evaluate the proactive adaptability of Wi-Fi devices in an interference environment, mainly for SRRC, CE and other certifications.
+The Wi-Fi Adaptivity Test simulates various network conditions and loads to access device's real-time adjustments in transmission rate, channel selection, and power levels, optimizing overall network performance and stability.
 
 .. note::
 

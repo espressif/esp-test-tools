@@ -3,7 +3,7 @@ FCC 认证
 
 :link_to_translation:`en:[English]`
 
-FCC 认证（Federal Communications Commission Certification）是指产品在美国市场销售和使用前，必须经过美国联邦通信委员会（FCC）的审核和批准。
+FCC 认证（Federal Communications Commission Certification）是美国联邦通信委员会的强制性认证，表明产品符合美国相关法规的要求，包括无线电频谱使用、电磁兼容性和射频辐射等。
 
 射频产品的 FCC 认证需要通过相关非信令测试：
 

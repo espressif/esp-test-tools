@@ -1,9 +1,9 @@
 Bluetooth LE Blocking Test
-=================================
+==========================
 
 :link_to_translation:`zh_CN:[中文]`
 
-The Bluetooth LE Blocking Test is primarily used to evaluate the performance and stability of wireless devices in environments with other wireless signal interference, ensuring compliance with relevant standards. This test is mainly used for CE certification.
+The Bluetooth LE Blocking Test assesses device stability and performance in environments with interference from other wireless signals, ensuring compliance with relevant standards.
 
 Bluetooth LE Blocking Test Method
 --------------------------------------

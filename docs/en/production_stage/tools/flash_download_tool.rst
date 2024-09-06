@@ -25,7 +25,7 @@ User Interface
 
 Open the Flash Download Tool package, double-click the .exe file to enter the main interface of the tool, as shown in the figure below:
 
-.. figure:: ../../../../_static/flash_download_tool/main_interface.jpg
+.. figure:: ../../../_static/flash_download_tool/main_interface.jpg
     :align: center
     :scale: 90%
 
@@ -66,7 +66,7 @@ Here is the configuration descriptions.
   * **COM**：serial port used for downloading
   * **BAUD**：baud rate
 
-.. figure:: ../../../../_static/flash_download_tool/spidownload_interface.jpg
+.. figure:: ../../../_static/flash_download_tool/spidownload_interface.jpg
     :align: center
     :scale: 90%
 
@@ -83,7 +83,7 @@ FactoryMultiDownload Tab
 - Factory mode uses the relative path. By default, the tool loads the firmware from the bin folder of the tool directory. Whereas, Develop mode uses the absolute path. The advantage of the Factory mode is that as long as the firmware to flash remains in the bin folder of the tool directory, path problems will not occur when the tool package is copied to other factory computers.
 - In Factory mode, the tool enables LockSettings by default. When LockSettings is enabled, firmware download path config and SPI flash config cannot be configured. This is to prevent production line workers from accidentally clicking and causing errors. (When factory managers need to configure these settings, they can click LockSettings to unlock.)
 
-.. figure:: ../../../../_static/flash_download_tool/factorymultidownload_interface.jpg
+.. figure:: ../../../_static/flash_download_tool/factorymultidownload_interface.jpg
     :align: center
     :scale: 90%
 
@@ -107,7 +107,7 @@ Regular Download Example
 
 2. Open the download tool, set ChipType to ESP32, WorkMode to Develop, and LoadMode to UART as shown in the figure below. Then, click OK
 
-.. figure:: ../../../../_static/flash_download_tool/device_selection.jpg
+.. figure:: ../../../_static/flash_download_tool/device_selection.jpg
     :align: center
     :scale: 90%
 
@@ -117,7 +117,7 @@ Regular Download Example
 4. Click START to start downloading. During the download process, the tool will read the flash information and the chip's MAC address.
 5. After the download is complete, the tool interface is shown in Figure 3-2.
 
-.. figure:: ../../../../_static/flash_download_tool/download_finish_interface.jpg
+.. figure:: ../../../_static/flash_download_tool/download_finish_interface.jpg
     :align: center
     :scale: 90%
 
@@ -219,7 +219,7 @@ Below are the configuration options. The equal sign is followed by the default v
 
 There will be a prompt message (shown below) when the tool is running. Check if the message is correct. The figure below shows the prompt message of enabling both flash encryption and secure boot:
 
-.. figure:: ../../../../_static/flash_download_tool/flash_encryption_secure_boot.jpg
+.. figure:: ../../../_static/flash_download_tool/flash_encryption_secure_boot.jpg
     :align: center
     :scale: 90%
 
@@ -236,7 +236,7 @@ Appendix A. Contents of the Flash Download Tool Folder
 
 The figure below shows what the Flash Download Tool folder contains.
 
-.. figure:: ../../../../_static/flash_download_tool/file_structure.jpg
+.. figure:: ../../../_static/flash_download_tool/file_structure.jpg
     :align: center
     :scale: 90%
 

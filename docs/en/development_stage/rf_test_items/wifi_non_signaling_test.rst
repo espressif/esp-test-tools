@@ -1,9 +1,9 @@
 Wi-Fi Non-Signaling Test
-===========================
+========================
 
 :link_to_translation:`zh_CN:[中文]`
 
-This document introduces how to conduct Wi-Fi Non-Signaling Test (also known as fixed frequency test) on products based on Espressif chips or modules.
+Wi-Fi Non-Signaling Test directly controls the device to transmit specific signals without establishing a data connection. It evaluates key RF performance metrics, such as transmit power, spectrum quality, and error rate, ensuring wireless communication quality in various scenarios.
 
 .. include:: rf_non_signalling_test_setup.inc
 

@@ -3,7 +3,7 @@ FCC Certification
 
 :link_to_translation:`zh_CN:[中文]`
 
-FCC Certification (Federal Communications Commission Certification) refers to the requirement that products must be reviewed and approved by the Federal Communications Commission (FCC) before they can be sold and used in the United States.
+FCC Certification (Federal Communications Commission Certification) is a mandatory certification by the U.S. Federal Communications Commission, ensuring compliance with regulations on radio spectrum use, electromagnetic compatibility, and RF radiation.
 
 The FCC certification of RF products requires passing relevant non-signaling tests:
 

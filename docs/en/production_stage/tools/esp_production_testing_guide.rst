@@ -25,7 +25,7 @@ The tester scheme is widely used for the production testing of Wi-Fi products. E
 
 The testing steps can be found below, which are also demonstrated in the figure below:
 
-.. figure:: ../../../../_static/production_testing_guide/diagram_of_tester_scheme_EN.png
+.. figure:: ../../../_static/production_testing_guide/diagram_of_tester_scheme_EN.png
     :align: center
     :scale: 70%
 
@@ -50,13 +50,13 @@ The signal board scheme is specially designed by Espressif, which can effectivel
 
 As demonstrated in the figure below, the signal board can be used as a standard device to interact with and test the DUT (Device Under Test) by analyzing the communication data.
 
-.. figure:: ../../../../_static/production_testing_guide/diagram_of_signal_board_scheme_EN.png
+.. figure:: ../../../_static/production_testing_guide/diagram_of_signal_board_scheme_EN.png
     :align: center
     :scale: 80%
 
     Diagram of Signal Board Scheme
 
-.. figure:: ../../../../_static/production_testing_guide/hardware_connection_for_signal_board_scheme.png
+.. figure:: ../../../_static/production_testing_guide/hardware_connection_for_signal_board_scheme.png
     :align: center
     :scale: 60%
 
@@ -157,7 +157,7 @@ Serial Port Board
 
 The serial port board is mainly used as a USB converter. You may use other similar boards. However, considering some of them might have unstable performance, it is recommended to purchase what is shown below. If you want to purchase from Espressif, please `contact us <https://www.espressif.com/en/company/contact/pre-sale-questions-crm>`__.
 
-.. figure:: ../../../../_static/production_testing_guide/serial_port_board.png
+.. figure:: ../../../_static/production_testing_guide/serial_port_board.png
     :align: center
     :scale: 70%
 
@@ -177,7 +177,7 @@ The test fixture is an important equipment to execute the DUT in test mode. Spec
 
 For the production testing of Wi-Fi modules, the module pins must be led out and connected to the base board, so as to communicate with the serial ports of the PC. To achieve this, a fixture can be used. The figures below show the overall appearance of a typical fixture.
 
-.. figure:: ../../../../_static/production_testing_guide/a_typical_module_fixture.png
+.. figure:: ../../../_static/production_testing_guide/a_typical_module_fixture.png
     :align: center
     :scale: 70%
 
@@ -218,7 +218,7 @@ The signal board can be used a standard device to interact with the DUT during t
         * - ESP-BAT32
           - For ESP32/ESP32-S/ESP32-C series
 
-    .. figure:: ../../../../_static/production_testing_guide/a_typical_espbat32_signal_board_EN.png
+    .. figure:: ../../../_static/production_testing_guide/a_typical_espbat32_signal_board_EN.png
         :align: center
         :scale: 80%
 
@@ -236,7 +236,7 @@ The signal board can be used a standard device to interact with the DUT during t
         * - ESP-BAT8
           - For ESP8266 series
 
-    .. figure:: ../../../../_static/production_testing_guide/a_typical_espbat8_signal_board_EN.png
+    .. figure:: ../../../_static/production_testing_guide/a_typical_espbat8_signal_board_EN.png
         :align: center
         :scale: 70%
 
@@ -381,7 +381,7 @@ Please connect your DUT to the production testing base board as shown in the fol
 
 .. only:: esp32c2 or esp32c3 or esp32c6
 
-    .. figure:: ../../../../_static/production_testing_guide/wiring_for_ESP32C3_WROOM_02.png
+    .. figure:: ../../../_static/production_testing_guide/wiring_for_ESP32C3_WROOM_02.png
         :align: center
         :scale: 70%
 
@@ -389,7 +389,7 @@ Please connect your DUT to the production testing base board as shown in the fol
 
 .. only:: esp32 or esp32s2 or esp32s3
 
-    .. figure:: ../../../../_static/production_testing_guide/wiring_for_ESP32_WROOM_32D.png
+    .. figure:: ../../../_static/production_testing_guide/wiring_for_ESP32_WROOM_32D.png
         :align: center
         :scale: 70%
 
@@ -397,7 +397,7 @@ Please connect your DUT to the production testing base board as shown in the fol
 
 .. only:: esp8266
 
-    .. figure:: ../../../../_static/production_testing_guide/wiring_for_ESP32_WROOM_02D.png
+    .. figure:: ../../../_static/production_testing_guide/wiring_for_ESP32_WROOM_02D.png
         :align: center
         :scale: 70%
 
@@ -405,7 +405,7 @@ Please connect your DUT to the production testing base board as shown in the fol
 
 1. The DUT communicates with the signal board at a rate of around 1 to 2 M. Configure the DUT to download mode and power up the serial port board.
 
-.. figure:: ../../../../_static/production_testing_guide/quick_start_on_testing_diagram.png
+.. figure:: ../../../_static/production_testing_guide/quick_start_on_testing_diagram.png
     :align: center
     :scale: 70%
 
@@ -415,7 +415,7 @@ Please connect your DUT to the production testing base board as shown in the fol
 
 3. Click *START* button to start the test. During the testing, Parameter *fb_rssi* in the Log must be kept at around 50 (for ESP-BAT8) or -50 (for ESP-BAT32).
 
-4. Troubleshoot based on the test results. For details, see :ref:`appendix-a` below.
+4. Troubleshoot based on the test results.
 
 .. _production-testing-tool:
 
@@ -444,7 +444,7 @@ Directory
 Interface
 ~~~~~~~~~
 
-.. figure:: ../../../../_static/production_testing_guide/main_interface.png
+.. figure:: ../../../_static/production_testing_guide/main_interface.png
     :align: center
     :scale: 70%
 
@@ -474,7 +474,7 @@ Tool Configuration
 Interface
 ~~~~~~~~~
 
-.. figure:: ../../../../_static/production_testing_guide/dut_config.png
+.. figure:: ../../../_static/production_testing_guide/dut_config.png
     :align: center
     :scale: 70%
 
@@ -551,7 +551,7 @@ RF Test
 - **Test Steps:** DUT runs with the testing firmware. The test starts after the host computer sends the serial port commands. Initially, the DUT obtains the RF performance information by reading registers, including the voltage fluctuations; then the DUT sends/receives a certain number of packets to/from the signal board; upon completion, the host computer determines if the DUT has passed the tests by checking the log information against the set thresholds.
 - **Configuration Interface:** To enable this test, go to the *Test Flow* tab and check *RF_TEST*.
 
-.. figure:: ../../../../_static/production_testing_guide/rf_test.png
+.. figure:: ../../../_static/production_testing_guide/rf_test.png
     :align: center
     :scale: 70%
 
@@ -565,7 +565,7 @@ GPIO Conductivity Test
 - **Test Steps:** After the RF test is completed, a series of serial port commands are sent to perform the GPIO conductivity test. The serial port commands have been integrated in the host computer, so the customers can easily perform the GPIO Conductivity Test by enabling this function.
 - **Configuration Interface:** As shown in the figure below, you can enable this test in the *GENERAL_TEST* sub-list on the *Test Flow* tab. For details, please refer to :ref:`appendix-b`.
 
-.. figure:: ../../../../_static/production_testing_guide/GPIO_conductivity_test.png
+.. figure:: ../../../_static/production_testing_guide/GPIO_conductivity_test.png
     :align: center
     :scale: 70%
 
@@ -579,7 +579,7 @@ Firmware Version Verification Test
 - **Test Steps:** After the RF test, the host computer configures the serial port board to flow control mode, so the DUT boots from flash, and check the string in the log against the target string. You can easily verify the firmware version by enabling this function.
 - **Configuration Interface:** You can enable this test in the *GENERAL_TEST* sub-list on the *Test Flow* tab.
 
-.. figure:: ../../../../_static/production_testing_guide/firmware_version_verification_test.png
+.. figure:: ../../../_static/production_testing_guide/firmware_version_verification_test.png
     :align: center
     :scale: 70%
 
@@ -593,7 +593,7 @@ Flash-related Test
 - **Test Steps:** After the RF test is completed, the host computer provides a conclusion by checking the test results.
 - **Configuration Interface:** You can enable these tests in the *GENERAL_TEST* sub-list on the *Test Flow* tab. *FLASH_SCAN_ADDR* is the starting address of this test item (only requiring a 0x1000 sector size), while *FLASH_SCAN_TARGET* is the target test value. The target value varies for different chips.
 
-.. figure:: ../../../../_static/production_testing_guide/flash_related_test.png
+.. figure:: ../../../_static/production_testing_guide/flash_related_test.png
     :align: center
     :scale: 70%
 
@@ -606,7 +606,7 @@ Two different test modes are supported in the signal board scheme: the Single-DU
 
 1. After setting up the environment, click *Start* button (or *ALL START*) to begin synchronization and downloading.
 
-.. figure:: ../../../../_static/production_testing_guide/synchronization.png
+.. figure:: ../../../_static/production_testing_guide/synchronization.png
     :align: center
     :scale: 70%
 
@@ -614,7 +614,7 @@ Two different test modes are supported in the signal board scheme: the Single-DU
 
 2. After downloading is finished, the tool displays testing progress (*RUN*). Wait for test results.
 
-.. figure:: ../../../../_static/production_testing_guide/running.png
+.. figure:: ../../../_static/production_testing_guide/running.png
     :align: center
     :scale: 70%
 
@@ -622,7 +622,7 @@ Two different test modes are supported in the signal board scheme: the Single-DU
 
 3. The tool displays test results.
 
-.. figure:: ../../../../_static/production_testing_guide/finish.png
+.. figure:: ../../../_static/production_testing_guide/finish.png
     :align: center
     :scale: 70%
 
@@ -632,45 +632,13 @@ The tool displays *FAIL* if any test item fails. The status block lists the deta
 
 4. Check the detailed test records.
 
-.. figure:: ../../../../_static/production_testing_guide/check_test_record.png
+.. figure:: ../../../_static/production_testing_guide/check_test_record.png
     :align: center
     :scale: 70%
 
     Check Test Record
 
 The test results of each production test will be saved in a separated log. The name of each log follows the pattern of “DUT MAC + date”. Click the *Log* button to bring up the log file of the last test for the corresponding DUT. If there is no test history for this workstation, open the *Logs* folder to access available logs.
-
-.. _appendix-a:
-
-Appendix A: FAQ
-------------------
-
-Why it is necessary to set up an evaluating environment?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-An evaluating environment should be set up before the actual production testing, so as to check:
-
-- if the power supplies of the DUT and signal board are stable.
-- if the signal board currently being used meets the requirements.
-- if the base board currently being used meets the requirements.
-- if the ambient environment is free from interferences.
-
-Why the signal received by my DUT is excessively strong?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Question:**
-
-After the testing was completed, I saw an error message of *RX FAIL*. Checking the testing log, I found that the parameters *fb_rssi* and *dut_rssi* were around 60 and -30 respectively.
-
-**Solution:**
-
-- Please move the signal board AWAY from the DUT;
-- Or add a 30 dB attenuator at the signal board.
-
-Working life and range of signal Board
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The MAC address and production date of the board are given at the back of the signal board. Note that the signal board must be recalibrated every year, because the long operating time of components, such as crystal oscillators, may lead to measurement deviations. Only ONE signal board must be used in an independent environment or RF-shielded environment to avoid interference.
 
 .. _appendix-b:
 
@@ -711,7 +679,7 @@ Test Configuration
 
     <GPIO1,GPIO3,0>;<GPIO5,GPIO7,0>;<GPIO10,GPIO19,0>;<GPIO0,GPIO2,1>;<GPIO0,GPIO4,1>;<GPIO6,GPIO18,1>
 
-    .. figure:: ../../../../_static/production_testing_guide/test_option_esp32c_series.png
+    .. figure:: ../../../_static/production_testing_guide/test_option_esp32c_series.png
         :align: center
         :scale: 70%
 
@@ -737,7 +705,7 @@ Test Configuration
 
     <GPIO34,GPIO23,0>;<GPIO35,GPIO22,1>;<GPIO32,GPIO15,0>;<GPIO33,GPIO2,1>;<GPIO25,GPIO19,0>;<GPIO26,GPIO18,1>;<GPIO12,GPIO5,0>;<GPIO27,GPIO13,0>;<GPIO14,GPIO21,1>
 
-    .. figure:: ../../../../_static/production_testing_guide/test_option_esp32_series.png
+    .. figure:: ../../../_static/production_testing_guide/test_option_esp32_series.png
         :align: center
         :scale: 70%
 
@@ -757,7 +725,7 @@ Test Configuration
 
     <GPIO14,GPIO2,0>;<GPIO13,GPIO4,0>;<GPIO12,GPIO5,1>
 
-    .. figure:: ../../../../_static/production_testing_guide/test_option_esp8266_series.png
+    .. figure:: ../../../_static/production_testing_guide/test_option_esp8266_series.png
         :align: center
         :scale: 70%
 
@@ -847,7 +815,7 @@ Appendix C: Firmware Version Verification Test
 
 The detailed configuration of the firmware version verification test is shown below:
 
-.. figure:: ../../../../_static/production_testing_guide/detailed_configuration.png
+.. figure:: ../../../_static/production_testing_guide/detailed_configuration.png
     :align: center
     :scale: 70%
 

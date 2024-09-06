@@ -3,7 +3,7 @@ Bluetooth LE DTM Test
 
 :link_to_translation:`zh_CN:[中文]`
 
-The Bluetooth LE DTM test is used for direct testing of the RF performance of wireless devices, allowing the transmission and reception functions to be tested at the physical level without the support of a complete protocol stack. This test is mainly used for low-power BQB certification and CE and other related certifications.
+The Bluetooth LE DTM Test evaluates the RF performance of Bluetooth LE devices by directly controlling the device to enter specific transmission or reception modes, accessing key metrics like transmit power, reception sensitivity, and spectrum characteristics.
 
 Setting up the test environment
 -------------------------------

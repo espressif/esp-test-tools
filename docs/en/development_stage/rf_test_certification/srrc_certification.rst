@@ -1,7 +1,7 @@
 SRRC Certification
 ==================
 
-The SRRC (State Radio Regulatory Commission) certification is a mandatory certification in China for radio equipment. This certification aims to ensure that radio equipment complies with the relevant laws and technical standards of national radio management, to avoid interference with the electromagnetic environment and other radio equipment. Only products that have obtained SRRC certification can legally enter the Chinese market for sale and use.
+The SRRC (State Radio Regulatory Commission) Certification is a mandatory certification for radio equipment in China, ensuring compliance with national radio management regulations to avoid electromagnetic interference.
 
 The SRRC certification of RF products requires related non-signaling and adaptivity tests:
 
