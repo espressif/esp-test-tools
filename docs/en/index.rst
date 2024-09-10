@@ -5,13 +5,13 @@ ESP Test Tools and Guidelines
 
 This repository mainly provides RF test tools and test items for the development stage, as well as tools and guidelines for the production stage.
 
-======================    ====================    =========================
-|RF Test Guide|_          |RF Test Items|_        |Production-stage Tools|_
-----------------------    --------------------    -------------------------
-`RF Test Guide`_          `RF Test Items`_        `Production-stage Tools`_
-======================    ====================    =========================
+=========================    =========================    =========================
+   |RF Test Guide|_              |RF Test Items|_         |Production-stage Tools|_
+-------------------------    -------------------------    -------------------------
+   `RF Test Guide`_              `RF Test Items`_         `Production-stage Tools`_
+=========================    =========================    =========================
 
-.. |RF Test Guide| image:: ../_static/rf_test_guide.png
+.. |RF Test Guide| image:: ../_static/rf_test_guide_index.png
 .. _RF Test Guide: development_stage/rf_test_guide/rf_test_guide.html
 
 .. |RF Test Items| image:: ../_static/rf_test_items_index.png
