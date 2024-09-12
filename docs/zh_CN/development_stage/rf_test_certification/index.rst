@@ -9,4 +9,3 @@
    ce_certification
    fcc_certification
    srrc_certification
-   wfa_certification

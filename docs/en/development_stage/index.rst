@@ -10,7 +10,7 @@ To ensure your product meets requirements for related `RF Certifications`_, this
 RF Test Tool
 ============
 
-:doc:`EspRFTestTool Toolkit </development_stage/rf_test_guide/rf_test_guide>` is a comprehensive tool that allows you to control devices and evaluate key RF performance metrics. It supports the following `RF Test Items`_.
+:doc:`EspRFTestTool Toolkit <rf_test_guide/rf_test_guide>` is a comprehensive tool that allows you to control devices and evaluate key RF performance metrics. It supports the following `RF Test Items`_.
 
 RF Test Items
 =============
@@ -225,9 +225,11 @@ Test items for each certification are listed in the following table.
 
    .. note::
 
-      :doc:`Wi-Fi Signaling Test </development_stage/rf_test_items/wifi_signaling_test>` is not used for standard RF certifications and is typically used to evaluate the OTA performance of devices.
+      :doc:`Wi-Fi Signaling Test </development_stage/rf_test_items/wifi_signaling_test>` is not typically required for standard RF certifications; it is primarily used to evaluate the OTA performance of devices.
+
+.. only:: esp32 or esp32c2 or esp32c3 or esp32c6 or esp32s3
 
    WFA Certification and Testing Guideline
    =======================================
 
-   In addition, this repository also provides :doc:`WFA Certification and Testing Guide </development_stage/rf_test_items/wfa_certification_test>`, which provides detailed information about the WFA certification process and testing requirements to help you pass the Wi-Fi Alliance certification.
+   In addition, this repository also provides :doc:`WFA Certification and Testing Guide <wfa_certification_test/wfa_certification_test>`, which provides detailed information about the WFA certification process and testing requirements to help you pass the Wi-Fi Alliance certification.

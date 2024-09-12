@@ -10,7 +10,7 @@
 RF 测试工具
 ================
 
-:doc:`EspRFTestTool 工具包 </development_stage/rf_test_guide/rf_test_guide>` 是一个综合工具，你可以使用该工具控制设备并测试关键的 RF 性能指标，它支持以下 `RF 测试项目`_。
+:doc:`EspRFTestTool 工具包 <rf_test_guide/rf_test_guide>` 是一个综合工具，你可以使用该工具控制设备并测试关键的 RF 性能指标，它支持以下 `RF 测试项目`_。
 
 RF 测试项目
 ================
@@ -227,7 +227,9 @@ RF 认证
 
       :doc:`Wi-Fi 信令测试 <rf_test_items/wifi_signaling_test>` 不用于标准的 RF 认证测试项目，通常用于评估设备的 OTA 性能。
 
+.. only:: esp32 or esp32c2 or esp32c3 or esp32c6 or esp32s3
+
    WFA 认证与测试指南
    ==================================
 
-   此外，本仓库还提供了 :doc:`WFA 认证与测试指南 <rf_test_items/wfa_certification_test>`，详细介绍了 WFA 认证流程和测试要求，帮助你顺利通过 Wi-Fi 联盟的认证。
+   此外，本仓库还提供了 :doc:`WFA 认证与测试指南 <wfa_certification_test/wfa_certification_test>`，详细介绍了 WFA 认证流程和测试要求，帮助你顺利通过 Wi-Fi 联盟的认证。

@@ -7,7 +7,7 @@ FAQ
 
    - :doc:`RF Testing FAQs <rf_testing_faq>` offers answers to common questions about :doc:`EspRFTestTool Toolkit <../development_stage/rf_test_guide/rf_test_guide>` and :doc:`RF Test Items <../development_stage/rf_test_items/index>`.
 
-   :not esp32h2: - :doc:`WFA Certification Test FAQs <wfa_certification_test_faq>` address common questions regarding the :doc:`WFA Certification and Testing Guide <../development_stage/rf_test_items/wfa_certification_test>`.
+   :esp32 or esp32c2 or esp32c3 or esp32c6 or esp32s3: - :doc:`WFA Certification Test FAQs <wfa_certification_test_faq>` address common questions regarding the :doc:`WFA Certification and Testing Guide <../development_stage/wfa_certification_test/wfa_certification_test>`.
 
    - :doc:`Flash Download Tool FAQs <flash_download_tool_faq>` cover common questions about the :doc:`Flash Download Tool <../production_stage/tools/flash_download_tool>`.
 
