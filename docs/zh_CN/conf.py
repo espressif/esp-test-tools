@@ -28,12 +28,6 @@ pdf_file_prefix = u'esp-test-tools'
 # for a list of supported languages.
 language = 'zh_CN'
 
-# Table, figure, and section numbering configurations
-numfig_format = {
-    'figure': '图 %s',
-    'table': '表 %s',
-}
-
 # ----------------- Chinese-specific LaTeX configurations -----------------
 
 cn_footer_toc_config = r'''

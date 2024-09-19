@@ -9,21 +9,22 @@ BLE_DOCS = ['development_stage/rf_test_items/ble_adaptivity_test.rst',
 
 BT_DOCS = ['development_stage/rf_test_items/bt_ble_non_signaling_test.rst']
 
-WIFI_DOCS = ['development_stage/rf_test_items/wfa_certification_test.rst',
-             'development_stage/rf_test_items/wifi_adaptivity_test.rst',
+WIFI_DOCS = ['development_stage/rf_test_items/wifi_adaptivity_test.rst',
              'development_stage/rf_test_items/wifi_blocking_test.rst',
              'development_stage/rf_test_items/wifi_non_signaling_test.rst',
              'development_stage/rf_test_items/wifi_signaling_test.rst']
 
 ZIGBEE_DOCS = ['development_stage/rf_test_items/zigbee_non_signaling_test.rst']
 
+WFA_DOCS = ['development_stage/rf_test_items/wfa_certification_test.rst']
+
 ESP8266_DOCS = WIFI_DOCS
-ESP32_DOCS = WIFI_DOCS + BT_DOCS
-ESP32C2_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS
-ESP32C3_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS
-ESP32C6_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + ZIGBEE_DOCS
+ESP32_DOCS = WIFI_DOCS + BT_DOCS + WFA_DOCS
+ESP32C2_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + WFA_DOCS
+ESP32C3_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + WFA_DOCS
+ESP32C6_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + ZIGBEE_DOCS + WFA_DOCS
 ESP32S2_DOCS = WIFI_DOCS
-ESP32S3_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS
+ESP32S3_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + WFA_DOCS
 ESP32H2_DOCS = BLE_DOCS + BT_DOCS + ZIGBEE_DOCS
 
 conditional_include_dict = {'esp8266':ESP8266_DOCS,
@@ -67,9 +68,6 @@ pdf_file_prefix = u'esp-test-tools'
 google_analytics_id = ''
 
 project_homepage = 'https://github.com/espressif/esp-test-tools'
-
-# Table, figure, and section numbering configurations
-numfig = True
 
 # --- Customized LaTeX configurations ----------------
 

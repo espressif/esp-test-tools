@@ -27,12 +27,6 @@ pdf_title = u'User Guide of ESP Test Tools'
 # for a list of supported languages.
 language = 'en'
 
-# Table, figure, and section numbering configurations
-numfig_format = {
-    'figure': 'Figure %s',
-    'table': 'Table %s',
-}
-
 # ----------------- English-specific LaTeX configurations -----------------
 
 latex_elements['preamble'] = preamble + preamble_extra

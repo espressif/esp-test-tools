@@ -3,7 +3,9 @@ ESP Test Tools and Guidelines
 
 :link_to_translation:`zh_CN:[中文]`
 
-This repository provides comprehensive resources to support the development and production of products based on `Espressif chips <https://www.espressif.com/en/products/socs>`__ and `modules <https://www.espressif.com/en/products/modules>`__. For the development stage, it provides an RF testing tool and detailed test guidelines to ensure your product meets the necessary performance and certification standards. Additionally, for the production stage, the repository includes essential tools and instructions to streamline the manufacturing process, ensuring efficient testing, validation, and quality control of your products.
+This repository provides comprehensive resources to support the development and production of products based on `Espressif chips <https://www.espressif.com/en/products/socs>`__ and `modules <https://www.espressif.com/en/products/modules>`__.
+
+For the development stage, it provides an RF testing tool and detailed test guidelines to ensure your product meets the necessary performance and certification standards. Additionally, for the production stage, the repository includes essential tools and instructions to streamline the manufacturing process, ensuring efficient testing, validation, and quality control of your products.
 
 =========================    =========================    =========================
    |RF Test Guide|_              |RF Test Items|_         |Production-stage Tools|_
@@ -28,6 +30,7 @@ This repository provides comprehensive resources to support the development and 
    RF Test Guide <development_stage/rf_test_guide/rf_test_guide>
    RF Test Items <development_stage/rf_test_items/index>
    RF Test Certification <development_stage/rf_test_certification/index>
+   WFA Certification and Testing Guide <development_stage/wfa_certification_test/wfa_certification_test>
 
 .. toctree::
    :hidden:

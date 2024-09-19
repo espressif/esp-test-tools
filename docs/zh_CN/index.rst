@@ -3,7 +3,9 @@ ESP 测试工具与指南
 
 :link_to_translation:`en:[English]`
 
-为支持基于 `乐鑫芯片 <https://www.espressif.com/zh-hans/products/socs>`__ 和 `模组 <https://www.espressif.com/zh-hans/products/modules>`__ 的产品开发和生产，本仓库提供了丰富的资源。在开发阶段，仓库提供了 RF 测试工具和详细的测试指南，确保您的产品符合必要的性能和认证标准。此外，在生产阶段，仓库还包含了相应的工具和指导，以简化生产流程，确保高效的测试、验证和质量控制。
+为支持基于 `乐鑫芯片 <https://www.espressif.com/zh-hans/products/socs>`__ 和 `模组 <https://www.espressif.com/zh-hans/products/modules>`__ 的产品开发和生产，本仓库提供了丰富的资源。
+
+在开发阶段，仓库提供了 RF 测试工具和详细的测试指南，确保您的产品符合必要的性能和认证标准。此外，在生产阶段，仓库还包含了相应的工具和指导，以简化生产流程，确保高效的测试、验证和质量控制。
 
 =======================    =======================    =======================
 |RF 测试指南|_               |RF 测试项目|_              |生产阶段工具|_
@@ -28,6 +30,7 @@ ESP 测试工具与指南
    RF 测试指南 <development_stage/rf_test_guide/rf_test_guide>
    RF 测试项目 <development_stage/rf_test_items/index>
    RF 测试认证 <development_stage/rf_test_certification/index>
+   WFA 认证与测试指南 <development_stage/wfa_certification_test/wfa_certification_test>
 
 .. toctree::
    :hidden:
