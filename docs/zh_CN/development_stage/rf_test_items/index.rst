@@ -1,4 +1,4 @@
-射频测试项目
+RF 测试项目
 ***********************
 
 :link_to_translation:`en:[English]`

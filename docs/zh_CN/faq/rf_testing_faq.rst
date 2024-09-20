@@ -1,4 +1,4 @@
-射频测试
+RF 测试
 =================
 
 :link_to_translation:`en:[English]`

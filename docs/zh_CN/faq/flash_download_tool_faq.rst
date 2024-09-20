@@ -1,5 +1,5 @@
-Flash 下载工具常见问题
-=========================================
+Flash 下载工具
+=============================
 
 :link_to_translation:`en:[English]`
 
@@ -16,24 +16,28 @@ Flash 下载工具常见问题
     串口连接失败
 
 - 确认选择的 COM 口是否为需要下载的 COM 口
-- 检查串口是否被其他线程占用。
+- 检查串口是否被其他线程占用
 
-**3. 工具一直停留在下图界面，该怎么解决？**
+**3. 工具一直停留在以下界面，该怎么解决？**
 
 .. figure:: ../../_static/flash_download_tool/download_panel.jpg
     :align: center
     :scale: 90%
 
-工具停留在同步过程中可能有以下几种原因。
+    下载界面
+
+工具停留在同步过程中可能有以下几种原因：
 
 - 硬件原因：设备没有处于下载模式
 - 软件原因：待下载的设备选择错误
 
-**4. 点击 START 后出现下图问题，是什么原因？**
+**4. 点击 START 后出现以下问题，是什么原因？**
 
 .. figure:: ../../_static/flash_download_tool/efuse_error.jpg
     :align: center
-    :scale: 90%
+    :scale: 100%
+
+    eFuse 错误
 
 若下载命令行框中出现 ``ESP8266 Chip efuse check error esp_check_mac_and_efuse``，代表设备的 eFuse 出现错误，可能有以下原因：
 
@@ -51,6 +55,7 @@ Flash 下载工具常见问题
 **6. 固件下载完成后，重新上电 crash。**
 
 请首先确认烧录的固件本身没有问题，而后确认以下方面：
+
 - 待下载设备的选择是否正确
 - Flash 启动模式的配置是否正确
 - Flash 下载模式的选择是否正确

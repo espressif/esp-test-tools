@@ -1,4 +1,4 @@
-射频测试认证
+RF 测试认证
 ***********************
 
 :link_to_translation:`en:[English]`

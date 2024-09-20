@@ -9,7 +9,7 @@ FAQ
 
    :esp32 or esp32c2 or esp32c3 or esp32c6 or esp32s3: - :doc:`WFA Certification Test FAQs <wfa_certification_test_faq>` address common questions regarding the :doc:`WFA Certification and Testing Guide <../development_stage/wfa_certification_test/wfa_certification_test>`.
 
-   - :doc:`Flash Download Tool FAQs <flash_download_tool_faq>` cover common questions about the :doc:`Flash Download Tool <../production_stage/tools/flash_download_tool>`.
+   - :doc:`Flash Download Tool FAQs <flash_download_tool_faq>` cover common questions about the :doc:`Flash Download Tool User Guide <../production_stage/tools/flash_download_tool>`.
 
    - :doc:`Espressif Production Testing Guide FAQs <esp_production_testing_guide_faq>` provide answers to common questions about the :doc:`Espressif Production Testing Guide <../production_stage/tools/esp_production_testing_guide>`.
 
