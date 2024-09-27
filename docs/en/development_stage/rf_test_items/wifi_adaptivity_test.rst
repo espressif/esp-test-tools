@@ -22,21 +22,21 @@ Enter the following commands in the serial port in sequence for network configur
 
 ::
 
-  \\Device networking
-  \\Configure the prototype to enter station mode
+  //Device networking
+  //Configure the prototype to enter station mode
   op -S -o 1
 
-  \\Connect to AP, SSID is CMW-AP, password is 12345678
+  //Connect to AP, SSID is CMW-AP, password is 12345678
   sta -C -s CMW-AP -p 12345678
 
-  \\Traffic test
-  \\Clear socket
+  //Traffic test
+  //Clear socket
   soc -T
 
-  \\Create UDP, port is 8080, default socket ID is 54
+  //Create UDP, port is 8080, default socket ID is 54
   soc -B -t UDP -p 8080
 
-  \\Perform traffic test on AP device with socket ID 54
+  //Perform traffic test on AP device with socket ID 54
   soc -S -s 54 -i 192.168.1.1 -p 8080 -l 2000 -n 200000000 -j 1
 
 .. note::

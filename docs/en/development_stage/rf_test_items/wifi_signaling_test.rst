@@ -94,11 +94,11 @@ Enter the following two commands in the serial port to complete the networking. 
 
 ::
 
-  \\Device Networking
-  \\Configure the prototype to enter station mode
+  //Device Networking
+  //Configure the prototype to enter station mode
   op -S -o 1
 
-  \\Connect to AP, SSID is CMW-AP, password is 12345678
+  //Connect to AP, SSID is CMW-AP, password is 12345678
   sta -C -s CMW-AP -p 12345678
 
 .. note::

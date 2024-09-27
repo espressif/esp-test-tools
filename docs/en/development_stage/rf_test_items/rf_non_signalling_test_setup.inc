@@ -1,5 +1,5 @@
-Set Up the Test Environment
----------------------------
+Set Up Test Environment
+-----------------------
 
 The RF non-signaling test firmware environment mainly includes a PC, tester, a USB-to-UART board, a device under test (DUT), and a shield box.
 
@@ -9,24 +9,24 @@ The RF non-signaling test firmware environment mainly includes a PC, tester, a U
 
     Test Environment Setup
 
-- **PC** is connected to the USB-to-UART board via USB and to the tester via an Ethernet cable. The PC needs to have the `EspRFTestTool package <https://dl.espressif.com/RF/EspRFTestTool_v3.6_Manual.zip>`_, tester control software, and USB-to-UART board driver installed.
-- **Tester** is usually the WT-328/IQXel tester, used to test the RF performance of the DUT in different modes.
-- **USB-to-UART board** is used to facilitate communication between the PC and the DUT.
-- **Device under test (DUT)** is a product designed based on the {IDF_TARGET_NAME} chip or module. It is connected to the USB-to-UART board via UART and to the tester via an RF connection cable. The DUT is usually placed inside a shield box.
+- **PC** is connected to the USB-to-UART board via USB and to the tester via an Ethernet cable. The PC needs to have the `EspRFTestTool toolkit <https://dl.espressif.com/RF/EspRFTestTool_v3.6_Manual.zip>`_, tester control software, and the driver for the USB-to-UART board installed.
+- **Tester** is used to test the RF performance of the DUT in different modes. Typically, it is the WT-328/IQXel tester.
+- **USB-to-UART board** is used to communicate between the PC and the DUT.
+- **Device under test (DUT)** refers to a product designed based on the {IDF_TARGET_NAME} chip or module. It is connected to the USB-to-UART board via UART and to the tester via an RF connection cable. The DUT is usually placed inside a shield box.
 - **Shield Box** is used to isolate external RF interference and ensure the stability of the test environment.
 
 .. note::
 
-    - The CHIP_EN pin of the DUT is pulled up by default. If it is not pulled high in the product design, you need to manually connect the CHIP_EN to the 3V3 pin.
+    - The CHIP_EN pin of the DUT is pulled up by default. If it is not pulled up in the product design, you need to manually connect the CHIP_EN to the 3V3 pin.
     - Some serial communication boards have already swapped RXD and TXD internally, so there is no need to reverse the connection. Adjust the wiring according to the actual situation.
     - {IDF_TARGET_NAME} has a power-on self-calibration function, so the RF connection cable must be connected to the tester before the DUT is powered on for testing.
 
 Conduction Test
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 - For modules without an onboard PCB antenna, the RF connection cable can be directly soldered to the antenna feed point of the module (as shown in the schematic diagram above).
 
-- For modules with an onboard PCB antenna, cut the trace that connect to the PCB antenna feed point and solder the RF connection cable. The RF cable's shielding metal layer must be thoroughly soldered before connecting to the module's GND. The GND soldering point can be either the shield cover or the exposed GND layer on the PCB (after removing the green solder mask). Besides, it should be as close to the feed point as possible.
+- For modules with an onboard PCB antenna, cut the trace that connects to the PCB antenna feed point and solder the RF connection cable. The RF cable's shielding metal layer must be thoroughly soldered before connecting to the module's GND. The GND soldering point can be either the shield cover or the exposed GND layer on the PCB (after removing the green solder mask). Besides, it should be as close to the feed point as possible.
 
 .. figure:: ../../../_static/rf_test_tool/pcb_antenna_conducted_test.png
     :align: center

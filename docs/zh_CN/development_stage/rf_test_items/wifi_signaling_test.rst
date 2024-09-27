@@ -95,11 +95,11 @@ Wi-Fi 信令测试用于评估和验证无线网络设备 Wi-Fi 信令功能，�
 
 ::
 
-  \\设备配网
-  \\配置样机进入 station 模式
+  //设备配网
+  //配置样机进入 station 模式
   op -S -o 1
 
-  \\连接 AP，SSID 为 CMW-AP，密码为 12345678
+  //连接 AP，SSID 为 CMW-AP，密码为 12345678
   sta -C -s CMW-AP -p 12345678
 
 .. note::

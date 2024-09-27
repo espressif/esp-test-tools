@@ -22,21 +22,21 @@ Wi-Fi 自适应测试模拟不同的网络条件和负载情况，测试设备�
 
 ::
 
-  \\设备配网
-  \\配置样机进入 station 模式
+  //设备配网
+  //配置样机进入 station 模式
   op -S -o 1
 
-  \\连接 AP，SSID 为 CMW-AP，密码为 12345678
+  //连接 AP，SSID 为 CMW-AP，密码为 12345678
   sta -C -s CMW-AP -p 12345678
 
-  \\流量测试
-  \\清空 socket
+  //流量测试
+  //清空 socket
   soc -T
 
-  \\创建 UDP, 端口为 8080，默认 socket ID 为 54
+  //创建 UDP, 端口为 8080，默认 socket ID 为 54
   soc -B -t UDP -p 8080
 
-  \\对 socket ID 为 54 的 AP 设备进行流量测试
+  //对 socket ID 为 54 的 AP 设备进行流量测试
   soc -S -s 54 -i 192.168.1.1 -p 8080 -l 2000 -n 200000000 -j 1
 
 .. note::

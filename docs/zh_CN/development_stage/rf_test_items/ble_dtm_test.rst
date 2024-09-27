@@ -15,16 +15,15 @@
     测试环境示意图
 
 - **电脑 (PC)** 通过 USB 与 USB-to-UART 转接板连接。电脑上需安装 `EspRFTestTool 工具包 <https://dl.espressif.com/RF/EspRFTestTool_v3.6_Manual.zip>`_、测试仪器控制软件、以及 USB-to-UART 转接板驱动。
-- **测试仪器 (Tester)** 用于测试待测设备在不同模式下的射频性能。测试仪器通过射频连接线与待测设备连接传输射频信号。
+- **测试仪器 (Tester)** 用于测试待测设备在不同模式下的射频性能。测试仪器通过射频连接线与待测设备连接传输射频信号，通常为 CMW500、CMW270、蓝牙测试仪 CBT 等。
 - **USB-to-UART 转接板 (USB-to-UART Board)** 用于实现电脑和待测设备之间的通信以及综测仪和待测设备之间的通信。
-- **待测设备 (DUT)** 为基于乐鑫芯片或模组设计的产品。
+- **待测设备 (DUT)** 为基于 {IDF_TARGET_NAME} 芯片或模组设计的产品。
 
 .. note::
 
     - 待测设备的 CHIP_EN 管脚默认上拉，如果产品设计中未拉高，需要手动将 CHIP_EN 接到 3V3 管脚。
     - 部分串口通信板内部已交换 RXD 和 TXD, 无需反接，需根据实际情况调整接线。
-    - 乐鑫芯片具有上电自校准功能，因此待测设备上电测试前需先将射频连接线连接至测试仪器。
-    - 测试仪器通常为 CMW500、CMW270、蓝牙测试仪 CBT 等。
+    - {IDF_TARGET_NAME} 具有上电自校准功能，因此待测设备上电测试前需先将射频连接线连接至测试仪器。
 
 传导测试
 ^^^^^^^^^^^^^^^^^^
@@ -48,7 +47,7 @@
 
 2. 设置 ``ChipType``，``Com Port``，``Baud Rate``，点击 ``Open``，选择下载到 ``Flash``。
 
-3. {IDF_TARGET_BLE_DTM_FIRMWARE} 包括 **bootloader.bin**， **partition-table.bin** 与 **ssc.bin** 3 个 bin 文件。将 {IDF_TARGET_BLE_DTM_FIRMWARE} 解压后，分别将 4 个 bin 文件通过 ``UART`` 烧录至以下地址。
+3. {IDF_TARGET_BLE_DTM_FIRMWARE} 包括 **bootloader.bin**， **partition-table.bin** 与 **ssc.bin** 3 个 bin 文件。将 {IDF_TARGET_BLE_DTM_FIRMWARE} 解压后，分别将 3 个 bin 文件通过 ``UART`` 烧录至以下地址。
 
 .. list-table::
    :header-rows: 1
@@ -93,11 +92,11 @@
 
 ::
 
-    \\配置 UART1，将 TX 管脚设置为 GPIO4，将 RX 管脚设置为 GPIO5
+    //配置 UART1，将 TX 管脚设置为 GPIO4，将 RX 管脚设置为 GPIO5
     bqb -z reconfig_uart1_pin -t 4 -r 5
 
-    \\配置 TX 输出功率，支持 0~15 档功率调整
+    //配置 TX 输出功率，支持 0~15 档功率调整
     bqb -z set_ble_tx_power -i 15
 
-    \\配置流控关闭，波特率设置为 115200
+    //配置流控关闭，波特率设置为 115200
     bqb -z set_uart_param -f 0 -b 115200
