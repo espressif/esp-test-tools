@@ -1,0 +1,18 @@
+variables:
+  ESP_DOCS_ENV_IMAGE: "$CI_DOCKER_REGISTRY/esp-idf-doc-env-v5.4:1-1"
+  ESP_DOCS_PATH: "$CI_PROJECT_DIR"
+
+check_link:
+  stage: pre_check
+  image: $ESP_DOCS_ENV_IMAGE
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "api"
+  allow_failure: true
+  script:
+    - cd $CI_PROJECT_DIR/docs
+    - pip install -r requirements.txt
+    - build-docs -t $DOCTGT -l $DOCLANG linkcheck
+  parallel:
+    matrix:
+      - DOCLANG: ["en", "zh_CN"]
+        DOCTGT: ["esp8266", "esp32", "esp32s2", "esp32s3", "esp32c3", "esp32c2", "esp32c6", "esp32h2"]
