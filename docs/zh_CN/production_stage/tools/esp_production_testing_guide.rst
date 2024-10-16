@@ -3,8 +3,7 @@
 
 :link_to_translation:`en:[English]`
 
-关于本手册
-------------
+.. To-do: replace figures
 
 本文主要介绍乐鑫 IC 平台相关 Wi-Fi 产品（Wi-Fi 模组/Chip Onboard）的生产测试方案，为客户在进行 Wi-Fi 产品生产时，提供生产测试方案的相关参考。
 
@@ -16,8 +15,6 @@
 - RF 综测仪测试方案（行业通用标准）
 - 信号板方案（ESP 企业标准）
 
-获取乐鑫产测工具，请 `联系我们 <https://www.espressif.com/zh-hans/company/contact/pre-sale-questions-crm>`_。
-
 RF 综测仪测试方案
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -27,20 +24,20 @@ RF 综测仪测试方案
 
 .. figure:: ../../../_static/production_testing_guide/tester_scheme_cn.png
     :align: center
-    :scale: 70%
+    :scale: 60%
 
     仪器方案框架
 
-#. 下载 *RF_Test_FW.Bin* 到 ESP IC Ram 中；
+#. 下载 ``RF_Test_FW.bin`` 到 ESP IC RAM 中；
 #. PC 端运行 RF 仪器对应的 Test Tool，通过串口发送命令使模组在不同的模式下进行收发包；
 #. RF 测试仪器解析对应工作模式下的 RF 性能参数。
 
 .. note::
 
     - 仪器测试方案需要仪器供应商提供适配乐鑫 IC 的批量产测工具；
-    - 若 RF 仪器工具未适配乐鑫 IC 方案，客户也可以通过仪器可提供的接口完成适配。适配过程中，乐鑫 *RF_Test_FW.bin* 下载方式可使用 *esp_ram_download_tool* 进行下载：
-        - 获得 *esp_ram_download_tool*，请联系我们；
-        - 有关乐鑫产品 RF 性能的手动测试，请参考：`ESP32&ESP8266 射频性能测试指南 <https://www.espressif.com/sites/default/files/tools/esp32esp8266_rf_performance_test_cn.zip>`__。
+    - 若 RF 仪器工具未适配乐鑫 IC 方案，客户也可以通过仪器可提供的接口完成适配。适配过程中，乐鑫 ``RF_Test_FW.bin`` 下载方式可使用 esp_ram_download_tool 进行下载：
+        - 获得 esp_ram_download_tool，请联系我们；
+        - 有关乐鑫产品 RF 性能的手动测试，请参考 :doc:`RF 测试项目 <../../development_stage/rf_test_items/index>`。
     - 上述测试需要屏蔽环境。
 
 信号板方案
@@ -75,57 +72,43 @@ RF 综测仪测试方案
 
     .. list-table::
         :header-rows: 1
-        :widths: 1 2 2 2
+        :widths: 2 2 2
         :align: center
 
-        * - 模组系列
-          - 需要引出的测试点
+        * - 需要引出的测试点
           - 下载模式
-          - Flash 运行模式
-        * - ESP8266 系列
-          - V33, GND, RXD, TXD, EN, GPIO0, GPIO15
-          -
-            - GPIO0 接低电平
-            - GPIO15 接低电平
-          -
-            - GPIO0 接高电平
+          - flash 运行模式
+        * - V33, GND, RXD, TXD, EN, GPIO0, GPIO15
+          - GPIO0 与 GPIO15 接低电平
+          - GPIO0 接高电平
 
 .. only:: esp32 or esp32s2 or esp32s3
 
     .. list-table::
         :header-rows: 1
-        :widths: 1 2 2 2
+        :widths: 2 2 2
         :align: center
 
-        * - 模组系列
-          - 需要引出的测试点
+        * - 需要引出的测试点
           - 下载模式
-          - Flash 运行模式
-        * - ESP32/ESP32-S 系列
-          - V33, GND, RXD, TXD, EN, GPIO0
-          -
-            - GPIO0 接低电平
-          -
-            - GPIO0 接高电平
+          - flash 运行模式
+        * - V33, GND, RXD, TXD, EN, GPIO0
+          - GPIO0 接低电平
+          - GPIO0 接高电平
 
 .. only:: esp32c2 or esp32c3 or esp32c6
 
     .. list-table::
         :header-rows: 1
-        :widths: 1 2 2 2
+        :widths: 2 2 2
         :align: center
 
-        * - 模组系列
-          - 需要引出的测试点
+        * - 需要引出的测试点
           - 下载模式
-          - Flash 运行模式
-        * - ESP32-C 系列
-          - V33, GND, RXD, TXD, EN, GPIO8, GPIO9
-          -
-            - GPIO8 接高电平
-            - GPIO9 接低电平
-          -
-            - GPIO9 接高电平
+          - flash 运行模式
+        * - V33, GND, RXD, TXD, EN, GPIO8, GPIO9
+          - GPIO8 接高电平，GPIO9 接低电平
+          - GPIO9 接高电平
 
 .. note::
 
@@ -133,7 +116,7 @@ RF 综测仪测试方案
 
         - 下载模式：主要用于下载 bin 文件，生产测试过程均在下载模式下。
         - Flash 运行模式：查看模组上电打印信息。
-        :esp32c2 or esp32c3 or esp32c6: - 上表中的 ESP32-C 系列包括 ESP32-C3/ESP8684/ESP8685/ESP32-C6 等。
+        :esp32c2 or esp32c3 or esp32c6: - 上表也适用于 ESP8684/ESP8685。
 
 2. 待测设备通过测试治具连接到串口底板，使用产测工具控制待测设备进入下载模式。如无支持流控控制的串口底板，可直接将相应 GPIO 接低电平，使待测设备上电工作在下载模式。
 
@@ -141,11 +124,9 @@ RF 综测仪测试方案
 
 .. note::
 
-    - 通常生产为了加快生产效率，测试治具可以设计为 1 拖多的方式；
+    - 通常生产为了加快生产效率，测试治具可以设计为 1 拖多的方式。一般为 1 拖 4，即一个治具可以放置 4 个待测设备，同时进行测试，内部就是 4 个串口测试底板。
 
-        - 一般为 1 拖 4，即一个治具可以放置 4 个待测设备，同时进行测试，内部就是 4 个串口测试底板。
-
-    - 测试治具的制作连接方法可参考乐鑫 `模组治具规范 <https://www.espressif.com/sites/default/files/documentation/test_fixture_manufacturing_instruction__cn.pdf>`__。
+    - 测试治具的制作连接方法可参考乐鑫 :doc:`模组治具规范 <../instructions/test_fixture_mfg_inst>`。
 
     - 使用 USB 线将串口底板（放在治具中）与 PC 连接，并安装对应的串口底板驱动，确保串口能够成功识别。
 
@@ -165,10 +146,10 @@ RF 综测仪测试方案
 
 拿到底板后，需要检查对应的开关及短路插是否正确。
 
-  - 标号 com1，com2：与 PC 通信的串口端，其中 1 和 2 是两路独立的通信串口，分别和对应侧的 TX/RX/FRTS/FCTS 对应。
-  - 标号 3：用于选择串口 USB 供电或外部供电口供电。
-  - 标号 4：用于选择 3.3 V 串口和 5 V 串口电平。
-  - 标号 5：外部供电口，未使用，无需设置。
+  - ``标号 COM1，COM2``：与 PC 通信的串口端，其中 1 和 2 是两路独立的通信串口，分别和对应侧的 TX/RX/FRTS/FCTS 对应。
+  - ``标号 3``：用于选择串口 USB 供电或外部供电口供电。
+  - ``标号 4``：用于选择 3.3 V 串口和 5 V 串口电平。
+  - ``标号 5``：外部供电口，未使用，无需设置。
 
 测试治具
 ~~~~~~~~
@@ -193,9 +174,7 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
     * - 部件
       - 说明
     * - 手柄
-      -
-        - 抬起手柄时，模组与底部探针分离，断开电源。
-        - 按下手柄时，模组与探针接触，模组进入测试状态。
+      - 抬起手柄时，模组与底部探针分离，断开电源；按下手柄时，模组与探针接触，模组进入测试状态。
     * - 模组台
       - 摆放并固定模组。
     * - 底箱
@@ -250,7 +229,7 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
 
         - 信号板使用时，在同一个网络覆盖范围内，仅能有一个信号板，否则互相间会干扰。
         - 若要多个信号板进行大批量测试，需要分别在屏蔽房或屏蔽箱中进行测试。
-        :esp32 or esp32s2 or esp32s3 or esp32c2 or esp32c3 or esp32c6: - 上表中的 ESP32-C 系列包括 ESP32-C3/ESP8684/ESP8685/ESP32-C6 等。
+        :esp32 or esp32s2 or esp32s3 or esp32c2 or esp32c3 or esp32c6: - 上表也适用于 ESP8684/ESP8685。
 
 方案对比
 ^^^^^^^^^^^^
@@ -273,7 +252,7 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
       - 可排除 IC 焊接问题
     * - 固件版本测试
       - 可验证 flash 中应用固件的版本是否正确
-    * - Flash RW 测试
+    * - flash RW 测试
       - 可验证 flash 读写功能是否正常
     * - :rspan:`5` 仪器方案
       - EVM 测试
@@ -286,7 +265,7 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
       - 可测试产品的接收灵敏度指标（需在屏蔽环境中完成）
     * - GPIO 测试
       - 可排除 IC 焊接问题
-    * - Flash RW 测试
+    * - flash RW 测试
       - 可验证 flash 读写功能是否正常
 
 .. note::
@@ -345,13 +324,9 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
         * - ESP-FactoryTB2
           - 2
           - UART 底板
-        * -
-            - ESP32-WROOM-32D
-            - ESP32-S2-WROOM
+        * - ESP32-WROOM-32D / ESP32-S2-WROOM
           - 2
-          -
-            - 乐鑫模组 ESP32-WROOM-32D
-            - 乐鑫模组 ESP32-S2-WROOM
+          - 乐鑫模组 ESP32-WROOM-32D / 乐鑫模组 ESP32-S2-WROOM
 
 .. only:: esp8266
 
@@ -403,19 +378,21 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
 
         ESP32-WROOM-02D 模组接线图
 
-1. 待测模组与信号板保持 1~2 M 左右，待测模组处于下载模式，并给串口底板上电。
+.. list::
 
-.. figure:: ../../../_static/production_testing_guide/quick_start_on_testing_diagram.png
-    :align: center
-    :scale: 70%
+    1. 待测模组与信号板保持 1~2 M 左右，待测模组处于下载模式，并给串口底板上电。
 
-    快速入门测试框架
+    .. figure:: ../../../_static/production_testing_guide/quick_start_on_testing_diagram.png
+        :align: center
+        :scale: 70%
 
-2. 打开产测工具，根据产品的芯片平台类型进行配置，具体方法见下方“工具配置”小节。
+    2. 打开产测工具，根据产品的芯片平台类型进行配置，具体方法见下方 `工具配置`_ 小节。
 
-3. 点击 *START* 按钮开始测试。测试过程中，需保证 Log 中的 *fb_rssi* 参数保持在 50（ESP-BAT8 平台）或 -50（ESP-BAT32 平台）左右。
+    :esp8266: 3. 点击 ``START`` 按钮开始测试。测试过程中，需保证 Log 中的 ``fb_rssi`` 参数保持在 50 左右。
 
-4. 等待测试完成，并根据测试结果排除现场问题。
+    :not esp8266: 3. 点击 ``START`` 按钮开始测试。测试过程中，需保证 Log 中的 ``fb_rssi`` 参数保持在 -50 左右。
+
+    4. 等待测试完成，并根据测试结果排除现场问题。
 
 .. _production-testing-tool:
 
@@ -425,48 +402,57 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
 工具介绍
 ^^^^^^^^^^
 
-`下载链接 <download.espressif.com/fac_tool_release/Qrelease/the_latest_release/ESP_PRODUCTION_TEST_TOOL_NORMAL.zip>`__
+`下载链接 <https://dl.espressif.com/public/factory_test_ui_tool.zip>`__
 
 工具目录
 ~~~~~~~~
 
-- factory_test_tool：主目录
+- ``factory_test_ui_tool``：主目录
 
-   - factory_test_ui_tool.exe：应用程序
-   - config：工具运行的配置文件
+   - ``factory_test_cus_v1.0.exe``：应用程序
+   - ``config``：工具运行的配置文件
 
-      - .sys_config/.bin 文件夹：存放各种芯片的测试 bin 文件
-      - .sys_config/.spec_file 文件夹：存放各种芯片的阈值文件
-      - .sys_settings.conf：配置当前的测试 bin 和阈值文件
+      - ``.sys_config/.bin`` 文件夹：存放各种芯片的测试 bin 文件
+      - ``.sys_config/.spec_file`` 文件夹：存放各种芯片的阈值文件
+      - ``.sys_config/.sys_settings.conf``：配置当前的测试 bin 和阈值文件
 
-   - logs：存放每个待测设备的测试 log
+   - ``logs``：存放每个待测设备的测试 log
 
 工具界面
 ~~~~~~~~
 
 .. figure:: ../../../_static/production_testing_guide/main_interface.png
     :align: center
-    :scale: 70%
 
     工具主界面
 
 如上图所示，产测工具的初始界面可大致分为 6 个部分：
 
-#. 菜单栏：*Config* 下进行本地/云端切换（云端模式暂未支持），*Log* 下可打开对应的 log 文件，*Help* 下显示帮助文档。
-#. 测试 *配置信息*：左边显示产品类型等测试配置信息；右边显示截止目前为止，本地所有的测试结果数据统计（pass 数量/fail 数量）。
-#. 选项卡：可切换显示界面，进行测试或配置。
-#. *ALL START/ALL STOP*：全部开始/停止按键。
-#. 测试操作界面：默认显示配置完成后进行实际测试的界面，本工具目前采用“一拖四”的形式，所以有 4 个 DUT 界面，各待测设备可独立进行测试，具体的测试项是统一配置的。
-#. *Position*：显示当前是本地模式，还是云端模式。
+**1. 菜单栏**：
+
+- ``Config`` 下进行本地/云端切换（云端模式暂未支持）
+- ``Log`` 下可打开对应的 log 文件
+- ``Help`` 下显示帮助文档
+
+**2. 测试选项**
+
+- ``第一列``：左边显示产品类型等测试配置信息
+- ``第二列``：右边显示截止目前为止，本地所有的测试结果数据统计（pass 数量/fail 数量）
+
+**3. 选项卡** 可切换显示界面，进行测试或配置。
+
+**4. ALL START/ALL STOP**：全部开始/停止按键。
+
+**5. 测试操作界面**：默认显示配置完成后进行实际测试的界面，本工具目前采用“一拖四”的形式，所以有 4 个 DUT 界面，各待测设备可独立进行测试，具体的测试项是统一配置的。
+
+**6. Position**：显示当前是 ``Local`` 模式，还是 ``Cloud`` 模式。
 
 测试方式
 ~~~~~~~~
 
 目前，本产测工具仅支持 1 种测试方式：
 
-- **RAM 运行测试** (ESP32-C/ESP32/ESP32-S/ESP8266)
-
-   - 测试前，DUT 处于下载模式。测试时，上位机将测试固件下载到 DUT 的 RAM 中并运行。
+- **RAM 运行测试** 测试前，DUT 处于下载模式。测试时，上位机将测试固件下载到 DUT 的 RAM 中并运行。
 
 工具配置
 ^^^^^^^^^^
@@ -476,15 +462,14 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
 
 .. figure:: ../../../_static/production_testing_guide/dut_config.png
     :align: center
-    :scale: 70%
 
     DUT Config 配置界面
 
-如上图所示，选项卡界面的第二栏是 *DUT Config* 的配置界面，界面主要分成三大部分：
+如上图所示，选项卡界面的第二栏是 ``DUT Config`` 的配置界面，界面主要分成三大部分：
 
-#. *TEST CONFIG：* 配置测试信息
-#. *DUT：* 配置 DUT 信息
-#. *APPLY：* 应用配置
+- ``1. TEST CONFIG`` 配置测试信息
+- ``2. DUT`` 配置 DUT 信息
+- ``3. APPLY`` 应用配置
 
 TEST CONFIG
 ~~~~~~~~~~~~~
@@ -497,19 +482,12 @@ TEST CONFIG
     * - 选项
       - 功能
       - 说明
-    * - Chip Type
-      - DUT 类型
-      -
-         - ESP8266EX
-         - ESP32
-         - ESP32-S
-         - ESP32-C
     * - Test From
       - 程序启动位置
       - RAM：必须选择要下载的测试 bin 文件
     * - Fac-Plan
       - 测试记录代号
-      - 以“代号+测试结果”的形式存储 MAC 地址列表。
+      - 以 **代号+测试结果** 的形式存储 MAC 地址列表。
     * - AUTOST
       - 自动测试开关
       - 勾选后每次测试结束就会自动开始下一次测试。
@@ -541,7 +519,7 @@ DUT CONFIG
 测试流程
 ^^^^^^^^^^
 
-除了单纯测试产品的射频性能，产测方案也可同时测试产品的整体功能，具体可完成的测试项目包括但不限于（可自定义命令）RF测试、GPIO 导通测试、应用固件版本测试、Flash RW 测试。
+除了单纯测试产品的射频性能，产测方案也可同时测试产品的整体功能，具体可完成的测试项目包括但不限于（可自定义命令）RF 测试、GPIO 导通测试、应用固件版本测试、flash RW 测试。
 
 射频测试
 ~~~~~~~~
@@ -549,11 +527,10 @@ DUT CONFIG
 - **测试目的：** 射频测试是产测过程中的必选项，其目的是确保产品的射频性能达标，并可进行正常的收发包。
 - **测试方式：** 通过辐射的方式，在信号板和待测产品间进行收发包。待测产品通过串口，将测试信息反馈给上位机，而后由上位机对信息解析并得出测试结论。
 - **测试过程：** 待测产品运行测试固件，上位机发送串口指令后测试开始。首先，产品会读取寄存器信息，获得射频部分的性能情况，包括供电电压波动等；然后，与信号板进行一定数量的收发包；最后，上位机通过对比串口信息与阈值，判定待测产品是否通过测试。
-- **配置界面：** 可在 *Test Flow* 下的 *RF_TEST* 模块中使能。
+- **配置界面：** 可在 ``Test Flow`` 下的 ``RF_TEST`` 模块中使能。
 
 .. figure:: ../../../_static/production_testing_guide/rf_test.png
     :align: center
-    :scale: 70%
 
     RF 测试配置界面
 
@@ -563,11 +540,10 @@ GPIO 导通测试
 - **测试目的：** 可用于检测 GPIO 的导通情况，防止产品的焊接过程中出现的虚焊或连焊现象。
 - **测试方式：** 将待测模组治具的对应管脚短接后，通过串口命令来设置和获取管脚电平状态，判断是否存在虚焊或连焊的问题。
 - **测试过程：** 在射频性能测试结束后，发送一系列串口命令来进行导通测试。此命令已经在上位机内集成，客户只需要开启此功能即可，若无 GPIO 导通测试需求，则不需要开启。
-- **配置界面：** 可在 *Test Flow* 下的 *GENERAL_TEST* 模块中使能（见下图），详细说明请参考 :ref:`appendix-b`。
+- **配置界面：** 可在 ``Test Flow`` 下的 ``GENERAL_TEST`` 模块中使能（见下图），详细说明请参考 :ref:`appendix-b`。
 
 .. figure:: ../../../_static/production_testing_guide/gpio_cond_test.png
     :align: center
-    :scale: 70%
 
     GPIO 导通测试
 
@@ -577,25 +553,23 @@ GPIO 导通测试
 - **测试目的：** 可用于确定待测产品 flash 中烧录的固件是否为目标版本，防止出现版本错误的问题。
 - **测试方式：** 通过比对目标版本固件串口日志中的“特定字符串”或“版本号”进行校验。因此，该字符串应具备区分效果。
 - **测试过程：** 在射频性能测试结束后，上位机通过控制串口板的流控，让待测产品从 flash 启动，匹配目标字符串。客户如需要进行版本校验，只需要开启此功能即可。
-- **配置界面：** 可在 Test Flow 下的 *GENERAL_TEST* 模块中使能。
+- **配置界面：** 可在 ``Test Flow`` 下的 ``GENERAL_TEST`` 模块中使能。
 
 .. figure:: ../../../_static/production_testing_guide/firmware_version_verification_test.png
     :align: center
-    :scale: 70%
 
     固件版本校验
 
 Flash 功能测试
 ~~~~~~~~~~~~~~
 
-- **测试目的：** Flash 功能测试包括 Flash ID 验证及 Flash 读写测试，其目的为确认使用的 flash 型号为期望型号，并保证此 flash 可正常读写。
+- **测试目的：** flash 功能测试包括 flash ID 验证及 flash 读写测试，其目的为确认使用的 flash 型号为期望型号，并保证此 flash 可正常读写。
 - **测试方式：** 通过串口命令来运行测试固件中的 flash 测试流程，并通过串口将测试结果返回给上位机。
 - **测试过程：** 射频测试结束后，通过串口命令及返回结果进行判断。
-- **配置界面：** 可在 *Test Flow* 下的 *GENERAL_TEST* 模块中使能。其中 *FLASH_SCAN_ADDR* 为该测试项的起始地址（只需要 0x1000 扇区大小），*FLASH_SCAN_TARGET* 为目标测试值，不同芯片目标值不一样。
+- **配置界面：** 可在 ``Test Flow`` 下的 ``GENERAL_TEST`` 模块中使能。其中 ``FLASH_SCAN_ADDR`` 为该测试项的起始地址（只需要 0x1000 扇区大小），``FLASH_SCAN_TARGET`` 为目标测试值，不同芯片目标值不一样。
 
 .. figure:: ../../../_static/production_testing_guide/flash_related_test.png
     :align: center
-    :scale: 70%
 
     Flash 功能测试
 
@@ -604,19 +578,17 @@ Flash 功能测试
 
 测试方式有两种（单工位和全工位），配置对两种测试方式均生效，具体操作流程如下：
 
-1. 环境搭建完成后，点击开始按钮（*START* 或 *ALL START*），开始同步及下载。
+1. 环境搭建完成后，点击开始按钮（``START`` 或 ``ALL START``），开始同步及下载。
 
 .. figure:: ../../../_static/production_testing_guide/synchronization.png
     :align: center
-    :scale: 70%
 
     同步过程
 
-2. 下载完成后，进入测试状态，界面显示 *RUN*，等待测试结果。
+2. 下载完成后，进入测试状态，界面显示 ``RUN``，等待测试结果。
 
 .. figure:: ../../../_static/production_testing_guide/running.png
     :align: center
-    :scale: 70%
 
     正在运行中
 
@@ -624,21 +596,20 @@ Flash 功能测试
 
 .. figure:: ../../../_static/production_testing_guide/finish.png
     :align: center
-    :scale: 70%
 
     测试完成
 
-测试过程中有任何测试项目失败，“状态显示框”就会显示 *FAIL*，状态显示框下方的文本框内会逐条显示每个测试项目的结果。用户可据此定位测试失败的具体原因。
+测试过程中有任何测试项目失败，“状态显示框”就会显示 ``FAIL``，状态显示框下方的文本框内会逐条显示每个测试项目的结果。用户可据此定位测试失败的具体原因。
 
 4. 查看详细测试记录
 
 .. figure:: ../../../_static/production_testing_guide/check_test_record.png
     :align: center
-    :scale: 70%
+    :scale: 80%
 
     查看测试结果
 
-每次产测的记录都会单独保存一个 log 文件，文件名以“模组 MAC +日期”的形式保存。点击 *Log* 按钮会弹出对应工位最后一次测试的 log 文件。如果该工位没有进行过测试，则打开 *Logs* 文件夹，方便查看 log。
+每次产测的记录都会单独保存一个 log 文件，文件名以“模组 MAC +日期”的形式保存。点击 ``Log`` 按钮会弹出对应工位最后一次测试的 log 文件。如果该工位没有进行过测试，则打开 ``Logs`` 文件夹，方便查看 log。
 
 .. _appendix-b:
 
@@ -659,156 +630,158 @@ Flash 功能测试
 
 举例，如果 n 配置为 1，则将首先按照 n = 1 进行测试，然后再按照 n = 0 进行测试。
 
-测试配置
-^^^^^^^^^^^^^
+.. only:: esp8266 or esp32 or esp32c2 or esp32c3 or esp32c6
 
-.. only:: esp32c2 or esp32c3 or esp32c6
+    测试配置
+    ^^^^^^^^^^^^^
 
-    乐鑫 ESP32-C3-WROOM-02 模组的 GPIO 导通测试，具体配置如下。
+    .. only:: esp32c2 or esp32c3 or esp32c6
 
-    **接线方式：**
+        乐鑫 ESP32-C3-WROOM-02 模组的 GPIO 导通测试，具体配置如下。
 
-    - IO3 --> IO1
-    - IO7 --> IO5
-    - IO19 --> IO10
-    - IO2 --> IO0
-    - IO4 --> IO0
-    - IO18 --> IO6
+        **接线方式：**
 
-    **上位机端的命令配置：**
+        - IO3 --> IO1
+        - IO7 --> IO5
+        - IO19 --> IO10
+        - IO2 --> IO0
+        - IO4 --> IO0
+        - IO18 --> IO6
 
-    <GPIO1,GPIO3,0>;<GPIO5,GPIO7,0>;<GPIO10,GPIO19,0>;<GPIO0,GPIO2,1>;<GPIO0,GPIO4,1>;<GPIO6,GPIO18,1>
+        **上位机端的命令配置：**
 
-    .. figure:: ../../../_static/production_testing_guide/test_option_esp32c_series.png
-        :align: center
-        :scale: 70%
+        <GPIO1,GPIO3,0>;<GPIO5,GPIO7,0>;<GPIO10,GPIO19,0>;<GPIO0,GPIO2,1>;<GPIO0,GPIO4,1>;<GPIO6,GPIO18,1>
 
-        ESP32-C 系列测试配置
+        .. figure:: ../../../_static/production_testing_guide/test_option_esp32c_series.png
+            :align: center
+            :scale: 70%
 
-.. only:: esp32
-
-    乐鑫 ESP32-WROOM-32D 模组的 GPIO 导通测试，具体配置如下。
-
-    **接线方式：**
-
-    - IO23 --> IO34
-    - IO22 --> IO35
-    - IO15 --> IO32
-    - IO02 --> IO33
-    - IO19 --> IO25
-    - IO18 --> IO26
-    - IO05 --> IO12
-    - IO13 --> IO27
-    - IO21 --> IO14
-
-    **上位机端的命令配置：**
-
-    <GPIO34,GPIO23,0>;<GPIO35,GPIO22,1>;<GPIO32,GPIO15,0>;<GPIO33,GPIO2,1>;<GPIO25,GPIO19,0>;<GPIO26,GPIO18,1>;<GPIO12,GPIO5,0>;<GPIO27,GPIO13,0>;<GPIO14,GPIO21,1>
-
-    .. figure:: ../../../_static/production_testing_guide/test_option_esp32_series.png
-        :align: center
-        :scale: 70%
-
-        ESP32 系列测试配置
-
-.. only:: esp8266
-
-    乐鑫 ESP-WROOM-02D 模组的 GPIO 导通测试，具体配置如下。
-
-    **接线方式：**
-
-    - IO2 --> IO14
-    - IO4 --> IO13
-    - IO5 --> IO12
-
-    **上位机端的命令配置：**
-
-    <GPIO14,GPIO2,0>;<GPIO13,GPIO4,0>;<GPIO12,GPIO5,1>
-
-    .. figure:: ../../../_static/production_testing_guide/test_option_esp8266_series.png
-        :align: center
-        :scale: 70%
-
-        ESP8266 系列测试配置
-
-.. only:: esp32 or esp32c2 or esp32c3 or esp32c6
-
-    串口命令说明
-    ^^^^^^^^^^^^^^^^^
-
-    - **串口命令：ESP_TEST_GPIO** <参数1> <参数2> <参数3>
-
-    .. flat-table::
-        :header-rows: 0
-        :widths: 1 2
-
-        * - 输入
-          - ESP_TEST_GPIO 0xD9000C20 0x0054ECE0 0x00000055
-        * - 预期输出
-          - 0x33000000 0x00AC0000 0x000000BB
-
-    - **命令说明：** 用 2 个 bit 表示一个 GPIO 状态，每个 GPIO 共四种状态：
-
-      - 00 为 default 模式
-      - 01 为 INPUT
-      - 10 为 OUTPUT 输出低
-      - 11 为 OUTPUT 输出高
-
-    - **参数说明：**
-
-      - <参数1>：为 32 bit 数，<参数1>代表 GPIO0~GPIO15。其中的 [1:0] 代表 GPIO0、[3:2] 代表 GPIO1，以此类推，[30:31] 代表 GPIO15。
-      - <参数2>：为 32 bit 数，<参数2>代表 GPIO16~GPIO31。其中的 [1:0] 代表 GPIO16、[3:2] 代表 GPIO17，以此类推，[30:31] 代表 GPIO31。
-      - <参数3>：为 32 bit数，<参数3>代表 GPIO32~GPIO47。其中的 [1:0] 代表 GPIO32、[3:2] 代表 GPIO33，以此类推，[30:31] 代表 GPIO47。
-
-    - **返回值说明：**
-
-      - **输入结果：** <参数1> <参数2> <参数3>
-      - **说明：** 用 2 bit 表示一个 GPIO 作为输入的结果，其中高 bit 位为输入有效标志位，低 bit 位为输入电平高低。每个 GPIO 作为 INPUT 共四种结果：
-
-        - 00 表示不作为输入
-        - 10 为输入低电平
-        - 11 为输入为高电平
-        - 01 不存在
-
-      - **参数说明：**
-
-        - <参数1>：为 32 bit数，<参数1>代表 GPIO0~GPIO15 的输入结果。其中的 [1:0] 代表 GPIO0、[3:2] 代表 GPIO1，以此类推，[30:31] 代表 GPIO15。
-        - <参数2>：为 32 bit 数，<参数2>代表 GPIO16~GPIO31 的输入结果。其中的 [1:0] 代表 GPIO16、[3:2] 代表 GPIO17，以此类推，[30:31] 代表 GPIO31。
-        - <参数3>：为 32 bit 数，<参数3>代表 GPIO32~GPIO47 的输入结果。其中的 [1:0] 代表 GPIO32、[3:2] 代表 GPIO33，以此类推，[30:31] 代表 GPIO47。
+            ESP32-C 系列测试配置
 
     .. only:: esp32
 
-        .. note::
+        乐鑫 ESP32-WROOM-32D 模组的 GPIO 导通测试，具体配置如下。
 
-            ESP32 所用的 GPIO 共 34 个，其中：
+        **接线方式：**
 
-            - GPIO20、GPIO24、GPIO28~GPIO31 不可用，状态配置无效；
-            - GPIO1/U0RXD，GPIO3/U0TXD 作为串口收发指令，在此不用作 IO 测试，测试结果视为无效；
-            - GPIO34~GPIO39 只作为输入，不能作为输出。
+        - IO23 --> IO34
+        - IO22 --> IO35
+        - IO15 --> IO32
+        - IO02 --> IO33
+        - IO19 --> IO25
+        - IO18 --> IO26
+        - IO05 --> IO12
+        - IO13 --> IO27
+        - IO21 --> IO14
 
-.. only:: esp8266
+        **上位机端的命令配置：**
 
-    串口命令说明
-    ^^^^^^^^^^^^^^^^^
+        <GPIO34,GPIO23,0>;<GPIO35,GPIO22,1>;<GPIO32,GPIO15,0>;<GPIO33,GPIO2,1>;<GPIO25,GPIO19,0>;<GPIO26,GPIO18,1>;<GPIO12,GPIO5,0>;<GPIO27,GPIO13,0>;<GPIO14,GPIO21,1>
 
-    - **串口命令**： gpio_test <参数1> <参数2> <参数3>
+        .. figure:: ../../../_static/production_testing_guide/test_option_esp32_series.png
+            :align: center
+            :scale: 70%
 
-    .. flat-table::
-        :header-rows: 0
-        :widths: 1 2
+            ESP32 系列测试配置
 
-        * - 输入
-          - gpio_test 0x3030 0x01010 0x1010
+    .. only:: esp8266
 
-    - **参数说明：**
+        乐鑫 ESP-WROOM-02D 模组的 GPIO 导通测试，具体配置如下。
 
-      - <参数1>：GPIO 管脚测试使能，包括输入管脚和输出管脚，共有 16 位，最低位表示 IO0，最高位表示 IO15。用 bit 表示相应的 GPIO 使能位。1 表示使能，此管脚可以进行 GPIO 测试。0 表示不使能，此管脚不进行 GPIO 测试。
-      - <参数2>：GPIO 输出 value 值，用 bit 位表示相应的 GPIO 输出值，1 代表高电平，0 代表低电平，例如 0x1000 代表 GPIO12 输出高电平。
-      - <参数3>：GPIO 输出使能开关，用 bit 位表示相应的 GPIO 位输出使能。若此管脚在<参数1>中开启了测试使能，并且在<参数3>中置 1，则此管脚表示输出，置 0 表示输入。
+        **接线方式：**
 
-    - **串口命令：** *gpio_read*
+        - IO2 --> IO14
+        - IO4 --> IO13
+        - IO5 --> IO12
 
-    - **命令说明：** 读取所有使能 GPIO 测试的管脚值。
+        **上位机端的命令配置：**
+
+        <GPIO14,GPIO2,0>;<GPIO13,GPIO4,0>;<GPIO12,GPIO5,1>
+
+        .. figure:: ../../../_static/production_testing_guide/test_option_esp8266_series.png
+            :align: center
+            :scale: 70%
+
+            ESP8266 系列测试配置
+
+    .. only:: esp32 or esp32c2 or esp32c3 or esp32c6
+
+        串口命令说明
+        ^^^^^^^^^^^^^^^^^
+
+        - **串口命令：ESP_TEST_GPIO** <参数 1> <参数 2> <参数 3>
+
+        .. flat-table::
+            :header-rows: 0
+            :widths: 1 2
+
+            * - 输入
+              - ESP_TEST_GPIO 0xD9000C20 0x0054ECE0 0x00000055
+            * - 预期输出
+              - 0x33000000 0x00AC0000 0x000000BB
+
+        - **命令说明：** 用 2 个 bit 表示一个 GPIO 状态，每个 GPIO 共四种状态：
+
+          - 00 为 default 模式
+          - 01 为 INPUT
+          - 10 为 OUTPUT 输出低
+          - 11 为 OUTPUT 输出高
+
+        - **参数说明：**
+
+          - <参数 1>：为 32 bit 数，<参数 1> 代表 GPIO0 ~ GPIO15。其中的 [1:0] 代表 GPIO0、[3:2] 代表 GPIO1，以此类推，[30:31] 代表 GPIO15。
+          - <参数 2>：为 32 bit 数，<参数 2> 代表 GPIO16 ~ GPIO31。其中的 [1:0] 代表 GPIO16、[3:2] 代表 GPIO17，以此类推，[30:31] 代表 GPIO31。
+          - <参数 3>：为 32 bit数，<参数 3> 代表 GPIO32 ~ GPIO47。其中的 [1:0] 代表 GPIO32、[3:2] 代表 GPIO33，以此类推，[30:31] 代表 GPIO47。
+
+        - **返回值说明：**
+
+          - **输入结果：** <参数 1> <参数 2> <参数 3>
+          - **说明：** 用 2 bit 表示一个 GPIO 作为输入的结果，其中高 bit 位为输入有效标志位，低 bit 位为输入电平高低。每个 GPIO 作为 INPUT 共四种结果：
+
+            - 00 表示不作为输入
+            - 10 为输入低电平
+            - 11 为输入为高电平
+            - 01 不存在
+
+          - **参数说明：**
+
+            - <参数 1>：为 32 bit 数，<参数 1> 代表 GPIO0 ~ GPIO15 的输入结果。其中的 [1:0] 代表 GPIO0、[3:2] 代表 GPIO1，以此类推，[30:31] 代表 GPIO15。
+            - <参数 2>：为 32 bit 数，<参数 2> 代表 GPIO16 ~ GPIO31 的输入结果。其中的 [1:0] 代表 GPIO16、[3:2] 代表 GPIO17，以此类推，[30:31] 代表 GPIO31。
+            - <参数 3>：为 32 bit 数，<参数 3> 代表 GPIO32 ~ GPIO47 的输入结果。其中的 [1:0] 代表 GPIO32、[3:2] 代表 GPIO33，以此类推，[30:31] 代表 GPIO47。
+
+        .. only:: esp32
+
+            .. note::
+
+                ESP32 所用的 GPIO 共 34 个，其中：
+
+                - GPIO20、GPIO24、GPIO28 ~ GPIO31 不可用，状态配置无效；
+                - GPIO1/U0RXD，GPIO3/U0TXD 作为串口收发指令，在此不用作 IO 测试，测试结果视为无效；
+                - GPIO34 ~ GPIO39 只作为输入，不能作为输出。
+
+    .. only:: esp8266
+
+        串口命令说明
+        ^^^^^^^^^^^^^^^^^
+
+        - **串口命令**：gpio_test <参数 1> <参数 2> <参数 3>
+
+        .. flat-table::
+            :header-rows: 0
+            :widths: 1 2
+
+            * - 输入
+              - gpio_test 0x3030 0x01010 0x1010
+
+        - **参数说明：**
+
+          - <参数 1>：GPIO 管脚测试使能，包括输入管脚和输出管脚，共有 16 位，最低位表示 IO0，最高位表示 IO15。用 bit 表示相应的 GPIO 使能位。1 表示使能，此管脚可以进行 GPIO 测试。0 表示不使能，此管脚不进行 GPIO 测试。
+          - <参数 2>：GPIO 输出 value 值，用 bit 位表示相应的 GPIO 输出值，1 代表高电平，0 代表低电平，例如 0x1000 代表 GPIO12 输出高电平。
+          - <参数 3>：GPIO 输出使能开关，用 bit 位表示相应的 GPIO 位输出使能。若此管脚在<参数 1>中开启了测试使能，并且在<参数 3>中置 1，则此管脚表示输出，置 0 表示输入。
+
+        - **串口命令：** ``gpio_read``
+
+        - **命令说明：** 读取所有使能 GPIO 测试的管脚值。
 
 附录 C：固件版本校验测试配置
 -------------------------------
@@ -821,10 +794,10 @@ Flash 功能测试
 
     详细配置
 
-勾选 USER_FW_CHECK 表示使能了固件版本测试项目。该项目有两种测试方式：
+勾选 ``USER_FW_CHECK`` 表示使能了固件版本测试项目。该项目有两种测试方式：
 
-- *USER_FW_VER_TEST*：USER_FW_VER_STR 设置为 *Espcmd_en* 表示使能了 *USER_TEST_CMD* 方式。否则，使用匹配串口字符的方式，如上图中的 "0.17.59eh"。
-- *USER_TEST_CMD*：若 *USER_FW_VER_STR* 设置为 *Espcmd_en* 表示使能了该方式。客户可根据自己的命令配置，如上图中 <*AT+GMR,"0.10.0",5*> 表示发送命令 *AT+GMR* 后，串口应该返回的字符包含 "0.10.0"。
+- ``USER_FW_VER_TEST``：``USER_FW_VER_STR`` 设置为 ``Espcmd_en`` 表示使能了 ``USER_TEST_CMD`` 方式。否则，使用匹配串口字符的方式，如上图中的 ``0.17.59eh``。
+- ``USER_TEST_CMD``：若 ``USER_FW_VER_STR`` 设置为 ``Espcmd_en`` 表示使能了该方式。客户可根据自己的命令配置，如上图中 <*AT+GMR,"0.10.0",5*> 表示发送命令 ``AT+GMR`` 后，串口应该返回的字符包含 ``0.10.0``。
 
 证书下载
 -----------

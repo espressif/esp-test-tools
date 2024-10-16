@@ -7,7 +7,7 @@
 
 .. list::
 
-    - :doc:`Flash 下载工具 <tools/flash_download_tool>` 用于将固件烧录到乐鑫芯片，支持多种芯片型号和烧录配置，帮助用户快速高效地进行固件更新和设备调试。
+    - :doc:`Flash 下载工具 <tools/flash_download_tool>` 用于将固件烧录到 flash，支持多种芯片型号和烧录配置，帮助用户快速高效地进行固件更新和设备调试。
 
     :not esp32h2: - :doc:`乐鑫产测指南 <tools/esp_production_testing_guide>` 介绍了乐鑫 IC 平台相关 Wi-Fi 产品的生产测试方案，为客户在进行 Wi-Fi 产品生产时，提供生产测试方案的相关参考。
 
