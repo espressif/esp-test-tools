@@ -356,27 +356,25 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
 
 .. only:: esp32c2 or esp32c3 or esp32c6
 
-    .. figure:: ../../../_static/production_testing_guide/esp32c3_wroom_02_wiring.png
+    .. figure:: ../../../_static/production_testing_guide/esp32c3_wroom_02_wiring.jpg
         :align: center
-        :scale: 70%
+        :scale: 10%
 
         ESP32-C3-WROOM-02 模组接线图
 
-.. only:: esp32 or esp32s2 or esp32s3
+.. only:: esp32 or esp32s2 or esp32s3 or esp8266
 
-    .. figure:: ../../../_static/production_testing_guide/esp32_wroom_32d_wiring.png
+    .. figure:: ../../../_static/production_testing_guide/esp32_wroom_32d_wiring.jpg
         :align: center
-        :scale: 70%
+        :scale: 10%
 
         ESP32-WROOM-32D 模组接线图
 
-.. only:: esp8266
-
-    .. figure:: ../../../_static/production_testing_guide/esp32_wroom_02d_wiring.png
+    .. figure:: ../../../_static/production_testing_guide/esp32_wroom_32e_wiring.jpg
         :align: center
-        :scale: 70%
+        :scale: 10%
 
-        ESP32-WROOM-02D 模组接线图
+        ESP32-WROOM-32E 模组接线图
 
 .. list::
 
@@ -462,6 +460,7 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
 
 .. figure:: ../../../_static/production_testing_guide/dut_config.png
     :align: center
+    :scale: 80%
 
     DUT Config 配置界面
 
@@ -531,6 +530,7 @@ DUT CONFIG
 
 .. figure:: ../../../_static/production_testing_guide/rf_test.png
     :align: center
+    :scale: 85%
 
     RF 测试配置界面
 
@@ -544,6 +544,7 @@ GPIO 导通测试
 
 .. figure:: ../../../_static/production_testing_guide/gpio_cond_test.png
     :align: center
+    :scale: 85%
 
     GPIO 导通测试
 
@@ -557,6 +558,7 @@ GPIO 导通测试
 
 .. figure:: ../../../_static/production_testing_guide/firmware_version_verification_test.png
     :align: center
+    :scale: 85%
 
     固件版本校验
 
@@ -570,6 +572,7 @@ Flash 功能测试
 
 .. figure:: ../../../_static/production_testing_guide/flash_related_test.png
     :align: center
+    :scale: 80%
 
     Flash 功能测试
 
@@ -582,6 +585,7 @@ Flash 功能测试
 
 .. figure:: ../../../_static/production_testing_guide/synchronization.png
     :align: center
+    :scale: 80%
 
     同步过程
 
@@ -589,6 +593,7 @@ Flash 功能测试
 
 .. figure:: ../../../_static/production_testing_guide/running.png
     :align: center
+    :scale: 80%
 
     正在运行中
 
@@ -596,6 +601,7 @@ Flash 功能测试
 
 .. figure:: ../../../_static/production_testing_guide/finish.png
     :align: center
+    :scale: 80%
 
     测试完成
 
@@ -605,7 +611,7 @@ Flash 功能测试
 
 .. figure:: ../../../_static/production_testing_guide/check_test_record.png
     :align: center
-    :scale: 80%
+    :scale: 60%
 
     查看测试结果
 
