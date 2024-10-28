@@ -356,27 +356,25 @@ Please connect your DUT to the production testing base board as shown in the fol
 
 .. only:: esp32c2 or esp32c3 or esp32c6
 
-    .. figure:: ../../../_static/production_testing_guide/esp32c3_wroom_02_wiring.png
+    .. figure:: ../../../_static/production_testing_guide/esp32c3_wroom_02_wiring.jpg
         :align: center
-        :scale: 70%
+        :scale: 10%
 
         Wiring for ESP32-C3-WROOM-02
 
-.. only:: esp32 or esp32s2 or esp32s3
+.. only:: esp32 or esp32s2 or esp32s3 or esp8266
 
-    .. figure:: ../../../_static/production_testing_guide/esp32_wroom_32d_wiring.png
+    .. figure:: ../../../_static/production_testing_guide/esp32_wroom_32d_wiring.jpg
         :align: center
-        :scale: 70%
+        :scale: 10%
 
         Wiring for ESP32-WROOM-32D
 
-.. only:: esp8266
-
-    .. figure:: ../../../_static/production_testing_guide/esp32_wroom_02d_wiring.png
+    .. figure:: ../../../_static/production_testing_guide/esp32_wroom_32e_wiring.jpg
         :align: center
-        :scale: 70%
+        :scale: 10%
 
-        Wiring for ESP32-WROOM-02D
+        Wiring for ESP32-WROOM-32E
 
 .. list::
 
@@ -462,6 +460,7 @@ Interface
 
 .. figure:: ../../../_static/production_testing_guide/dut_config.png
     :align: center
+    :scale: 80%
 
     DUT Config
 
@@ -531,6 +530,7 @@ RF Test
 
 .. figure:: ../../../_static/production_testing_guide/rf_test.png
     :align: center
+    :scale: 85%
 
     RF Test
 
@@ -544,6 +544,7 @@ GPIO Conductivity Test
 
 .. figure:: ../../../_static/production_testing_guide/gpio_cond_test.png
     :align: center
+    :scale: 85%
 
     GPIO Conductivity Test
 
@@ -557,6 +558,7 @@ Firmware Version Verification Test
 
 .. figure:: ../../../_static/production_testing_guide/firmware_version_verification_test.png
     :align: center
+    :scale: 85%
 
     Firmware Version Verification Test
 
@@ -570,6 +572,7 @@ Flash-related Test
 
 .. figure:: ../../../_static/production_testing_guide/flash_related_test.png
     :align: center
+    :scale: 80%
 
     Flash-related Test
 
@@ -578,10 +581,11 @@ Tool Operation
 
 Two different test modes are supported in the signal board scheme: the Single-DUT mode and the Four-DUT mode. The configuration below is applicable to both of these two test modes. The operation process is as follows:
 
-1. After setting up the environment, click ``START `` button (or ``ALL START``) to begin synchronization and downloading.
+1. After setting up the environment, click ``START`` button (or ``ALL START``) to begin synchronization and downloading.
 
 .. figure:: ../../../_static/production_testing_guide/synchronization.png
     :align: center
+    :scale: 80%
 
     Synchronization
 
@@ -589,6 +593,7 @@ Two different test modes are supported in the signal board scheme: the Single-DU
 
 .. figure:: ../../../_static/production_testing_guide/running.png
     :align: center
+    :scale: 80%
 
     Running
 
@@ -596,6 +601,7 @@ Two different test modes are supported in the signal board scheme: the Single-DU
 
 .. figure:: ../../../_static/production_testing_guide/finish.png
     :align: center
+    :scale: 80%
 
     Finish
 
@@ -605,7 +611,7 @@ The tool displays ``FAIL`` if any test item fails. The status block lists the de
 
 .. figure:: ../../../_static/production_testing_guide/check_test_record.png
     :align: center
-    :scale: 80%
+    :scale: 60%
 
     Check Test Record
 
