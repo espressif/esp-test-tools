@@ -13,4 +13,4 @@
 
     - :doc:`模组冶具制作规范 <instructions/test_fixture_mfg_inst>` 介绍了 Wi-Fi 模组治具的制作规范，避免由于夹具没有统一制作规范导致在产测过程中引起的各种问题。
 
-    - :doc:`Matter QR 二维码生成工具 <tools/matter_qr_code_generator>` 用于生成 Matter 设备配网二维码，方便用户通过扫描二维码快速将设备添加到智能家居网络中，简化设备的配置和连接过程。
+    :not esp8266 and not esp32s2: - :doc:`Matter QR 二维码生成工具 <tools/matter_qr_code_generator>` 用于生成 Matter 设备配网二维码，方便用户通过扫描二维码快速将设备添加到智能家居网络中，简化设备的配置和连接过程。
