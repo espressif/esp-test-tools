@@ -5,8 +5,11 @@ variables:
 .build_doc_template:
   stage: build_docs
   image: $ESP_DOCS_ENV_IMAGE
+  tags:
+    - build
   rules:
-    - if: $CI_PIPELINE_SOURCE != "api"
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   script:
     - cd $CI_PROJECT_DIR/docs
     - bash ./check_lang_folder_sync.sh
