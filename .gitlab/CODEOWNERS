@@ -1,0 +1,34 @@
+# This document specifies owners for related documents.
+# For more CODEOWNERS examples and use cases, see https://docs.gitlab.com/ee/user/project/codeowners/reference.html
+
+# Development stage                                   Owners
+/docs/*/development_stage/rf_test_certification/      @documentation/codeowners/rf-tech @documentation/codeowners/rf-doc
+/docs/*/development_stage/rf_test_guide/              @documentation/codeowners/rf-tech @documentation/codeowners/rf-doc
+/docs/*/development_stage/rf_test_items/              @documentation/codeowners/rf-tech @documentation/codeowners/rf-doc
+/docs/*/development_stage/index.rst                   @documentation/codeowners/rf-tech @documentation/codeowners/rf-doc
+/docs/*/development_stage/wfa_certification_test/     @documentation/codeowners/wifi-tech @documentation/codeowners/wifi-doc
+
+# Production stage                                    Owners
+/docs/*/production_stage/                             @documentation/codeowners/prod-tech @documentation/codeowners/prod-doc
+
+# FAQ                                                 Owners
+/docs/*/faq/rf_testing_faq.rst                        @documentation/codeowners/rf-tech @documentation/codeowners/rf-doc
+/docs/*/faq/wfa_certification_test_faq.rst            @documentation/codeowners/wifi-tech @documentation/codeowners/wifi-doc
+/docs/*/faq/esp_production_testing_guide_faq.rst      @documentation/codeowners/prod-tech @documentation/codeowners/prod-doc
+/docs/*/faq/flash_download_tool_faq.rst               @documentation/codeowners/prod-tech @documentation/codeowners/prod-doc
+/docs/*/faq/index.rst                                 @documentation/codeowners/esp-test-tools
+
+# Others                                              Owners
+/docs/*/copright.rst                                  @documentation/codeowners/esp-test-tools
+/docs/*/index.rst                                     @documentation/codeowners/esp-test-tools
+/docs/*/resources.rst                                 @documentation/codeowners/esp-test-tools
+/docs/*/404.rst                                       @documentation/codeowners/esp-test-tools
+*.md                                                  @documentation/codeowners/esp-test-tools
+
+
+# Config                                              Owners
+*.py                                                  @documentation/codeowners/esp-test-tools
+*.sh                                                  @documentation/codeowners/esp-test-tools
+*.yml                                                 @documentation/codeowners/esp-test-tools
+requirements.txt                                      @documentation/codeowners/esp-test-tools
+/docs/*/_templates                                    @documentation/codeowners/esp-test-tools
