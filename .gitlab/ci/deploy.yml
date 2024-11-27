@@ -6,23 +6,17 @@ variables:
   stage: deploy
   image: $ESP_DOCS_ENV_IMAGE
   tags:
-    - deploy_docs
+    - deploy
   needs:
     - build_doc_html
     - build_doc_pdf
-  rules:
-    - if: $CI_PIPELINE_SOURCE != "api"
-  script:
-    - source ${CI_PROJECT_DIR}/.gitlab/ci/utils.sh
-    - add_doc_server_ssh_keys $DOCS_DEPLOY_PRIVATEKEY $DOCS_DEPLOY_SERVER $DOCS_DEPLOY_SERVER_USER
-    - export GIT_VER=$(git describe --always)
-    - pip install -r ${CI_PROJECT_DIR}/docs/requirements.txt
-    - mkdir -p logs
-    - deploy-docs | tee logs/doc-url.txt
 
 deploy_docs_preview:
   extends:
     - .deploy_docs_template
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   variables:
     TYPE: "preview"
     DOCS_BUILD_DIR: "${CI_PROJECT_DIR}/docs/_build/"
@@ -31,6 +25,13 @@ deploy_docs_preview:
     DOCS_DEPLOY_SERVER_USER: "$DOCS_PREVIEW_SERVER_USER"
     DOCS_DEPLOY_PATH: "$DOCS_PREVIEW_PATH"
     DOCS_DEPLOY_URL_BASE: "$DOCS_PREVIEW_URL_BASE"
+  script:
+    - source ${CI_PROJECT_DIR}/.gitlab/ci/utils.sh
+    - add_doc_server_ssh_keys $DOCS_DEPLOY_PRIVATEKEY $DOCS_DEPLOY_SERVER $DOCS_DEPLOY_SERVER_USER
+    - export GIT_VER=$(git describe --always)
+    - pip install -r ${CI_PROJECT_DIR}/docs/requirements.txt
+    - mkdir -p logs
+    - deploy-docs | tee logs/doc-url.txt
   artifacts:
     when: always
     paths:
@@ -39,7 +40,8 @@ deploy_docs_preview:
 
 post_links:
   stage: post_links
-  tags: [deploy_docs]
+  tags:
+    - deploy
   image: $ESP_DOCS_ENV_IMAGE
   needs:
     - deploy_docs_preview

@@ -6,7 +6,8 @@ check_link:
   stage: pre_check
   image: $ESP_DOCS_ENV_IMAGE
   rules:
-    - if: $CI_PIPELINE_SOURCE != "api"
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   allow_failure: true
   script:
     - cd $CI_PROJECT_DIR/docs
