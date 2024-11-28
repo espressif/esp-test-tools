@@ -30,7 +30,7 @@ For the development stage, it provides an RF testing tool and detailed test guid
    RF Test Guide <development_stage/rf_test_guide/rf_test_guide>
    RF Test Items <development_stage/rf_test_items/index>
    RF Test Certification <development_stage/rf_test_certification/index>
-   WFA Certification and Testing Guide <development_stage/wfa_certification_test/wfa_certification_test>
+   :esp32 or esp32c2 or esp32c3 or esp32c6 or esp32s3: WFA Certification and Testing Guide <development_stage/wfa_certification_test/wfa_certification_test>
 
 .. toctree::
    :hidden:
@@ -38,9 +38,9 @@ For the development stage, it provides an RF testing tool and detailed test guid
 
    Introduction <production_stage/index>
    Flash Download Tool <production_stage/tools/flash_download_tool>
-   Espressif Production Testing Guide <production_stage/tools/esp_production_testing_guide>
-   Matter QR Code Generator <production_stage/tools/matter_qr_code_generator>
+   :not esp32h2: Espressif Production Testing Guide <production_stage/tools/esp_production_testing_guide>
    Module Fixture Manufacturing Instructions <production_stage/instructions/test_fixture_mfg_inst>
+   :esp32 or esp32c2 or esp32c3 or esp32c6 or esp32s3 or esp32h2: Matter QR Code Generator <production_stage/tools/matter_qr_code_generator>
 
 .. toctree::
    :hidden:

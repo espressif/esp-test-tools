@@ -16,16 +16,20 @@ WIFI_DOCS = ['development_stage/rf_test_items/wifi_adaptivity_test.rst',
 
 ZIGBEE_DOCS = ['development_stage/rf_test_items/zigbee_non_signaling_test.rst']
 
-WFA_DOCS = ['development_stage/rf_test_items/wfa_certification_test.rst']
+WFA_DOCS = ['development_stage/wfa_certification_test/wfa_certification_test.rst']
 
-ESP8266_DOCS = WIFI_DOCS
-ESP32_DOCS = WIFI_DOCS + BT_DOCS + WFA_DOCS
-ESP32C2_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + WFA_DOCS
-ESP32C3_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + WFA_DOCS
-ESP32C6_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + ZIGBEE_DOCS + WFA_DOCS
-ESP32S2_DOCS = WIFI_DOCS
-ESP32S3_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + WFA_DOCS
-ESP32H2_DOCS = BLE_DOCS + BT_DOCS + ZIGBEE_DOCS
+MATTER_DOCS = ['production_stage/tools/matter_qr_code_generator.rst']
+
+PRODUCT_DOCS = ['production_stage/tools/esp_production_testing_guide.rst']
+
+ESP8266_DOCS = WIFI_DOCS + PRODUCT_DOCS
+ESP32_DOCS = WIFI_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
+ESP32C2_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
+ESP32C3_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
+ESP32C6_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + ZIGBEE_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
+ESP32S2_DOCS = WIFI_DOCS + PRODUCT_DOCS
+ESP32S3_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
+ESP32H2_DOCS = BLE_DOCS + BT_DOCS + ZIGBEE_DOCS + MATTER_DOCS
 
 conditional_include_dict = {'esp8266':ESP8266_DOCS,
                             'esp32':ESP32_DOCS,

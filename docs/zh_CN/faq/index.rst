@@ -11,7 +11,7 @@
 
     - :doc:`Flash 下载工具常见问题 <flash_download_tool_faq>` 提供了关于 :doc:`Flash 下载工具用户指南 <../production_stage/tools/flash_download_tool>` 的常见问题解答。
 
-    - :doc:`乐鑫产测指南常见问题 <esp_production_testing_guide_faq>` 提供了关于 :doc:`乐鑫产测指南 <../production_stage/tools/esp_production_testing_guide>` 的常见问题解答。
+    :not esp32h2: - :doc:`乐鑫产测指南常见问题 <esp_production_testing_guide_faq>` 提供了关于 :doc:`乐鑫产测指南 <../production_stage/tools/esp_production_testing_guide>` 的常见问题解答。
 
 .. toctree::
    :hidden:

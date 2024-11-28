@@ -11,7 +11,7 @@ FAQ
 
    - :doc:`Flash Download Tool FAQs <flash_download_tool_faq>` cover common questions about the :doc:`Flash Download Tool User Guide <../production_stage/tools/flash_download_tool>`.
 
-   - :doc:`Espressif Production Testing Guide FAQs <esp_production_testing_guide_faq>` provide answers to common questions about the :doc:`Espressif Production Testing Guide <../production_stage/tools/esp_production_testing_guide>`.
+   :not esp32h2: - :doc:`Espressif Production Testing Guide FAQs <esp_production_testing_guide_faq>` provide answers to common questions about the :doc:`Espressif Production Testing Guide <../production_stage/tools/esp_production_testing_guide>`.
 
 .. toctree::
    :hidden:
