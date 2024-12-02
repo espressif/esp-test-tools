@@ -9,13 +9,13 @@ specified_files:
 #  - docs/zh_CN/development_stage/rf_test_items/ble_dtm_test.rst
 #  - docs/zh_CN/development_stage/rf_test_items/bt_ble_non_signaling_test.rst
 #  - docs/zh_CN/development_stage/rf_test_items/rf_non_signalling_test_setup.inc
-# - docs/zh_CN/development_stage/rf_test_items/wfa_certification_test.rst
 #  - docs/zh_CN/development_stage/rf_test_items/wifi_adaptivity_test.rst
 #  - docs/zh_CN/development_stage/rf_test_items/wifi_blocking_adaptivity_test_setup.inc
 #  - docs/zh_CN/development_stage/rf_test_items/wifi_blocking_test.rst
 #  - docs/zh_CN/development_stage/rf_test_items/wifi_non_signaling_test.rst
 #  - docs/zh_CN/development_stage/rf_test_items/wifi_signaling_test.rst
 #  - docs/zh_CN/development_stage/rf_test_items/zigbee_non_signaling_test.rst
+# - docs/zh_CN/wfa_certification_test/wfa_certification_test.rst
 
 #faq
 #  - docs/zh_CN/faq/esp_production_testing_guide_faq.rst
@@ -27,7 +27,7 @@ specified_files:
 #  - docs/zh_CN/production_stage/instructions/test_fixture_mfg_inst.rst
 #  - docs/zh_CN/production_stage/tools/esp_production_testing_guide.rst
 #  - docs/zh_CN/production_stage/tools/flash_download_tool.rst
-  - docs/zh_CN/production_stage/tools/matter_qr_code_generator.rst
+#  - docs/zh_CN/production_stage/tools/matter_qr_code_generator.rst
 
 #introduction
 #  - docs/zh_CN/index.rst
