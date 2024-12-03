@@ -28,9 +28,27 @@ pdf_file_prefix = u'esp-test-tools'
 # for a list of supported languages.
 language = 'zh_CN'
 
+doc_id = {'esp8266': '8101', 'esp32': '8123', 'esp32c2': '8125', 'esp32c3': '8127', 'esp32c6': '8129', 'esp32s2': '8131', 'esp32s3': '8133', 'esp32h2': '8135'}
+
 # ----------------- Chinese-specific LaTeX configurations -----------------
 
 cn_footer_toc_config = r'''
+% Header and footer
+\makeatletter
+  \fancypagestyle{normal}{
+    \fancyhf{}
+    \fancyhead[L]{\nouppercase{\leftmark}}
+    \fancyfoot[C]{\py@HeaderFamily\thepage \\ \href{https://www.espressif.com/zh-hans/company/documents/documentation_feedback?docId=\DocId&sections=&version=}{提交文档反馈}}
+    \fancyfoot[L]{乐鑫信息科技}
+    \fancyfoot[R]{{\idfTarget}{\@title}}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\footrulewidth}{0.4pt}
+  }
+\makeatother
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
 % ToC
 \addto\captionsenglish{\renewcommand{\contentsname}{目录}}
 '''

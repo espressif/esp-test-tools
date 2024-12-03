@@ -13,14 +13,14 @@
     <hr />
     <div class="f5 contribution" style="height:100px;width:300px;float:left;"><b>对本文档有建议？</b><br><br><font size=2>
       {% set doc_id_mapping = {
-        "esp8266": "7887",
-        "esp32": "7891",
-        "esp32s2": "7895",
-        "esp32s3": "7881",
-        "esp32c2": "7899",
-        "esp32c3": "7903",
-        "esp32c6": "7907",
-        "esp32h2": "7913"
+        "esp8266": "8101",
+        "esp32": "8123",
+        "esp32c2": "8125",
+        "esp32c3": "8127",
+        "esp32c6": "8129",
+        "esp32s2": "8131",
+        "esp32s3": "8133",
+        "esp32h2": "8135"
       } %}
       {% set docid = doc_id_mapping.get(idf_target, '') %}
       <a id="feedback" class="btn btn-neutral" href="https://www.espressif.com/zh-hans/company/documents/documentation_feedback?docId={{ docid }}&sections={{ title|striptags|e }} ({{ pagename }})&version={{ idf_target }} {{ release }} ({{ version }})">

@@ -27,6 +27,4 @@ pdf_title = u'User Guide of ESP Test Tools'
 # for a list of supported languages.
 language = 'en'
 
-# ----------------- English-specific LaTeX configurations -----------------
-
-latex_elements['preamble'] = preamble + preamble_extra
+doc_id = {'esp8266': '8103', 'esp32': '8109', 'esp32c2': '8111', 'esp32c3': '8113', 'esp32c6': '8115', 'esp32s2': '8117', 'esp32s3': '8119', 'esp32h2': '8121'}

@@ -13,14 +13,14 @@
     <hr />
     <div class="f5 contribution" style="height:100px;width:300px;float:left;"><b>Suggestion on this document?</b><br><br><font size=2>
       {% set doc_id_mapping = {
-        "esp8266": "7885",
-        "esp32": "7889",
-        "esp32s2": "7893",
-        "esp32s3": "7883",
-        "esp32c2": "7897",
-        "esp32c3": "7901",
-        "esp32c6": "7905",
-        "esp32h2": "7909"
+        "esp8266": "8103",
+        "esp32": "8109",
+        "esp32c2": "8111",
+        "esp32c3": "8113",
+        "esp32c6": "8115",
+        "esp32s2": "8117",
+        "esp32s3": "8119",
+        "esp32h2": "8121"
       } %}
       {% set docid = doc_id_mapping.get(idf_target, '') %}
       <a id="feedback" class="btn btn-neutral" href="https://www.espressif.com/en/company/documents/documentation_feedback?docId={{ docid }}&sections={{ title|striptags|e }} ({{ pagename }})&version={{ idf_target }} {{ release }} ({{ version }})">
