@@ -3,8 +3,9 @@ Matter QR Code Generator
 
 :link_to_translation:`zh_CN:[中文]`
 
-`Matter QR Code Generator <https://dl.espressif.com/public/esp_matter_printer.zip>`__ is used to generate QR codes that are used for provisioning Espressif's Matter devices. Integrated with BarTender, the generator enables label design and printing. With Matter QR Code Generator, you can configure label templates, select printers, and define data sources flexibly, meeting various QR code generation and printing needs in different scenarios. The generator also supports laser engraving machines over LAN for easier integration.
+**Matter QR Code Generator** is used to generate QR codes that are used for provisioning Espressif's Matter devices. Integrated with BarTender, the generator enables label design and printing. With Matter QR Code Generator, you can configure label templates, select printers, and define data sources flexibly, meeting various QR code generation and printing needs in different scenarios. The generator also supports laser engraving machines over LAN for easier integration.
 
+**Download Link**: `Matter QR Code Generator <https://dl.espressif.com/public/esp_matter_printer.zip>`__
 
 Software Directory
 ------------------

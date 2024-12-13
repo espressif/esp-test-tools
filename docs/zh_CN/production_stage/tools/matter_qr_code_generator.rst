@@ -3,8 +3,9 @@ Matter 二维码生成工具
 
 :link_to_translation:`en:[English]`
 
-`Matter 二维码生成工具 <https://dl.espressif.com/public/esp_matter_printer.zip>`__ 能够生成、配置和打印二维码，这些二维码用于乐鑫 Matter 设备的配网。该工具集成 BarTender 软件以设计和打印标签。通过 Matter 二维码生成工具，用户可灵活配置标签模板、打印机选择和数据源，满足多种场景的二维码生成和打印需求。同时，该工具支持在局域网环境下与镭雕机适配以便于集成。
+**Matter 二维码生成工具** 能够生成、配置和打印二维码，这些二维码用于乐鑫 Matter 设备的配网。该工具集成 BarTender 软件以设计和打印标签。通过 Matter 二维码生成工具，用户可灵活配置标签模板、打印机选择和数据源，满足多种场景的二维码生成和打印需求。同时，该工具支持在局域网环境下与镭雕机适配以便于集成。
 
+**下载地址**：`Matter 二维码生成工具 <https://dl.espressif.com/public/esp_matter_printer.zip>`__
 
 软件目录结构
 --------------
