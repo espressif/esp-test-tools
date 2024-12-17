@@ -55,9 +55,6 @@ html_context['github_repo'] = 'esp-test-tools'
 
 html_static_path = ['../_static']
 
-#html_js_files = ['js/docs_version.js',
-#                 'js/document_referrer.js']
-
 # Extra options required by sphinx_idf_theme
 project_slug = 'esp-test-tools'
 
