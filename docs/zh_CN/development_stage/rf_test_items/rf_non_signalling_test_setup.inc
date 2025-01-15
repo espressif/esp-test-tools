@@ -19,7 +19,7 @@
 
     - 待测设备的 CHIP_EN 管脚默认上拉，如果产品设计中未拉高，需要手动将 CHIP_EN 接到 3V3 管脚。
     - 部分串口通信板内部已交换 RXD 和 TXD，无需反接，需根据实际情况调整接线。
-    - {IDF_TARGET_NAME} 具有上电自校准功能，因此待测设备上电测试前需先将射频连接线连接至测试仪器。
+    - {IDF_TARGET_NAME} 具有上电自校准功能，待测设备上电测试前需先将射频连接线连接至测试仪器。
 
 传导测试
 ^^^^^^^^^^^^^^^^^^
@@ -37,7 +37,7 @@
 烧录固件
 ------------------
 
-{IDF_TARGET_RF_NON_SIGNALING_FIRMWARE:default="Not Updated", esp32="|ESP32 射频非信令测试固件|", esp32c2="|ESP32-C2 射频非信令测试固件|", esp32c3="|ESP32-C3 射频非信令测试固件|", esp32c6="|ESP32-C6 射频非信令测试固件|", esp32s2="|ESP32-S2 射频非信令测试固件|", esp32s3="|ESP32-S3 射频非信令测试固件|", esp8266="|ESP8266 射频非信令测试固件 (26 MHz) or ESP8266 射频非信令测试固件 (40 MHz)|", esp32h2="|ESP32-H2 射频非信令测试固件|"}
+{IDF_TARGET_RF_NON_SIGNALING_FIRMWARE:default="Not Updated", esp32="|ESP32 射频非信令测试固件|", esp32c2="|ESP32-C2 射频非信令测试固件 (26 MHz) or ESP32-C2 射频非信令测试固件 (40 MHz)|", esp32c3="|ESP32-C3 射频非信令测试固件|", esp32c6="|ESP32-C6 射频非信令测试固件|", esp32s2="|ESP32-S2 射频非信令测试固件|", esp32s3="|ESP32-S3 射频非信令测试固件|", esp8266="|ESP8266 射频非信令测试固件 (26 MHz) or ESP8266 射频非信令测试固件 (40 MHz)|", esp32h2="|ESP32-H2 射频非信令测试固件|"}
 
 1. 打开 :ref:`esp-rf-test-tool`。
 
@@ -61,11 +61,13 @@
 
     ESPRFTestTool 工具配置
 
-.. |ESP32 射频非信令测试固件| replace:: `ESP32 射频非信令测试固件 <https://dl.espressif.com/rf/esp32/ESP32_RFTest_190_8cac24c_20230710.bin>`__
-.. |ESP32-C2 射频非信令测试固件| replace:: `ESP32-C2 射频非信令测试固件 <https://dl.espressif.com/rf/esp32c2/ESP32-C2_RFTest_Bin_26M_98a091b_20230621.bin>`__
-.. |ESP32-C3 射频非信令测试固件| replace:: `ESP32-C3 射频非信令测试固件 <https://dl.espressif.com/rf/esp32c3/ESP32-C3_RF_TEST_BIN_V114_1ac85ea_20230504.bin>`__
-.. |ESP32-C6 射频非信令测试固件| replace:: `ESP32-C6 射频非信令测试固件 <https://dl.espressif.com/rf/esp32c6/ESP32-C6_RFTest_Bin_26f46b0_20230621.bin>`__
-.. |ESP32-S2 射频非信令测试固件| replace:: `ESP32-S2 射频非信令测试固件 <https://dl.espressif.com/rf/esp32s2/ESP32-S2_RF_TEST_BIN_20220902_05bde8b.bin>`__
-.. |ESP32-S3 射频非信令测试固件| replace:: `ESP32-S3 射频非信令测试固件 <https://dl.espressif.com/rf/esp32s3/ESP32-S3_RF_TEST_BIN_V110_25c811a_20230504.bin>`__
+4. 固件烧录完成后，将 boot 管脚拉高或悬空，芯片掉电重启后进入工作模式。
+
+.. |ESP32 射频非信令测试固件| replace:: `ESP32 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32_RFTest_V191_482eb73_20230724.bin>`__
+.. |ESP32-C2 射频非信令测试固件 (26 MHz) or ESP32-C2 射频非信令测试固件 (40 MHz)| replace:: `ESP32-C2 射频非信令测试固件 (26 MHz) <https://dl.espressif.com/RF/ESP32-C2_RFTest_V203_26M_7a8831de_20240730.bin>`__ or `ESP32-C2 射频非信令测试固件 (40 MHz) <https://dl.espressif.com/RF/ESP32-C2_RFTest_V203_40M_7a8831de_20240730.bin>`__ 
+.. |ESP32-C3 射频非信令测试固件| replace:: `ESP32-C3 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32-C3_RFTest_V117_402fb258_20240902.bin>`__
+.. |ESP32-C6 射频非信令测试固件| replace:: `ESP32-C6 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32-C6_RFTest_V105_b0352c7_20240827.bin>`__
+.. |ESP32-S2 射频非信令测试固件| replace:: `ESP32-S2 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32-S2_RFTest_V207_545e2ab_20230829.bin>`__
+.. |ESP32-S3 射频非信令测试固件| replace:: `ESP32-S3 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32-S3_RFTest_V112_b7bc9b9_20240430.bin>`__
 .. |ESP8266 射频非信令测试固件 (26 MHz) or ESP8266 射频非信令测试固件 (40 MHz)| replace:: `ESP8266 射频非信令测试固件 (26 MHz) <https://dl.espressif.com/RF/ESP8266_RFTest_153_20231018_26M.bin>`__ or `ESP8266 射频非信令测试固件 (40 MHz) <https://dl.espressif.com/RF/ESP8266_RFTest_153_20231020_40M.bin>`__
-.. |ESP32-H2 射频非信令测试固件| replace:: `ESP32-H2 射频非信令测试固件 <https://dl.espressif.com/rf/esp32h2/ESP32-H2_RFTest_Bin_5b55c8f_20231010.bin>`__
+.. |ESP32-H2 射频非信令测试固件| replace:: `ESP32-H2 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32-H2_RFTest_V203_596642e_20250221.bin>`__

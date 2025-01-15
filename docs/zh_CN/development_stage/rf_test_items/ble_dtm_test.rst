@@ -23,7 +23,7 @@
 
     - 待测设备的 CHIP_EN 管脚默认上拉，如果产品设计中未拉高，需要手动将 CHIP_EN 接到 3V3 管脚。
     - 部分串口通信板内部已交换 RXD 和 TXD, 无需反接，需根据实际情况调整接线。
-    - {IDF_TARGET_NAME} 具有上电自校准功能，因此待测设备上电测试前需先将射频连接线连接至测试仪器。
+    - {IDF_TARGET_NAME} 具有上电自校准功能，待测设备上电测试前需先将射频连接线连接至测试仪器。
 
 传导测试
 ^^^^^^^^^^^^^^^^^^
@@ -41,25 +41,36 @@
 烧录固件
 ------------------
 
-{IDF_TARGET_BLE_DTM_FIRMWARE:default="Not Updated", esp32c2="|ESP32-C2 低功耗蓝牙 DTM 测试固件|", esp32c3="|ESP32-C3 低功耗蓝牙 DTM 测试固件|", esp32c6="|ESP32-C6 低功耗蓝牙 DTM 测试固件|", esp32s3="|ESP32-S3 低功耗蓝牙 DTM 测试固件|", esp32h2="|ESP32-H2 低功耗蓝牙 DTM 测试固件|"}
+{IDF_TARGET_BLE_DTM_FIRMWARE:default="Not Updated", esp32="|ESP32 低功耗蓝牙 DTM 测试固件|", esp32c2="|ESP32-C2 低功耗蓝牙 DTM 测试固件 (26 MHz) or ESP32-C2 低功耗蓝牙 DTM 测试固件 (40 MHz)|", esp32c3="|ESP32-C3 低功耗蓝牙 DTM 测试固件|", esp32c6="|ESP32-C6 低功耗蓝牙 DTM 测试固件|", esp32s3="|ESP32-S3 低功耗蓝牙 DTM 测试固件|", esp32h2="|ESP32-H2 低功耗蓝牙 DTM 测试固件|"}
 
 1. 打开 :ref:`download-tool`。
 
 2. 设置 ``ChipType``，``Com Port``，``Baud Rate``，点击 ``Open``，选择下载到 ``Flash``。
 
-3. {IDF_TARGET_BLE_DTM_FIRMWARE} 包括 **bootloader.bin**， **partition-table.bin** 与 **ssc.bin** 3 个 bin 文件。将 {IDF_TARGET_BLE_DTM_FIRMWARE} 解压后，分别将 3 个 bin 文件通过 ``UART`` 烧录至以下地址。
+3. 将 {IDF_TARGET_BLE_DTM_FIRMWARE} bin 文件通过 ``UART`` 烧录至以下地址。
 
-.. list-table::
-   :header-rows: 1
+.. only:: esp32
 
-   * - bin 文件
-     - 烧录地址
-   * - bootloader.bin
-     - 0x0
-   * - partition-table.bin
-     - 0x8000
-   * - ssc.bin
-     - 0x10000
+    .. list-table::
+      :header-rows: 1
+      :align: center
+
+      * - bin 文件
+        - 烧录地址
+      * - {IDF_TARGET_BLE_DTM_FIRMWARE}
+        - 0x1000
+
+.. only:: not esp32
+
+    .. list-table::
+      :header-rows: 1
+      :align: center
+
+      * - bin 文件
+        - 烧录地址
+      * - {IDF_TARGET_BLE_DTM_FIRMWARE}
+        - 0x0
+
 
 .. only:: esp32
 
@@ -77,7 +88,7 @@
 
         烧录固件示意图
 
-烧录完成后，继续以下步骤进行测试。
+烧录完成后，拉高或悬空 boot 管脚，芯片重启后进入工作模式，继续以下步骤进行测试。
 
 开始测试
 ---------------------------
@@ -86,23 +97,104 @@
 
 依照上述硬件连接方式，可通过 UART0 串口打印信息确认固件烧录成功；
 
-上电默认以 Power 12 dBm，无流控，波特率 115200 完成初始化过程，无需输入指令，可直接开始 DTM 测试；
+.. only:: esp32
 
-如需调整 UART1 的相关设置，可通过 UART0 端输入相应的指令实时调整：
+    上电默认以 Power 6 dBm，无流控，波特率 115200 完成初始化过程，无需输入指令，可直接开始 DTM 测试；
 
-::
+.. only:: not esp32
 
-    //配置 UART1，将 TX 管脚设置为 GPIO4，将 RX 管脚设置为 GPIO5
-    bqb -z reconfig_uart1_pin -t 4 -r 5
+    上电默认以 Power 12 dBm，无流控，波特率 115200 完成初始化过程，无需输入指令，可直接开始 DTM 测试；
 
-    //配置 TX 输出功率，支持 0~15 档功率调整
-    bqb -z set_ble_tx_power -i 15
+    如需调整 UART1 的相关设置，可通过 UART0 端输入相应的指令实时调整：
 
-    //配置流控关闭，波特率设置为 115200
-    bqb -z set_uart_param -f 0 -b 115200
+    ::
 
-.. |ESP32-C2 低功耗蓝牙 DTM 测试固件| replace:: `ESP32-C2 低功耗蓝牙 DTM 测试固件 <https://dl.espressif.com/rf/esp32c2/ESP32C2_DTM_HCI_CMD_26M_20230301.zip>`__
-.. |ESP32-C3 低功耗蓝牙 DTM 测试固件| replace:: `ESP32-C3 低功耗蓝牙 DTM 测试固件 <https://dl.espressif.com/rf/esp32c3/ESP32C3_DTM_HCI_20230724.zip>`__
-.. |ESP32-C6 低功耗蓝牙 DTM 测试固件| replace:: `ESP32-C6 低功耗蓝牙 DTM 测试固件 <https://dl.espressif.com/rf/esp32c6/ESP32C6-ECO1_DTM_HCI_d1caf30_20230407.zip>`__
-.. |ESP32-S3 低功耗蓝牙 DTM 测试固件| replace:: `ESP32-S3 低功耗蓝牙 DTM 测试固件 <https://dl.espressif.com/rf/esp32s3/ESP32S3_BLE_HCI_cb74f83_20220518.zip>`__
-.. |ESP32-H2 低功耗蓝牙 DTM 测试固件| replace:: `ESP32-H2 低功耗蓝牙 DTM 测试固件 <https://dl.espressif.com/rf/esp32h2/ESP32H2_BLE_DTM_Bin_20230811.bin>`__
+        //配置 TX 输出功率，支持 0~15 档功率调整
+        set_ble_tx_power -i 15
+
+        //获取当前 BLE 的配置功率
+        get_ble_tx_power
+
+        //配置 UART1，将 TX 管脚设置为 GPIO4，将 RX 管脚设置为 GPIO5
+        reconfig_dtm_uart_pin -t 4 -r 5
+
+.. |ESP32 低功耗蓝牙 DTM 测试固件| replace:: `ESP32 低功耗蓝牙 DTM 测试固件 <https://dl.espressif.com/RF/ESP32_BLE_DTM_HCI_02e0d70_20250325.bin>`__
+.. |ESP32-C2 低功耗蓝牙 DTM 测试固件 (26 MHz) or ESP32-C2 低功耗蓝牙 DTM 测试固件 (40 MHz)| replace:: `ESP32-C2 低功耗蓝牙 DTM 测试固件 (26 MHz) <https://dl.espressif.com/RF/ESP32C2_DTM_HCI_1babaa3_26M_20250319.bin>`__ or `ESP32-C2 低功耗蓝牙 DTM 测试固件 (40 MHz) <https://dl.espressif.com/RF/ESP32C2_DTM_HCI_1babaa3_40M_20250319.bin>`__
+.. |ESP32-C3 低功耗蓝牙 DTM 测试固件| replace:: `ESP32-C3 低功耗蓝牙 DTM 测试固件 <https://dl.espressif.com/RF/ESP32C3_DTM_HCI_01f2a49_20250319.bin>`__
+.. |ESP32-C6 低功耗蓝牙 DTM 测试固件| replace:: `ESP32-C6 低功耗蓝牙 DTM 测试固件 <https://dl.espressif.com/RF/ESP32C6_ECO1_DTM_HCI_5b89037_20250319.bin>`__
+.. |ESP32-S3 低功耗蓝牙 DTM 测试固件| replace:: `ESP32-S3 低功耗蓝牙 DTM 测试固件 <https://dl.espressif.com/RF/ESP32S3_DTM_HCI_a6008b2_20250319.bin>`__
+.. |ESP32-H2 低功耗蓝牙 DTM 测试固件| replace:: `ESP32-H2 低功耗蓝牙 DTM 测试固件 <https://dl.espressif.com/RF/ESP32H2_DTM_HCI_823e7f8_20250319.bin>`__
+
+
+
+附录
+----------------
+
+本附录主要用于说明 {IDF_TARGET_NAME} 的功率等级及对应的目标功率，用于射频调试或测试对照。
+
+.. only:: esp32
+
+  .. list-table:: {IDF_TARGET_NAME} 蓝牙/低功耗蓝牙发射功率等级
+    :widths: 40 60
+
+    * - 功率等级
+      - ESP32 蓝牙/低功耗蓝牙发射功率 (dBm)
+    * - 0
+      - -12
+    * - 1
+      - -9
+    * - 2
+      - -6
+    * - 3
+      - -3
+    * - 4
+      - 0
+    * - 5
+      - 3
+    * - 6
+      - 6
+    * - 7
+      - 9
+
+.. only:: not esp32
+
+    低功耗蓝牙发射功率等级
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. list-table:: {IDF_TARGET_NAME} 低功耗蓝牙发射功率等级
+        :widths: 40 60
+
+        * - 功率等级
+          - 低功耗蓝牙发射功率 (dBm)
+        * - 0
+          - -24
+        * - 1
+          - -21
+        * - 2
+          - -18
+        * - 3
+          - -15
+        * - 4
+          - -12
+        * - 5
+          - -9
+        * - 6
+          - -6
+        * - 7
+          - -3
+        * - 8
+          - 0
+        * - 9
+          - 3
+        * - 10
+          - 6
+        * - 11
+          - 9
+        * - 12
+          - 12
+        * - 13
+          - 15
+        * - 14
+          - 18
+        * - 15
+          - 20

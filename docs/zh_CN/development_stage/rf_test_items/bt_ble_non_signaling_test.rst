@@ -37,7 +37,7 @@
 
     ::
 
-        fcc_bt_tx:txpwr=4,hoppe=0,chan=18,rate=1,DH_type=1,data_type=1
+        fcc_bt_tx:txpwr=6,hoppe=0,chan=0,rate=1,DH_type=1,data_type=1
 
     表明蓝牙发包正常，此时可使用综测仪检测发射性能。
 
@@ -45,7 +45,13 @@
         :align: center
         :scale: 80%
 
-        蓝牙/低功耗蓝牙发射性能
+        蓝牙发射性能
+
+    .. figure:: ../../../_static/rf_test_tool/esp32_ble_tx_on.png
+        :align: center
+        :scale: 80%
+
+        低功耗蓝牙发射性能
 
     蓝牙接收性能测试
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -120,7 +126,7 @@
     - **Test Mode**：
 
       * BLE50 TX：用于发射性能测试；
-      * BLE50 TX continue：用于认证测试。
+      * BLE50 TX continue：高发包占空比，用于认证测试。
 
     - **Power Level**：设置低功耗蓝牙发射功率等级，支持 0~15 档测试
     - **Channel**：设置低功耗蓝牙测试信道
@@ -135,11 +141,11 @@
 
     ::
 
-        fcc_le_tx_syncw:txpwr=12,chan=0,len=250,data_type=0,syncw=0x71764129,rate=0,tx_num=0,contin_en=0,delay=0,hopp_en=0
+        fcc_le_tx_syncw:txpwr=15,chan=0,len=250,data_type=0,syncw=0x71764129,rate=0,tx_num=0,contin_en=0,delay=0,hopp_en=0
 
     表明低功耗蓝牙发包正常，此时可使用综测仪检测发射性能。
 
-    .. figure:: ../../../_static/rf_test_tool/esp32c6_ble_test_on.png
+    .. figure:: ../../../_static/rf_test_tool/esp32c6_ble_tx_on.png
         :align: center
         :scale: 80%
 
@@ -148,9 +154,9 @@
     低功耗蓝牙接收性能测试
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    {IDF_TARGET_TWELFTH_PARA:default="收到正确包", esp32c3="所有包", esp32s3="所有包"}
+    {IDF_TARGET_TWELFTH_PARA:default="收到正确包", esp32c3="收到正确包", esp32s3="收到正确包"}
 
-    {IDF_TARGET_RSSI:default="Res[11]/(Res[1])", esp32c3="Res[11]/(Res[1]+Res[4])", esp32s3="Res[11]/(Res[1]+Res[4])"}
+    {IDF_TARGET_RSSI:default="Res[11]/(Res[1])", esp32c3="Res[11]/(Res[1])", esp32s3="Res[11]/(Res[1])"}
 
     - **Test Mode**：选择 BLE50 RX 用于低功耗蓝牙接收性能测试。
     - **Channle**：设置低功耗蓝牙测试信道。
@@ -161,13 +167,13 @@
 
     ::
 
-        3e8 3e8 0 0 0 0 0 0 0 0 p -61009 -20424 0 40581
+        3e8 3e8 0 0 0 0 0 0 0 0 p -53276 -24131 0 29422
 
     其中：
 
     - 第 1 个参数 Res[0]（16 进制）表示本次测试收到的总包数。本次测试中，总包数为 3e8。
     - 第 2 个参数 Res[1]（16 进制）表示本次测试在对应速率下收到的包的数量。本次测试中，对应速率包的数量为 3e8。
-    - 第 12 个参数 Res[11]（10 进制）表示本次测试{IDF_TARGET_TWELFTH_PARA}的 RSSI。本次测试中，RSSI 为 -61009。
+    - 第 12 个参数 Res[11]（10 进制）表示本次测试{IDF_TARGET_TWELFTH_PARA}的 RSSI。本次测试中，RSSI 为 -53276。
 
     根据上述参数，可以计算：
 
@@ -175,7 +181,7 @@
     - 每个包的 RSSI = {IDF_TARGET_RSSI}
 
 
-      .. figure:: ../../../_static/rf_test_tool/esp32s3_ble_rx_on.png
+      .. figure:: ../../../_static/rf_test_tool/esp32c6_ble_rx_on.png
           :align: center
           :scale: 80%
 

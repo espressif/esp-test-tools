@@ -3,7 +3,7 @@ Wi-Fi 非信令测试
 
 :link_to_translation:`en:[English]`
 
-Wi-Fi 非信令测试在不建立实际数据连接的情况下，直接控制设备发射特定信号，用于评估设备的射频性能，如发射功率、频谱质量和误码率等，以确保设备在各种环境中的无线通信质量。
+Wi-Fi 非信令测试，也叫定频测试，是在不建立实际数据连接的情况下，直接控制设备发射特定信号，用于评估设备的射频性能，如发射功率、频谱质量和误码率等，以确保设备在各种环境中的无线通信质量。
 
 .. include:: rf_non_signalling_test_setup.inc
 
@@ -40,7 +40,7 @@ Wi-Fi 发射性能测试
 
 上述参数表明 Wi-Fi 发包正常，此时可使用测试仪器检测发射性能。
 
-.. figure:: ../../../_static/rf_test_tool/esp32s3_wifi_test_on.png
+.. figure:: ../../../_static/rf_test_tool/esp_wifi_tx_on.png
     :align: center
     :scale: 80%
 
@@ -72,7 +72,7 @@ Wi-Fi 接收性能测试
     - ``Desired`` 不为 0 而且 ``Correct`` 大于 Desired 表明环境存在干扰，请在屏蔽环境下复测；
     - 收包信息中的其它参数仅用于 RD debug，无实际意义。
 
-.. figure:: ../../../_static/rf_test_tool/esp32c6_wifi_rx_on.png
+.. figure:: ../../../_static/rf_test_tool/esp_wifi_rx_on.png
     :align: center
     :scale: 80%
 

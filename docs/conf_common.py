@@ -3,11 +3,11 @@ from esp_docs.conf_docs import *  # noqa: F403,F401
 languages = ['en', 'zh_CN']
 idf_targets = ['esp8266', 'esp32', 'esp32c2', 'esp32c3', 'esp32c6', 'esp32s2', 'esp32s3', 'esp32h2']
 
-BLE_DOCS = ['development_stage/rf_test_items/ble_adaptivity_test.rst',
+BLE_ADA_DOCS = ['development_stage/rf_test_items/ble_adaptivity_test.rst']
+
+BT_DOCS = ['development_stage/rf_test_items/bt_ble_non_signaling_test.rst',
             'development_stage/rf_test_items/ble_blocking_test.rst',
             'development_stage/rf_test_items/ble_dtm_test.rst']
-
-BT_DOCS = ['development_stage/rf_test_items/bt_ble_non_signaling_test.rst']
 
 WIFI_DOCS = ['development_stage/rf_test_items/wifi_adaptivity_test.rst',
              'development_stage/rf_test_items/wifi_blocking_test.rst',
@@ -24,12 +24,12 @@ PRODUCT_DOCS = ['production_stage/tools/esp_production_testing_guide.rst']
 
 ESP8266_DOCS = WIFI_DOCS + PRODUCT_DOCS
 ESP32_DOCS = WIFI_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
-ESP32C2_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
-ESP32C3_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
-ESP32C6_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + ZIGBEE_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
+ESP32C2_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
+ESP32C3_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
+ESP32C6_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + ZIGBEE_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
 ESP32S2_DOCS = WIFI_DOCS + PRODUCT_DOCS
-ESP32S3_DOCS = WIFI_DOCS + BLE_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
-ESP32H2_DOCS = BLE_DOCS + BT_DOCS + ZIGBEE_DOCS + MATTER_DOCS
+ESP32S3_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
+ESP32H2_DOCS = BLE_ADA_DOCS + BT_DOCS + ZIGBEE_DOCS + MATTER_DOCS
 
 conditional_include_dict = {'esp8266':ESP8266_DOCS,
                             'esp32':ESP32_DOCS,

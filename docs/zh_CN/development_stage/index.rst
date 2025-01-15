@@ -20,7 +20,7 @@ RF 测试项目
    Wi-Fi 测试
    ------------------
 
-   - :doc:`Wi-Fi 非信令测试 <rf_test_items/wifi_non_signaling_test>` 在不建立实际数据连接的情况下，直接控制设备发射特定信号，用于评估设备的射频性能，如发射功率、频谱质量和误码率等，以确保设备在各种环境中的无线通信质量。
+   - :doc:`Wi-Fi 非信令测试 <rf_test_items/wifi_non_signaling_test>` 也叫定频测试，在不建立实际数据连接的情况下，直接控制设备发射特定信号，用于评估设备的射频性能，如发射功率、频谱质量和误码率等，以确保设备在各种环境中的无线通信质量。
 
    - :doc:`Wi-Fi 信令测试 <rf_test_items/wifi_signaling_test>` 用于评估和验证无线网络设备 Wi-Fi 信令功能，主要用于确保设备在各种操作环境中能够稳定可靠地通信。Wi-Fi 信令测试通常用于设备的 OTA (Over-The-Air) 性能评估，包括 TRP（Total Radiated Power，总辐射功率）和 TIS（Total Isotropic Sensitivity，总各向同性灵敏度）测试。
 
@@ -35,13 +35,15 @@ RF 测试项目
 
    - :doc:`{IDF_TARGET_BT_BLE_OPTION}非信令测试 <rf_test_items/bt_ble_non_signaling_test>` 控制设备发射特定信号，无需建立实际连接，用于评估其发射功率、频谱特性和误码率等关键性能指标，确保设备的无线通信质量。
 
-.. only:: not esp8266 and not esp32 and not esp32s2
+.. only:: not esp8266 and not esp32s2
 
    - :doc:`低功耗蓝牙 DTM 测试 <rf_test_items/ble_dtm_test>` 通过直接控制设备进入特定的发射或接收模式，评估低功耗蓝牙设备射频性能，如发射功率、接收灵敏度和频谱特性等。
 
-   - :doc:`低功耗蓝牙自适应测试 <rf_test_items/ble_adaptivity_test>` 确保设备以跳频方式工作且低功耗蓝牙信号的功率谱密度 (Power Spectral Density, PSD) 大于 10 dBm/MHz 时，满足一定的参数要求，从而避免对其他无线设备造成干扰。
-
    - :doc:`低功耗蓝牙阻塞测试 <rf_test_items/ble_blocking_test>` 评估无线设备在存在其他无线信号干扰的环境中的性能和稳定性，以确保其符合相关标准。
+
+.. only:: not esp8266 and not esp32 and not esp32s2
+
+   - :doc:`低功耗蓝牙自适应测试 <rf_test_items/ble_adaptivity_test>` 确保设备以跳频方式工作且低功耗蓝牙信号的功率谱密度 (Power Spectral Density, PSD) 大于 10 dBm/MHz 时，满足一定的参数要求，从而避免对其他无线设备造成干扰。
 
 .. only:: esp32c6 or esp32h2
 

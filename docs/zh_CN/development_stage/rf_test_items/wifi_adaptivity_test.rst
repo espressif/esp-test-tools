@@ -43,7 +43,7 @@ Wi-Fi 自适应测试模拟不同的网络条件和负载情况，测试设备�
 
     ``-p`` 参数用于设置 AP 密码。如果 AP 无密码，则无需使用该参数。
 
-如果串口中打印以下类似信息，则表明流量测试已成功完成，可以开始进行 Wi-Fi 自适应测试。
+如果串口中打印以下类似信息，则表明已开启跑流，可以开始进行 Wi-Fi 自适应测试。
 
 .. figure:: ../../../_static/rf_test_tool/wifi_adptive_log.png
     :align: center
@@ -66,11 +66,11 @@ Wi-Fi 自适应测试模拟不同的网络条件和负载情况，测试设备�
 
     设备配网
 
-- 连接成功后，将 ``Pakcet Num`` 设置为一个足够大的数值，例如 20000000，以满足较长流量测试时间。
+- 连接成功后，将 ``Pakcet Num`` 设置为一个足够大的数值，例如 20000000，以满足较长跑流测试时间。
 
 - 将 ``Server PORT`` 设置为 8080，``Socket ID`` 设置为 54，将 ``Packet Delay`` 改为 1，以满足认证需求。
 
-- 上述设置完成后，点击 ``Send Data``。如果 log 类似下图所示，则表示流量测试成功，可开始进行 Wi-Fi 自适应测试。
+- 上述设置完成后，点击 ``Send Data``。如果 log 类似下图所示，则表明已开启跑流，可开始进行 Wi-Fi 自适应测试。
 
 .. figure:: ../../../_static/rf_test_tool/wifi_adptive_senddata.png
     :align: center

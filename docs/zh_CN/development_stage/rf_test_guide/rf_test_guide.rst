@@ -9,7 +9,7 @@ EspRFTestTool 工具包
 - `DownloadTool 工具`_：用于下载射频测试中所需的固件；
 - `PowerLimitTool 工具`_：用于生成定制化 phy_init_data 固件。
 
-**下载地址**：`EspRFTestTool 工具包 <https://dl.espressif.com/RF/EspRFTestTool_v3.6_Manual.zip>`__
+**下载地址**：`EspRFTestTool 工具包 <https://dl.espressif.com/RF/EspRFTestTool_v4.6_Manual.zip>`__
 
 该压缩包不仅包含 EspRFTestTool 工具包，还附带全部 :doc:`RF 测试项目 <../rf_test_items/index>` 所需的测试固件，方便熟悉测试流程的用户直接使用固件进行操作。
 
@@ -219,20 +219,19 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
     3. 选择 ``Multiple Country`` 会生成包含 Default 和 SRRC、FCC、CE、NCC、KCC、MIC 与 IC 七国认证的 Combined phy_init_bin 文件，包含了 8*128 字节。
     4. 选择 ``Custom``，根据自定义选择生成单个或多国认证 phy_init_bin 文件。
 
-{IDF_TARGET_RF_NON_SIGNALING_FIRMWARE_COPY:default="Not Updated", esp32="|ESP32 射频非信令测试固件|", esp32c2="|ESP32-C2 射频非信令测试固件|", esp32c3="|ESP32-C3 射频非信令测试固件|", esp32c6="|ESP32-C6 射频非信令测试固件|", esp32s2="|ESP32-S2 射频非信令测试固件|", esp32s3="|ESP32-S3 射频非信令测试固件|", esp8266="|ESP8266 射频非信令测试固件 (26 MHz) or ESP8266 射频非信令测试固件 (40 MHz)|", esp32h2="|ESP32-H2 射频非信令测试固件|"}
+{IDF_TARGET_RF_NON_SIGNALING_FIRMWARE_COPY:default="Not Updated", esp32="|ESP32 射频非信令测试固件|", esp32c2="|ESP32-C2 射频非信令测试固件 (26 MHz) or ESP32-C2 射频非信令测试固件 (40 MHz)|", esp32c3="|ESP32-C3 射频非信令测试固件|", esp32c6="|ESP32-C6 射频非信令测试固件|", esp32s2="|ESP32-S2 射频非信令测试固件|", esp32s3="|ESP32-S3 射频非信令测试固件|", esp8266="|ESP8266 射频非信令测试固件 (26 MHz) or ESP8266 射频非信令测试固件 (40 MHz)|", esp32h2="|ESP32-H2 射频非信令测试固件|"}
 
 {IDF_TARGET_RF_NON_SIGNALING_FIRMWARE_ADDRESS:default="0x0", esp32="0x1000", esp32s2="0x1000"}
 
-5. 使用 `DownloadTool 工具`_ 将生成的 phy_init_bin 文件下载到待测产品。
+5. 使用非信令或信令测试验证 phy_init_bin 是否生效。以非信令测试为例, 首先使用 `DownloadTool 工具`_ 将生成的 phy_init_bin 文件下载到待测产品。
 
 - 从 ``Tool`` 选项栏中选择 ``DownloadTool``，进入 ``DownloadTool`` 界面
 - 参考 `DownloadTool 工具`_ 操作步骤，将 phy_init_bin 文件与相应的 RF 测试固件烧录至 ``flash``。
-- phy_init_bin 的烧录地址为 ``0x1fc000``。
-- 根据测试项目不同，应选择对应的 RF 测试固件进行烧录，这里以 {IDF_TARGET_RF_NON_SIGNALING_FIRMWARE_COPY} 为例进行说明。 {IDF_TARGET_RF_NON_SIGNALING_FIRMWARE_COPY} 的烧录地址为 {IDF_TARGET_RF_NON_SIGNALING_FIRMWARE_ADDRESS}。
+- 其中 phy_init_bin 的烧录地址为 ``0x1fc000``, RF 测试固件 {IDF_TARGET_RF_NON_SIGNALING_FIRMWARE_COPY} 的烧录地址为 {IDF_TARGET_RF_NON_SIGNALING_FIRMWARE_ADDRESS}。
 
 .. note::
 
-    关于信令测试固件的烧录地址，请参考 :doc:`RF 测试项目 <../rf_test_items/index>` 中相关文档。
+    关于信令测试，替换原有的 phy_init_bin 即可，请参考 :doc:`RF 测试项目 <../rf_test_items/index>` 中相关文档。
 
 .. figure:: ../../../_static/rf_test_tool/phyinit_download_start.png
     :align: center
@@ -240,7 +239,7 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
 
     烧录 phy_init_bin 文件
 
-6. 使用 Wi-Fi 仪器测试输出功率，RF Test 可以用于确认 Phy Init 是否生效。
+6. 使用 Wi-Fi 仪器测试输出功率，确认 phy_init_bin 是否生效。
 
 - 打开 `EspRFTestTool 工具`_
 - 选择对应的 ``ChipType``、``COM``、``BaudRate``、点击 ``Open`` 打开串口；
@@ -248,8 +247,8 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
 - 设置 ``Attenuation`` 默认值 0，选择 ``Duty Cycle`` 为 10%；
 - 不勾选 ``Certification EN`` 代表不使能 Phy init，此时 start 发包测试代表模组的初始性能。
 - 勾选 ``Certification EN`` 代表使能 Phy init，此时 start 发包测试代表模组的认证功率性能。
-- 输入地址为 phy_init_bin 的烧录地址，如烧录地址变动，此处需做相应改变。
-- 对于 Multiple Country，在 ``Certification Code`` 中可选择其所包含的认证。
+- 默认地址为 phy_init_bin 的烧录地址 0x1fc000，如烧录地址变动，此处需做相应改变。
+- 对于 Multiple Country，在 ``Certification Code`` 中可选择其所包含的认证国家代码。
 
 .. figure:: ../../../_static/rf_test_tool/powerlimittool_rf_test_setting.png
     :align: center
@@ -286,6 +285,31 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
         * - 11n-40 MCS7
           - 13
 
+.. only:: esp32c2
+
+    {IDF_TARGET_NAME} 平均输出功率典型值
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. list-table::
+        :header-rows: 1
+        :widths: 20 20
+        :align: center
+
+        * - 传输速率
+          - 平均输出功率典型值 (dBm)
+        * - 11b 1M
+          - 21
+        * - 11b 11M
+          - 21
+        * - 11g 6M
+          - 21
+        * - 11g 54M
+          - 19
+        * - HT20-11n MCS0
+          - 19
+        * - HT20-11n MCS7
+          - 18
+
 .. only:: esp32s2
 
     {IDF_TARGET_NAME} 平均输出功率典型值
@@ -314,6 +338,36 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
           - 18
         * - 11n-40 MCS7
           - 13.5
+
+.. only:: esp32s3
+
+    {IDF_TARGET_NAME} 平均输出功率典型值
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. list-table::
+        :header-rows: 1
+        :widths: 20 20
+        :align: center
+
+        * - 传输速率
+          - 平均输出功率典型值 (dBm)
+        * - 11b 1M
+          - 20.5
+        * - 11b 11M
+          - 20.5
+        * - 11g 6M
+          - 20
+        * - 11g 54M
+          - 18
+        * - HT20-11n MCS0
+          - 19
+        * - HT20-11n MCS7
+          - 17.5
+        * - HT40-11n MCS0
+          - 18.5
+        * - HT40-11n MCS7
+          - 17
+
 
 .. only:: esp32c3
 
@@ -344,11 +398,49 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
         * - 11n-40 MCS7
           - 17
 
-.. |ESP32 射频非信令测试固件| replace:: `ESP32 射频非信令测试固件 <https://dl.espressif.com/rf/esp32/ESP32_RFTest_190_8cac24c_20230710.bin>`__
-.. |ESP32-C2 射频非信令测试固件| replace:: `ESP32-C2 射频非信令测试固件 <https://dl.espressif.com/rf/esp32c2/ESP32-C2_RFTest_Bin_26M_98a091b_20230621.bin>`__
-.. |ESP32-C3 射频非信令测试固件| replace:: `ESP32-C3 射频非信令测试固件 <https://dl.espressif.com/rf/esp32c3/ESP32-C3_RF_TEST_BIN_V114_1ac85ea_20230504.bin>`__
-.. |ESP32-C6 射频非信令测试固件| replace:: `ESP32-C6 射频非信令测试固件 <https://dl.espressif.com/rf/esp32c6/ESP32-C6_RFTest_Bin_26f46b0_20230621.bin>`__
-.. |ESP32-S2 射频非信令测试固件| replace:: `ESP32-S2 射频非信令测试固件 <https://dl.espressif.com/rf/esp32s2/ESP32-S2_RF_TEST_BIN_20220902_05bde8b.bin>`__
-.. |ESP32-S3 射频非信令测试固件| replace:: `ESP32-S3 射频非信令测试固件 <https://dl.espressif.com/rf/esp32s3/ESP32-S3_RF_TEST_BIN_V110_25c811a_20230504.bin>`__
+.. only:: esp32c6
+
+    {IDF_TARGET_NAME} 平均输出功率典型值
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. list-table::
+        :header-rows: 1
+        :widths: 20 20
+        :align: center
+
+        * - 传输速率
+          - 平均输出功率典型值 (dBm)
+        * - 11b 1M
+          - 21
+        * - 11b 11M
+          - 21
+        * - 11g 6M
+          - 20
+        * - 11g 54M
+          - 19
+        * - HT20-11n MCS0
+          - 19
+        * - HT20-11n MCS7
+          - 18
+        * - HT40-11n MCS0
+          - 19
+        * - HT40-11n MCS7
+          - 18
+        * - HE20-11ax MCS0
+          - 19
+        * - HE20-11ax MCS7
+          - 18
+        * - HE20-11ax MCS9
+          - 15
+
+
+
+.. |ESP32 射频非信令测试固件| replace:: `ESP32 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32_RFTest_V191_482eb73_20230724.bin>`__
+.. |ESP32-C2 射频非信令测试固件 (26 MHz) or ESP32-C2 射频非信令测试固件 (40 MHz)| replace:: `ESP32-C2 射频非信令测试固件 (26 MHz) <https://dl.espressif.com/RF/ESP32-C2_RFTest_V203_26M_7a8831de_20240730.bin>`__ or `ESP32-C2 射频非信令测试固件 (40 MHz) <https://dl.espressif.com/RF/ESP32-C2_RFTest_V203_40M_7a8831de_20240730.bin>`__ 
+.. |ESP32-C3 射频非信令测试固件| replace:: `ESP32-C3 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32-C3_RFTest_V117_402fb258_20240902.bin>`__
+.. |ESP32-C6 射频非信令测试固件| replace:: `ESP32-C6 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32-C6_RFTest_V105_b0352c7_20240827.bin>`__
+.. |ESP32-S2 射频非信令测试固件| replace:: `ESP32-S2 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32-S2_RFTest_V207_545e2ab_20230829.bin>`__
+.. |ESP32-S3 射频非信令测试固件| replace:: `ESP32-S3 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32-S3_RFTest_V112_b7bc9b9_20240430.bin>`__
 .. |ESP8266 射频非信令测试固件 (26 MHz) or ESP8266 射频非信令测试固件 (40 MHz)| replace:: `ESP8266 射频非信令测试固件 (26 MHz) <https://dl.espressif.com/RF/ESP8266_RFTest_153_20231018_26M.bin>`__ or `ESP8266 射频非信令测试固件 (40 MHz) <https://dl.espressif.com/RF/ESP8266_RFTest_153_20231020_40M.bin>`__
-.. |ESP32-H2 射频非信令测试固件| replace:: `ESP32-H2 射频非信令测试固件 <https://dl.espressif.com/rf/esp32h2/ESP32-H2_RFTest_Bin_5b55c8f_20231010.bin>`__
+.. |ESP32-H2 射频非信令测试固件| replace:: `ESP32-H2 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32-H2_RFTest_V203_596642e_20250221.bin>`__
+
