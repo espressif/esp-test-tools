@@ -102,9 +102,9 @@ FactoryMultiDownload 界面的 ``download path config`` 及 ``SPI flash config``
 chipInfoDump 界面
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- ``Device`` 选择对应设备的串口号和通信波特率 
+- ``Device`` 选择对应设备的串口号和通信波特率。
 
-- ``Read Flash`` 选择从flash里读取内容的首地址及要读取内容的大小，此项仅读取flash时需要设置
+- ``Read Flash`` 选择从 flash 里读取内容的首地址及要读取内容的大小，此项仅读取 flash 时需要设置。
 
 .. figure:: ../../../_static/flash_download_tool/chip_info_dump.png
     :align: center
@@ -112,16 +112,16 @@ chipInfoDump 界面
 
     chipInfoDump 界面
 
-- ``功能说明``
+- 功能说明
 
-  * ``Chip Info``：读取芯片型号、Flash ID及Flash状态寄存器值，读取内容直接显示在软件界面上。
-  * ``Read Flash``：读取 Flash 存储的数据。读出的内容会存储在生成的bin文件中，bin文件名称以 芯片MAC+读取起始地址+读取数据长度+读取时间 的格式命名。
-  * ``Read Efuse``：读取芯片 Efuse 内容，功能和esptool summary相同，读出内容存储在生成的文本文件中，文件以 芯片MAC+读取时间 的格式命名
+  * ``Chip Info``：读取芯片型号、flash ID 以及 flash 状态寄存器值，读取内容直接显示在软件界面上。
+  * ``Read Flash``：读取 flash 存储的数据。读出的内容会存储在生成的 bin 文件中，bin 文件名称以“芯片 MAC + 读取起始地址 + 读取数据长度 + 读取时间”的格式命名。
+  * ``Read Efuse``：读取芯片 eFuse 的内容，功能和esptool summary 相同，读出内容存储在生成的文本文件中，文件以“芯片 MAC + 读取时间”的格式命名。
 
 .. note::
 
-  *  以上读取功能的支持需要产品启动后进入下载模式
-  *  工具版本>=3.9.8
+  *  以上读取功能的支持需要产品启动后进入下载模式。
+  *  工具版本 >= 3.9.8
 
 下载示例
 ---------------

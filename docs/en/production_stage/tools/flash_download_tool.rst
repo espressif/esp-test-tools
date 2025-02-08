@@ -31,9 +31,9 @@ Open the `Flash Download Tool <https://dl.espressif.com/public/flash_download_to
 
     Flash Download Tool Main Interface
 
-- ``ChipType``: select the chip type according to what product you use.
+- ``ChipType``: Selects the chip type for your product.
 
-- ``WorkMode``: work mode of the tool. Below are the differences between the two modes supported currently, ``Develop`` and ``Factory`` modes.
+- ``WorkMode``: Work mode of the tool. Below are the differences between the two modes supported currently, ``Develop`` and ``Factory`` modes.
 
   * ``Develop`` mode uses the absolute path of the firmware and only allows flashing firmware to one chip at a time.
   * ``Factory`` mode uses a relative path. It is recommended to place the firmware to be flashed in the bin folder at the same level as the ``.exe`` file. It will be automatically saved locally when closed after configuration.
@@ -41,11 +41,11 @@ Open the `Flash Download Tool <https://dl.espressif.com/public/flash_download_to
 
 .. only:: esp8266 or esp32 or esp32c2
 
-    - ``LoadMode``: only support ``UART``
+    - ``LoadMode``: Only supports ``UART``
 
 .. only:: not esp8266 and not esp32 and not esp32c2
 
-    - ``LoadMode``: support both ``UART`` and ``USB``
+    - ``LoadMode``: Supports both ``UART`` and ``USB``
 
 SPIDownload Tab
 ^^^^^^^^^^^^^^^
@@ -58,18 +58,18 @@ Here is the configuration descriptions.
 
   * ``SPI SPEED``: SPI boot rate
   * ``SPI MODE``: SPI boot mode
-  * ``DETECTED INFO``: flash & crystal oscillator information that are detected automatically.
+  * ``DETECTED INFO``: Flash & crystal oscillator information that are detected automatically.
   * ``DoNotChgBin``: If it is enabled, the tool flashes the original content of the bin file. If not enabled, the tool updates the firmware according to the ``SPI SPEED``, ``SPI MODE`` configuration on the interface before flashing.
   * ``CombineBin`` button: combines all the selected firmware in ``Download Path Config`` into one firmware. If ``DoNotChgBin`` is enabled, combine the original firmwares. If ``DoNotChgBin`` is not enabled, combine them according to the ``SPI SPEED`` and ``SPI MODE`` configuration. Any unused areas between firmware files will be filled with 0xff. The combined firmware will be saved as ./combine/target.bin. Each click of this button will overwrite the previous firmware.
   * ``Default`` button: restores the SPI configuration to the default values.
 
 - ``Download Panel``
 
-  * ``START``: start downloading
-  * ``STOP``: stop downloading
-  * ``ERASE``: erase the entire flash
-  * ``COM``: serial port used for downloading
-  * ``BAUD``: baud rate
+  * ``START``: Starts downloading
+  * ``STOP``: Stops downloading
+  * ``ERASE``: Erases the entire flash
+  * ``COM``: Serial port used for downloading
+  * ``BAUD``: Baud rate
 
 .. figure:: ../../../_static/flash_download_tool/spidownload_interface.jpg
     :align: center
@@ -98,6 +98,30 @@ FactoryMultiDownload Tab
     FactoryMultiDownload Tab
 
 The ``download path config`` and ``SPI flash config`` section on the FactoryMultiDownload Tab are basically the same as those on the SPIDownload tab. Please refer to `SPIDownload Tab`_ for descriptions. Do not forget to configure the serial port number and baud rate of each download panel.
+
+chipInfoDump Tab
+^^^^^^^^^^^^^^^^
+
+- ``Device``: Selects the device's serial port number and communication baud rate.
+
+- ``Read Flash``: Specifies the start address and size of the content to be read from the flash. This setting is only required when reading flash.
+
+.. figure:: ../../../_static/flash_download_tool/chip_info_dump.png
+    :align: center
+    :scale: 55%
+
+    chipInfoDump Tab
+
+- Function Description
+
+  * ``Chip Info``: Reads the chip model, flash ID, and flash status register values. The read content is displayed directly in the tab.
+  * ``Read Flash``: Reads data stored in the flash. The read content is saved in a generated bin file, which is named in the format "Chip MAC + Start Address of Reading + Data Length of Reading + Reading Time".
+  * ``Read Efuse``: Reads the chip's eFuse content, with functionality identical to `esptool summary`. The read content is stored in a generated text file, named in the format "Chip MAC + Reading Time".
+
+.. note::
+
+  *  To use the above reading functions, the product should enter download mode after startup.
+  *  Tool version >= 3.9.8
 
 Download Example
 ----------------
