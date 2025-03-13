@@ -54,8 +54,6 @@ html_context['github_user'] = 'espressif'
 html_context['github_repo'] = 'esp-test-tools'
 
 html_static_path = ['../_static']
-html_js_files = ['js/chatbot_widget.js']
-html_css_files = ['js/chatbot_widget.css']
 
 # Extra options required by sphinx_idf_theme
 project_slug = 'esp-test-tools'

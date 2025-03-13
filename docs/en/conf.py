@@ -28,3 +28,6 @@ pdf_title = u'User Guide of ESP Test Tools'
 language = 'en'
 
 doc_id = {'esp8266': '8103', 'esp32': '8109', 'esp32c2': '8111', 'esp32c3': '8113', 'esp32c6': '8115', 'esp32s2': '8117', 'esp32s3': '8119', 'esp32h2': '8121'}
+
+html_js_files = ['js/chatbot_widget.js']
+html_css_files = ['js/chatbot_widget.css']
