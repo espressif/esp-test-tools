@@ -1,7 +1,8 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     var script = document.createElement("script");
-    script.src = "https://widget.kapa.ai/kapa-widget.bundle.js";
+    script.src = "https://widget.kapa.ai/kapa-widget.dev-20250326210540.bundle.js";
+    script.setAttribute("data-bot-protection-mechanism", "hcaptcha");
     script.setAttribute("data-website-id", "9746d4c8-20ab-44f2-8b1d-1aef4a92f8ac");
     script.setAttribute("data-project-name", "ESP Test Tools and Guidelines");
     script.setAttribute("data-project-color", "#C62817");
