@@ -14,7 +14,7 @@
 
     测试环境示意图
 
-- **电脑 (PC)** 通过 USB 与 USB-to-UART 转接板连接。电脑上需安装 `EspRFTestTool 工具包 <https://dl.espressif.com/RF/EspRFTestTool_v3.6_Manual.zip>`__、测试仪器控制软件、以及 USB-to-UART 转接板驱动。
+- **电脑 (PC)** 通过 USB 与 USB-to-UART 转接板连接。电脑上需安装 EspRFTestTool 工具包、测试仪器控制软件、以及 USB-to-UART 转接板驱动。
 - **测试仪器 (Tester)** 用于测试待测设备在不同模式下的射频性能。测试仪器通过射频连接线与待测设备连接传输射频信号，通常为 CMW500、CMW270、蓝牙测试仪 CBT 等。
 - **USB-to-UART 转接板 (USB-to-UART Board)** 用于实现电脑和待测设备之间的通信以及综测仪和待测设备之间的通信。
 - **待测设备 (DUT)** 为基于 {IDF_TARGET_NAME} 芯片或模组设计的产品。

@@ -14,7 +14,7 @@ Set Up Test Environment
 
     Test Environment Setup
 
-- **PC** is connected to the USB-to-UART board via USB. The PC needs to have the `EspRFTestTool toolkit <https://dl.espressif.com/RF/EspRFTestTool_v3.6_Manual.zip>`__, tester control software, and the driver for the USB-to-UART board installed.
+- **PC** is connected to the USB-to-UART board via USB. The PC needs to have the EspRFTestTool toolkit, tester control software, and the driver for the USB-to-UART board installed.
 - **Tester** is used to test the RF performance of the device under test (DUT) in different modes. It connects to DUT via an RF connection cable to transmit RF signals. Typically, it is CMW500, CMW270, or Bluetooth tester CBT.
 - **USB-to-UART board** is used to communicate between the computer and the DUT, as well as between the tester and the DUT.
 - **Device under test (DUT)** refers to a product designed based on the {IDF_TARGET_NAME} chip or module.

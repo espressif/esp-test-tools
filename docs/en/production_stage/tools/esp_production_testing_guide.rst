@@ -400,7 +400,7 @@ Production Testing Tool
 Tool Introduction
 ^^^^^^^^^^^^^^^^^^^^
 
-`Download Link <https://dl.espressif.com/public/factory_test_ui_tool.zip>`__
+:download:`Download Link <https://dl.espressif.com/public/factory_test_ui_tool.zip>`
 
 Directory
 ~~~~~~~~~

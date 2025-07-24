@@ -15,7 +15,7 @@ Flash 下载工具用户指南
 
 - 软件：
 
-  * `Flash 下载工具 <https://dl.espressif.com/public/flash_download_tool.zip>`__
+  * :download:`Flash 下载工具 <https://dl.espressif.com/public/flash_download_tool.zip>`
 
 工具介绍
 ------------
@@ -23,7 +23,7 @@ Flash 下载工具用户指南
 界面入口
 ^^^^^^^^^^^^^^
 
-打开 `Flash 下载工具 <https://dl.espressif.com/public/flash_download_tool.zip>`__，双击 ``.exe`` 文件后进入工具主界面，如下图所示：
+打开 Flash 下载工具，双击 ``.exe`` 文件后进入工具主界面，如下图所示：
 
 .. figure:: ../../../_static/flash_download_tool/main_interface.jpg
     :align: center
@@ -170,7 +170,7 @@ chipInfoDump 界面
 
 加密烧录流程为：
 
-- `Flash 下载工具 <https://dl.espressif.com/public/flash_download_tool.zip>`__ 将明文固件烧录进芯片
+- Flash 下载工具将明文固件烧录进芯片
 
 - 芯片使用 eFuse 中的密钥对该明文固件进行加密，然后将加密后的固件写入 flash。
 

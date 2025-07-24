@@ -9,7 +9,7 @@ The RF non-signaling test firmware environment mainly includes a PC, tester, a U
 
     Test Environment Setup
 
-- **PC** is connected to the USB-to-UART board via USB and to the tester via an Ethernet cable. The PC needs to have the `EspRFTestTool toolkit <https://dl.espressif.com/RF/EspRFTestTool_v3.6_Manual.zip>`__, tester control software, and the driver for the USB-to-UART board installed.
+- **PC** is connected to the USB-to-UART board via USB and to the tester via an Ethernet cable. The PC needs to have the EspRFTestTool toolkit, tester control software, and the driver for the USB-to-UART board installed.
 - **Tester** is used to test the RF performance of the DUT in different modes. Typically, it is the WT-328/IQXel tester.
 - **USB-to-UART board** is used to communicate between the PC and the DUT.
 - **Device under test (DUT)** refers to a product designed based on the {IDF_TARGET_NAME} chip or module. It is connected to the USB-to-UART board via UART and to the tester via an RF connection cable. The DUT is usually placed inside a shield box.

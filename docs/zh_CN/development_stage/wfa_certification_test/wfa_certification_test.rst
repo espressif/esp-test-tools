@@ -13,7 +13,7 @@ WFA 认证与测试指南
 .. list::
 
    - :doc:`Flash 下载工具 <../../production_stage/tools/flash_download_tool>`
-   - `espsigma 工具与固件  <https://dl.espressif.com/Authentication/WFA/WFA_TEST.zip>`__
+   - :download:`espsigma 工具与固件  <https://dl.espressif.com/Authentication/WFA/WFA_TEST.zip>`
 
 WFA 认证介绍
 -------------------------

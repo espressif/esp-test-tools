@@ -36,7 +36,7 @@ Wi-Fi 接收阻塞测试评估设备在强干扰信号环境下的接收性能�
 使用 ESPRFTestTool 工具测试
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- 打开 `EspRFTestTool 工具包 <https://dl.espressif.com/RF/EspRFTestTool_v3.6_Manual.zip>`__，配置 ``ChipType`` 与 ``COM``，波特率选择 115200，打开端口后，选择 ``WiFi Adaptivity`` 测试界面。
+- 打开 EspRFTestTool 工具包，配置 ``ChipType`` 与 ``COM``，波特率选择 115200，打开端口后，选择 ``WiFi Adaptivity`` 测试界面。
 
 - 在 ``STA`` 模式输入 ``AP ssid`` 和 ``AP pwd``, 点击 ``Connect AP`` 连接。
 

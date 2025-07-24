@@ -400,7 +400,7 @@ Wi-Fi 模组产品的产测需要间接将模组管脚引出，并连接到产�
 工具介绍
 ^^^^^^^^^^
 
-`下载链接 <https://dl.espressif.com/public/factory_test_ui_tool.zip>`__
+:download:`下载链接 <https://dl.espressif.com/public/factory_test_ui_tool.zip>`
 
 工具目录
 ~~~~~~~~

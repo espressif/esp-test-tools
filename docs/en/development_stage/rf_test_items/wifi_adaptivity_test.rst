@@ -54,7 +54,7 @@ If the following similar information is printed in the serial port, it indicates
 Test Using EspRFTestTool Tool
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Open the `EspRFTestTool toolkit <https://dl.espressif.com/RF/EspRFTestTool_v3.6_Manual.zip>`__, configure ``ChipType`` and ``COM``, select 115200 for ``BaudRate``, open the port, and select the ``WiFi Adaptivity`` test interface.
+- Open the EspRFTestTool toolkit, configure ``ChipType`` and ``COM``, select 115200 for ``BaudRate``, open the port, and select the ``WiFi Adaptivity`` test interface.
 
 - In ``STA`` mode, enter ``AP ssid`` and ``AP pwd``, and click ``Connect AP`` to connect.
 

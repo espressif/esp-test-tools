@@ -15,7 +15,7 @@ The software and hardware resources required for downloading firmware to flash a
 
 - Software:
 
-  * `Flash Download Tool <https://dl.espressif.com/public/flash_download_tool.zip>`__
+  * :download:`Flash Download Tool <https://dl.espressif.com/public/flash_download_tool.zip>`
 
 Tool Overview
 -------------
@@ -23,7 +23,7 @@ Tool Overview
 User Interface
 ^^^^^^^^^^^^^^
 
-Open the `Flash Download Tool <https://dl.espressif.com/public/flash_download_tool.zip>`__, double-click the ``.exe`` file to enter the main interface of the tool, as shown in the figure below:
+Open the Flash Download Tool, double-click the ``.exe`` file to enter the main interface of the tool, as shown in the figure below:
 
 .. figure:: ../../../_static/flash_download_tool/main_interface.jpg
     :align: center
@@ -170,7 +170,7 @@ Encrypted Download
 
 The encrypted firmware downloading process is as follows:
 
-- `Flash Download Tool <https://dl.espressif.com/public/flash_download_tool.zip>`__ downloads the plaintext firmware to the chip.
+- Flash Download Tool downloads the plaintext firmware to the chip.
 
 - The chip uses the key in its eFuse to encrypt the firmware and write it to the flash.
 

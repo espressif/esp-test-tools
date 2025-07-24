@@ -13,7 +13,7 @@ Required tools and firmware:
 .. list::
 
    - :doc:`Flash Download Tool <../../production_stage/tools/flash_download_tool>`
-   - `espsigma tool and firmware  <https://dl.espressif.com/Authentication/WFA/WFA_TEST.zip>`__
+   - :download:`espsigma tool and firmware  <https://dl.espressif.com/Authentication/WFA/WFA_TEST.zip>`
 
 Introduction to WFA Certification
 ---------------------------------

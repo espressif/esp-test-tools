@@ -9,7 +9,7 @@
 
     测试环境搭建示意图
 
-- **电脑 (PC)** 通过 USB 与 USB-to-UART 转接板连接，通过网线与测试仪器连接。电脑上需安装 `EspRFTestTool 工具包 <https://dl.espressif.com/RF/EspRFTestTool_v3.6_Manual.zip>`__、测试仪器控制软件、以及 USB-to-UART 转接板驱动。
+- **电脑 (PC)** 通过 USB 与 USB-to-UART 转接板连接，通过网线与测试仪器连接。电脑上需安装 EspRFTestTool 工具包、测试仪器控制软件、以及 USB-to-UART 转接板驱动。
 - **测试仪器 (Tester)** 通常为 WT-328/IQXel 综测仪，用于测试待测设备在不同模式下的射频性能。
 - **USB-to-UART 转接板 (USB-to-UART Board)** 用于实现电脑和待测设备之间的通信。
 - **待测设备 (DUT)** 为基于 {IDF_TARGET_NAME} 芯片或模组设计的产品。待测设备通过 UART 与 USB-to-UART 转接板连接，并通过射频连接线与测试仪器连接。待测设备通常放在屏蔽箱中。
@@ -64,7 +64,7 @@
 4. 固件烧录完成后，将 boot 管脚拉高或悬空，芯片掉电重启后进入工作模式。
 
 .. |ESP32 射频非信令测试固件| replace:: `ESP32 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32_RFTest_V191_482eb73_20230724.bin>`__
-.. |ESP32-C2 射频非信令测试固件 (26 MHz) or ESP32-C2 射频非信令测试固件 (40 MHz)| replace:: `ESP32-C2 射频非信令测试固件 (26 MHz) <https://dl.espressif.com/RF/ESP32-C2_RFTest_V203_26M_7a8831de_20240730.bin>`__ or `ESP32-C2 射频非信令测试固件 (40 MHz) <https://dl.espressif.com/RF/ESP32-C2_RFTest_V203_40M_7a8831de_20240730.bin>`__ 
+.. |ESP32-C2 射频非信令测试固件 (26 MHz) or ESP32-C2 射频非信令测试固件 (40 MHz)| replace:: `ESP32-C2 射频非信令测试固件 (26 MHz) <https://dl.espressif.com/RF/ESP32-C2_RFTest_V203_26M_7a8831de_20240730.bin>`__ or `ESP32-C2 射频非信令测试固件 (40 MHz) <https://dl.espressif.com/RF/ESP32-C2_RFTest_V203_40M_7a8831de_20240730.bin>`__
 .. |ESP32-C3 射频非信令测试固件| replace:: `ESP32-C3 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32-C3_RFTest_V117_402fb258_20240902.bin>`__
 .. |ESP32-C6 射频非信令测试固件| replace:: `ESP32-C6 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32-C6_RFTest_V105_b0352c7_20240827.bin>`__
 .. |ESP32-S2 射频非信令测试固件| replace:: `ESP32-S2 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32-S2_RFTest_V207_545e2ab_20230829.bin>`__
