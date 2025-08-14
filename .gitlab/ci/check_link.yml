@@ -1,7 +1,3 @@
-variables:
-  ESP_DOCS_ENV_IMAGE: "$CI_DOCKER_REGISTRY/esp-idf-doc-env-v5.4:1-1"
-  ESP_DOCS_PATH: "$CI_PROJECT_DIR"
-
 check_link:
   stage: pre_check
   image: $ESP_DOCS_ENV_IMAGE

@@ -5,8 +5,16 @@ stages:
   - deploy
   - post_links
 
+variables:
+  # Versioned esp-idf-doc env image to use for all document building jobs
+  ESP_DOCS_ENV_IMAGE: "$CI_DOCKER_REGISTRY/esp-idf-doc-env-v5.4:1-1"
+  ESP_DOCS_PATH: "$CI_PROJECT_DIR"
+
 include:
   - '.gitlab/ci/build_docs.yml'
   - '.gitlab/ci/deploy.yml'
   - '.gitlab/ci/auto_trans.yml'
   - '.gitlab/ci/check_link.yml'
+  - '.gitlab/ci/publish-docs-to-cdp.yml'
+  - '.gitlab/ci/rules.yml'
+
