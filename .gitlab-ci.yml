@@ -4,6 +4,7 @@ stages:
   - build_docs
   - deploy
   - post_links
+  - post_check
 
 variables:
   # Versioned esp-idf-doc env image to use for all document building jobs
@@ -15,6 +16,8 @@ include:
   - '.gitlab/ci/deploy.yml'
   - '.gitlab/ci/auto_trans.yml'
   - '.gitlab/ci/check_link.yml'
+  - '.gitlab/ci/check_author.yml'
   - '.gitlab/ci/publish-docs-to-cdp.yml'
   - '.gitlab/ci/rules.yml'
+
 
