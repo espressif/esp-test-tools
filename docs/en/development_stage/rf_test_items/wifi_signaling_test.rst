@@ -25,9 +25,9 @@ The **Device Under Test (DUT)** is a product designed based on Espressif chips o
 Flash Firmware
 --------------
 
-{IDF_TARGET_WIFI_SIGNALLING_SINGLE_FIRMWARE:default="Not updated", esp32="|ESP32 Wi-Fi Signaling Test Firmware (Single Country)|", esp32c2="|ESP32-C2 Wi-Fi Signaling Test Firmware (Single Country)|", esp32c6="|ESP32-C6 Wi-Fi Signaling Test Firmware (Single Country)|", esp32c3="|ESP32-C3 Wi-Fi Signaling Test Firmware (Single Country)|"}
+{IDF_TARGET_WIFI_SIGNALLING_SINGLE_FIRMWARE:default="Contact Espressif for the latest firmware", esp32="|ESP32 Wi-Fi Signaling Test Firmware (Single Country)|", esp32c2="|ESP32-C2 Wi-Fi Signaling Test Firmware (Single Country)|", esp32c6="|ESP32-C6 Wi-Fi Signaling Test Firmware (Single Country)|", esp32c3="|ESP32-C3 Wi-Fi Signaling Test Firmware (Single Country)|", esp32s3="|ESP32-S3 Wi-Fi Signaling Test Firmware (Single Country)|", esp32s2="|ESP32-S2 Wi-Fi Signaling Test Firmware (Single Country)|"}
 
-{IDF_TARGET_WIFI_SIGNALLING_MULTIPLE_FIRMWARE:default="Not updated", esp32="|ESP32 Wi-Fi Signaling Test Firmware (Multiple Countries)|", esp32c2="|ESP32-C2 Wi-Fi Signaling Test Firmware (Multiple Countries)|", esp32c6="|ESP32-C6 Wi-Fi Signaling Test Firmware (Multiple Countries)|", esp32c3="|ESP32-C3 Wi-Fi Signaling Test Firmware (Multiple Countries)|"}
+{IDF_TARGET_WIFI_SIGNALLING_MULTIPLE_FIRMWARE:default="Contact Espressif for the latest firmware", esp32="|ESP32 Wi-Fi Signaling Test Firmware (Multiple Countries)|", esp32c2="|ESP32-C2 Wi-Fi Signaling Test Firmware (Multiple Countries)|", esp32c6="|ESP32-C6 Wi-Fi Signaling Test Firmware (Multiple Countries)|", esp32c3="|ESP32-C3 Wi-Fi Signaling Test Firmware (Multiple Countries)|", esp32s3="|ESP32-s3 Wi-Fi Signaling Test Firmware (Multiple Countries)|", esp32s2="|ESP32-S2 Wi-Fi Signaling Test Firmware (Multiple Countries)|"}
 
 {IDF_TARGET_FLASH_ADDRESS:default="0x0", esp32="0x1000", esp32s2="0x1000"}
 
@@ -79,7 +79,18 @@ Start Testing
 Check Power-on Log
 ^^^^^^^^^^^^^^^^^^
 
-Use a serial communication tool such as `Serial Port Utility <http://alithon.com/downloads>`__ to configure the port number and set the baud rate to 115200. After the device is powered on again, if the serial port outputs information similar to the following, you can confirm that the test status is OK:
+.. note::
+
+    .. only:: esp8266 or esp32c2
+
+        If the main crystal oscillator is 26 MHz, set ``BaudRate`` to 74880; if the main crystal oscillator is 40 MHz, set ``BaudRate`` to 115200.
+
+    .. only:: not esp32c2 and not esp8266
+
+        ``BaudRate`` is set to 115200.
+
+
+Use a serial communication tool, such as `Friendly Serial Assistant <http://alithon.com/downloads>`__, to configure the port number and baud rate. After the device under test is powered on again, if the serial output is similar to the following information, you can confirm that the test status is normal:
 
 .. figure:: ../../../_static/rf_test_tool/esp32c2_wifi_signaling.png
     :align: center
@@ -118,16 +129,24 @@ After the device under test is successfully connected, you can use the RF test i
 
 .. |ESP32 Wi-Fi Signaling Test Firmware (Single Country)| replace:: `ESP32 Wi-Fi Signaling Test Firmware (Single Country) <https://dl.espressif.com/rf/esp32/ESP32ECO3_Signaling_V4.3_SinglePhy_20230525.zip>`__
 
-.. |ESP32-C2 Wi-Fi Signaling Test Firmware (Single Country)| replace:: `ESP32-C2 Wi-Fi Signaling Test Firmware (Single Country) <https://dl.espressif.com/RF/ESP32C2_v5.0_e255ce0_26M_singlephy_20250430.zip>`__
-
-.. |ESP32-C3 Wi-Fi Signaling Test Firmware (Single Country)| replace:: `ESP32-C3 Wi-Fi Signaling Test Firmware (Single Country) <https://dl.espressif.com/RF/ESP32C3_v5.5_402fb258_singlephy_20250722.zip>`__
-
 .. |ESP32 Wi-Fi Signaling Test Firmware (Multiple Countries)| replace:: `ESP32 Wi-Fi Signaling Test Firmware (Multiple Countries) <https://dl.espressif.com/rf/esp32/ESP32ECO3_Signaling_V4.3_MultiPhy_20230525.zip>`__
 
+.. |ESP32-C2 Wi-Fi Signaling Test Firmware (Single Country)| replace:: `ESP32-C2 Wi-Fi Signaling Test Firmware (Single Country) <https://dl.espressif.com/RF/ESP32C2_v5.0_e255ce0_26M_singlephy_20250430.zip>`__
+
 .. |ESP32-C2 Wi-Fi Signaling Test Firmware (Multiple Countries)| replace:: `ESP32-C2 Wi-Fi Signaling Test Firmware (Multiple Countries) <https://dl.espressif.com/RF/ESP32C2_v5.0_e255ce0_26M_multiphy_20250430.zip>`__
+
+.. |ESP32-C3 Wi-Fi Signaling Test Firmware (Single Country)| replace:: `ESP32-C3 Wi-Fi Signaling Test Firmware (Single Country) <https://dl.espressif.com/RF/ESP32C3_v5.5_402fb258_singlephy_20250722.zip>`__
 
 .. |ESP32-C3 Wi-Fi Signaling Test Firmware (Multiple Countries)| replace:: `ESP32-C3 Wi-Fi Signaling Test Firmware (Multiple Countries) <https://dl.espressif.com/RF/ESP32C3_v5.5_402fb258_multiphy_20250722.zip>`__
 
 .. |ESP32-C6 Wi-Fi Signaling Test Firmware (Single Country)| replace:: `ESP32-C6 Wi-Fi Signaling Test Firmware (Single Country) <https://dl.espressif.com/RF/ESP32-C6_v5.4.2_d12e5a3_SinglePhy_20250808.zip>`__
 
 .. |ESP32-C6 Wi-Fi Signaling Test Firmware (Multiple Countries)| replace:: `ESP32-C6 Wi-Fi Signaling Test Firmware (Multiple Countries) <https://dl.espressif.com/RF/ESP32-C6_v5.4.2_d12e5a3_MultiplePhy_20250808.zip>`__
+
+.. |ESP32-S2 Wi-Fi Signaling Test Firmware (Single Country)| replace:: `ESP32-S2 Wi-Fi Signaling Test Firmware (Single Country) <https://dl.espressif.com/RF/ESP32S2_V5.3.3_f8f9319_SinglePhy_20250915.zip>`__
+
+.. |ESP32-S2 Wi-Fi Signaling Test Firmware (Multiple Countries)| replace:: `ESP32-S2 Wi-Fi Signaling Test Firmware (Multiple Countries) <https://dl.espressif.com/RF/ESP32S2_V5.3.3_f8f9319_MultiplePhy_20250915.zip>`__
+
+.. |ESP32-S3 Wi-Fi Signaling Test Firmware (Single Country)| replace:: `ESP32-S3 Wi-Fi Signaling Test Firmware (Single Country) <https://dl.espressif.com/RF/ESP32S3_V4.4.4_a5d905b_SinglePhy_20250915.zip>`__
+
+.. |ESP32-S3 Wi-Fi Signaling Test Firmware (Multiple Countries)| replace:: `ESP32-S3 Wi-Fi Signaling Test Firmware (Multiple Countries) <https://dl.espressif.com/RF/ESP32S3_V4.4.4_a5d905b_MultiplePhy_20250915.zip>`__

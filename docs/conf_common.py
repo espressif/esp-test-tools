@@ -22,7 +22,15 @@ MATTER_DOCS = ['production_stage/tools/matter_qr_code_generator.rst']
 
 PRODUCT_DOCS = ['production_stage/tools/esp_production_testing_guide.rst']
 
-ESP8266_DOCS = WIFI_DOCS + PRODUCT_DOCS
+# ESP8266_DOCS = WIFI_DOCS + PRODUCT_DOCS
+ESP8266_DOCS = (
+    [
+    'development_stage/rf_test_items/wifi_adaptivity_test.rst',
+    'development_stage/rf_test_items/wifi_blocking_test.rst',
+    'development_stage/rf_test_items/wifi_non_signaling_test.rst'
+    ]
+    + PRODUCT_DOCS
+)
 ESP32_DOCS = WIFI_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
 ESP32C2_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
 ESP32C3_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS

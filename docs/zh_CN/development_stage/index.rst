@@ -22,7 +22,11 @@ RF 测试项目
 
    - :doc:`Wi-Fi 非信令测试 <rf_test_items/wifi_non_signaling_test>` 也叫定频测试，在不建立实际数据连接的情况下，直接控制设备发射特定信号，用于评估设备的射频性能，如发射功率、频谱质量和误码率等，以确保设备在各种环境中的无线通信质量。
 
+.. only:: not esp32h2 and not esp8266
+
    - :doc:`Wi-Fi 信令测试 <rf_test_items/wifi_signaling_test>` 用于评估和验证无线网络设备 Wi-Fi 信令功能，主要用于确保设备在各种操作环境中能够稳定可靠地通信。Wi-Fi 信令测试通常用于设备的 OTA (Over-The-Air) 性能评估，包括 TRP（Total Radiated Power，总辐射功率）和 TIS（Total Isotropic Sensitivity，总各向同性灵敏度）测试。
+
+.. only:: not esp32h2
 
    - :doc:`Wi-Fi 自适应测试 <rf_test_items/wifi_adaptivity_test>` 模拟不同的网络条件和负载情况，测试设备在实时调整传输速率、信道和功率等参数时的响应能力，从而优化无线网络性能和稳定性。
 
@@ -223,7 +227,7 @@ RF 认证
         - Y
         - Y
 
-.. only:: not esp32h2
+.. only:: not esp32h2 and not esp8266
 
    .. note::
 

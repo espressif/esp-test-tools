@@ -70,40 +70,82 @@ Appendix
 
 This appendix is mainly used to explain the output target power of {IDF_TARGET_NAME} 802.15.4, which is used for RF debugging or test reference.
 
-.. list-table:: {IDF_TARGET_NAME} 802.15.4 TX Power Level
-    :widths: 30 50
+.. only:: esp32c6
 
-    * - Power Level
-      - 802.15.4 Power (dBm)
-    * - 0
-      - -24
-    * - 1
-      - -21
-    * - 2
-      - -18
-    * - 3
-      - -15
-    * - 4
-      - -12
-    * - 5
-      - -9
-    * - 6
-      - -6
-    * - 7
-      - -3
-    * - 8
-      - 0
-    * - 9
-      - 3
-    * - 10
-      - 6
-    * - 11
-      - 9
-    * - 12
-      - 12
-    * - 13
-      - 15
-    * - 14
-      - 18
-    * - 15
-      - 20
+  .. list-table:: {IDF_TARGET_NAME} 802.15.4 TX Power Level
+      :widths: 30 50
+
+      * - Power Level
+        - 802.15.4 Power (dBm)
+      * - 0
+        - -15
+      * - 1
+        - -15
+      * - 2
+        - -15
+      * - 3
+        - -15
+      * - 4
+        - -12
+      * - 5
+        - -9
+      * - 6
+        - -6
+      * - 7
+        - -3
+      * - 8
+        - 0
+      * - 9
+        - 3
+      * - 10
+        - 6
+      * - 11
+        - 9
+      * - 12
+        - 12
+      * - 13
+        - 15
+      * - 14
+        - 18
+      * - 15
+        - 20
+
+.. only:: not esp32c6
+
+  .. list-table:: {IDF_TARGET_NAME} 802.15.4 TX Power Level
+      :widths: 30 50
+
+      * - Power Level
+        - 802.15.4 Power (dBm)
+      * - 0
+        - -24
+      * - 1
+        - -21
+      * - 2
+        - -18
+      * - 3
+        - -15
+      * - 4
+        - -12
+      * - 5
+        - -9
+      * - 6
+        - -6
+      * - 7
+        - -3
+      * - 8
+        - 0
+      * - 9
+        - 3
+      * - 10
+        - 6
+      * - 11
+        - 9
+      * - 12
+        - 12
+      * - 13
+        - 15
+      * - 14
+        - 18
+      * - 15
+        - 20

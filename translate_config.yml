@@ -57,5 +57,7 @@ trans_dict:
   Bluetooth: 蓝牙
   Bluetooth LE: 低功耗蓝牙
   flash: 烧录
+  Test Firmware (Single Country): 测试固件（单国）
+  Test Firmware (Multiple Countries): 测试固件（多国）
 
 target_language_folder: ./

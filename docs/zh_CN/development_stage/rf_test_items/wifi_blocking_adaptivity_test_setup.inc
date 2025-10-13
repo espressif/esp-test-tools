@@ -18,7 +18,7 @@
 烧录固件
 ------------------
 
-{IDF_TARGET_WIFI_BLOCKING_ADAPTIVITY_FIRMWARE:default="Not updated", esp32="|ESP32 Wi-Fi 自适应测试/阻塞测试固件|", esp32c2="|ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件|", esp32c3="|ESP32-C3 Wi-Fi 自适应测试/阻塞测试固件|", esp32c6="|ESP32-C6 Wi-Fi 自适应测试/阻塞测试固件|", esp32s2="|ESP32-S2 Wi-Fi 自适应测试/阻塞测试固件|", esp32s3="|ESP32-S3 Wi-Fi 自适应测试/阻塞测试固件|", esp8266="|ES8266 Wi-Fi 自适应测试/阻塞测试固件|"}
+{IDF_TARGET_WIFI_BLOCKING_ADAPTIVITY_FIRMWARE:default="Not updated", esp32="|ESP32 Wi-Fi 自适应测试/阻塞测试固件|", esp32c2="|ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (26 MHz) or ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (40 MHz)|", esp32c3="|ESP32-C3 Wi-Fi 自适应测试/阻塞测试固件|", esp32c6="|ESP32-C6 Wi-Fi 自适应测试/阻塞测试固件|", esp32s2="|ESP32-S2 Wi-Fi 自适应测试/阻塞测试固件|", esp32s3="|ESP32-S3 Wi-Fi 自适应测试/阻塞测试固件|", esp8266="|ES8266 Wi-Fi 自适应测试/阻塞测试固件|"}
 
 {IDF_TARGET_FLASH_ADDRESS:default="0x0", esp32="0x1000", esp32s2="0x1000"}
 
@@ -49,10 +49,20 @@
 开始测试
 ---------------------------
 
+.. note::
+
+    .. only:: esp8266 or esp32c2
+
+        如果主晶振为 26 MHz，``BaudRate`` 设置为 74880；如果主晶振为 40 MHz，``BaudRate`` 设置为 115200。
+
+    .. only:: not esp32c2 and not esp8266
+
+        ``BaudRate`` 设置为 115200。
+
 查看上电打印
 ^^^^^^^^^^^^^^^^^^^^^
 
-使用串口通信工具，如 `友善串口助手 <http://alithon.com/downloads>`__，配置端口号，波特率设置为 115200，待测设备重新上电后串口如果打印类似如下信息，则可确认测试状态 OK：
+使用串口通信工具，如 `友善串口助手 <http://alithon.com/downloads>`__，配置端口号和波特率，待测设备重新上电后串口如果打印类似如下信息，则可确认测试状态 OK：
 
 .. figure:: ../../../_static/rf_test_tool/esp32c2_wifi_signaling.png
     :align: center
@@ -61,9 +71,9 @@
     设备上电串口打印日志
 
 .. |ESP32 Wi-Fi 自适应测试/阻塞测试固件| replace:: `ESP32 Wi-Fi 自适应测试/阻塞测试固件 <https://dl.espressif.com/rf/esp32/ESP32_wifi_Adaptivity&Blocking_20210420.bin>`__
-.. |ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件| replace:: `ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 <https://dl.espressif.com/rf/esp32c2/ESP32C2_WiFi_Adaptivity&Blocking_26M_20240416.bin>`__
-.. |ESP32-C3 Wi-Fi 自适应测试/阻塞测试固件| replace:: `ESP32-C3 Wi-Fi 自适应测试/阻塞测试固件 <https://dl.espressif.com/rf/esp32c3/ESP32C3_wifi_Adaptivity&Blocking_20220627.bin>`__
-.. |ESP32-C6 Wi-Fi 自适应测试/阻塞测试固件| replace:: `ESP32-C6 Wi-Fi 自适应测试/阻塞测试固件 <https://dl.espressif.com/rf/esp32c6/ESP32C6_wifi_Adaptivity&Blocking_20230704.bin>`__
+.. |ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (26 MHz) or ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (40 MHz)| replace:: `ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (26 MHz) <https://dl.espressif.com/RF/ESP32C2_wifi_Adaptivity&Blocking_26M_20250408.bin>`__ or `ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (40 MHz) <hhttps://dl.espressif.com/RF/ESP32C2_wifi_Adaptivity&Blocking_40M_20250408.bin>`__
+.. |ESP32-C3 Wi-Fi 自适应测试/阻塞测试固件| replace:: `ESP32-C3 Wi-Fi 自适应测试/阻塞测试固件 <https://dl.espressif.com/RF/ESP32C3_wifi_Adaptivity&Blocking_20250722.bin>`__
+.. |ESP32-C6 Wi-Fi 自适应测试/阻塞测试固件| replace:: `ESP32-C6 Wi-Fi 自适应测试/阻塞测试固件 <https://dl.espressif.com/RF/ESP32C6_wifi_Adaptivity&Blocking_20250807.bin>`__
 .. |ESP32-S2 Wi-Fi 自适应测试/阻塞测试固件| replace:: `ESP32-S2 Wi-Fi 自适应测试/阻塞测试固件 <https://dl.espressif.com/rf/esp32s2/ESP32S2_wifi_Adaptivity&Blocking_20220826.bin>`__
 .. |ESP32-S3 Wi-Fi 自适应测试/阻塞测试固件| replace:: `ESP32-S3 Wi-Fi 自适应测试/阻塞测试固件 <https://dl.espressif.com/rf/esp32s3/ESP32S3_wifi_Adaptivity&Blocking_20230328.bin>`__
 .. |ES8266 Wi-Fi 自适应测试/阻塞测试固件| replace:: `ES8266 Wi-Fi 自适应测试/阻塞测试固件 <https://dl.espressif.com/RF/ESP8266&8285_adaptivity&blocking_bin_20220824_115200.bin>`__

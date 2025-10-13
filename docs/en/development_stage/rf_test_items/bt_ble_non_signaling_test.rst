@@ -45,13 +45,13 @@ Start Testing
         :align: center
         :scale: 80%
 
-        Bluetooth Transmission Performance
+        Bluetooth TX Performance
 
     .. figure:: ../../../_static/rf_test_tool/esp32_ble_tx_on.png
         :align: center
         :scale: 80%
 
-        Bluetooth LE Transmit Performance
+        Bluetooth LE TX Performance
 
     Bluetooth RX Performance Test
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -190,9 +190,12 @@ Start Testing
 Appendix
 --------
 
-This appendix is mainly used to explain the power level and corresponding target power of {IDF_TARGET_BT_BLE_OPTION} of {IDF_TARGET_NAME}, which is used for RF debugging or test reference.
+This appendix provides reference for RF debugging or testing.
+
 
 .. only:: esp32
+
+  This table shows the mapping between power levels and their target power for {IDF_TARGET_BT_BLE_OPTION} on {IDF_TARGET_NAME}, serving as a reference for RF debugging or testing.
 
   .. list-table:: {IDF_TARGET_NAME} Bluetooth/Bluetooth LE TX Power Level
     :widths: 40 60
@@ -216,10 +219,104 @@ This appendix is mainly used to explain the power level and corresponding target
     * - 7
       - 9
 
-.. only:: not esp32
+
+.. only:: esp32c6
 
     Bluetooth LE TX Power Level
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    This table shows the mapping between power levels and their target power for {IDF_TARGET_BT_BLE_OPTION} on {IDF_TARGET_NAME}, serving as a reference for RF debugging or testing.
+
+    .. list-table:: {IDF_TARGET_NAME} Bluetooth LE TX Power Level
+        :widths: 40 60
+
+        * - Power Level
+          - Bluetooth LE TX Power (dBm)
+        * - 0
+          - -15
+        * - 1
+          - -15
+        * - 2
+          - -15
+        * - 3
+          - -15
+        * - 4
+          - -12
+        * - 5
+          - -9
+        * - 6
+          - -6
+        * - 7
+          - -3
+        * - 8
+          - 0
+        * - 9
+          - 3
+        * - 10
+          - 6
+        * - 11
+          - 9
+        * - 12
+          - 12
+        * - 13
+          - 15
+        * - 14
+          - 18
+        * - 15
+          - 20
+
+    Bluetooth LE 5.0 PHY Channel and Index
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    For Bluetooth LE, the EspRFTestTool toolkit uses the channel index to identify channels.
+
+    .. list-table:: {IDF_TARGET_NAME} Bluetooth LE 5.0 PHY Channel and Index
+        :widths: 50 60 50
+
+        * - PHY Channel
+          - RF Center Frequency (MHz)
+          - Channel Index
+        * - 0
+          - 2402
+          - 37
+        * - 1
+          - 2404
+          - 0
+        * - 2
+          - 2406
+          - 1
+        * - ...
+          - ...
+          - ...
+        * - 11
+          - 2424
+          - 10
+        * - 12
+          - 2426
+          - 38
+        * - 13
+          - 2428
+          - 11
+        * - 14
+          - 2430
+          - 12
+        * - ...
+          - ...
+          - ...
+        * - 38
+          - 2478
+          - 36
+        * - 39
+          - 2480
+          - 39
+
+
+.. only:: not esp32 and not esp32c6
+
+    Bluetooth LE TX Power Level
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    This table shows the mapping between power levels and their target power for {IDF_TARGET_BT_BLE_OPTION} on {IDF_TARGET_NAME}, serving as a reference for RF debugging or testing.
 
     .. list-table:: {IDF_TARGET_NAME} Bluetooth LE TX Power Level
         :widths: 40 60
@@ -259,12 +356,12 @@ This appendix is mainly used to explain the power level and corresponding target
         * - 15
           - 20
 
-    Bluetooth LE 5.0 PHY Channels and Indexes
+    Bluetooth LE 5.0 PHY Channel and Index
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    - For Bluetooth LE, the EspRFTestTool toolkit uses the Channel Index to identify channels.
+    For Bluetooth LE, the EspRFTestTool toolkit uses the channel index to identify channels.
 
-    .. list-table::  {IDF_TARGET_NAME} Bluetooth LE 5.0 PHY Channels and Indexes
+    .. list-table::  {IDF_TARGET_NAME} Bluetooth LE 5.0 PHY Channel and Index
         :widths: 50 60 50
 
         * - PHY Channel

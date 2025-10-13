@@ -22,7 +22,11 @@ RF Test Items
 
    - :doc:`Wi-Fi Non-Signaling Test <rf_test_items/wifi_non_signaling_test>` also known as fixed frequency test, directly controls the device to transmit specific signals without establishing a data connection. It evaluates key RF performance metrics, such as transmit power, spectrum quality, and error rate, ensuring wireless communication quality in various scenarios.
 
+.. only:: not esp32h2 and not esp8266
+
    - :doc:`Wi-Fi Signaling Test </development_stage/rf_test_items/wifi_signaling_test>` assesses and verifies the Wi-Fi signaling functions of wireless network devices, focusing on stable and reliable communication across different operating scenarios. It evaluates the Over-The-Air (OTA) performance, including Total Radiated Power (TRP) and Total Isotropic Sensitivity (TIS).
+
+.. only:: not esp32h2
 
    - :doc:`Wi-Fi Adaptivity Test </development_stage/rf_test_items/wifi_adaptivity_test>` simulates various network conditions and loads to access device's real-time adjustments in transmission rate, channel selection, and power levels, optimizing overall network performance and stability.
 
@@ -223,7 +227,7 @@ Test items for each certification are listed in the following table.
         - Y
         - Y
 
-.. only:: not esp32h2
+.. only:: not esp32h2 and not esp8266
 
    .. note::
 

@@ -15,6 +15,7 @@ Wi-Fi 自适应测试模拟不同的网络条件和负载情况，测试设备�
 
 接下来可选择 `使用串口指令测试`_ 或者 `使用 EspRFTestTool 工具测试`_。
 
+
 使用串口指令测试
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -54,7 +55,7 @@ Wi-Fi 自适应测试模拟不同的网络条件和负载情况，测试设备�
 使用 EspRFTestTool 工具测试
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- 打开 EspRFTestTool 工具包，配置 ``ChipType`` 与 ``COM``，波特率 ``BaudRate`` 选择 115200，打开端口后，选择 ``WiFi Adaptivity`` 测试界面。
+- 打开 EspRFTestTool 工具包，配置 ``ChipType`` 与 ``COM``，波特率 ``BaudRate`` ，打开端口后，选择 ``WiFi Adaptivity`` 测试界面。
 
 - 在 ``STA`` 模式输入 ``AP ssid`` 和 ``AP pwd``, 点击 ``Connect AP`` 连接。
 

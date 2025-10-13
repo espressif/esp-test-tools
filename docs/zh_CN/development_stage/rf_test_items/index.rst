@@ -7,7 +7,7 @@ RF 测试项目
    :maxdepth: 1
 
    :not esp32h2: wifi_non_signaling_test
-   :not esp32h2: wifi_signaling_test
+   :not esp32h2 and not esp8266: wifi_signaling_test
    :not esp32h2: wifi_adaptivity_test
    :not esp32h2: wifi_blocking_test
    :not esp8266 and not esp32s2: bt_ble_non_signaling_test
