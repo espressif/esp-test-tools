@@ -28,7 +28,7 @@ pdf_file_prefix = u'esp-test-tools'
 # for a list of supported languages.
 language = 'zh_CN'
 
-doc_id = {'esp8266': '8101', 'esp32': '8123', 'esp32c2': '8125', 'esp32c3': '8127', 'esp32c6': '8129', 'esp32s2': '8131', 'esp32s3': '8133', 'esp32h2': '8135'}
+doc_id = {'esp8266': '8101', 'esp32': '8123', 'esp32c2': '8125', 'esp32c3': '8127', 'esp32c6': '8129', 'esp32s2': '8131', 'esp32s3': '8133', 'esp32h2': '8135', 'esp32c5': '', 'esp32c61': ''}
 
 # ----------------- Chinese-specific LaTeX configurations -----------------
 

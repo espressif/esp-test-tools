@@ -37,7 +37,9 @@
 烧录固件
 ------------------
 
-{IDF_TARGET_RF_NON_SIGNALING_FIRMWARE:default="Not Updated", esp32="|ESP32 射频非信令测试固件|", esp32c2="|ESP32-C2 射频非信令测试固件 (26 MHz) or ESP32-C2 射频非信令测试固件 (40 MHz)|", esp32c3="|ESP32-C3 射频非信令测试固件|", esp32c6="|ESP32-C6 射频非信令测试固件|", esp32s2="|ESP32-S2 射频非信令测试固件|", esp32s3="|ESP32-S3 射频非信令测试固件|", esp8266="|ESP8266 射频非信令测试固件 (26 MHz) or ESP8266 射频非信令测试固件 (40 MHz)|", esp32h2="|ESP32-H2 射频非信令测试固件|"}
+{IDF_TARGET_RF_NON_SIGNALING_FIRMWARE:default="联系乐鑫获取最新固件", esp32="|ESP32 射频非信令测试固件|", esp32c2="|ESP32-C2 射频非信令测试固件 (26 MHz) or ESP32-C2 射频非信令测试固件 (40 MHz)|", esp32c3="|ESP32-C3 射频非信令测试固件|", esp32c6="|ESP32-C6 射频非信令测试固件|", esp32s2="|ESP32-S2 射频非信令测试固件|", esp32s3="|ESP32-S3 射频非信令测试固件|", esp8266="|ESP8266 射频非信令测试固件 (26 MHz) or ESP8266 射频非信令测试固件 (40 MHz)|", esp32h2="|ESP32-H2 射频非信令测试固件|"}
+
+{IDF_TARGET_FLASH_ADDRESS:default="0x0", esp32="0x1000", esp32s2="0x1000", esp32c5="0x2000"}
 
 1. 打开 :ref:`esp-rf-test-tool`。
 
@@ -62,6 +64,10 @@
     ESPRFTestTool 工具配置
 
 4. 固件烧录完成后，将 boot 管脚拉高或悬空，芯片掉电重启后进入工作模式。
+
+.. note::
+
+    如使用 Flash 下载工具烧录固件，需要将 {IDF_TARGET_NAME} 的烧录地址改为 {IDF_TARGET_FLASH_ADDRESS}。
 
 .. |ESP32 射频非信令测试固件| replace:: `ESP32 射频非信令测试固件 <https://dl.espressif.com/RF/ESP32_RFTest_V191_482eb73_20230724.bin>`__
 .. |ESP32-C2 射频非信令测试固件 (26 MHz) or ESP32-C2 射频非信令测试固件 (40 MHz)| replace:: `ESP32-C2 射频非信令测试固件 (26 MHz) <https://dl.espressif.com/RF/ESP32-C2_RFTest_V203_26M_7a8831de_20240730.bin>`__ or `ESP32-C2 射频非信令测试固件 (40 MHz) <https://dl.espressif.com/RF/ESP32-C2_RFTest_V203_40M_7a8831de_20240730.bin>`__

@@ -1,9 +1,6 @@
 specified_files:
-#development_stage
-  - docs/zh_CN/development_stage/index.rst
-  - docs/zh_CN/development_stage/rf_test_certification
-  - docs/zh_CN/development_stage/rf_test_guide
-  - docs/zh_CN/development_stage/rf_test_items
+# development_stage
+  - docs/zh_CN/development_stage
 
 #  - docs/zh_CN/development_stage/rf_test_certification/fcc_certification.rst
 #  - docs/zh_CN/development_stage/rf_test_certification/srrc_certification.rst
@@ -21,28 +18,30 @@ specified_files:
 #  - docs/zh_CN/development_stage/rf_test_items/zigbee_non_signaling_test.rst
 #  - docs/zh_CN/wfa_certification_test/wfa_certification_test.rst
 
-#faq
+# faq
+  - docs/zh_CN/faq
 #  - docs/zh_CN/faq/esp_production_testing_guide_faq.rst
-  - docs/zh_CN/faq/flash_download_tool_faq.rst
-  - docs/zh_CN/faq/rf_testing_faq.rst
+#  - docs/zh_CN/faq/flash_download_tool_faq.rst
+#  - docs/zh_CN/faq/rf_testing_faq.rst
 #  - docs/zh_CN/faq/wfa_certification_test_faq.rst
 
 #production_stage
+  - docs/zh_CN/production_stage
 #  - docs/zh_CN/production_stage/instructions/test_fixture_mfg_inst.rst
 #  - docs/zh_CN/production_stage/tools/esp_production_testing_guide.rst
-  - docs/zh_CN/production_stage/tools/flash_download_tool.rst
+#  - docs/zh_CN/production_stage/tools/flash_download_tool.rst
 #  - docs/zh_CN/production_stage/tools/matter_qr_code_generator.rst
 
-#introduction
-#  - docs/zh_CN/index.rst
+# introduction
+  - docs/zh_CN/index.rst
 
-#copyright
-#  - docs/zh_CN/copyright.rst
+# copyright
+  - docs/zh_CN/copyright.rst
 
-#resources
-#  - docs/zh_CN/resources.rst
+# resources
+  - docs/zh_CN/resources.rst
 
-target_language: EN-CN
+target_language: CN-EN
 
 trans_dict:
   Wi-Fi Non-Signaling Test: Wi-Fi 非信令测试

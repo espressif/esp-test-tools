@@ -14,6 +14,6 @@ The SRRC certification of RF products requires related non-signaling and adaptiv
 
     - :doc:`../rf_test_items/bt_ble_non_signaling_test`
 
-.. only:: esp32h2 or esp32c6
+.. only:: esp32h2 or esp32c6 or esp32c5
 
     - :doc:`../rf_test_items/zigbee_non_signaling_test`

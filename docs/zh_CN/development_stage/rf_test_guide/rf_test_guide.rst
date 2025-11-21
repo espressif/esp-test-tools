@@ -219,7 +219,7 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
     3. 选择 ``Multiple Country`` 会生成包含 Default 和 SRRC、FCC、CE、NCC、KCC、MIC 与 IC 七国认证的 Combined phy_init_bin 文件，包含了 8*128 字节。
     4. 选择 ``Custom``，根据自定义选择生成单个或多国认证 phy_init_bin 文件。
 
-{IDF_TARGET_RF_NON_SIGNALING_FIRMWARE_COPY:default="Not Updated", esp32="|ESP32 射频非信令测试固件|", esp32c2="|ESP32-C2 射频非信令测试固件 (26 MHz) or ESP32-C2 射频非信令测试固件 (40 MHz)|", esp32c3="|ESP32-C3 射频非信令测试固件|", esp32c6="|ESP32-C6 射频非信令测试固件|", esp32s2="|ESP32-S2 射频非信令测试固件|", esp32s3="|ESP32-S3 射频非信令测试固件|", esp8266="|ESP8266 射频非信令测试固件 (26 MHz) or ESP8266 射频非信令测试固件 (40 MHz)|", esp32h2="|ESP32-H2 射频非信令测试固件|"}
+{IDF_TARGET_RF_NON_SIGNALING_FIRMWARE_COPY:default="联系乐鑫获取最新固件", esp32="|ESP32 射频非信令测试固件|", esp32c2="|ESP32-C2 射频非信令测试固件 (26 MHz) or ESP32-C2 射频非信令测试固件 (40 MHz)|", esp32c3="|ESP32-C3 射频非信令测试固件|", esp32c6="|ESP32-C6 射频非信令测试固件|", esp32s2="|ESP32-S2 射频非信令测试固件|", esp32s3="|ESP32-S3 射频非信令测试固件|", esp8266="|ESP8266 射频非信令测试固件 (26 MHz) or ESP8266 射频非信令测试固件 (40 MHz)|", esp32h2="|ESP32-H2 射频非信令测试固件|"}
 
 {IDF_TARGET_RF_NON_SIGNALING_FIRMWARE_ADDRESS:default="0x0", esp32="0x1000", esp32s2="0x1000"}
 
@@ -432,6 +432,110 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
           - 18
         * - HE20-11ax MCS9
           - 15
+
+
+.. only:: esp32c61
+
+    {IDF_TARGET_NAME} 平均输出功率典型值
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. list-table::
+        :header-rows: 1
+        :widths: 20 20
+        :align: center
+
+        * - 传输速率
+          - 平均输出功率典型值 (dBm)
+        * - 11b 1M
+          - 20.5
+        * - 11b 11M
+          - 20.5
+        * - 11g 6M
+          - 20
+        * - 11g 54M
+          - 19
+        * - HT20-11n MCS0
+          - 19
+        * - HT20-11n MCS7
+          - 18
+        * - HT40-11n MCS0
+          - 18.5
+        * - HT40-11n MCS7
+          - 17.5
+        * - HE20-11ax MCS0
+          - 19
+        * - HE20-11ax MCS7
+          - 18
+        * - HE20-11ax MCS9
+          - 15.5
+
+
+
+.. only:: esp32c5
+
+    {IDF_TARGET_NAME} 平均输出功率典型值
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. list-table::
+        :header-rows: 1
+        :widths: 20 20
+        :align: center
+
+        * - 传输速率
+          - 2.4G 平均输出功率典型值 (dBm)
+        * - 11b 1M
+          - 19.5
+        * - 11b 11M
+          - 19.5
+        * - 11g 6M
+          - 18.5
+        * - 11g 54M
+          - 16.5
+        * - HT20-11n MCS0
+          - 18.5
+        * - HT20-11n MCS7
+          - 16.5
+        * - HT40-11n MCS0
+          - 17.5
+        * - HT40-11n MCS7
+          - 15.5
+        * - HE20-11ax MCS0
+          - 18.5
+        * - HE20-11ax MCS7
+          - 16.5
+        * - HE20-11ax MCS9
+          - 14.5
+
+
+    .. list-table::
+        :header-rows: 1
+        :widths: 20 20
+        :align: center
+
+        * - 传输速率
+          - 5G 平均输出功率典型值 (dBm)
+        * - 11a 6M
+          - 18.5
+        * - 11a 54M
+          - 16.5
+        * - HT20-11n MCS0
+          - 18.5
+        * - HT20-11n MCS7
+          - 15.5
+        * - HT40-11n MCS0
+          - 17.5
+        * - HT40-11n MCS7
+          - 14.5
+        * - VHT20-11ac MCS0
+          - 18.5
+        * - VHT20-11ac MCS7
+          - 15.5
+        * - HE20-11ax MCS0
+          - 18.5
+        * - HE20-11ax MCS7
+          - 15.5
+
+
 
 
 

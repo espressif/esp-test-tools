@@ -29,7 +29,7 @@ Flash Firmware
 
 {IDF_TARGET_WIFI_SIGNALLING_MULTIPLE_FIRMWARE:default="Contact Espressif for the latest firmware", esp32="|ESP32 Wi-Fi Signaling Test Firmware (Multiple Countries)|", esp32c2="|ESP32-C2 Wi-Fi Signaling Test Firmware (Multiple Countries)|", esp32c6="|ESP32-C6 Wi-Fi Signaling Test Firmware (Multiple Countries)|", esp32c3="|ESP32-C3 Wi-Fi Signaling Test Firmware (Multiple Countries)|", esp32s3="|ESP32-s3 Wi-Fi Signaling Test Firmware (Multiple Countries)|", esp32s2="|ESP32-S2 Wi-Fi Signaling Test Firmware (Multiple Countries)|"}
 
-{IDF_TARGET_FLASH_ADDRESS:default="0x0", esp32="0x1000", esp32s2="0x1000"}
+{IDF_TARGET_FLASH_ADDRESS:default="0x0", esp32="0x1000", esp32s2="0x1000", esp32c5="0x2000"}
 
 1. Open :ref:`download-tool`.
 

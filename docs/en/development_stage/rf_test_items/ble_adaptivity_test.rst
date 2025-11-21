@@ -32,7 +32,7 @@ Set Up Test Environment
 Flash Firmware
 --------------
 
-{IDF_TARGET_BLE_ADAPTIVITY_FIRMWARE:default="Not updated", esp32c2="|ESP32-C2 Bluetooth LE Adaptivity Test Firmware|", esp32c3="|ESP32-C3 Bluetooth LE Adaptivity Test Firmware|", esp32c6="|ESP32-C6 Bluetooth LE Adaptivity Test Firmware|", esp32s3="|ESP32-S3 Bluetooth LE Adaptivity Test Firmware|", esp32h2="|ESP32-H2 Bluetooth LE Adaptivity Test Firmware|"}
+{IDF_TARGET_BLE_ADAPTIVITY_FIRMWARE:default="Contact Espressif for the latest firmware", esp32c2="|ESP32-C2 Bluetooth LE Adaptivity Test Firmware|", esp32c3="|ESP32-C3 Bluetooth LE Adaptivity Test Firmware|", esp32c6="|ESP32-C6 Bluetooth LE Adaptivity Test Firmware|", esp32s3="|ESP32-S3 Bluetooth LE Adaptivity Test Firmware|", esp32h2="|ESP32-H2 Bluetooth LE Adaptivity Test Firmware|"}
 
 1. Open :ref:`download-tool`.
 
@@ -71,7 +71,7 @@ Open the serial port assistant and enter the corresponding commands on the Slave
   bleconn -T -z start -x 1 -y 1 -n 1 -i 0x6-0x6 -v 13
 
   //Configure power, default is set to level 13 (the parameter after "-e" should be consistent with the one after "-v" in the previous command)
-  ble -S -z etxp -t 4 -h 1 -e 13
+  blehci -S -z etxp -t 4 -h 1 -e 13
 
   //Set MTU
   gattc -C -m 512 -p 0x10 -r c0:11:11:11:11:11 -b 1

@@ -219,7 +219,7 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
     3. Selecting ``Multiple Country`` will generate Combined phy_init_bin files, including a Default bing file and seven others for SRRC, FCC, CE, NCC, KCC, MIC, and IC. The combined files contain 8*128 bytes.
     4. Selecting `Custom` will generate a single or multiple certification bin files based on your choice.
 
-{IDF_TARGET_RF_NON_SIGNALING_FIRMWARE_COPY:default="Not Updated", esp32="|ESP32 RF Non-Signaling Test Firmware|", esp32c2="|ESP32-C2 RF Non-Signaling Test Firmware (26 MHz) or ESP32-C2 RF Non-Signaling Test Firmware (40 MHz)|", esp32c3="|ESP32-C3 RF Non-Signaling Test Firmware|", esp32c6="|ESP32-C6 RF Non-Signaling Test Firmware|", esp32s2="|ESP32-S2 RF Non-Signaling Test Firmware|", esp32s3="|ESP32-S3 RF Non-Signaling Test Firmware|", esp8266="|ESP8266 RF Non-Signaling Test Firmware (26 MHz) or ESP8266 RF Non-Signaling Test Firmware (40 MHz)|", esp32h2="|ESP32-H2 RF Non-Signaling Test Firmware|"}
+{IDF_TARGET_RF_NON_SIGNALING_FIRMWARE_COPY:default="Contact Espressif for the latest firmware", esp32="|ESP32 RF Non-Signaling Test Firmware|", esp32c2="|ESP32-C2 RF Non-Signaling Test Firmware (26 MHz) or ESP32-C2 RF Non-Signaling Test Firmware (40 MHz)|", esp32c3="|ESP32-C3 RF Non-Signaling Test Firmware|", esp32c6="|ESP32-C6 RF Non-Signaling Test Firmware|", esp32s2="|ESP32-S2 RF Non-Signaling Test Firmware|", esp32s3="|ESP32-S3 RF Non-Signaling Test Firmware|", esp8266="|ESP8266 RF Non-Signaling Test Firmware (26 MHz) or ESP8266 RF Non-Signaling Test Firmware (40 MHz)|", esp32h2="|ESP32-H2 RF Non-Signaling Test Firmware|"}
 
 {IDF_TARGET_RF_NON_SIGNALING_FIRMWARE_ADDRESS:default="0x0", esp32="0x1000", esp32s2="0x1000"}
 
@@ -258,7 +258,7 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
 
 .. only:: esp32
 
-    Typical Average Output power of {IDF_TARGET_NAME}
+    Typical Average Output Power of {IDF_TARGET_NAME}
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     .. list-table::
@@ -267,7 +267,7 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
         :align: center
 
         * - Rates
-          - Typical Average Output power (dBm)
+          - Typical Average Output Power (dBm)
         * - 11b 1 Mbps
           - 19.5
         * - 11b 11 Mbps
@@ -312,7 +312,7 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
 
 .. only:: esp32s2
 
-    Typical Average Output power of {IDF_TARGET_NAME}
+    Typical Average Output Power of {IDF_TARGET_NAME}
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     .. list-table::
@@ -321,7 +321,7 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
         :align: center
 
         * - Rates
-          - Typical Average Output power (dBm)
+          - Typical Average Output Power (dBm)
         * - 11b 1 Mbps
           - 19.5
         * - 11b 11 Mbps
@@ -371,7 +371,7 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
 
 .. only:: esp32c3
 
-    Typical Average Output power of {IDF_TARGET_NAME}
+    Typical Average Output Power of {IDF_TARGET_NAME}
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     .. list-table::
@@ -380,7 +380,7 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
         :align: center
 
         * - Rates
-          - Typical Average Output power (dBm)
+          - Typical Average Output Power (dBm)
         * - 11b 1 Mbps
           - 20.5
         * - 11b 11 Mbps
@@ -432,6 +432,110 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
           - 18
         * - HE20-11ax MCS9
           - 15
+
+
+.. only:: esp32c61
+
+    Typical Average Output Power of {IDF_TARGET_NAME}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. list-table::
+        :header-rows: 1
+        :widths: 20 20
+        :align: center
+
+        * - Rates
+          - Typical Average Output Power (dBm)
+        * - 11b 1M
+          - 20.5
+        * - 11b 11M
+          - 20.5
+        * - 11g 6M
+          - 20
+        * - 11g 54M
+          - 19
+        * - HT20-11n MCS0
+          - 19
+        * - HT20-11n MCS7
+          - 18
+        * - HT40-11n MCS0
+          - 18.5
+        * - HT40-11n MCS7
+          - 17.5
+        * - HE20-11ax MCS0
+          - 19
+        * - HE20-11ax MCS7
+          - 18
+        * - HE20-11ax MCS9
+          - 15.5
+
+
+
+.. only:: esp32c5
+
+    Typical Average Output Power of {IDF_TARGET_NAME}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    .. list-table::
+        :header-rows: 1
+        :widths: 20 20
+        :align: center
+
+        * - Rates
+          - 2.4G Typical Average Output Power (dBm)
+        * - 11b 1M
+          - 19.5
+        * - 11b 11M
+          - 19.5
+        * - 11g 6M
+          - 18.5
+        * - 11g 54M
+          - 16.5
+        * - HT20-11n MCS0
+          - 18.5
+        * - HT20-11n MCS7
+          - 16.5
+        * - HT40-11n MCS0
+          - 17.5
+        * - HT40-11n MCS7
+          - 15.5
+        * - HE20-11ax MCS0
+          - 18.5
+        * - HE20-11ax MCS7
+          - 16.5
+        * - HE20-11ax MCS9
+          - 14.5
+
+
+    .. list-table::
+        :header-rows: 1
+        :widths: 20 20
+        :align: center
+
+        * - Rates
+          - 5G Typical Average Output Power (dBm)
+        * - 11a 6M
+          - 18.5
+        * - 11a 54M
+          - 16.5
+        * - HT20-11n MCS0
+          - 18.5
+        * - HT20-11n MCS7
+          - 15.5
+        * - HT40-11n MCS0
+          - 17.5
+        * - HT40-11n MCS7
+          - 14.5
+        * - VHT20-11ac MCS0
+          - 18.5
+        * - VHT20-11ac MCS7
+          - 15.5
+        * - HE20-11ax MCS0
+          - 18.5
+        * - HE20-11ax MCS7
+          - 15.5
+
+
 
 
 

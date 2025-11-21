@@ -1,7 +1,7 @@
 from esp_docs.conf_docs import *  # noqa: F403,F401
 
 languages = ['en', 'zh_CN']
-idf_targets = ['esp8266', 'esp32', 'esp32c2', 'esp32c3', 'esp32c6', 'esp32s2', 'esp32s3', 'esp32h2']
+idf_targets = ['esp8266', 'esp32', 'esp32c2', 'esp32c3', 'esp32c6', 'esp32s2', 'esp32s3', 'esp32h2', 'esp32c5','esp32c61']
 
 BLE_ADA_DOCS = ['development_stage/rf_test_items/ble_adaptivity_test.rst']
 
@@ -38,6 +38,8 @@ ESP32C6_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + ZIGBEE_DOCS + WFA_DOCS + MAT
 ESP32S2_DOCS = WIFI_DOCS + PRODUCT_DOCS
 ESP32S3_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
 ESP32H2_DOCS = BLE_ADA_DOCS + BT_DOCS + ZIGBEE_DOCS + MATTER_DOCS
+ESP32C5_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + ZIGBEE_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
+ESP32C61_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
 
 conditional_include_dict = {'esp8266':ESP8266_DOCS,
                             'esp32':ESP32_DOCS,
@@ -46,7 +48,9 @@ conditional_include_dict = {'esp8266':ESP8266_DOCS,
                             'esp32c6':ESP32C6_DOCS,
                             'esp32s2':ESP32S2_DOCS,
                             'esp32s3':ESP32S3_DOCS,
-                            'esp32h2':ESP32H2_DOCS}
+                            'esp32h2':ESP32H2_DOCS,
+                            'esp32c5':ESP32C5_DOCS,
+                            'esp32c61':ESP32C61_DOCS}
 
 extensions += ['sphinx_copybutton',
                'sphinxcontrib.wavedrom',
@@ -121,3 +125,26 @@ latex_toplevel_sectioning = 'section'
 
 # Set the path of the logo \sphinxlogo used in the titlepage
 latex_logo = '../_static/esp-logo-standard-vertical.pdf'
+
+# Callback function for user setup that needs be done after `config-init`-event
+# config.idf_target is not available at the initial config stage
+def conf_setup(app, config):
+    config.add_warnings_content = (
+        f'This document is not updated for {config.idf_target.upper()} yet, so some of the content may not be correct.'
+    )
+
+    add_warnings_file = f'{app.confdir}/../docs_not_updated/{config.idf_target}.txt'
+
+    # if config.idf_target in QEMU_TARGETS:
+    #     app.tags.add('TARGET_SUPPORT_QEMU')
+
+    try:
+        with open(add_warnings_file) as warning_file:
+            config.add_warnings_pages = warning_file.read().splitlines()
+    except FileNotFoundError:
+        # Not for all target
+        pass
+
+    config.html_baseurl = f'https://docs.espressif.com/projects/esp-test-tools/{config.language}/latest/{config.idf_target}'
+
+user_setup_callback = conf_setup

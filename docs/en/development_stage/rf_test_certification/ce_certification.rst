@@ -23,6 +23,6 @@ The CE certification of RF products requires non-signaling, adaptivity, and bloc
 
     - :doc:`../rf_test_items/ble_adaptivity_test`
 
-.. only:: esp32h2 or esp32c6
+.. only:: esp32h2 or esp32c6 or esp32c5
 
     - :doc:`../rf_test_items/zigbee_non_signaling_test`

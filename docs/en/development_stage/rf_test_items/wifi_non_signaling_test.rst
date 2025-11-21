@@ -257,3 +257,93 @@ This appendix is mainly used to explain the target output power of the chip's Wi
           - 18.5
         * - HT40-11n MCS7
           - 17
+
+
+.. only:: esp32c61
+
+    .. list-table:: ESP32-C61 Wi-Fi Target TX Power
+        :widths: 30 50
+
+        * - Rate
+          - ESP32-C61 Wi-Fi Target Power (dBm)
+        * - 11b 1M
+          - 20.5
+        * - 11b 11M
+          - 20.5
+        * - 11g 6M
+          - 20
+        * - 11g 54M
+          - 19
+        * - HT20-11n MCS0
+          - 19
+        * - HT20-11n MCS7
+          - 18
+        * - HT40-11n MCS0
+          - 18.5
+        * - HT40-11n MCS7
+          - 17.5
+        * - HE20-11ax MCS0
+          - 19
+        * - HE20-11ax MCS7
+          - 18
+        * - HE20-11ax MCS9
+          - 15.5
+
+
+
+.. only:: esp32c5
+
+    .. list-table:: ESP32-C5 2.4G Wi-Fi Target TX Power
+        :widths: 30 50
+
+        * - Rate
+          - ESP32-C5 2.4G Wi-Fi Target Power (dBm)
+        * - 11b 1M
+          - 19.5
+        * - 11b 11M
+          - 19.5
+        * - 11g 6M
+          - 18.5
+        * - 11g 54M
+          - 16.5
+        * - HT20-11n MCS0
+          - 18.5
+        * - HT20-11n MCS7
+          - 16.5
+        * - HT40-11n MCS0
+          - 17.5
+        * - HT40-11n MCS7
+          - 15.5
+        * - HE20-11ax MCS0
+          - 18.5
+        * - HE20-11ax MCS7
+          - 16.5
+        * - HE20-11ax MCS9
+          - 14.5
+
+
+    .. list-table:: ESP32-C5 5G Wi-Fi Target TX Power
+        :widths: 30 50
+
+        * - Rate
+          - ESP32-C5 5G Wi-Fi Target Power (dBm)
+        * - 11a 6M
+          - 18.5
+        * - 11a 54M
+          - 16.5
+        * - HT20-11n MCS0
+          - 18.5
+        * - HT20-11n MCS7
+          - 15.5
+        * - HT40-11n MCS0
+          - 17.5
+        * - HT40-11n MCS7
+          - 14.5
+        * - VHT20-11ac MCS0
+          - 18.5
+        * - VHT20-11ac MCS7
+          - 15.5
+        * - HE20-11ax MCS0
+          - 18.5
+        * - HE20-11ax MCS7
+          - 15.5

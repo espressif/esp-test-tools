@@ -23,6 +23,6 @@ CE 认证（Conformité Européene Mark）是欧盟的强制性认证，表明�
 
     - :doc:`../rf_test_items/ble_adaptivity_test`
 
-.. only:: esp32h2 or esp32c6
+.. only:: esp32h2 or esp32c6 or esp32c5
 
     - :doc:`../rf_test_items/zigbee_non_signaling_test`

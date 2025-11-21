@@ -32,7 +32,7 @@
 烧录固件
 ------------------
 
-{IDF_TARGET_BLE_ADAPTIVITY_FIRMWARE:default="Not updated", esp32c2="|ESP32-C2 低功耗蓝牙自适应测试固件|", esp32c3="|ESP32-C3 低功耗蓝牙自适应测试固件|", esp32c6="|ESP32-C6 低功耗蓝牙自适应测试固件|", esp32s3="|ESP32-S3 低功耗蓝牙自适应测试固件|", esp32h2="|ESP32-H2 低功耗蓝牙自适应测试固件|"}
+{IDF_TARGET_BLE_ADAPTIVITY_FIRMWARE:default="联系乐鑫获取最新固件", esp32c2="|ESP32-C2 低功耗蓝牙自适应测试固件|", esp32c3="|ESP32-C3 低功耗蓝牙自适应测试固件|", esp32c6="|ESP32-C6 低功耗蓝牙自适应测试固件|", esp32s3="|ESP32-S3 低功耗蓝牙自适应测试固件|", esp32h2="|ESP32-H2 低功耗蓝牙自适应测试固件|"}
 
 1. 打开 :ref:`download-tool`。
 
@@ -71,7 +71,7 @@
   bleconn -T -z start -x 1 -y 1 -n 1 -i 0x6-0x6 -v 13
 
   //配置功率，默认设置为 13（"-e" 后面的参数应与上一条指令 "-v" 后面的参数保持一致）
-  ble -S -z etxp -t 4 -h 1 -e 13
+  blehci -S -z etxp -t 4 -h 1 -e 13
 
   //设置 MTU
   gattc -C -m 512 -p 0x10 -r c0:11:11:11:11:11 -b 1

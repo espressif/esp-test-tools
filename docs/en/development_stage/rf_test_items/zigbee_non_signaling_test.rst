@@ -70,7 +70,7 @@ Appendix
 
 This appendix is mainly used to explain the output target power of {IDF_TARGET_NAME} 802.15.4, which is used for RF debugging or test reference.
 
-.. only:: esp32c6
+.. only:: esp32c6 or esp32c5
 
   .. list-table:: {IDF_TARGET_NAME} 802.15.4 TX Power Level
       :widths: 30 50
@@ -110,7 +110,7 @@ This appendix is mainly used to explain the output target power of {IDF_TARGET_N
       * - 15
         - 20
 
-.. only:: not esp32c6
+.. only:: esp32h2
 
   .. list-table:: {IDF_TARGET_NAME} 802.15.4 TX Power Level
       :widths: 30 50

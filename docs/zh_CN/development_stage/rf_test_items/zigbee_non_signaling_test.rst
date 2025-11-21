@@ -70,7 +70,7 @@ Zigbee 接收性能测试
 
 本附录主要用于说明 {IDF_TARGET_NAME} 802.15.4 的输出目标功率，用于射频调试或测试对照。
 
-.. only:: esp32c6
+.. only:: esp32c6 or esp32c5
 
   .. list-table:: {IDF_TARGET_NAME} 802.15.4 发射功率等级
       :widths: 30 50
@@ -110,7 +110,7 @@ Zigbee 接收性能测试
       * - 15
         - 20
 
-.. only:: not esp32c6
+.. only:: esp32h2
 
   .. list-table:: {IDF_TARGET_NAME} 802.15.4 发射功率等级
       :widths: 30 50

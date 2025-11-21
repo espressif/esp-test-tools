@@ -13,4 +13,4 @@ For the production stage, this repository provides the following tools and resou
 
     - :doc:`Test Fixture Manufacturing Instruction <instructions/test_fixture_mfg_inst>` provides guidelines for manufacturing test fixtures used with Espressif's Wi-Fi modules. These standardized fixtures help prevent issues that may arise during production and testing.
 
-    :esp32 or esp32c2 or esp32c3 or esp32c6 or esp32s3 or esp32h2: - :doc:`Matter QR Code Generator <tools/matter_qr_code_generator>` generates QR codes for Matter devices. It allows users to connect devices to their smart home network by simply scanning the code, simplifying the device setup and connection process.
+    :esp32 or esp32c2 or esp32c3 or esp32c5 or esp32c6 or esp32c61 or esp32s3 or esp32h2: - :doc:`Matter QR Code Generator <tools/matter_qr_code_generator>` is used to generate Matter device networking QR codes, allowing users to quickly add devices to the smart home network by scanning the QR code, simplifying the device configuration and connection process.

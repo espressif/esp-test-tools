@@ -233,7 +233,7 @@ Test items for each certification are listed in the following table.
 
       :doc:`Wi-Fi Signaling Test </development_stage/rf_test_items/wifi_signaling_test>` is not typically required for standard RF certifications; it is primarily used to evaluate the OTA performance of devices.
 
-.. only:: esp32 or esp32c2 or esp32c3 or esp32c6 or esp32s3
+.. only:: esp32 or esp32c2 or esp32c3 or esp32c5 or esp32c6 or esp32c61 or esp32s3
 
    WFA Certification and Testing Guideline
    =======================================

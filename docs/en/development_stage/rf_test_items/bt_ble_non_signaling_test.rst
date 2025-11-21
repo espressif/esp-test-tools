@@ -220,7 +220,7 @@ This appendix provides reference for RF debugging or testing.
       - 9
 
 
-.. only:: esp32c6
+.. only:: esp32c6 or esp32c61 or esp32c5
 
     Bluetooth LE TX Power Level
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -311,7 +311,7 @@ This appendix provides reference for RF debugging or testing.
           - 39
 
 
-.. only:: not esp32 and not esp32c6
+.. only:: esp32c2 or esp32c3 or esp32s3 or esp32h2
 
     Bluetooth LE TX Power Level
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

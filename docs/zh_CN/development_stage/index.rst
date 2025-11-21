@@ -233,7 +233,7 @@ RF 认证
 
       :doc:`Wi-Fi 信令测试 <rf_test_items/wifi_signaling_test>` 不用于标准的 RF 认证测试项目，通常用于评估设备的 OTA 性能。
 
-.. only:: esp32 or esp32c2 or esp32c3 or esp32c6 or esp32s3
+.. only:: esp32 or esp32c2 or esp32c3 or esp32c5 or esp32c6 or esp32c61 or esp32s3
 
    WFA 认证与测试指南
    ==================================

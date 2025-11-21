@@ -30,7 +30,7 @@ ESP 测试工具与指南
    RF 测试指南 <development_stage/rf_test_guide/rf_test_guide>
    RF 测试项目 <development_stage/rf_test_items/index>
    RF 测试认证 <development_stage/rf_test_certification/index>
-   :esp32 or esp32c2 or esp32c3 or esp32c6 or esp32s3: WFA 认证与测试指南 <development_stage/wfa_certification_test/wfa_certification_test>
+   :esp32 or esp32c2 or esp32c3 or esp32c5 or esp32c6 or esp32c61 or esp32s3: WFA 认证与测试指南 <development_stage/wfa_certification_test/wfa_certification_test>
 
 .. toctree::
    :hidden:
@@ -40,7 +40,7 @@ ESP 测试工具与指南
    Flash 下载工具 <production_stage/tools/flash_download_tool>
    :not esp32h2: 乐鑫产测指南 <production_stage/tools/esp_production_testing_guide>
    模组治具制作规范 <production_stage/instructions/test_fixture_mfg_inst>
-   :esp32 or esp32c2 or esp32c3 or esp32c6 or esp32s3 or esp32h2: Matter QR 二维码生成工具 <production_stage/tools/matter_qr_code_generator>
+   :esp32 or esp32c2 or esp32c3 or esp32c5 or esp32c6 or esp32c61 or esp32s3 or esp32h2: Matter QR 二维码生成工具 <production_stage/tools/matter_qr_code_generator>
 
 .. toctree::
    :hidden:

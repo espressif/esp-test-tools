@@ -1,3 +1,5 @@
+{IDF_TARGET_BT_BLE_OPTION: default="低功耗蓝牙", esp32="蓝牙及低功耗蓝牙"}
+
 低功耗蓝牙 DTM 测试
 ===============================
 
@@ -41,7 +43,7 @@
 烧录固件
 ------------------
 
-{IDF_TARGET_BLE_DTM_FIRMWARE:default="Not Updated", esp32="|ESP32 低功耗蓝牙 DTM 测试固件|", esp32c2="|ESP32-C2 低功耗蓝牙 DTM 测试固件 (26 MHz) or ESP32-C2 低功耗蓝牙 DTM 测试固件 (40 MHz)|", esp32c3="|ESP32-C3 低功耗蓝牙 DTM 测试固件|", esp32c6="|ESP32-C6 低功耗蓝牙 DTM 测试固件|", esp32s3="|ESP32-S3 低功耗蓝牙 DTM 测试固件|", esp32h2="|ESP32-H2 低功耗蓝牙 DTM 测试固件|"}
+{IDF_TARGET_BLE_DTM_FIRMWARE:default="联系乐鑫获取最新固件", esp32="|ESP32 低功耗蓝牙 DTM 测试固件|", esp32c2="|ESP32-C2 低功耗蓝牙 DTM 测试固件 (26 MHz) or ESP32-C2 低功耗蓝牙 DTM 测试固件 (40 MHz)|", esp32c3="|ESP32-C3 低功耗蓝牙 DTM 测试固件|", esp32c6="|ESP32-C6 低功耗蓝牙 DTM 测试固件|", esp32s3="|ESP32-S3 低功耗蓝牙 DTM 测试固件|", esp32h2="|ESP32-H2 低功耗蓝牙 DTM 测试固件|"}
 
 1. 打开 :ref:`download-tool`。
 
@@ -156,7 +158,7 @@
     * - 7
       - 9
 
-.. only:: not esp32
+.. only:: esp32c2 or esp32c3 or esp32s3 or esp32h2
 
     低功耗蓝牙发射功率等级
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -172,6 +174,53 @@
           - -21
         * - 2
           - -18
+        * - 3
+          - -15
+        * - 4
+          - -12
+        * - 5
+          - -9
+        * - 6
+          - -6
+        * - 7
+          - -3
+        * - 8
+          - 0
+        * - 9
+          - 3
+        * - 10
+          - 6
+        * - 11
+          - 9
+        * - 12
+          - 12
+        * - 13
+          - 15
+        * - 14
+          - 18
+        * - 15
+          - 20
+
+
+
+.. only:: esp32c6 or esp32c61 or esp32c5
+
+    低功耗蓝牙发射功率等级
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    下表主要用于说明 {IDF_TARGET_NAME} 的 {IDF_TARGET_BT_BLE_OPTION} 的功率等级及对应的目标功率，用于射频调试或测试对照。
+
+    .. list-table:: {IDF_TARGET_NAME} 低功耗蓝牙发射功率等级
+        :widths: 40 60
+
+        * - 功率等级
+          - 低功耗蓝牙发射功率 (dBm)
+        * - 0
+          - -15
+        * - 1
+          - -15
+        * - 2
+          - -15
         * - 3
           - -15
         * - 4

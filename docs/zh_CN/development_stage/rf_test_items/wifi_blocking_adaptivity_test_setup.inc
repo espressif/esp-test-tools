@@ -18,9 +18,9 @@
 烧录固件
 ------------------
 
-{IDF_TARGET_WIFI_BLOCKING_ADAPTIVITY_FIRMWARE:default="Not updated", esp32="|ESP32 Wi-Fi 自适应测试/阻塞测试固件|", esp32c2="|ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (26 MHz) or ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (40 MHz)|", esp32c3="|ESP32-C3 Wi-Fi 自适应测试/阻塞测试固件|", esp32c6="|ESP32-C6 Wi-Fi 自适应测试/阻塞测试固件|", esp32s2="|ESP32-S2 Wi-Fi 自适应测试/阻塞测试固件|", esp32s3="|ESP32-S3 Wi-Fi 自适应测试/阻塞测试固件|", esp8266="|ES8266 Wi-Fi 自适应测试/阻塞测试固件|"}
+{IDF_TARGET_WIFI_BLOCKING_ADAPTIVITY_FIRMWARE:default="联系乐鑫获取最新固件", esp32="|ESP32 Wi-Fi 自适应测试/阻塞测试固件|", esp32c2="|ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (26 MHz) or ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (40 MHz)|", esp32c3="|ESP32-C3 Wi-Fi 自适应测试/阻塞测试固件|", esp32c6="|ESP32-C6 Wi-Fi 自适应测试/阻塞测试固件|", esp32s2="|ESP32-S2 Wi-Fi 自适应测试/阻塞测试固件|", esp32s3="|ESP32-S3 Wi-Fi 自适应测试/阻塞测试固件|", esp8266="|ES8266 Wi-Fi 自适应测试/阻塞测试固件|"}
 
-{IDF_TARGET_FLASH_ADDRESS:default="0x0", esp32="0x1000", esp32s2="0x1000"}
+{IDF_TARGET_FLASH_ADDRESS:default="0x0", esp32="0x1000", esp32s2="0x1000", esp32c5="0x2000"}
 
 1. 打开 :ref:`download-tool`。
 

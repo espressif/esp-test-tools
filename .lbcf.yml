@@ -382,3 +382,95 @@ documents:
       document_summary: 本文档旨在为基于 ESP8266 系列芯片与模组的产品开发与量产提供技术支持与资源参考。
       notify_subscribers: false
       visibility_on_website: show
+
+#######################################################
+# 17. ESP32-C5 Test Tools and Guidelines
+#######################################################
+    - document_name: ESP32-C5 Test Tools and Guidelines
+      doc_id:
+      translation_docid:
+      product_name:
+        - ESP32-C5 SoC Series
+        - ESP32-C5 Module Series
+      product_name_old_website:
+        - ESP32-C5
+      soc_series_base_filter: ESP32-C5
+      document_type: guide
+      document_type_old_website: guide
+      version: latest
+      revision_date:
+      language: en
+      document_storage: docs
+      document_link: https://docs.espressif.com/projects/esp-test-tools/en/latest/esp32c5/index.html
+      document_summary: This document provides resources to support the development and production of products based on ESP32-C5 series of chips and modules.
+      notify_subscribers: false
+      visibility_on_website: show
+
+#######################################################
+# 18. ESP32-C5 测试工具与指南
+#######################################################
+    - document_name: ESP32-C5 测试工具与指南
+      doc_id:
+      translation_docid:
+      product_name:
+        - ESP32-C5 SoC Series
+        - ESP32-C5 Module Series
+      product_name_old_website:
+        - ESP32-C5
+      soc_series_base_filter: ESP32-C5
+      document_type: guide
+      document_type_old_website: guide
+      version: latest
+      revision_date:
+      language: cn
+      document_storage: docs
+      document_link: https://docs.espressif.com/projects/esp-test-tools/zh_CN/latest/esp32c5/index.html
+      document_summary: 本文档旨在为基于 ESP32-C5 系列芯片与模组的产品开发与量产提供技术支持与资源参考。
+      notify_subscribers: false
+      visibility_on_website: show
+
+#######################################################
+# 19. ESP32-C61 Test Tools and Guidelines
+#######################################################
+    - document_name: ESP32-C61 Test Tools and Guidelines
+      doc_id:
+      translation_docid:
+      product_name:
+        - ESP32-C61 SoC Series
+        - ESP32-C61 Module Series
+      product_name_old_website:
+        - ESP32-C61
+      soc_series_base_filter: ESP32-C61
+      document_type: guide
+      document_type_old_website: guide
+      version: latest
+      revision_date:
+      language: en
+      document_storage: docs
+      document_link: https://docs.espressif.com/projects/esp-test-tools/en/latest/esp32c61/index.html
+      document_summary: This document provides resources to support the development and production of products based on ESP32-C61 series of chips and modules.
+      notify_subscribers: false
+      visibility_on_website: show
+
+#######################################################
+# 20. ESP32-C61 测试工具与指南
+#######################################################
+    - document_name: ESP32-C61 测试工具与指南
+      doc_id:
+      translation_docid:
+      product_name:
+        - ESP32-C61 SoC Series
+        - ESP32-C61 Module Series
+      product_name_old_website:
+        - ESP32-C61
+      soc_series_base_filter: ESP32-C61
+      document_type: guide
+      document_type_old_website: guide
+      version: latest
+      revision_date:
+      language: cn
+      document_storage: docs
+      document_link: https://docs.espressif.com/projects/esp-test-tools/zh_CN/latest/esp32c61/index.html
+      document_summary: 本文档旨在为基于 ESP32-C61 系列芯片与模组的产品开发与量产提供技术支持与资源参考。
+      notify_subscribers: false
+      visibility_on_website: show

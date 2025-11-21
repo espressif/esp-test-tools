@@ -1,3 +1,5 @@
+{IDF_TARGET_BT_BLE_OPTION: default="Bluetooth LE", esp32="Bluetooth and Bluetooth LE"}
+
 Bluetooth LE DTM Test
 =====================
 
@@ -41,7 +43,7 @@ Conduction Test
 Flash Firmware
 --------------
 
-{IDF_TARGET_BLE_DTM_FIRMWARE:default="Not Updated", esp32="|ESP32 Bluetooth LE DTM Test Firmware|", esp32c2="|ESP32-C2 Bluetooth LE DTM Test Firmware (26 MHz) or ESP32-C2 Bluetooth LE DTM Test Firmware (40 MHz)|", esp32c3="|ESP32-C3 Bluetooth LE DTM Test Firmware|", esp32c6="|ESP32-C6 Bluetooth LE DTM Test Firmware|", esp32s3="|ESP32-S3 Bluetooth LE DTM Test Firmware|", esp32h2="|ESP32-H2 Bluetooth LE DTM Test Firmware|"}
+{IDF_TARGET_BLE_DTM_FIRMWARE:default="Contact Espressif for the latest firmware", esp32="|ESP32 Bluetooth LE DTM Test Firmware|", esp32c2="|ESP32-C2 Bluetooth LE DTM Test Firmware (26 MHz) or ESP32-C2 Bluetooth LE DTM Test Firmware (40 MHz)|", esp32c3="|ESP32-C3 Bluetooth LE DTM Test Firmware|", esp32c6="|ESP32-C6 Bluetooth LE DTM Test Firmware|", esp32s3="|ESP32-S3 Bluetooth LE DTM Test Firmware|", esp32h2="|ESP32-H2 Bluetooth LE DTM Test Firmware|"}
 
 1. Open :ref:`download-tool`.
 
@@ -156,7 +158,7 @@ This appendix provides the mapping of power levels and target power of {IDF_TARG
     * - 7
       - 9
 
-.. only:: not esp32
+.. only:: esp32c2 or esp32c3 or esp32s3 or esp32h2
 
     Bluetooth LE Transmit Power Level
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -172,6 +174,53 @@ This appendix provides the mapping of power levels and target power of {IDF_TARG
           - -21
         * - 2
           - -18
+        * - 3
+          - -15
+        * - 4
+          - -12
+        * - 5
+          - -9
+        * - 6
+          - -6
+        * - 7
+          - -3
+        * - 8
+          - 0
+        * - 9
+          - 3
+        * - 10
+          - 6
+        * - 11
+          - 9
+        * - 12
+          - 12
+        * - 13
+          - 15
+        * - 14
+          - 18
+        * - 15
+          - 20
+
+
+
+.. only:: esp32c6 or esp32c61 or esp32c5
+
+    Bluetooth LE Transmit Power Level
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    This list provides the mapping of power levels and target power of {IDF_TARGET_NAME} {IDF_TARGET_BT_BLE_OPTION} for RF debugging or testing.
+
+
+    .. list-table:: {IDF_TARGET_NAME} Bluetooth LE Transmit Power Levels
+        :widths: 40 60
+
+        * - Power Level
+          - Bluetooth LE Transmit Power (dBm)
+        * - 0
+          - -15
+        * - 1
+          - -15
+        * - 2
+          - -15
         * - 3
           - -15
         * - 4
