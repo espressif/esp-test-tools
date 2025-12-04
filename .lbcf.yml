@@ -387,8 +387,8 @@ documents:
 # 17. ESP32-C5 Test Tools and Guidelines
 #######################################################
     - document_name: ESP32-C5 Test Tools and Guidelines
-      doc_id:
-      translation_docid:
+      doc_id: 9859
+      translation_docid: 9861
       product_name:
         - ESP32-C5 SoC Series
         - ESP32-C5 Module Series
@@ -410,8 +410,8 @@ documents:
 # 18. ESP32-C5 测试工具与指南
 #######################################################
     - document_name: ESP32-C5 测试工具与指南
-      doc_id:
-      translation_docid:
+      doc_id: 9861
+      translation_docid: 9859
       product_name:
         - ESP32-C5 SoC Series
         - ESP32-C5 Module Series
@@ -433,8 +433,8 @@ documents:
 # 19. ESP32-C61 Test Tools and Guidelines
 #######################################################
     - document_name: ESP32-C61 Test Tools and Guidelines
-      doc_id:
-      translation_docid:
+      doc_id: 9855
+      translation_docid: 9857
       product_name:
         - ESP32-C61 SoC Series
         - ESP32-C61 Module Series
@@ -456,8 +456,8 @@ documents:
 # 20. ESP32-C61 测试工具与指南
 #######################################################
     - document_name: ESP32-C61 测试工具与指南
-      doc_id:
-      translation_docid:
+      doc_id: 9857
+      translation_docid: 9855
       product_name:
         - ESP32-C61 SoC Series
         - ESP32-C61 Module Series

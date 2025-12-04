@@ -159,7 +159,7 @@
     {IDF_TARGET_RSSI:default="Res[11]/(Res[1])", esp32c3="Res[11]/(Res[1])", esp32s3="Res[11]/(Res[1])"}
 
     - **Test Mode**：选择 BLE50 RX 用于低功耗蓝牙接收性能测试。
-    - **Channle**：设置低功耗蓝牙测试信道。
+    - **Channel**：设置低功耗蓝牙测试信道。
     - **Syncw**：设置包文件的身份识别码，默认选择 syncw=0x71764129。
     - **Data Rate**：设置收包速率，默认为 prbs9 编码序列。
 

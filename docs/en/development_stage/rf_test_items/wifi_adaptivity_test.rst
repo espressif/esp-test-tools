@@ -67,7 +67,7 @@ Test Using EspRFTestTool Tool
 
     Device Network Provisioning
 
-- After a successful connection, set ``Pakcet Num`` to a sufficiently large value—such as 20000000—to ensure the traffic can run for a long duration.
+- After a successful connection, set ``Packet Num`` to a sufficiently large value—such as 20000000—to ensure the traffic can run for a long duration.
 
 - Set ``Server PORT`` to 8080, ``Socket ID`` to 54, and change ``Packet Delay`` to 1 to meet certification requirements.
 

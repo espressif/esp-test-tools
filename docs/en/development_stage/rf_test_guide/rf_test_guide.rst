@@ -5,9 +5,9 @@ EspRFTestTool Toolkit
 
 The **EspRFTestTool toolkit** is an RF test tool provided by Espressif. It contains EspRFTestTool, DownloadTool, and PowerLimitTool.
 
-- `EspRFTestTool`_: Used to perform RF tests;
-- `DownloadTool`_: Used to download the firmware required for RF tests;
-- `PowerLimitTool`_: Used to generate customized phy_init_data firmware.
+- `EspRFTestTool`_: Used to perform RF tests
+- `DownloadTool`_: Used to download the firmware required for RF tests
+- `PowerLimitTool`_: Used to generate customized phy_init_data firmware
 
 **Download Link**: :download:`EspRFTestTool toolkit <https://dl.espressif.com/RF/EspRFTestTool_v4.7_Manual.zip>`
 

@@ -19,5 +19,6 @@ include:
   - '.gitlab/ci/check_author.yml'
   - '.gitlab/ci/publish-docs-to-cdp.yml'
   - '.gitlab/ci/rules.yml'
+  - '.gitlab/ci/pre_commit.yml'
 
 

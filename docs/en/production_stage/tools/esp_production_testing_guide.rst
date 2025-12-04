@@ -66,7 +66,7 @@ As demonstrated in the figure below, the signal board can be used as a standard 
 Production Testing Process
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Please find the followings that need to be tested, and connect the DUT accordingly to conduct the test:
+1. Please find the following test points that need to be tested, and connect the DUT accordingly to conduct the test:
 
 .. only:: esp8266
 
@@ -130,7 +130,7 @@ Production Testing Process
 
     -  Connect the serial port board (which is placed inside the bottom box of the fixture) to the PC with a USB cable, and install the corresponding driver to ensure the serial port can be successfully identified.
 
-Related Equipments for Production Testing
+Related Equipment for Production Testing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Serial Port Board
@@ -154,7 +154,7 @@ Please check the board you purchased against the following requirements to make 
 Test Fixture
 ~~~~~~~~~~~~
 
-The test fixture is an important equipment to execute the DUT in test mode. Specifically, you can put the module on the fixture and bring the module pins into contact with the fixture probes by pressing the fixture handle. When the test is finished, lift the handle to separate the module pins from the probes (for other similar equipments, customers may think of it as a reference or directly lead out the corresponding pins that are assigned to what you want to test).
+The test fixture is an important equipment to execute the DUT in test mode. Specifically, you can put the module on the fixture and bring the module pins into contact with the fixture probes by pressing the fixture handle. When the test is finished, lift the handle to separate the module pins from the probes (for other similar equipment, customers may think of it as a reference or directly lead out the corresponding pins that are assigned to what you want to test).
 
 For the production testing of Wi-Fi modules, the module pins must be led out and connected to the base board, so as to communicate with the serial ports of the PC. To achieve this, a fixture can be used. The figures below show the overall appearance of a typical fixture.
 
@@ -643,7 +643,7 @@ For example, if n is configured to 1, then the test will run with n = 1 for the 
 
     .. only:: esp32c2 or esp32c3 or esp32c6
 
-        Please see the followings to configure the GPIO conductivity test for ESP32-C3-WROOM-02 module.
+        Please see the following list to configure the GPIO conductivity test for ESP32-C3-WROOM-02 module.
 
         **Pin wiring:**
 
@@ -666,7 +666,7 @@ For example, if n is configured to 1, then the test will run with n = 1 for the 
 
     .. only:: esp32
 
-        Please see the followings to configure the GPIO conductivity test for ESP32-WROOM-32D module.
+        Please see the following list to configure the GPIO conductivity test for ESP32-WROOM-32D module.
 
         **Pin wiring:**
 
@@ -692,7 +692,7 @@ For example, if n is configured to 1, then the test will run with n = 1 for the 
 
     .. only:: esp8266
 
-        Please see the followings to configure the GPIO conductivity test for ESP32-WROOM-32D module.
+        Please see the following list to configure the GPIO conductivity test for ESP32-WROOM-32D module.
 
         **Pin wiring:**
 

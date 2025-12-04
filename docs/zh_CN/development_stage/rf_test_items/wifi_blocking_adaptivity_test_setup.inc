@@ -71,7 +71,7 @@
     设备上电串口打印日志
 
 .. |ESP32 Wi-Fi 自适应测试/阻塞测试固件| replace:: `ESP32 Wi-Fi 自适应测试/阻塞测试固件 <https://dl.espressif.com/rf/esp32/ESP32_wifi_Adaptivity&Blocking_20210420.bin>`__
-.. |ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (26 MHz) or ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (40 MHz)| replace:: `ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (26 MHz) <https://dl.espressif.com/RF/ESP32C2_wifi_Adaptivity&Blocking_26M_20250408.bin>`__ or `ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (40 MHz) <hhttps://dl.espressif.com/RF/ESP32C2_wifi_Adaptivity&Blocking_40M_20250408.bin>`__
+.. |ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (26 MHz) or ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (40 MHz)| replace:: `ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (26 MHz) <https://dl.espressif.com/RF/ESP32C2_wifi_Adaptivity&Blocking_26M_20250408.bin>`__ or `ESP32-C2 Wi-Fi 自适应测试/阻塞测试固件 (40 MHz) <https://dl.espressif.com/RF/ESP32C2_wifi_Adaptivity&Blocking_40M_20250408.bin>`__
 .. |ESP32-C3 Wi-Fi 自适应测试/阻塞测试固件| replace:: `ESP32-C3 Wi-Fi 自适应测试/阻塞测试固件 <https://dl.espressif.com/RF/ESP32C3_wifi_Adaptivity&Blocking_20250722.bin>`__
 .. |ESP32-C6 Wi-Fi 自适应测试/阻塞测试固件| replace:: `ESP32-C6 Wi-Fi 自适应测试/阻塞测试固件 <https://dl.espressif.com/RF/ESP32C6_wifi_Adaptivity&Blocking_20250807.bin>`__
 .. |ESP32-S2 Wi-Fi 自适应测试/阻塞测试固件| replace:: `ESP32-S2 Wi-Fi 自适应测试/阻塞测试固件 <https://dl.espressif.com/rf/esp32s2/ESP32S2_wifi_Adaptivity&Blocking_20220826.bin>`__
