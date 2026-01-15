@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: ESP Test Tools and Guidelines
+    url: https://docs.espressif.com/projects/esp-test-tools/en/latest/esp32/index.html
+    about: Switch between chips by clicking the drop-down menu at the top left of the page
+  - name: Related Documentation and Resources
+    url: https://docs.espressif.com/projects/esp-test-tools/en/latest/esp32/resources.html
+    about: Switch between chips by clicking the drop-down menu at the top left of the page

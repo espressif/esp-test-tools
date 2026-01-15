@@ -1,6 +1,6 @@
 # ESP 测试工具与指南
 
-[English](README.md)
+- [English](README.md)
 
 esp-test-tools 仓库包含用于研发阶段的 **RF 测试工具**、**测试项目指南**以及**所需固件**以通过以下 RF 认证：
 
@@ -16,6 +16,19 @@ esp-test-tools 仓库包含用于研发阶段的 **RF 测试工具**、**测试�
 - 模组治具制作规范
 - Matter QR 二维码生成工具
 
+文档链接如下：
+
+- [ESP32 测试工具与指南](https://docs.espressif.com/projects/esp-test-tools/zh_CN/latest/esp32/index.html)
+- [ESP32-C2 测试工具与指南](https://docs.espressif.com/projects/esp-test-tools/zh_CN/latest/esp32c2/index.html)
+- [ESP32-C3 测试工具与指南](https://docs.espressif.com/projects/esp-test-tools/zh_CN/latest/esp32c3/index.html)
+- [ESP32-C5 测试工具与指南](https://docs.espressif.com/projects/esp-test-tools/zh_CN/latest/esp32c5/index.html)
+- [ESP32-C6 测试工具与指南](https://docs.espressif.com/projects/esp-test-tools/zh_CN/latest/esp32c6/index.html)
+- [ESP32-C61 测试工具与指南](https://docs.espressif.com/projects/esp-test-tools/zh_CN/latest/esp32c61/index.html)
+- [ESP32-H2 测试工具与指南](https://docs.espressif.com/projects/esp-test-tools/zh_CN/latest/esp32h2/index.html)
+- [ESP32-S2 测试工具与指南](https://docs.espressif.com/projects/esp-test-tools/zh_CN/latest/esp32s2/index.html)
+- [ESP32-S3 测试工具与指南](https://docs.espressif.com/projects/esp-test-tools/zh_CN/latest/esp32s3/index.html)
+- [ESP8266 测试工具与指南](https://docs.espressif.com/projects/esp-test-tools/zh_CN/latest/esp8266/index.html)
+
 ## 功能特性
 
 本仓库的主要功能如下：
@@ -24,7 +37,7 @@ esp-test-tools 仓库包含用于研发阶段的 **RF 测试工具**、**测试�
     - 提供 **PDF** 和 **HTML** 两种格式的文档。
     - 如需 PDF 格式，请点击 HTML 页面右上角的 “下载 PDF” 图标。
 
-- 支持多个芯片系列：ESP8266，ESP32，ESP32-C2，ESP32-C3，ESP32-C6，ESP32-S2，ESP32-S3，ESP32-H2
+- 支持多个芯片系列：ESP8266、ESP32、ESP32-C2、ESP32-C3、ESP32-C5、ESP32-C6、ESP32-C61、ESP32-S2、ESP32-S3、ESP32-H2
 
 ## 贡献和反馈
 
