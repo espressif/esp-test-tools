@@ -41,6 +41,8 @@ The key features of this repository include:
 
 ## Contributions and Feedback
 
+The text is added to test the workflow to synchronize a GitHub pull request.
+
 We welcome contributions to the ESP Test Tools and Guidelines documentation from the community!
 
 If you have insights, updates, or suggestions to share, please use the "Submit Documentation Feedback" link at the bottom of each page of the documents to submit your feedback.
