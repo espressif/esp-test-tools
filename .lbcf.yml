@@ -472,5 +472,5 @@ documents:
       document_storage: docs
       document_link: https://docs.espressif.com/projects/esp-test-tools/zh_CN/latest/esp32c61/index.html
       document_summary: 本文档旨在为基于 ESP32-C61 系列芯片与模组的产品开发与量产提供技术支持与资源参考。
-      notify_subscribers: false
+      notify_subscribers: true
       visibility_on_website: show
