@@ -207,8 +207,8 @@ This appendix provides the mapping of power levels and target power of {IDF_TARG
 
     Bluetooth LE Transmit Power Level
     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    This list provides the mapping of power levels and target power of {IDF_TARGET_NAME} {IDF_TARGET_BT_BLE_OPTION} for RF debugging or testing.
 
+    This list provides the mapping of power levels and target power of {IDF_TARGET_NAME} {IDF_TARGET_BT_BLE_OPTION} for RF debugging or testing.
 
     .. list-table:: {IDF_TARGET_NAME} Bluetooth LE Transmit Power Levels
         :widths: 40 60
