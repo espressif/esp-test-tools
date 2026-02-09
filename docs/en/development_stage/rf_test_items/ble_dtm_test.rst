@@ -16,6 +16,8 @@ Set Up Test Environment
 
     Test Environment Setup
 
+As shown in the figure above, use two USB-to-UART boards to connect UART0 and UART1 respectively. UART0 is used for serial command input and log viewing, and UART1 is used as the port for connecting tester.
+
 - **PC** is connected to the USB-to-UART board via USB. The PC needs to have the EspRFTestTool toolkit, tester control software, and the driver for the USB-to-UART board installed.
 - **Tester** is used to test the RF performance of the device under test (DUT) in different modes. It connects to DUT via an RF connection cable to transmit RF signals. Typically, it is CMW500, CMW270, or Bluetooth tester CBT.
 - **USB-to-UART board** is used to communicate between the computer and the DUT, as well as between the tester and the DUT.
@@ -23,6 +25,7 @@ Set Up Test Environment
 
 .. note::
 
+    - The DTM firmware provided by ESP uses GPIO4 and GPIO5 as the UART1 test pins by default. To change them, use the serial command on UART0.
     - The CHIP_EN pin of the DUT is pulled up by default. If it is not pulled up in the product design, you need to manually connect the CHIP_EN to the 3V3 pin.
     - Some serial communication boards have already swapped RXD and TXD internally, so there is no need to reverse the connection. Adjust the wiring according to the actual situation.
     - {IDF_TARGET_NAME} has a power-on self-calibration feature. The RF connection cable must be connected to the tester before the DUT is powered on for testing.

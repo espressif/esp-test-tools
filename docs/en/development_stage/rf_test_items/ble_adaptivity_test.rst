@@ -19,9 +19,9 @@ Set Up Test Environment
 
     Test Environment Setup
 
-- In the test, the {IDF_TARGET_NAME} module is used as the test device (Slave) to establish a connection with the device under test (Master). Both the Slave and Master are flashed with the same firmware, but they can be distinguished using the serial port commands.
+- As shown above, connect two {IDF_TARGET_NAME} modules to separate serial communication boards, flash both with Bluetooth LE Adaptivity firmware, and connect them to the adaptivity test system via RF cables.
 
-- The **Test System** refers to the system that performs adaptivity test. Once the Master and Slave are successfully connected via the serial port command, the test can begin.
+- One module serves as the companion test device (Slave). It establishes a connection with the device under test (Master) using serial port commands. Once they are connected, you can start the test.
 
 .. note::
 
@@ -51,7 +51,7 @@ After the flashing is completed, continue the following steps for testing.
 Start Testing
 -------------
 
-Bluetooth LE Adaptivity Test requires inputting corresponding serial port commands in both Mater and Slave devices to establish a connection for testing.
+The Bluetooth LE Adaptivity Test should be conducted after establishing a connection by entering the appropriate serial commands on the Master and Slave devices.
 
 Open the serial port assistant and enter the corresponding commands on the Slave and Master devices in turn:
 

@@ -9,7 +9,7 @@ EspRFTestTool 工具包
 - `DownloadTool 工具`_：用于下载射频测试中所需的固件；
 - `PowerLimitTool 工具`_：用于生成定制化 phy_init_data 固件。
 
-**下载地址**：:download:`EspRFTestTool 工具包 <https://dl.espressif.com/RF/EspRFTestTool_v4.7_Manual.zip>`
+**下载地址**：:download:`EspRFTestTool 工具包 <https://dl.espressif.com/RF/EspRFTestTool_v5.2_Manual.zip>`
 
 该压缩包不仅包含 EspRFTestTool 工具包，还附带全部 :doc:`RF 测试项目 <../rf_test_items/index>` 所需的测试固件，方便熟悉测试流程的用户直接使用固件进行操作。
 
@@ -169,7 +169,19 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
 
     导入 TX Power Setting 表格
 
-3. 点击 ``Open Table``，在对应国家码表中修改期望的功率值，在 ``Certification Code`` 下拉框中选择期望的国家码。
+3. 点击 ``Open Table``，在对应国家码表中修改期望的功率值，修改完成后，点击 ``Save Table``。
+
+.. note::
+
+  关于如何修改功率值：
+
+  1. 根据认证结果（认证提供功率衰减值）填写功率值（功率值 = 目标功率 - 衰减值/4）；
+  2. 如果修改了 ``Actual_Result``，上述公式中的目标功率需改为 ``Actual_Result``；
+  3. 不能增删表格内容，例如 FCC 仅支持 1~11 信道，此表中 12~13 信道功率值建议与 11 信道保持相同，但不可删除；
+  4. 除低高信道外，其它信道功率与中间信道保持一致；
+  5. NA 的部分不可修改。如果 ``Certification Code`` 无法下拉选择，表明表格被改动，需还原。
+
+4. 功率改动保存后，在 ``Certification Code`` 下拉项中选择需要的认证，点击 ``Generate`` 生成对应国家码的 phy_init_bin 文件。
 
 .. figure:: ../../../_static/rf_test_tool/powerlimit_country.png
     :align: center
@@ -193,18 +205,6 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
   10. **KCC_5**：国家码中 KCC 的功率配置，适用于韩国；
   11. **MIC_6**：国家码中 MIC 的功率配置，适用于日本；
   12. **IC_7**：国家码中 IC 的功率配置，适用于加拿大；
-
-.. note::
-
-  关于如何修改功率值：
-
-  1. 根据认证结果（认证提供功率衰减值）填写功率值（功率值 = 目标功率 - 衰减值/4）；
-  2. 如果修改了 ``Actual_Result``，上述公式中的目标功率需改为 ``Actual_Result``；
-  3. 不能增删表格内容，例如 FCC 仅支持 1~11 信道，此表中 12~13 信道功率值建议与 11 信道保持相同，但不可删除；
-  4. 除低高信道外，其它信道功率与中间信道保持一致；
-  5. NA 的部分不可修改。如果 ``Certification Code`` 无法下拉选择，表明表格被改动，需还原。
-
-4. 点击 ``Save Table`` 保存设置，在 ``Certification Code`` 下拉项中选择需要的认证，点击 ``Generate`` 生成对应国家码的 phy_init_bin 文件。
 
 .. figure:: ../../../_static/rf_test_tool/powerlimit_generate.png
     :align: center
@@ -256,6 +256,7 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
 
     RF Test 设置界面
 
+
 .. only:: esp32
 
     {IDF_TARGET_NAME} 平均输出功率典型值
@@ -285,6 +286,7 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
         * - 11n-40 MCS7
           - 13
 
+
 .. only:: esp32c2
 
     {IDF_TARGET_NAME} 平均输出功率典型值
@@ -309,6 +311,7 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
           - 19
         * - HT20-11n MCS7
           - 18
+
 
 .. only:: esp32s2
 
@@ -338,6 +341,7 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
           - 18
         * - 11n-40 MCS7
           - 13.5
+
 
 .. only:: esp32s3
 
@@ -398,6 +402,7 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
         * - 11n-40 MCS7
           - 17
 
+
 .. only:: esp32c6
 
     {IDF_TARGET_NAME} 平均输出功率典型值
@@ -422,16 +427,16 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
           - 19
         * - HT20-11n MCS7
           - 18
-        * - HT40-11n MCS0
-          - 19
-        * - HT40-11n MCS7
-          - 18
         * - HE20-11ax MCS0
           - 19
         * - HE20-11ax MCS7
           - 18
         * - HE20-11ax MCS9
           - 15
+        * - HT40-11n MCS0
+          - 19
+        * - HT40-11n MCS7
+          - 18
 
 
 .. only:: esp32c61
@@ -447,28 +452,27 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
         * - 传输速率
           - 平均输出功率典型值 (dBm)
         * - 11b 1M
-          - 20.5
+          - 21
         * - 11b 11M
-          - 20.5
+          - 21
         * - 11g 6M
           - 20
         * - 11g 54M
-          - 19
+          - 18
         * - HT20-11n MCS0
-          - 19
+          - 20
         * - HT20-11n MCS7
-          - 18
-        * - HT40-11n MCS0
-          - 18.5
-        * - HT40-11n MCS7
-          - 17.5
+          - 17
         * - HE20-11ax MCS0
-          - 19
+          - 20
         * - HE20-11ax MCS7
-          - 18
+          - 17
         * - HE20-11ax MCS9
-          - 15.5
-
+          - 15
+        * - HT40-11n MCS0
+          - 19
+        * - HT40-11n MCS7
+          - 17
 
 
 .. only:: esp32c5
@@ -484,27 +488,27 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
         * - 传输速率
           - 2.4G 平均输出功率典型值 (dBm)
         * - 11b 1M
-          - 19.5
+          - 20
         * - 11b 11M
-          - 19.5
+          - 20
         * - 11g 6M
-          - 18.5
+          - 19
         * - 11g 54M
-          - 16.5
+          - 17
         * - HT20-11n MCS0
-          - 18.5
+          - 19
         * - HT20-11n MCS7
-          - 16.5
-        * - HT40-11n MCS0
-          - 17.5
-        * - HT40-11n MCS7
-          - 15.5
+          - 17
         * - HE20-11ax MCS0
-          - 18.5
+          - 19
         * - HE20-11ax MCS7
-          - 16.5
+          - 17
         * - HE20-11ax MCS9
-          - 14.5
+          - 15
+        * - HT40-11n MCS0
+          - 18
+        * - HT40-11n MCS7
+          - 16
 
 
     .. list-table::
@@ -515,26 +519,25 @@ PowerLimitTool 可用于配置 Wi-Fi 输出功率，生成单国和多国的 phy
         * - 传输速率
           - 5G 平均输出功率典型值 (dBm)
         * - 11a 6M
-          - 18.5
+          - 18
         * - 11a 54M
-          - 16.5
+          - 17
         * - HT20-11n MCS0
-          - 18.5
+          - 18
         * - HT20-11n MCS7
-          - 15.5
-        * - HT40-11n MCS0
-          - 17.5
-        * - HT40-11n MCS7
-          - 14.5
+          - 16
         * - VHT20-11ac MCS0
-          - 18.5
+          - 18
         * - VHT20-11ac MCS7
-          - 15.5
+          - 16
         * - HE20-11ax MCS0
-          - 18.5
+          - 18
         * - HE20-11ax MCS7
-          - 15.5
-
+          - 16
+        * - HT40-11n MCS0
+          - 17
+        * - HT40-11n MCS7
+          - 15
 
 
 

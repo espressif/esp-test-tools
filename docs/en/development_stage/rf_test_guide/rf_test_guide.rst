@@ -9,7 +9,7 @@ The **EspRFTestTool toolkit** is an RF test tool provided by Espressif. It conta
 - `DownloadTool`_: Used to download the firmware required for RF tests
 - `PowerLimitTool`_: Used to generate customized phy_init_data firmware
 
-**Download Link**: :download:`EspRFTestTool toolkit <https://dl.espressif.com/RF/EspRFTestTool_v4.7_Manual.zip>`
+**Download Link**: :download:`EspRFTestTool Package <https://dl.espressif.com/RF/EspRFTestTool_v5.2_Manual.zip>`
 
 The zip file not only includes the EspRFTestTool toolkit but also contains all the necessary firmware for :doc:`RF Test Items <../rf_test_items/index>`, allowing users familiar with the testing process to directly use the firmware for testing.
 
@@ -169,7 +169,19 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
 
     Importing TX Power Setting Table
 
-3. Click ``Open Table``, modify the power value in the corresponding country code table, and select the desired country code in the ``Certification Code`` dropdown box.
+3. Click ``Open Table``, modify the power value in the corresponding country code table, and click ``Save Table``.
+
+.. note::
+
+  How to modify power values:
+
+  1. Fill in the power value based on the certification result (the certification provides the power attenuation value) (Power value = Target power - Attenuation value/4).
+  2. If ``Actual_Result`` is modified, the Target power in the above formula needs to be changed to ``Actual_Result``.
+  3. Adding or deleting table content is not allowed. For example, FCC only supports channels 1 – 11, so it is recommended to keep the power values of channels 12 – 13 in this table the same as channel 11 instead of deleting them;
+  4. Except for low and high channels, the power values of other channels should be set to the same as the middle channel;
+  5. The NA section cannot be modified. If the ``Certification Code`` cannot be selected from the dropdown box , it indicates that the table has been modified and needs to be restored.
+
+4. After saving the power changes, select the required certification from the ``Certification Code`` dropdown, then click ``Generate`` to generate the phy_init_bin file for the corresponding country code.
 
 .. figure:: ../../../_static/rf_test_tool/powerlimit_country.png
     :align: center
@@ -193,18 +205,6 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
   10. **KCC_5**: Power configuration of the "KCC" country code, applicable to South Korea.
   11. **MIC_6**: Power configuration of the "MIC" country code, applicable to Japan.
   12. **IC_7**: Power configuration of the "IC" country code, applicable to Canada.
-
-.. note::
-
-  How to modify power values:
-
-  1. Fill in the power value based on the certification result (the certification provides the power attenuation value) (Power value = Target power - Attenuation value/4).
-  2. If ``Actual_Result`` is modified, the Target power in the above formula needs to be changed to ``Actual_Result``.
-  3. Adding or deleting table content is not allowed. For example, FCC only supports channels 1~11, so it is recommended to keep the power values of channels 12~13 in this table the same as channel 11 instead of deleting them;
-  4. Except for low and high channels, the power values of other channels should be set to the same as the middle channel;
-  5. The NA section cannot be modified. If the ``Certification Code`` cannot be selected from the dropdown box , it indicates that the table has been modified and needs to be restored.
-
-4. Click ``Save Table`` to save the settings. Select the required certification from the ``Certification Code`` dropdown, then click ``Generate`` to create the phy_init_bin file for the corresponding country code.
 
 .. figure:: ../../../_static/rf_test_tool/powerlimit_generate.png
     :align: center
@@ -256,6 +256,7 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
 
     RF Test Configuration
 
+
 .. only:: esp32
 
     Typical Average Output Power of {IDF_TARGET_NAME}
@@ -285,6 +286,7 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
         * - 11n-40 MCS7
           - 13
 
+
 .. only:: esp32c2
 
     Typical Average Output Power Value of {IDF_TARGET_NAME}
@@ -309,6 +311,7 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
           - 19
         * - HT20-11n MCS7
           - 18
+
 
 .. only:: esp32s2
 
@@ -338,6 +341,7 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
           - 18
         * - 11n-40 MCS7
           - 13.5
+
 
 .. only:: esp32s3
 
@@ -398,6 +402,7 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
         * - 11n-40 MCS7
           - 17
 
+
 .. only:: esp32c6
 
     Typical average output power value of {IDF_TARGET_NAME}
@@ -422,16 +427,16 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
           - 19
         * - HT20-11n MCS7
           - 18
-        * - HT40-11n MCS0
-          - 19
-        * - HT40-11n MCS7
-          - 18
         * - HE20-11ax MCS0
           - 19
         * - HE20-11ax MCS7
           - 18
         * - HE20-11ax MCS9
           - 15
+        * - HT40-11n MCS0
+          - 19
+        * - HT40-11n MCS7
+          - 18
 
 
 .. only:: esp32c61
@@ -447,28 +452,27 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
         * - Rates
           - Typical Average Output Power (dBm)
         * - 11b 1M
-          - 20.5
+          - 21
         * - 11b 11M
-          - 20.5
+          - 21
         * - 11g 6M
           - 20
         * - 11g 54M
-          - 19
+          - 18
         * - HT20-11n MCS0
-          - 19
+          - 20
         * - HT20-11n MCS7
-          - 18
-        * - HT40-11n MCS0
-          - 18.5
-        * - HT40-11n MCS7
-          - 17.5
+          - 17
         * - HE20-11ax MCS0
-          - 19
+          - 20
         * - HE20-11ax MCS7
-          - 18
+          - 17
         * - HE20-11ax MCS9
-          - 15.5
-
+          - 15
+        * - HT40-11n MCS0
+          - 19
+        * - HT40-11n MCS7
+          - 17
 
 
 .. only:: esp32c5
@@ -484,27 +488,27 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
         * - Rates
           - 2.4G Typical Average Output Power (dBm)
         * - 11b 1M
-          - 19.5
+          - 20
         * - 11b 11M
-          - 19.5
+          - 20
         * - 11g 6M
-          - 18.5
+          - 19
         * - 11g 54M
-          - 16.5
+          - 17
         * - HT20-11n MCS0
-          - 18.5
+          - 19
         * - HT20-11n MCS7
-          - 16.5
-        * - HT40-11n MCS0
-          - 17.5
-        * - HT40-11n MCS7
-          - 15.5
+          - 17
         * - HE20-11ax MCS0
-          - 18.5
+          - 19
         * - HE20-11ax MCS7
-          - 16.5
+          - 17
         * - HE20-11ax MCS9
-          - 14.5
+          - 15
+        * - HT40-11n MCS0
+          - 18
+        * - HT40-11n MCS7
+          - 16
 
 
     .. list-table::
@@ -515,26 +519,25 @@ Under the main interface of EspRFTestTool, click ``Tool``, and select ``PowerLim
         * - Rates
           - 5G Typical Average Output Power (dBm)
         * - 11a 6M
-          - 18.5
+          - 18
         * - 11a 54M
-          - 16.5
+          - 17
         * - HT20-11n MCS0
-          - 18.5
+          - 18
         * - HT20-11n MCS7
-          - 15.5
-        * - HT40-11n MCS0
-          - 17.5
-        * - HT40-11n MCS7
-          - 14.5
+          - 16
         * - VHT20-11ac MCS0
-          - 18.5
+          - 18
         * - VHT20-11ac MCS7
-          - 15.5
+          - 16
         * - HE20-11ax MCS0
-          - 18.5
+          - 18
         * - HE20-11ax MCS7
-          - 15.5
-
+          - 16
+        * - HT40-11n MCS0
+          - 17
+        * - HT40-11n MCS7
+          - 15
 
 
 
