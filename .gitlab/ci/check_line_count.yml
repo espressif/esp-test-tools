@@ -1,0 +1,18 @@
+check_line_count:
+  stage: post_check
+  image: $ESP_DOCS_ENV_IMAGE
+  tags:
+    - build
+  dependencies: []  # Do not download artifacts from earlier stages
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  script:
+    - echo "Start to check line count"
+    # - python3 --version
+    # - /usr/local/bin/python -m pip install --upgrade pip
+    - git clone -b v1.0 $AUTO_TRANSLATE_REPO
+    # - pip3 install -r ./auto-translate/requirements.txt
+    # - pip3 install tenacity==8.3.0
+    # - echo $CI_COMMIT_REF_NAME
+    - python3 ./auto-translate/detect_inconsistent_line_num.py docs/en -r

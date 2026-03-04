@@ -17,6 +17,7 @@ include:
   - '.gitlab/ci/auto_trans.yml'
   - '.gitlab/ci/check_link.yml'
   - '.gitlab/ci/check_author.yml'
+  - '.gitlab/ci/check_line_count.yml'
   - '.gitlab/ci/publish-docs-to-cdp.yml'
   - '.gitlab/ci/rules.yml'
   - '.gitlab/ci/pre_commit.yml'
