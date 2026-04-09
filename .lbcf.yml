@@ -474,3 +474,47 @@ documents:
       document_summary: 本文档旨在为基于 ESP32-C61 系列芯片与模组的产品开发与量产提供技术支持与资源参考。
       notify_subscribers: false
       visibility_on_website: show
+
+#######################################################
+# 19. ESP32-P4 Test Tools and Guidelines
+#######################################################
+    - document_name: ESP32-P4 Test Tools and Guidelines
+      doc_id:
+      translation_docid:
+      product_name:
+        - ESP32-P4 SoC Series
+      product_name_old_website:
+        - ESP32-P4
+      soc_series_base_filter: ESP32-P4
+      document_type: guide
+      document_type_old_website: guide
+      version: latest
+      revision_date:
+      language: en
+      document_storage: docs
+      document_link: https://docs.espressif.com/projects/esp-test-tools/en/latest/esp32p4/index.html
+      document_summary: This document provides resources to support the development and production of products based on ESP32-P4 series of chips and modules.
+      notify_subscribers: false
+      visibility_on_website: show
+
+#######################################################
+# 20. ESP32-P4 测试工具与指南
+#######################################################
+    - document_name: ESP32-P4 测试工具与指南
+      doc_id:
+      translation_docid:
+      product_name:
+        - ESP32-P4 SoC Series
+      product_name_old_website:
+        - ESP32-P4
+      soc_series_base_filter: ESP32-P4
+      document_type: guide
+      document_type_old_website: guide
+      version: latest
+      revision_date:
+      language: cn
+      document_storage: docs
+      document_link: https://docs.espressif.com/projects/esp-test-tools/zh_CN/latest/esp32p4/index.html
+      document_summary: 本文档旨在为基于 ESP32-P4 系列芯片与模组的产品开发与量产提供技术支持与资源参考。
+      notify_subscribers: false
+      visibility_on_website: show

@@ -84,12 +84,18 @@ Here is the configuration descriptions.
 
     The SPIDownload tab is needed when ESP8266 connects to external flash via HSPI. It has the same interface as the HSPIDownload tab, please refer to `SPIDownload Tab`_ for interface description.
 
+.. note::
+
+  *  When the tool version is >= 3.9.10, ``SPI SPEED`` and ``SPI MODE`` cannot be changed by default. These parameters are consistent with the firmware build configuration.
+
 FactoryMultiDownload Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``Factory`` mode uses the relative path. By default, the tool loads the firmware from the bin folder of the tool directory. Whereas, ``Develop`` mode uses the absolute path. The advantage of the ``Factory`` mode is that as long as the firmware to flash remains in the bin folder of the tool directory, path problems will not occur when the tool package is copied to other factory computers.
 
 - In ``Factory`` mode, the tool enables ``LockSettings`` by default. When ``LockSettings`` is enabled, firmware download path config and ``SPI flash config`` cannot be configured. This is to prevent production line workers from accidentally clicking and causing errors. (When factory managers need to configure these settings, they can click ``LockSettings`` to unlock.)
+
+- In ``Factory`` mode, you can click the ``CRC32 cal`` button to generate a checksum based on all files to be flashed and their flash addresses. The production line can use this checksum to verify that the files and configuration to be flashed are correct.
 
 .. figure:: ../../../_static/flash_download_tool/factorymultidownload_interface.png
     :align: center
@@ -126,13 +132,17 @@ chipInfoDump Tab
 Download Example
 ----------------
 
-.. only:: esp32
+.. only:: esp32 or esp32c2 or esp32c3 or esp32c6 or esp32c5 or esp32h2 or esp32s2 or esp32s3
 
-    This section takes ESP32 as an example to demonstrate how to perform both regular and encrypted download operations. {IDF_TARGET_NAME} supports regular and encrypted download.
+    This section takes the ESP32 series as an example to demonstrate how to perform both regular and encrypted download operations. At present, {IDF_TARGET_NAME} supports regular and encrypted download.
 
-.. only:: not esp32
+.. only:: esp32c61 or esp32p4
 
     This section takes the ESP32 series as an example to demonstrate how to perform both regular and encrypted download operations. At present, {IDF_TARGET_NAME} only supports regular download, and will support encrypted download later.
+
+.. only:: esp8266
+
+    This section takes the ESP32 series as an example to demonstrate how to perform both regular and encrypted download operations. At present, {IDF_TARGET_NAME} only supports regular download.
 
 Regular Download
 ^^^^^^^^^^^^^^^^
@@ -145,6 +155,19 @@ Regular Download
 
     1. Pull GPIO9 low and GPIO8 high to enter the downloading mode.
 
+.. only:: esp32c5
+
+    1. Pull GPIO28 low and GPIO27 high to enter the downloading mode.
+
+.. only:: esp32p4
+
+    1. Pull GPIO35 low and GPIO36 high to enter the downloading mode.
+
+.. only:: esp32c61
+
+    1. Pull GPIO9 low and GPIO8 high to enter the downloading mode.
+
+
 2. Open the download tool, set ``ChipType`` to ``ESP32``, ``WorkMode`` to ``Develop``, and ``LoadMode`` to ``UART`` as shown in the figure below. Then, click ``OK``
 
 .. figure:: ../../../_static/flash_download_tool/device_selection.jpg
@@ -153,7 +176,7 @@ Regular Download
 
     Selecting Device — ESP32 Download Tool
 
-3. In the appeared download page, enter the path to the bin file and the address where it should be downloaded, check the box before the path, and select ``SPI SPEED``, ``SPI MODE``, ``COM``, and ``BAUD`` according to your requirements.
+3. In the appeared download page, enter the path to the bin file and the address where it should be downloaded, check the box before the path, and enter ``COM`` and ``BAUD`` according to your requirements.
 
 4. Click ``START`` to start downloading. During the download process, the tool will read the flash information and the chip's MAC address.
 
@@ -165,171 +188,313 @@ Regular Download
 
     Download Completed
 
-Encrypted Download
-^^^^^^^^^^^^^^^^^^
+.. only:: not esp8266
 
-The encrypted firmware downloading process is as follows:
+  Encrypted Download
+  ^^^^^^^^^^^^^^^^^^
 
-- Flash Download Tool downloads the plaintext firmware to the chip.
+  The encrypted firmware downloading process is as follows:
 
-- The chip uses the key in its eFuse to encrypt the firmware and write it to the flash.
+  1. Flash Download Tool downloads the plaintext firmware to the chip.
 
-- If there is no such key in the eFuse, the tool will automatically generate a random one and flash it to eFuse. You can also prepare your own encryption key. If there is, the tool skips the key generation and flashing process.
+  2. The chip uses the key in its eFuse to encrypt the firmware and write it to the flash.
 
-To configure the encryption function, follow the steps below:
+  3. If there is no such key in the eFuse, the tool will automatically generate a random one and flash it to eFuse. You can also prepare your own encryption key. If there is, the tool skips the key generation and flashing process.
 
-- Open the configuration file ./configure/esp32/security.conf. If there is no such file, for example, when you open the tool for the first time, restart the tool.
+  To configure the encryption function, follow the steps below:
 
-- Update the configuration options as needed.
+  1. Open the configuration file ./configure/[chip_name]/security.conf. If there is no such file, for example, when you open the tool for the first time, restart the tool.
 
-Below are the configuration options. The equal sign is followed by the default value of the option. ``True`` means enabling the option; ``False`` means disabling it.
+  2. Update the configuration options as needed.
 
-- **[SECURE BOOT]** Secure boot related configurations:
+  Below are the configuration options. The equal sign is followed by the default value of the option. ``True`` means enabling the option; ``False`` means disabling it.
 
-  * **secure_boot_en = False** (Configures whether to enable secure boot)
+  - **[SECURE BOOT]** Secure boot related configurations:
+
+    * **secure_boot_en = False** (Configures whether to enable secure boot)
+
+    .. only:: esp32
+
+       * **secure_boot_version = 1** (Selects secure boot version)
+
+    * **public_key_digest_path = .\\secure\\public_key_digest.bin** (Path to the public key digest file. This file is generated using the command ``espsecure digest_sbv2_public_key -k pem.pem -o public_key_digest.bin``. The ``.pem`` file is the private key file specified during compilation.)
+
+    * **public_key_digest_block_index = 0** (Index of the eFuse block where the public key digest file is stored. Default: 0.)
+
+  - **[FLASH ENCRYPTION]** Flash encryption related configurations:
+
+    * **flash_encryption_en = False** (Configures whether to enable flash encryption)
+
+    .. only:: esp32
+
+       * **reserved_burn_times = 3** (Configures the number of reserved flashing operations. Optional values: 0, 1, 2, 3.)
+
+    .. only:: not esp32
+
+       * **reserved_burn_times = 1** (Configures the number of reserved flashing operations. Optional values: 0, 1.)
+
+    .. only:: esp32s2 or esp32s3 or esp32c3 or esp32c6 or esp32c5 or esp32h2 or esp32c61 or esp32p4
+
+        * **flash_encrypt_key_block_index = 0** (Configures the index of the encryption key in the block_key. Default: 0. Range: 0~4. For more information, refer to `Technical Reference Manual (PDF) <{IDF_TARGET_TRM_EN_URL}>`__ > Chapter eFuse Controller.)
+
+  .. only:: esp32c2
+
+      * **flash_encrypt_key_block_index = 0** (Configures the index of the encryption key in the block_key. Default: 0. This index cannot be updated. For more information, refer to `Technical Reference Manual (PDF) <{IDF_TARGET_TRM_EN_URL}>`__ > Chapter eFuse Controller.)
+
+  - **[SECURE OTHER CONFIG]** Other security configurations:
+
+    * **flash_encryption_use_customer_key_enable = False** (Configures whether to enable a customer-specified encryption key)
+
+    * **flash_encryption_use_customer_key_path = .\\secure\\flash_encrypt_key.bin** (If using a customer-specified key, the key path needs to be specified here.)
+
+    * **flash_force_write_enable = False** (Configures whether to skip encryption and secure boot checks during flashing. If it is set to False (default), an error message may pop up when attempting to flash products with enabled flash encryption or secure boot.)
+
+  - **[FLASH ENCRYPTION KEYS LOCAL SAVE]** Determines whether to store the encryption key file locally. Default: False.
+
+  * **keys_save_enable = False** (Configures whether to save the key.)
+
+  * **encrypt_keys_enable = False** (Configure whether to encrypt the locally stored key.)
+
+  * **encrypt_keys_aeskey_path =** (If you encrypt the locally stored key, please fill in the key file here, such as **./my_aeskey.bin**)
+
+  - **[ESP32* EFUSE BIT CONFIG]** Determines whether to set encryption items when flash encryption is enabled. Default: False.
 
   .. only:: esp32
 
-     * **secure_boot_version = 1** (Selects secure boot version)
+      .. list-table:: [ESP32 DISABLE FUNC] Config Option
+          :header-rows: 1
 
-  * **public_key_digest_path = .\secure\public_key_digest.bin** (Path to the public key digest file. This file is generated using the command ``espsecure digest_sbv2_public_key -k pem.pem -o public_key_digest.bin``. The ``.pem`` file is the private key file specified during compilation.)
+          * - [ESP32 DISABLE FUNC] Config Option
+            - Description
 
-  * **public_key_digest_block_index = 0** (Index of the eFuse block where the public key digest file is stored. Default: 0.)
+          * - dl_encrypt_disable = False
+            - Configures whether to disable encryption
 
-- **[FLASH ENCRYPTION]** Flash encryption related configurations:
+          * - dl_decrypt_disable = False
+            - Configures whether to disable decryption
 
-  * **flash_encryption_en = False** (Configures whether to enable flash encryption)
+          * - dl_cache_disable = False
+            - Configures whether to disable cache
 
-  * **reserved_burn_times = 3** (Configures how many times [3 in this case] are reserved for the flashing operation)
+          * - jtag_disable = False
+            - Configures whether to disable JTAG
 
-  .. only:: esp32s2 or esp32s3 or esp32c3 or esp32c6
+  .. only:: esp32c3 or esp32c6
 
-    * **flash_encrypt_key_block_index = 0** (Configures the index of the encryption key in the block_key. Default: 0. Range: 0~4. For more information, refer to `Technical Reference Manual (PDF) <{IDF_TARGET_TRM_EN_URL}>`__ > Chapter eFuse Controller.)
+      .. list-table:: [ESP32-C* DISABLE FUNC] Config Option
+          :header-rows: 1
 
-.. only:: esp32c2
+          * - [ESP32-C* DISABLE FUNC] Config Option
+            - Description
 
-    * **flash_encrypt_key_block_index = 0** (Configures the index of the encryption key in the block_key. Default: 0. This index cannot be updated. For more information, refer to `Technical Reference Manual (PDF) <{IDF_TARGET_TRM_EN_URL}>`__ > Chapter eFuse Controller.)
+          * - dis_usb_jtag = False
+            - Configures whether to disable USB JTAG
 
-- **[SECURE OTHER CONFIG]** Other security configurations:
+          * - dis_pad_jtag = False
+            - Configures whether to disable JTAG PAD
 
-  * **flash_encryption_use_customer_key_enable = False** (Configures whether to enable a customer-specified encryption key)
+          * - soft_dis_jtag = 7
+            - Configures whether to soft-disable JTAG
 
-  * **flash_encryption_use_customer_key_path = .\secure\flash_encrypt_key.bin** (If using a customer-specified key, the key path needs to be specified here.)
+          * - dis_direct_boot = False
+            - Configures whether to disable direct boot
 
-  * **flash_force_write_enable = False** (Configures whether to skip encryption and secure boot checks during flashing. If it is set to False (default), an error message may pop up when attempting to flash products with enabled flash encryption or secure boot.)
+          * - dis_download_icache = False
+            - Configures whether to disable instruction cache in download mode
 
-- **[FLASH ENCRYPTION KEYS LOCAL SAVE]** Determines whether to store the encryption key file locally. Default: False.
+  .. only:: esp32c2
 
-* **keys_save_enable = False** (Configures whether to save the key.)
+      .. list-table:: [ESP32-C* DISABLE FUNC] Config Option
+          :header-rows: 1
 
-* **encrypt_keys_enable = False** (Configure whether to encrypt the locally stored key.)
+          * - [ESP32-C* DISABLE FUNC] Config Option
+            - Description
 
-* **encrypt_keys_aeskey_path =** (If you encrypt the locally stored key, please fill in the key file here, such as **./my_aeskey.bin**)
+          * - dis_pad_jtag = False
+            - Configures whether to disable JTAG PAD
 
-- **[ESP32* EFUSE BIT CONFIG]** Determines whether to set encryption items when flash encryption is enabled. Default: False.
+          * - dis_download_manual_encrypt = False
+            - Configures whether to soft-disable manual encryption
 
-.. only:: esp32
+          * - dis_direct_boot = False
+            - Configures whether to disable direct boot
 
-    .. list-table:: [ESP32 DISABLE FUNC] Config Option
-        :header-rows: 1
+          * - dis_download_icache = False
+            - Configures whether to disable instruction cache in download mode
 
-        * - [ESP32 DISABLE FUNC] Config Option
-          - Description
+  .. only:: esp32c5
 
-        * - dl_encrypt_disable = False
-          - Configures whether to disable encryption
+      .. list-table:: [ESP32-C* DISABLE FUNC] Config Option
+          :header-rows: 1
 
-        * - dl_decrypt_disable = False
-          - Configures whether to disable decryption
+          * - [ESP32-C* DISABLE FUNC] Config Option
+            - Description
 
-        * - dl_cache_disable = False
-          - Configures whether to disable cache
+          * - dis_usb_jtag = False
+            - Configures whether to disable USB JTAG
 
-        * - jtag_disable = False
-          - Configures whether to disable JTAG
+          * - soft_dis_jtag = 7
+            - Configures whether to soft-disable JTAG
 
-.. only:: esp32c2 or esp32c3 or esp32c6
+          * - dis_direct_boot = False
+            - Configures whether to disable direct boot
 
-    .. list-table:: [ESP32-C* DISABLE FUNC] Config Option
-        :header-rows: 1
+          * - dis_download_manual_encrypt = False
+            - Configures whether to soft-disable manual encryption
 
-        * - [ESP32-C* DISABLE FUNC] Config Option
-          - Description
+  .. only:: esp32s2
 
-        * - dis_usb_jtag = False
-          - Configures whether to disable USB JTAG
+      .. list-table:: [ESP32-S* DISABLE FUNC] Config Option
+          :header-rows: 1
 
-        * - dis_pad_jtag = False
-          - Configures whether to disable JTAG PAD
+          * - [ESP32-S* DISABLE FUNC] Config Option
+            - Description
 
-        * - soft_dis_jtag = 7
-          - Configures whether to soft-disable JTAG
+          * - hard_dis_jtag = False
+            - Configures whether to hard-disable JTAG
 
-        * - dis_direct_boot = False
-          - Configures whether to disable direct boot
+          * - soft_dis_jtag = 7
+            - Configures whether to soft-disable JTAG
 
-        * - dis_download_icache = False
-          - Configures whether to disable instruction cache in the Download mode
+          * - dis_legacy_spi_boot = False
+            - Configures whether to disable legacy SPI boot
 
-.. only:: esp32s2 or esp32s3
+          * - dis_boot_remap = False
+            - Configures whether to disable boot remap
 
-    .. list-table:: [ESP32-S* DISABLE FUNC] Config Option
-        :header-rows: 1
+          * - dis_download_icache = False
+            - Configures whether to disable instruction cache in download mode
 
-        * - [ESP32-S* DISABLE FUNC] Config Option
-          - Description
+          * - dis_download_dcache = False
+            - Configures whether to disable data cache in download mode
 
-        * - dis_usb_jtag = False
-          - Configures whether to disable USB JTAG
+          * - dis_download_manual_encrypt = False
+            - Configures whether to soft-disable manual encryption
 
-        * - hard_dis_jtag = False
-          - Configures whether to hard-disable JTAG
+  .. only:: esp32s3
 
-        * - soft_dis_jtag = 7
-          - Configures whether to soft-disable JTAG
+      .. list-table:: [ESP32-S* DISABLE FUNC] Config Option
+          :header-rows: 1
 
-        * - dis_usb_otg_download_mode = False
-          - Configures whether to disable USB OTG download
+          * - [ESP32-S* DISABLE FUNC] Config Option
+            - Description
 
-        * - dis_direct_boot = False
-          - Configures whether to disable direct boot
+          * - dis_usb_jtag = False
+            - Configures whether to disable USB JTAG
 
-        * - dis_download_icache = False
-          - Configures whether to disable instruction cache in the Download mode
+          * - hard_dis_jtag = False
+            - Configures whether to hard-disable JTAG
 
-        * - dis_download_dcache = False
-          - Configures whether to disable data cache in the Download mode
+          * - soft_dis_jtag = 7
+            - Configures whether to soft-disable JTAG
 
-.. only:: esp32h2
+          * - dis_usb_otg_download_mode = False
+            - Configures whether to disable USB OTG download
 
-    .. list-table:: [ESP32-H* DISABLE FUNC] Config Option
-        :header-rows: 1
+          * - dis_direct_boot = False
+            - Configures whether to disable direct boot
 
-        * - [ESP32-H* DISABLE FUNC] Config Option
-          - Description
+          * - dis_download_icache = False
+            - Configures whether to disable instruction cache in download mode
 
-        * - dis_direct_boot = False
-          - Configures whether to disable direct boot
+          * - dis_download_dcache = False
+            - Configures whether to disable data cache in download mode
 
-        * - soft_dis_jtag = False
-          - Configures whether to soft-disable JTAG
+          * - dis_download_manual_encrypt = False
+            - Configures whether to soft-disable manual encryption
 
-        * - dis_pad_jtag = False
-          - Configures whether to hard-disable JTAG
+  .. only:: esp32h2
 
-        * - dis_usb_jtag = False
-          - Configures whether to disable USB JTAG
+      .. list-table:: [ESP32-H* DISABLE FUNC] Config Option
+          :header-rows: 1
 
-There will be a prompt message (shown below) when the tool is running. Check if the message is correct. The figure below shows the prompt message of enabling both flash encryption and secure boot:
+          * - [ESP32-H* DISABLE FUNC] Config Option
+            - Description
 
-.. figure:: ../../../_static/flash_download_tool/flash_encryption_secure_boot.jpg
-    :align: center
-    :scale: 90%
+          * - dis_direct_boot = False
+            - Configures whether to disable direct boot
 
-    ESP32 Prompt Message of Enabling Flash Encryption and Secure Boot
+          * - soft_dis_jtag = False
+            - Configures whether to soft-disable JTAG
 
-During the firmware flashing process, the key and other information will be flashed into the chip's eFuse. After the flashing process is completed, ``FINISH/完成`` will be displayed.
+          * - dis_pad_jtag = False
+            - Configures whether to hard-disable JTAG
 
-.. note::
+          * - dis_usb_jtag = False
+            - Configures whether to disable USB JTAG
 
-    Prior to downloading, the tool verifies flash encryption and secure boot information in the eFuse, so as to prevent re-downloading to and damaging the encrypted module.
+          * - dis_download_manual_encrypt = False
+            - Configures whether to soft-disable manual encryption
+
+
+  There will be a prompt message (shown below) when the tool is running. Check if the message is correct. The figure below shows the prompt message of enabling both flash encryption and secure boot:
+
+  .. figure:: ../../../_static/flash_download_tool/flash_encryption_secure_boot.jpg
+      :align: center
+      :scale: 90%
+
+      ESP32 Prompt Message of Enabling Flash Encryption and Secure Boot
+
+  During the firmware flashing process, the key and other information will be flashed into the chip's eFuse. After the flashing process is completed, ``FINISH/完成`` will be displayed.
+
+  .. note::
+
+      Prior to downloading, the tool verifies flash encryption and secure boot information in the eFuse, so as to prevent re-downloading to and damaging the encrypted module.
+
+Version Release Notes
+---------------------
+
+- 3.9.10
+
+    * Support ESP32-P4 ECO6
+    * Support ESP32-C5 ECO3
+    * ``SPI_MODE`` and ``SPI_SPEED`` are not editable
+    * Support CRC32 check for files to be flashed and flash addresses in factory mode
+    * Support ESP32-C5 secure boot V2 and flash encryption
+    * Support ESP32, ESP32-S2, and ESP32-S3 eFuse flash_voltage configuration
+
+- 3.9.9
+
+    * Support ESP32-P4 USB download
+    * Add a help button for tool updates and online documentation
+    * Supports flashing ESP32-P4 devices with flash larger than 16 MB
+    * Add MD5 verification status display during flashing
+
+- 3.9.8
+
+    * Add ``Read Flash`` and ``Read Efuse`` tabs
+    * Support ESP32-C5 and ESP32-C61
+
+- 3.9.7
+
+    * Support ESP32-P4
+    * Update UI display icons
+    * Fix icon stuttering during flashing after long-term use
+
+- 3.9.6
+
+    * Support secure boot V2 and flash encryption for ESP32, ESP32-H2, ESP32-C6, ESP32-C2, and ESP32-S2
+    * In factory mode, the number of products to be flashed is configurable, up to 20
+
+- 3.9.5
+
+    * Support ESP32-H2
+    * Support disabling the erase button
+    * Fix some known vulnerabilities
+
+- 3.9.4
+
+    * Support ESP32-C6
+    * Support ESP32-C3 and ESP32-S3 flash encryption
+    * Add XMC flash fix
+    * Support flashing count in factory mode
+
+- 3.9.3
+
+    * Support ESP32-C2
+    * Update the icon shown when flashing completes
+
+- 3.9.2
+
+    * Fix configuration file errors
+    * Update the auto-start process

@@ -84,12 +84,18 @@ SPIDownload 界面
 
     HSPIDownload 界面与 SPIDownload 界面一致，ESP8266 HSPI 外接 flash 时会用到，界面说明可参考 `SPIDownload 界面`_。
 
+.. note::
+
+  *  工具版本 >= 3.9.10 时，默认不再允许更改 ``SPI SPEED``、``SPI MODE``，以上参数与固件编译配置保持一致。
+
 FactoryMultiDownload 界面
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - ``Factory`` 模式使用相对路径，默认从工具目录的 bin 路径下加载待烧录固件。而 ``Develop`` 模式使用绝对路径。``Factory`` 模式的优点：只要将待烧录固件拷入工具目录的 bin 路径下，即可在工厂电脑间拷贝，不会出现路径问题。
 
 - ``Factory`` 模式打开时，工具启动默认使能界面上 ``LockSettings``。``LockSettings`` 在使能的情况下，固件路径及 ``SPI flash config`` 均无法配置，防止产线人员误触导致配置错误。（工厂管理人员需要配置时，可点击 ``LockSettings`` 进行解锁）
+
+- ``Factory`` 模式下，可点击 ``CRC32 cal`` 按钮，根据待烧录的所有文件内容及烧录地址生成一个校验值，产线可根据此校验值来确认烧录的文件及配置是否正确。
 
 .. figure:: ../../../_static/flash_download_tool/factorymultidownload_interface.png
     :align: center
@@ -116,7 +122,7 @@ chipInfoDump 界面
 
   * ``Chip Info``：读取芯片型号、flash ID 以及 flash 状态寄存器值，读取内容直接显示在软件界面上。
   * ``Read Flash``：读取 flash 存储的数据。读出的内容会存储在生成的 bin 文件中，bin 文件名称以“芯片 MAC + 读取起始地址 + 读取数据长度 + 读取时间”的格式命名。
-  * ``Read Efuse``：读取芯片 eFuse 的内容，功能和esptool summary 相同，读出内容存储在生成的文本文件中，文件以“芯片 MAC + 读取时间”的格式命名。
+  * ``Read Efuse``：读取芯片 eFuse 的内容，功能和 esptool summary 相同，读出内容存储在生成的文本文件中，文件以“芯片 MAC + 读取时间”的格式命名。
 
 .. note::
 
@@ -126,13 +132,17 @@ chipInfoDump 界面
 下载示例
 ---------------
 
-.. only:: esp32
+.. only:: esp32 or esp32c2 or esp32c3 or esp32c6 or esp32c5 or esp32h2 or esp32s2 or esp32s3
 
     本章节主以 ESP32 系列为例，演示如何进行常规烧录和加密烧录。目前，{IDF_TARGET_NAME} 支持常规烧录与加密烧录。
 
-.. only:: not esp32
+.. only:: esp32c61 or esp32p4
 
     本章节主以 ESP32 系列为例，演示如何进行常规烧录和加密烧录。目前，{IDF_TARGET_NAME} 仅支持常规烧录，加密烧录待后续更新。
+
+.. only:: esp8266
+
+    本章节主以 ESP32 系列为例，演示如何进行常规烧录和加密烧录。目前，{IDF_TARGET_NAME} 仅支持常规烧录。
 
 常规烧录
 ^^^^^^^^^^^^^^
@@ -145,6 +155,19 @@ chipInfoDump 界面
 
     1. 将 GPIO9 管脚下拉，GPIO8 管脚上拉，使设备进入下载模式。
 
+.. only:: esp32c5
+
+    1. 将 GPIO28 管脚下拉，GPIO27 管脚上拉，使设备进入下载模式。
+
+.. only:: esp32p4
+
+    1. 将 GPIO35 管脚下拉，GPIO36 管脚上拉，使设备进入下载模式。
+
+.. only:: esp32c61
+
+    1. 将 GPIO9 管脚下拉，GPIO8 管脚上拉，使设备进入下载模式。
+
+
 2.	打开下载工具，``ChipType`` 选择 ``ESP32``，``WorkMode`` 选择 ``Develop``，``LoadMode`` 选择 ``UART``，点击 ``OK``，如下图所示。
 
 .. figure:: ../../../_static/flash_download_tool/device_selection.jpg
@@ -153,7 +176,7 @@ chipInfoDump 界面
 
     设备选择 — ESP32 Download Tool
 
-3. 进入下载页面，填入需要烧录的 bin 文件，和对应的烧录地址，勾选 bin 文件前面的复选框，并根据自己实际需求填入 ``SPI SPEED``、``SPI MODE``、``COM`` 及 ``BAUD``。
+3. 进入下载页面，填入需要烧录的 bin 文件，和对应的烧录地址，勾选 bin 文件前面的复选框，并根据自己实际需求填入 ``COM`` 及 ``BAUD``。
 
 4. 点击 ``START`` 开始下载。下载过程中，下载工具会读取 flash 的信息和芯片的 MAC 地址。
 
@@ -165,171 +188,313 @@ chipInfoDump 界面
 
     下载完成界面
 
-加密烧录
-^^^^^^^^^^^^^^^^
+.. only:: not esp8266
 
-加密烧录流程为：
+  加密烧录
+  ^^^^^^^^^^^^^^^^
 
-- Flash 下载工具将明文固件烧录进芯片
+  加密烧录流程为：
 
-- 芯片使用 eFuse 中的密钥对该明文固件进行加密，然后将加密后的固件写入 flash。
+  1. Flash 下载工具将明文固件烧录进芯片
 
-- 若 eFuse 中无 flash 加密密钥，下载工具会自动在 PC 端随机生成密钥并烧录进 eFuse，客户也可以自行准备加密密钥；若 eFuse 中已有 flash 加密密钥，则跳过密钥的生成及密钥烧录过程。
+  2. 芯片使用 eFuse 中的密钥对该明文固件进行加密，然后将加密后的固件写入 flash。
 
-以下为配置加密功能的步骤：
+  3. 若 eFuse 中无 flash 加密密钥，下载工具会自动在 PC 端随机生成密钥并烧录进 eFuse，客户也可以自行准备加密密钥；若 eFuse 中已有 flash 加密密钥，则跳过密钥的生成及密钥烧录过程。
 
-- 打开配置文件 ./configure/[chip_name]/security.conf，若首次打开时无此文件，可关闭软件后再次打开即可
+  以下为配置加密功能的步骤：
 
-- 修改相关配置项
+  1. 打开配置文件 ./configure/[chip_name]/security.conf，若首次打开时无此文件，可关闭软件后再次打开即可
 
-以下为配置项的说明，其中等号后面的内容为配置项的默认值，``True`` 表示使能，``False`` 表示不使能。
+  2. 修改相关配置项
 
-- **[SECURE BOOT]** 此配置项为开启 secure boot 时需要配置
+  以下为配置项的说明，其中等号后面的内容为配置项的默认值，``True`` 表示使能，``False`` 表示不使能。
 
-  * **secure_boot_en = False** （配置是否使能 secure boot）
+  - **[SECURE BOOT]** 此配置项为开启 secure boot 时需要配置
+
+    * **secure_boot_en = False** （配置是否使能 secure boot）
+
+    .. only:: esp32
+
+       * **secure_boot_version = 1** （用于选择安全启动版本）
+
+    * **public_key_digest_path = .\\secure\\public_key_digest.bin**  （公钥摘要文件路径，生成方式: ``espsecure digest_sbv2_public_key -k pem.pem -o public_key_digest.bin``; ``.pem`` 文件是编译时指定的私钥文件）
+
+    * **public_key_digest_block_index = 0** （eFuse 中存储公钥摘要文件的 block 索引，默认 0）
+
+  - **[FLASH ENCRYPTION]** 此配置项为开启 flash 加密时需要配置
+
+    * **flash_encryption_en = False** （配置是否开启 flash 加密功能）
+
+    .. only:: esp32
+
+       * **reserved_burn_times = 3** （配置预留烧录次数，可选值为 0、1、2、3）
+
+    .. only:: not esp32
+
+       * **reserved_burn_times = 1** （配置预留烧录次数，可选值为 0、1）
+
+    .. only:: esp32s2 or esp32s3 or esp32c3 or esp32c6 or esp32c5 or esp32h2 or esp32c61 or esp32p4
+
+        * **flash_encrypt_key_block_index = 0** （配置加密密钥在 block_key 中的索引值，默认为 0，可选范围 0~4。）更多信息请参考 `技术参考手册 (PDF) <{IDF_TARGET_TRM_CN_URL}>`__ > 章节 eFuse 控制器
+
+    .. only:: esp32c2
+
+        * **flash_encrypt_key_block_index = 0** （配置加密密钥在 block_key 中的索引值，默认为 0，不可更改。）更多信息请参考 `技术参考手册 (PDF) <{IDF_TARGET_TRM_CN_URL}>`__ > 章节 eFuse 控制器
+
+  - **[SECURE OTHER CONFIG]** 其他安全配置项：
+
+    * **flash_encryption_use_customer_key_enable = False** （配置是否使能客户指定的加密密钥）
+
+    * **flash_encryption_use_customer_key_path = .\\secure\\flash_encrypt_key.bin** （若使用客户指定的密钥，这里需要指定密钥路径）
+
+    * **flash_force_write_enable = False** （配置烧录时是否跳过加密和安全启动检查。此时若对已经开启 flash 加密或安全启动的产品烧录时会弹窗报错）
+
+  - **[FLASH ENCRYPTION KEYS LOCAL SAVE]** 此配置为是否将加密用的密钥文件保存在本地，默认为 False
+
+    * **keys_save_enable = False** （配置是否保存密钥）
+
+    * **encrypt_keys_enable = False** （配置是否对保存在本地的密钥加密）
+
+    * **encrypt_keys_aeskey_path =** （若对本地保存的密钥加密，请在此处填入密钥文件，比如 **./my_aeskey.bin**）
+
+  - **[ESP32* EFUSE BIT CONFIG]** 此配置为开启 flash 加密时，是否配置加密项，默认为 False。
 
   .. only:: esp32
 
-     * **secure_boot_version = 1** （用于选择安全启动版本）
+      .. list-table:: [ESP32 DISABLE FUNC] 配置项
+          :header-rows: 1
 
-  * **public_key_digest_path = .\secure\public_key_digest.bin**  （公钥摘要文件路径，生成方式: ``espsecure digest_sbv2_public_key -k pem.pem -o public_key_digest.bin``; ``.pem`` 文件是编译时指定的私钥文件）
+          * - [ESP32 DISABLE FUNC] 配置项
+            - 描述
 
-  * **public_key_digest_block_index = 0** （eFuse 中存储公钥摘要文件的 block 索引，默认 0）
+          * - dl_encrypt_disable = False
+            - 配置是否禁用加密
 
-- **[FLASH ENCRYPTION]** 此配置项为开启 flash 加密时需要配置
+          * - dl_decrypt_disable = False
+            - 配置是否禁用解密
 
-  * **flash_encryption_en = False** （配置是否开启 flash 加密功能）
+          * - dl_cache_disable = False
+            - 配置是否关闭 cache
 
-  * **reserved_burn_times = 3** （配置预留烧录次数）
+          * - jtag_disable = False
+            - 配置是否关闭 JTAG
 
-  .. only:: esp32s2 or esp32s3 or esp32c3 or esp32c6
+  .. only:: esp32c3 or esp32c6
 
-      * **flash_encrypt_key_block_index = 0** （配置加密密钥在 block_key 中的索引值，默认为 0，可选范围 0~4。）更多信息请参考 `技术参考手册 (PDF) <{IDF_TARGET_TRM_CN_URL}>`__ > 章节 eFuse 控制器
+      .. list-table:: [ESP32-C* DISABLE FUNC] 配置项
+          :header-rows: 1
+
+          * - [ESP32-C* DISABLE FUNC] 配置项
+            - 描述
+
+          * - dis_usb_jtag = False
+            - 配置是否禁用 USB JTAG
+
+          * - dis_pad_jtag = False
+            - 配置是否禁用 JTAG PAD
+
+          * - soft_dis_jtag = 7
+            - 配置是否软禁用 JTAG
+
+          * - dis_direct_boot = False
+            - 配置是否禁用直接启动
+
+          * - dis_download_icache = False
+            - 配置是否在下载模式下关闭指令 cache
 
   .. only:: esp32c2
 
-      * **flash_encrypt_key_block_index = 0** （配置加密密钥在 block_key 中的索引值，默认为 0，不可更改。）更多信息请参考 `技术参考手册 (PDF) <{IDF_TARGET_TRM_CN_URL}>`__ > 章节 eFuse 控制器
+      .. list-table:: [ESP32-C* DISABLE FUNC] 配置项
+          :header-rows: 1
 
-- **[SECURE OTHER CONFIG]** 其他安全配置项：
+          * - [ESP32-C* DISABLE FUNC] 配置项
+            - 描述
 
-  * **flash_encryption_use_customer_key_enable = False** （配置是否使能客户指定的加密密钥）
+          * - dis_pad_jtag = False
+            - 配置是否禁用 JTAG PAD
 
-  * **flash_encryption_use_customer_key_path = .\secure\flash_encrypt_key.bin** （若使用客户指定的密钥，这里需要指定密钥路径）
+          * - dis_download_manual_encrypt = False
+            - 配置是否软禁用手动加密
 
-  * **flash_force_write_enable = False** （配置烧录时是否跳过加密和安全启动检查。此时若对已经开启 flash 加密或安全启动的产品烧录时会弹窗报错）
+          * - dis_direct_boot = False
+            - 配置是否禁用直接启动
 
-- **[FLASH ENCRYPTION KEYS LOCAL SAVE]** 此配置为是否将加密用的密钥文件保存在本地，默认为 False
+          * - dis_download_icache = False
+            - 配置是否在下载模式下关闭指令 cache
 
-  * **keys_save_enable = False** （配置是否保存密钥）
+  .. only:: esp32c5
 
-  * **encrypt_keys_enable = False** （配置是否对保存在本地的密钥加密）
+      .. list-table:: [ESP32-C* DISABLE FUNC] 配置项
+          :header-rows: 1
 
-  * **encrypt_keys_aeskey_path =** （若对本地保存的密钥加密，请在此处填入密钥文件，比如 **./my_aeskey.bin**）
+          * - [ESP32-C* DISABLE FUNC] 配置项
+            - 描述
 
-- **[ESP32* EFUSE BIT CONFIG]** 此配置为开启 flash 加密时，是否配置加密项，默认为 False。
+          * - dis_usb_jtag = False
+            - 配置是否禁用 USB JTAG
 
-.. only:: esp32
+          * - soft_dis_jtag = 7
+            - 配置是否软禁用 JTAG
 
-    .. list-table:: [ESP32 DISABLE FUNC] 配置项
-        :header-rows: 1
+          * - dis_direct_boot = False
+            - 配置是否禁用直接启动
 
-        * - [ESP32 DISABLE FUNC] 配置项
-          - 描述
+          * - dis_download_manual_encrypt = False
+            - 配置是否软禁用手动加密
 
-        * - dl_encrypt_disable = False
-          - 配置是否禁用加密
+  .. only:: esp32s2
 
-        * - dl_decrypt_disable = False
-          - 配置是否禁用解密
+      .. list-table:: [ESP32-S* DISABLE FUNC] 配置项
+          :header-rows: 1
 
-        * - dl_cache_disable = False
-          - 配置是否关闭 cache
+          * - [ESP32-S* DISABLE FUNC] 配置项
+            - 描述
 
-        * - jtag_disable = False
-          - 配置是否关闭 JTAG
+          * - hard_dis_jtag = False
+            - 配置是否硬禁用 JTAG
 
-.. only:: esp32c2 or esp32c3 or esp32c6
+          * - soft_dis_jtag = 7
+            - 配置是否软禁用 JTAG
 
-    .. list-table:: [ESP32-C* DISABLE FUNC] 配置项
-        :header-rows: 1
+          * - dis_legacy_spi_boot = False
+            - 配置是否禁用旧版 SPI 启动
 
-        * - [ESP32-C* DISABLE FUNC] 配置项
-          - 描述
+          * - dis_boot_remap = False
+            - 配置是否禁用启动重映射
 
-        * - dis_usb_jtag = False
-          - 配置是否禁用 USB JTAG
+          * - dis_download_icache = False
+            - 配置是否在下载模式下关闭指令 cache
 
-        * - dis_pad_jtag = False
-          - 配置是否禁用 JTAG PAD
+          * - dis_download_dcache = False
+            - 配置是否在下载模式下关闭数据 cache
 
-        * - soft_dis_jtag = 7
-          - 配置是否软禁用 JTAG
+          * - dis_download_manual_encrypt = False
+            - 配置是否软禁用手动加密
 
-        * - dis_direct_boot = False
-          - 配置是否禁用 direct boot
+  .. only:: esp32s3
 
-        * - dis_download_icache = False
-          - 配置是否在 Download 模式下关闭指令 cache
+      .. list-table:: [ESP32-S* DISABLE FUNC] 配置项
+          :header-rows: 1
 
-.. only:: esp32s2 or esp32s3
+          * - [ESP32-S* DISABLE FUNC] 配置项
+            - 描述
 
-    .. list-table:: [ESP32-S* DISABLE FUNC] 配置项
-        :header-rows: 1
+          * - dis_usb_jtag = False
+            - 配置是否禁用 USB JTAG
 
-        * - [ESP32-S* DISABLE FUNC] 配置项
-          - 描述
+          * - hard_dis_jtag = False
+            - 配置是否硬禁用 JTAG
 
-        * - dis_usb_jtag = False
-          - 配置是否禁用 USB JTAG
+          * - soft_dis_jtag = 7
+            - 配置是否软禁用 JTAG
 
-        * - hard_dis_jtag = False
-          - 配置是否硬禁用 JTAG
+          * - dis_usb_otg_download_mode = False
+            - 配置是否禁用 USB OTG 下载
 
-        * - soft_dis_jtag = 7
-          - 配置是否软禁用 JTAG
+          * - dis_direct_boot = False
+            - 配置是否禁用直接启动
 
-        * - dis_usb_otg_download_mode = False
-          - 配置是否禁用 USB OTG 下载
+          * - dis_download_icache = False
+            - 配置是否在下载模式下关闭指令 cache
 
-        * - dis_direct_boot = False
-          - 配置是否禁用 direct boot
+          * - dis_download_dcache = False
+            - 配置是否在下载模式下关闭数据 cache
 
-        * - dis_download_icache = False
-          - 配置是否在 Download 模式下关闭指令 cache
+          * - dis_download_manual_encrypt = False
+            - 配置是否软禁用手动加密
 
-        * - dis_download_dcache = False
-          - 配置是否在 Download 模式下关闭数据 cache
+  .. only:: esp32h2
 
-.. only:: esp32h2
+      .. list-table:: [ESP32-H* DISABLE FUNC] 配置项
+          :header-rows: 1
 
-    .. list-table:: [ESP32-H* DISABLE FUNC] 配置项
-        :header-rows: 1
+          * - [ESP32-H* DISABLE FUNC] 配置项
+            - 描述
 
-        * - [ESP32-H* DISABLE FUNC] 配置项
-          - 描述
+          * - dis_direct_boot = False
+            - 配置是否禁用直接启动
 
-        * - dis_direct_boot = False
-          - 配置是否禁用 direct boot
+          * - soft_dis_jtag = False
+            - 配置是否软禁用 JTAG
 
-        * - soft_dis_jtag = False
-          - 配置是否软禁用 JTAG
+          * - dis_pad_jtag = False
+            - 配置是否硬禁用 JTAG
 
-        * - dis_pad_jtag = False
-          - 配置是否硬禁用 JTAG
+          * - dis_usb_jtag = False
+            - 配置是否禁用 USB JTAG
 
-        * - dis_usb_jtag = False
-          - 配置是否禁用 USB JTAG
+          * - dis_download_manual_encrypt = False
+            - 配置是否软禁用手动加密
 
-运行工具时会提示如下内容，需核对是否正确。下图为同时开启 flash 加密和安全启动的提示信息：
 
-.. figure:: ../../../_static/flash_download_tool/flash_encryption_secure_boot.jpg
-    :align: center
-    :scale: 90%
+  运行工具时会提示如下内容，需核对是否正确。下图为同时开启 flash 加密和安全启动的提示信息：
 
-    以 ESP32 示例开启 flash 加密和安全启动提示信息
+  .. figure:: ../../../_static/flash_download_tool/flash_encryption_secure_boot.jpg
+      :align: center
+      :scale: 90%
 
-固件烧录过程中，会向芯片的 eFuse 中烧录密钥等信息。待固件及 eFuse 烧录完成后，显示 ``FINISH/完成``。
+      以 ESP32 示例开启 flash 加密和安全启动提示信息
 
-.. note::
+  固件烧录过程中，会向芯片的 eFuse 中烧录密钥等信息。待固件及 eFuse 烧录完成后，显示 ``FINISH/完成``。
 
-    为防止已加密的模组重烧，工具烧录前会默认校验 eFuse flash 加密及安全启动信息，防止报废。
+  .. note::
+
+      为防止已加密的模组重烧，工具烧录前会默认校验 eFuse flash 加密及安全启动信息，防止报废。
+
+版本发布说明
+------------------
+
+- 3.9.10
+
+    * 支持 ESP32-P4 ECO6
+    * 支持 ESP32-C5 ECO3
+    * ``SPI_MODE`` 和 ``SPI_SPEED`` 不可编辑
+    * 支持在工厂模式下对待下载文件及烧录地址进行 CRC32 检查
+    * 支持 ESP32-C5 安全启动 V2 以及 flash 加密
+    * 支持 ESP32、ESP32-S2、ESP32-S3 eFuse flash_voltage 配置
+
+- 3.9.9
+
+    * 支持 ESP32-P4 USB 下载
+    * 增加 help 按钮，包含工具更新及在线文档
+    * 支持 ESP32-P4 flash size > 16 MB 烧录
+    * 增加烧录过程中 MD5 校验状态展示
+
+- 3.9.8
+
+    * 增加 ``Read Flash`` & ``Read Efuse`` 界面
+    * 支持 ESP32-C5 和 ESP32-C61
+
+- 3.9.7
+
+    * 支持 ESP32-P4
+    * 更新 UI 的显示图标
+    * 修复长时间使用后烧录过程图标卡顿问题
+
+- 3.9.6
+
+    * 支持 ESP32、ESP32-H2、ESP32-C6、ESP32-C2、ESP32-S2 安全启动 V2 以及 flash 加密
+    * 工厂模式下，待烧录产品个数可配置，最多 20 个
+
+- 3.9.5
+
+    * 支持 ESP32-H2
+    * 支持擦除按钮不可点击
+    * 修复一些已知漏洞
+
+- 3.9.4
+
+    * 支持 ESP32-C6
+    * 支持 ESP32-C3 和 ESP32-S3 flash 加密
+    * 添加 XMC flash 修复
+    * 支持工厂模式下的烧录计数
+
+- 3.9.3
+
+    * 支持 ESP32-C2
+    * 更新烧录过程中完成时的图标
+
+- 3.9.2
+
+    * 修复配置文件错误问题
+    * 更新自动启动流程

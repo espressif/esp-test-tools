@@ -1,7 +1,7 @@
 from esp_docs.conf_docs import *  # noqa: F403,F401
 
 languages = ['en', 'zh_CN']
-idf_targets = ['esp8266', 'esp32', 'esp32c2', 'esp32c3', 'esp32c6', 'esp32s2', 'esp32s3', 'esp32h2', 'esp32c5','esp32c61']
+idf_targets = ['esp8266', 'esp32', 'esp32c2', 'esp32c3', 'esp32c6', 'esp32s2', 'esp32s3', 'esp32h2', 'esp32c5','esp32c61', 'esp32p4']
 
 BLE_ADA_DOCS = ['development_stage/rf_test_items/ble_adaptivity_test.rst']
 
@@ -16,11 +16,29 @@ WIFI_DOCS = ['development_stage/rf_test_items/wifi_adaptivity_test.rst',
 
 ZIGBEE_DOCS = ['development_stage/rf_test_items/zigbee_non_signaling_test.rst']
 
-WFA_DOCS = ['development_stage/wfa_certification_test/wfa_certification_test.rst']
+WFA_DOCS = ['development_stage/wfa_certification_test/wfa_certification_test.rst',
+            'faq/wfa_certification_test_faq.rst']
 
 MATTER_DOCS = ['production_stage/tools/matter_qr_code_generator.rst']
 
-PRODUCT_DOCS = ['production_stage/tools/esp_production_testing_guide.rst']
+DOWNLOAD_DOCS = ['production_stage/tools/flash_download_tool.rst',
+                 'faq/flash_download_tool_faq.rst']
+
+PRODUCT_DOCS = ['production_stage/tools/esp_production_testing_guide.rst',
+                'faq/esp_production_testing_guide_faq.rst',]
+
+COMMON_DOCS = [
+    'development_stage/index.rst',
+    'development_stage/rf_test_certification/index.rst',
+    'development_stage/rf_test_guide/rf_test_guide.rst',
+    'development_stage/rf_test_items/index.rst',
+    'development_stage/rf_test_certification/ce_certification.rst',
+    'development_stage/rf_test_certification/fcc_certification.rst',
+    'development_stage/rf_test_certification/srrc_certification.rst',
+    'production_stage/index.rst',
+    'production_stage/instructions/test_fixture_mfg_inst.rst',
+    'faq/rf_testing_faq.rst',
+]
 
 # ESP8266_DOCS = WIFI_DOCS + PRODUCT_DOCS
 ESP8266_DOCS = (
@@ -30,16 +48,20 @@ ESP8266_DOCS = (
     'development_stage/rf_test_items/wifi_non_signaling_test.rst'
     ]
     + PRODUCT_DOCS
+    + DOWNLOAD_DOCS
+    + COMMON_DOCS
 )
-ESP32_DOCS = WIFI_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
-ESP32C2_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
-ESP32C3_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
-ESP32C6_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + ZIGBEE_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
-ESP32S2_DOCS = WIFI_DOCS + PRODUCT_DOCS
-ESP32S3_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
-ESP32H2_DOCS = BLE_ADA_DOCS + BT_DOCS + ZIGBEE_DOCS + MATTER_DOCS
-ESP32C5_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + ZIGBEE_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
-ESP32C61_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS
+
+ESP32_DOCS = WIFI_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS + DOWNLOAD_DOCS + COMMON_DOCS
+ESP32C2_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS + DOWNLOAD_DOCS + COMMON_DOCS
+ESP32C3_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS + DOWNLOAD_DOCS + COMMON_DOCS
+ESP32C6_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + ZIGBEE_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS + DOWNLOAD_DOCS + COMMON_DOCS
+ESP32S2_DOCS = WIFI_DOCS + PRODUCT_DOCS + DOWNLOAD_DOCS + COMMON_DOCS
+ESP32S3_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS + DOWNLOAD_DOCS + COMMON_DOCS
+ESP32H2_DOCS = BLE_ADA_DOCS + BT_DOCS + ZIGBEE_DOCS + MATTER_DOCS + DOWNLOAD_DOCS + COMMON_DOCS
+ESP32C5_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + ZIGBEE_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS + DOWNLOAD_DOCS + COMMON_DOCS
+ESP32C61_DOCS = WIFI_DOCS + BLE_ADA_DOCS + BT_DOCS + WFA_DOCS + MATTER_DOCS + PRODUCT_DOCS + DOWNLOAD_DOCS + COMMON_DOCS
+ESP32P4_DOCS = DOWNLOAD_DOCS
 
 conditional_include_dict = {'esp8266':ESP8266_DOCS,
                             'esp32':ESP32_DOCS,
@@ -50,7 +72,13 @@ conditional_include_dict = {'esp8266':ESP8266_DOCS,
                             'esp32s3':ESP32S3_DOCS,
                             'esp32h2':ESP32H2_DOCS,
                             'esp32c5':ESP32C5_DOCS,
-                            'esp32c61':ESP32C61_DOCS}
+                            'esp32c61':ESP32C61_DOCS,
+                            'esp32p4':ESP32P4_DOCS,
+                            }
+
+# for target in conditional_include_dict:
+#     docs = conditional_include_dict[target]
+#     conditional_include_dict[target] = list(dict.fromkeys(COMMON_DOCS + docs))
 
 extensions += ['sphinx_copybutton',
                'sphinxcontrib.wavedrom',

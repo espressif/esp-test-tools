@@ -54,6 +54,7 @@ publish_to_cdp_qa_with_dmf_files:
   extends:
     - .publish_to_cdp_template
     - .rules:deploy:docs_preview
+  allow_failure: true
   variables:
     MR_BASE_URL: " $CI_MERGE_REQUEST_PROJECT_URL/-/merge_requests"
     CDP_API_ENDPOINT: "$CDP_API_ENDPOINT_QA"
