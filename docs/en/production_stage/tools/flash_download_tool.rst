@@ -444,6 +444,11 @@ Regular Download
 Version Release Notes
 ---------------------
 
+- 3.9.11
+
+    * Support ESP32-P4 ECO7 (rev 3.2)
+    * Support ESP32-S31
+
 - 3.9.10
 
     * Support ESP32-P4 ECO6
