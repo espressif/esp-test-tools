@@ -6,7 +6,7 @@ WFA 认证与测试指南
 概述
 ----------
 
-本文档介绍了如何为基于乐鑫芯片的产品获得 Wi-Fi Alliance（WFA）认证，重点介绍了 QuickTrack 流程，以便高效通过 WFA 认证。
+本文档介绍了如何为基于乐鑫芯片的产品获得 Wi-Fi Alliance (WFA) 认证，重点介绍了 QuickTrack 流程，以便高效通过 WFA 认证。
 
 所需工具与固件：
 
@@ -179,20 +179,35 @@ WFA 测试
 
    烧录配置
 
-固件烧录地址：
+.. only:: esp32c5
+
+    将以下固件烧录至对应地址，并将 ``SPI MODE`` 设置为 ``DIO``，``SPI SPEED`` 设置为 ``80MHz``：
+
+.. only:: not esp32c5
+
+    将以下固件烧录至对应地址：
 
 .. list::
 
     :esp32: - bootloader.bin  0x1000
-    :not esp32: - bootloader.bin  0x0
+    :esp32c5: - bootloader.bin  0x2000
+    :not esp32 and not esp32c5: - bootloader.bin  0x0
     - espsigma.bin     0x10000
     - partition.bin     0x8000
 
-.. figure:: ../../../_static/wfa_certification_test_guide/flash_firmware.png
-    :align: center
-    :scale: 90%
+.. only:: esp32c5
 
-    烧录固件
+    .. note::
+
+        暂无 ESP32-C5 烧录界面示意图，请按上文地址与 flash 选项配置。
+
+.. only:: not esp32c5
+
+    .. figure:: ../../../_static/wfa_certification_test_guide/flash_firmware.png
+        :align: center
+        :scale: 90%
+
+        烧录固件
 
 在 Ubuntu 上烧录
 """"""""""""""""""""""""""""""
@@ -219,7 +234,13 @@ WFA 测试
 
         esptool.py -p /dev/ttyUSB0 --chip=auto write_flash 0x1000 bootloader.bin 0x8000 partition-table.bin 0x10000 espsigma.bin
 
-  .. only:: not esp32
+  .. only:: esp32c5
+
+      .. code-block:: bash
+
+        esptool.py -p /dev/ttyUSB0 --chip=auto write_flash --flash-mode dio --flash-freq 80m 0x2000 bootloader.bin 0x8000 partition-table.bin 0x10000 espsigma.bin
+
+  .. only:: not esp32 and not esp32c5
 
       .. code-block:: bash
 

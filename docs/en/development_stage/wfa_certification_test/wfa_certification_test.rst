@@ -48,13 +48,13 @@ Certification Types
 
 3. **Re-Certification**
 
-   If there are changes to the firmware or software that affect Wi-Fi functionality, re-certification is needed, This includes:
+   If there are changes to the firmware or software that affect Wi-Fi functionality, re-certification is needed. This includes:
 
    .. list::
 
       - Small hardware changes or updates to device software (e.g., operating system or drivers)
       - Firmware changes or minor software modifications that affect Wi-Fi operation (even small updates or bug fixes)
-      - Changes that don't affect Wi-Fi functionality must be reviewed by ATL to determine if testing is required
+      - Changes that do not affect Wi-Fi functionality must be reviewed by ATL to determine if testing is required
 
 4. **Derivative Certification**
 
@@ -179,20 +179,35 @@ Flashing on Windows
 
     Flash Configuration
 
-Flash the following firmware to the corresponding address:
+.. only:: esp32c5
+
+    Flash the following firmware to the corresponding address. Set ``SPI MODE`` to ``DIO`` and ``SPI SPEED`` to ``80MHz``.
+
+.. only:: not esp32c5
+
+    Flash the following firmware to the corresponding address:
 
 .. list::
 
     :esp32: - bootloader.bin  0x1000
-    :not esp32: - bootloader.bin  0x0
+    :esp32c5: - bootloader.bin  0x2000
+    :not esp32 and not esp32c5: - bootloader.bin  0x0
     - espsigma.bin    0x10000
     - partition.bin   0x8000
 
-.. figure:: ../../../_static/wfa_certification_test_guide/flash_firmware.png
-    :align: center
-    :scale: 90%
+.. only:: esp32c5
 
-    Flash Firmware
+    .. note::
+
+        A flashing screenshot for ESP32-C5 is not available yet. Configure the addresses and flash options as described above.
+
+.. only:: not esp32c5
+
+    .. figure:: ../../../_static/wfa_certification_test_guide/flash_firmware.png
+        :align: center
+        :scale: 90%
+
+        Flash Firmware
 
 Flashing on Ubuntu
 """"""""""""""""""
@@ -219,7 +234,13 @@ Flashing on Ubuntu
 
         esptool.py -p /dev/ttyUSB0 --chip=auto write_flash 0x1000 bootloader.bin 0x8000 partition-table.bin 0x10000 espsigma.bin
 
-  .. only:: not esp32
+  .. only:: esp32c5
+
+      .. code-block:: bash
+
+        esptool.py -p /dev/ttyUSB0 --chip=auto write_flash --flash-mode dio --flash-freq 80m 0x2000 bootloader.bin 0x8000 partition-table.bin 0x10000 espsigma.bin
+
+  .. only:: not esp32 and not esp32c5
 
       .. code-block:: bash
 

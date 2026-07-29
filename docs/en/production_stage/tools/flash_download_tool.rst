@@ -52,7 +52,9 @@ SPIDownload Tab
 
 Here is the configuration descriptions.
 
-- ``Download Path Config`` You can configure the firmware loading path and downloading address (in hexadecimal format), such as 0x1000.
+{IDF_TARGET_FLASH_ADDRESS:default="0x0", esp32="0x1000", esp32s2="0x1000", esp32c5="0x2000"}
+
+- ``Download Path Config`` You can configure the firmware loading path and downloading address (in hexadecimal format), such as {IDF_TARGET_FLASH_ADDRESS}.
 
 - ``SPI Flash Config``
 

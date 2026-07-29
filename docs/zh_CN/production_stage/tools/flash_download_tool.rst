@@ -52,7 +52,9 @@ SPIDownload 界面
 
 以下是配置说明：
 
-- ``Download Path Config`` 包含固件加载路径，固件下载地址，以 16 进制格式填写，比如 0x1000。
+{IDF_TARGET_FLASH_ADDRESS:default="0x0", esp32="0x1000", esp32s2="0x1000", esp32c5="0x2000"}
+
+- ``Download Path Config`` 包含固件加载路径，固件下载地址，以 16 进制格式填写，比如 {IDF_TARGET_FLASH_ADDRESS}。
 
 - ``SPI Flash Config``
 
