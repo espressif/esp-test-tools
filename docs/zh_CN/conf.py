@@ -54,5 +54,3 @@ cn_footer_toc_config = r'''
 '''
 
 latex_elements['preamble'] = preamble + cn_footer_toc_config + preamble_extra
-
-html_js_files = ['js/chatbot_widget_cn.js']
